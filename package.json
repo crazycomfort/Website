@@ -1,0 +1,25 @@
+{
+  "name": "crazy-comfort-website",
+  "version": "1.0.0",
+  "description": "Crazy Comfort Website",
+  "main": "index.html",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "postcss src/styles/main.css -o dist/styles.css",
+    "build:js": "esbuild src/js/main.js --bundle --minify --outfile=dist/main.js",
+    "dev": "npm run build && python3 -m http.server 8000",
+    "watch": "npm run build && chokidar 'src/**/*' -c 'npm run build'"
+  },
+  "keywords": ["website"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^10.1.0",
+    "esbuild": "^0.19.8",
+    "chokidar-cli": "^3.0.0"
+  }
+}
+
+

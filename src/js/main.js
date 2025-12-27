@@ -1,5 +1,5 @@
 // Dark Mode Toggle
-document.addEventListener('DOMContentLoaded', function() {
+function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
 
@@ -9,28 +9,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
 
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
+    // Remove any existing event listeners by cloning the button
+    const newToggle = themeToggle.cloneNode(true);
+    themeToggle.parentNode.replaceChild(newToggle, themeToggle);
+
+    // Add click event listener
+    newToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const currentTheme = html.getAttribute('data-theme') || 'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
 
     function updateThemeIcon(theme) {
-        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const currentToggle = document.getElementById('themeToggle');
+        if (!currentToggle) return;
+        
+        const themeIcon = currentToggle.querySelector('.theme-icon');
         if (themeIcon) {
             themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         } else {
             // Fallback: update button text directly if .theme-icon doesn't exist
-            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            currentToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
     }
-});
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+    // DOM already loaded
+    initThemeToggle();
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -208,47 +228,116 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        const isActive = faqItem.classList.contains('active');
+function initFAQ() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    if (faqQuestions.length === 0) {
+        console.warn('No FAQ questions found');
+        return;
+    }
+    
+    faqQuestions.forEach(question => {
+        // Remove any existing listeners by cloning
+        const newQuestion = question.cloneNode(true);
+        question.parentNode.replaceChild(newQuestion, question);
+        
+        newQuestion.addEventListener('click', (e) => {
+            e.preventDefault();
+            const faqItem = newQuestion.parentElement;
+            const isActive = faqItem.classList.contains('active');
 
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
         });
-
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            faqItem.classList.add('active');
-        }
     });
-});
+}
+
+// Initialize FAQ on DOM ready
+document.addEventListener('DOMContentLoaded', initFAQ);
 
 // Form submission handler
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const formMessage = document.getElementById('form-message');
+    const submitButton = document.getElementById('submit-button');
+    
+    // Check if form action is set up
+    const formAction = contactForm.getAttribute('action');
+    if (formAction && formAction.includes('YOUR_FORM_ID')) {
+        console.warn('Formspree form ID not configured. Please set up your Formspree account and update the form action URL.');
+    }
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Check if form is properly configured
+        if (formAction && formAction.includes('YOUR_FORM_ID')) {
+            formMessage.textContent = 'Form is not yet configured. Please contact us directly at (832) 633-8701 or ez@crazycomfort.com';
+            formMessage.className = 'form-message form-message-error';
+            return;
+        }
+        
+        // Disable submit button
+        submitButton.disabled = true;
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        
+        // Clear previous messages
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
         
         // Get form data
         const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
         
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', data);
+        // Set reply-to email from form
+        const emailInput = contactForm.querySelector('#email');
+        if (emailInput && emailInput.value) {
+            formData.set('_replyto', emailInput.value);
+        }
         
-        // Show success message
-        const submitButton = contactForm.querySelector('.submit-button');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Message Sent! ✓';
-        submitButton.style.background = '#10b981';
-        
-        setTimeout(() => {
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Success
+                formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                formMessage.className = 'form-message form-message-success';
+                submitButton.textContent = 'Message Sent! ✓';
+                submitButton.style.background = '#10b981';
+                contactForm.reset();
+                
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.style.background = '';
+                    submitButton.disabled = false;
+                    formMessage.textContent = '';
+                    formMessage.className = 'form-message';
+                }, 5000);
+            } else {
+                // Error from Formspree
+                const data = await response.json();
+                throw new Error(data.error || 'There was an error submitting your form. Please try again.');
+            }
+        } catch (error) {
+            // Network or other error
+            formMessage.textContent = error.message || 'There was an error submitting your form. Please try again or call us at (832) 633-8701.';
+            formMessage.className = 'form-message form-message-error';
             submitButton.textContent = originalText;
-            submitButton.style.background = '';
-            contactForm.reset();
-        }, 3000);
+            submitButton.disabled = false;
+        }
     });
 }
 
@@ -316,3 +405,34 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Service Read More Toggle
+function initServiceReadMore() {
+    const readMoreLinks = document.querySelectorAll('.service-read-more');
+    
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const serviceCard = this.closest('.service-card');
+            const paragraph = serviceCard.querySelector('p');
+            const isExpanded = paragraph.classList.contains('expanded');
+            
+            if (isExpanded) {
+                paragraph.classList.remove('expanded');
+                this.textContent = 'Read More';
+                this.classList.remove('expanded');
+            } else {
+                paragraph.classList.add('expanded');
+                this.textContent = 'Read Less';
+                this.classList.add('expanded');
+            }
+        });
+    });
+}
+
+// Initialize service read more on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceReadMore);
+} else {
+    initServiceReadMore();
+}
