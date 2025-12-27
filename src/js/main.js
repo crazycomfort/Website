@@ -52,6 +52,10 @@ if (document.readyState === 'loading') {
     initThemeToggle();
 }
 
+// Mobile menu toggle - Declare these first
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -68,10 +72,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
 
 if (menuToggle) {
     menuToggle.addEventListener('click', () => {
@@ -169,63 +169,105 @@ testimonialsSlider?.addEventListener('mouseleave', () => {
 });
 
 // Coupon Code Copy Functionality
-document.addEventListener('DOMContentLoaded', function() {
+function initCouponCopy() {
     const copyButtons = document.querySelectorAll('.copy-code-btn');
     
+    if (copyButtons.length === 0) {
+        console.warn('No copy buttons found');
+        return;
+    }
+    
     copyButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        // Remove any existing listeners by cloning
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const code = this.getAttribute('data-copy');
-            const codeElement = document.getElementById(`code-${code}`);
+            if (!code) {
+                console.error('No data-copy attribute found');
+                return;
+            }
+            
             const feedback = document.getElementById(`feedback-${code}`);
+            const copyText = this.querySelector('.copy-text');
             
             // Copy to clipboard
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(code).then(() => {
-                    // Show feedback
-                    feedback.classList.add('show');
-                    
-                    // Update button text
-                    const copyText = this.querySelector('.copy-text');
-                    if (copyText) {
-                        copyText.textContent = 'Copied!';
-                    }
-                    
-                    // Reset after 2 seconds
-                    setTimeout(() => {
-                        feedback.classList.remove('show');
-                        if (copyText) {
-                            copyText.textContent = 'Copy';
+            const copyToClipboard = (text) => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text);
+                } else {
+                    // Fallback for older browsers
+                    return new Promise((resolve, reject) => {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = text;
+                        textArea.style.position = 'fixed';
+                        textArea.style.left = '-999999px';
+                        textArea.style.top = '-999999px';
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        
+                        try {
+                            const successful = document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            if (successful) {
+                                resolve();
+                            } else {
+                                reject(new Error('Copy command failed'));
+                            }
+                        } catch (err) {
+                            document.body.removeChild(textArea);
+                            reject(err);
                         }
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy:', err);
-                });
-            } else {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = code;
-                textArea.style.position = 'fixed';
-                textArea.style.opacity = '0';
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
+                    });
+                }
+            };
+            
+            copyToClipboard(code).then(() => {
+                // Show feedback
+                if (feedback) {
+                    feedback.classList.add('show');
+                }
                 
-                feedback.classList.add('show');
-                const copyText = this.querySelector('.copy-text');
+                // Update button text
                 if (copyText) {
                     copyText.textContent = 'Copied!';
                 }
+                
+                // Reset after 2 seconds
                 setTimeout(() => {
-                    feedback.classList.remove('show');
+                    if (feedback) {
+                        feedback.classList.remove('show');
+                    }
                     if (copyText) {
                         copyText.textContent = 'Copy';
                     }
                 }, 2000);
-            }
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                // Show error feedback
+                if (copyText) {
+                    copyText.textContent = 'Error';
+                    setTimeout(() => {
+                        copyText.textContent = 'Copy';
+                    }, 2000);
+                }
+            });
         });
     });
-});
+}
+
+// Initialize coupon copy on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCouponCopy);
+} else {
+    // DOM already loaded
+    initCouponCopy();
+}
 
 // FAQ Accordion
 function initFAQ() {

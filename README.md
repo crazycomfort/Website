@@ -26,7 +26,7 @@ Run a local development server:
 npm run dev
 ```
 
-This will build the project and start a local server at `http://localhost:8000`
+This will build the project and start a local server at `http://localhost:8080`
 
 ### Build Scripts
 

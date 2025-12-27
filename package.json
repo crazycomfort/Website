@@ -7,7 +7,7 @@
     "build": "npm run build:css && npm run build:js",
     "build:css": "postcss src/styles/main.css -o dist/styles.css",
     "build:js": "esbuild src/js/main.js --bundle --minify --outfile=dist/main.js",
-    "dev": "npm run build && python3 -m http.server 8000",
+    "dev": "npm run build && python3 -m http.server 8080",
     "watch": "npm run build && chokidar 'src/**/*' -c 'npm run build'"
   },
   "keywords": ["website"],
