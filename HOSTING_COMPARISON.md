@@ -300,3 +300,4 @@ A: Yes, for sites like yours. You only pay if you need advanced features (which 
 Follow the Netlify steps above and you'll be live in minutes!
 
 
+

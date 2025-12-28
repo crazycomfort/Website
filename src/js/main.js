@@ -56,8 +56,8 @@ if (document.readyState === 'loading') {
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scrolling for navigation links (exclude nomination button)
+document.querySelectorAll('a[href^="#"]:not(#nominate-btn)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
@@ -477,4 +477,132 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initServiceReadMore);
 } else {
     initServiceReadMore();
+}
+
+// Nomination Modal
+function initNominationModal() {
+    const modal = document.getElementById('nomination-modal');
+    const nominateBtn = document.getElementById('nominate-btn');
+    const closeBtn = document.querySelector('.nomination-modal-close');
+    const cancelBtn = document.querySelector('.nomination-modal-cancel');
+    const overlay = document.querySelector('.nomination-modal-overlay');
+    const form = document.querySelector('.nomination-form');
+    const formMessage = document.getElementById('nomination-form-message');
+    const submitButton = form?.querySelector('.nomination-submit');
+
+    if (!modal || !nominateBtn) {
+        console.warn('Nomination modal elements not found');
+        return;
+    }
+
+    // Open modal
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Focus on first input
+        const firstInput = form?.querySelector('input, textarea');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 100);
+        }
+    }
+
+    // Close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Reset form message
+        if (formMessage) {
+            formMessage.textContent = '';
+            formMessage.className = 'nomination-form-message';
+            formMessage.style.display = 'none';
+        }
+    }
+
+    // Event listeners
+    nominateBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal();
+        return false;
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeModal);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Form submission
+    if (form && submitButton) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+
+            if (formMessage) {
+                formMessage.textContent = '';
+                formMessage.className = 'nomination-form-message';
+                formMessage.style.display = 'none';
+            }
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.getAttribute('action'), {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    if (formMessage) {
+                        formMessage.textContent = 'Thank you! Your nomination has been submitted successfully. We will review it and get back to you soon.';
+                        formMessage.className = 'nomination-form-message success';
+                        formMessage.style.display = 'block';
+                    }
+                    form.reset();
+                    // Close modal after 3 seconds
+                    setTimeout(() => {
+                        closeModal();
+                    }, 3000);
+                } else {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                if (formMessage) {
+                    formMessage.textContent = error.message || 'There was an error submitting your nomination. Please try again or call us at (832) 633-8701.';
+                    formMessage.className = 'nomination-form-message error';
+                    formMessage.style.display = 'block';
+                }
+            } finally {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    }
+}
+
+// Initialize nomination modal on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNominationModal);
+} else {
+    initNominationModal();
 }

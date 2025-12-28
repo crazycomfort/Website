@@ -37,9 +37,9 @@
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://formspree.io">
     <link rel="dns-prefetch" href="https://formspree.io">
-    <link rel="preload" href="dist/styles.css" as="style">
-    <link rel="preload" href="dist/main.js" as="script">
-    <link rel="stylesheet" href="dist/styles.css">
+    <link rel="preload" href="/dist/styles.css" as="style">
+    <link rel="preload" href="/dist/main.js" as="script">
+    <link rel="stylesheet" href="/dist/styles.css">
     
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -380,9 +380,9 @@
                     </div>
 
                     <div class="comfort-for-all-cta">
-                        <a href="#contact" class="btn btn-primary comfort-cta-primary" onclick="document.getElementById('message').value='I would like to nominate someone for the Comfort For All program. '; return true;">
+                        <button type="button" class="btn btn-primary comfort-cta-primary" id="nominate-btn">
                             <span>Nominate Someone</span>
-                        </a>
+                        </button>
                         <a href="#contact" class="btn btn-secondary comfort-cta-secondary" onclick="document.getElementById('message').value='I would like to learn more about the Comfort For All program. '; return true;">
                             <span>Learn More About Comfort For All</span>
                         </a>
@@ -1182,7 +1182,67 @@
         </div>
     </footer>
 
-    <script src="dist/main.js" defer></script>
+    <!-- Nomination Modal -->
+    <div id="nomination-modal" class="nomination-modal">
+        <div class="nomination-modal-overlay"></div>
+        <div class="nomination-modal-content">
+            <button class="nomination-modal-close" aria-label="Close nomination form">&times;</button>
+            <h2 class="nomination-modal-title">Nominate Someone for Comfort For All</h2>
+            <p class="nomination-modal-description">Help us bring comfort to those in need. Please provide information about someone who could benefit from the Comfort For All program.</p>
+            <form class="nomination-form" action="https://formspree.io/f/xkonrzbg" method="POST">
+                <input type="hidden" name="_subject" value="Comfort For All Nomination - Crazy Comfort Website">
+                <input type="hidden" name="form-type" value="nomination">
+                
+                <div class="form-group">
+                    <label for="nominator-name">Your Name <span class="required">*</span></label>
+                    <input type="text" id="nominator-name" name="nominator-name" required placeholder="Your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nominator-email">Your Email <span class="required">*</span></label>
+                    <input type="email" id="nominator-email" name="nominator-email" required placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nominator-phone">Your Phone</label>
+                    <input type="tel" id="nominator-phone" name="nominator-phone" placeholder="(832) 555-1234">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nominee-name">Nominee's Name <span class="required">*</span></label>
+                    <input type="text" id="nominee-name" name="nominee-name" required placeholder="Name of person you're nominating">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nominee-phone">Nominee's Phone (if available)</label>
+                    <input type="tel" id="nominee-phone" name="nominee-phone" placeholder="(832) 555-1234">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nominee-address">Nominee's Address</label>
+                    <input type="text" id="nominee-address" name="nominee-address" placeholder="Street address (optional)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="nomination-reason">Why are you nominating this person? <span class="required">*</span></label>
+                    <textarea id="nomination-reason" name="nomination-reason" rows="5" required placeholder="Please describe their situation and how the Comfort For All program could help them..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="relationship">Your Relationship to Nominee</label>
+                    <input type="text" id="relationship" name="relationship" placeholder="Friend, neighbor, family member, etc.">
+                </div>
+                
+                <div class="nomination-form-message" id="nomination-form-message"></div>
+                <div class="nomination-form-buttons">
+                    <button type="button" class="btn btn-secondary nomination-modal-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary nomination-submit">Submit Nomination</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/dist/main.js" defer></script>
 </body>
 </html>
 
