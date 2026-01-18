@@ -1,3 +1,89 @@
+// DEV BUILD STAMP: 2026-01-17 12:00 (debug-lite)
+console.log('[CrazyComfort] Build: 2026-01-17-1200');
+
+// #region agent log - Bug chat disappearance (lightweight, throttled)
+const DEBUG_LOG_ENDPOINT = 'http://127.0.0.1:7244/ingest/50e3056f-7000-49cf-b237-fd436abdf00e';
+const DEBUG_SESSION_ID = 'debug-session';
+const CHAT_LOG_MIN_INTERVAL_MS = 1500;
+let lastChatLogTs = 0;
+
+function sendDebugLog(hypothesisId, location, message, data = {}, runId = 'pre-fix') {
+    const now = Date.now();
+    // Throttle to avoid flooding
+    if (now - lastChatLogTs < CHAT_LOG_MIN_INTERVAL_MS && hypothesisId !== 'B') return;
+    lastChatLogTs = now;
+
+    fetch(DEBUG_LOG_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            sessionId: DEBUG_SESSION_ID,
+            runId,
+            hypothesisId,
+            location,
+            message,
+            data,
+            timestamp: now
+        })
+    }).catch(() => {});
+}
+
+function captureBugChatState(trigger, hypothesisId = 'A', runId = 'pre-fix') {
+    const candidates = Array.from(document.querySelectorAll('[data-bug-chat], [data-chat], .chat, [class*="chat"], [id*="chat"]'))
+        .slice(0, 5)
+        .map(el => ({
+            tag: el.tagName,
+            id: el.id,
+            class: el.className,
+            textSample: (el.textContent || '').trim().slice(0, 120)
+        }));
+
+    sendDebugLog(
+        hypothesisId,
+        'main.js:captureBugChatState',
+        `Bug chat state: ${trigger}`,
+        {
+            trigger,
+            candidateCount: candidates.length,
+            candidates,
+            url: window.location.href,
+            visibility: document.visibilityState
+        },
+        runId
+    );
+}
+
+// Track the meta+alt+r key combo the user reported
+window.addEventListener('keydown', (e) => {
+    if (e.metaKey && e.altKey && (e.key === 'r' || e.key === 'R')) {
+        sendDebugLog('B', 'main.js:keydown', 'meta+alt+r pressed', {
+            metaKey: e.metaKey,
+            altKey: e.altKey,
+            ctrlKey: e.ctrlKey,
+            shiftKey: e.shiftKey,
+            key: e.key
+        });
+        captureBugChatState('meta+alt+r', 'B');
+    }
+});
+
+// Capture state on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        captureBugChatState('domcontentloaded', 'A');
+        setTimeout(() => captureBugChatState('post-domcontentloaded-500ms', 'A'), 500);
+    });
+} else {
+    captureBugChatState('dom-already-ready', 'A');
+    setTimeout(() => captureBugChatState('post-ready-500ms', 'A'), 500);
+}
+
+// Capture before page unload (helps distinguish refresh-driven disappearance)
+window.addEventListener('beforeunload', () => {
+    captureBugChatState('beforeunload', 'C');
+});
+// #endregion
+
 // Dark Mode Toggle
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
@@ -9,7 +95,7 @@ function initThemeToggle() {
     }
 
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
@@ -52,6 +138,40 @@ if (document.readyState === 'loading') {
     initThemeToggle();
 }
 
+// Force scroll to top on page load/refresh
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+// Header scroll effect
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    function updateHeader() {
+        if (window.scrollY > 10) {
+            header.classList.add('is-scrolled');
+        } else {
+            header.classList.remove('is-scrolled');
+        }
+    }
+
+    // Run immediately
+    updateHeader();
+    
+    // Run on scroll
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    
+    // Run again after a short delay to catch any race conditions
+    setTimeout(updateHeader, 50);
+}
+
+// Initialize immediately and on DOMContentLoaded
+initHeaderScroll();
+document.addEventListener('DOMContentLoaded', initHeaderScroll);
+requestAnimationFrame(() => initHeaderScroll());
+
 // Mobile menu toggle - Declare these first
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -69,6 +189,7 @@ document.querySelectorAll('a[href^="#"]:not(#nominate-btn)').forEach(anchor => {
             // Close mobile menu if open
             navMenu?.classList.remove('active');
             menuToggle?.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
 });
@@ -77,6 +198,8 @@ if (menuToggle) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        // Lock/unlock body scroll
+        document.body.classList.toggle('menu-open');
     });
 }
 
@@ -85,6 +208,7 @@ document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav') && navMenu?.classList.contains('active')) {
         navMenu.classList.remove('active');
         menuToggle?.classList.remove('active');
+        document.body.classList.remove('menu-open');
     }
 });
 
@@ -605,4 +729,151 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNominationModal);
 } else {
     initNominationModal();
+}
+
+// Trust Cards Scroll Animation - Checkmark Pop-up
+function initTrustCardAnimations() {
+    const trustCards = document.querySelectorAll('.trust-card');
+    
+    if (trustCards.length === 0) {
+        return;
+    }
+    
+    const trustObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add a slight delay for each card to create a cascading effect
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 150); // 150ms delay between each card
+                
+                // Stop observing once animated
+                trustObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    trustCards.forEach(card => {
+        trustObserver.observe(card);
+    });
+}
+
+// Initialize trust card animations on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTrustCardAnimations);
+} else {
+    initTrustCardAnimations();
+}
+
+// Evidence Pack Carousel
+function initEvidenceCarousel() {
+    const carousel = document.querySelector('[data-evidence-carousel]');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.evidence-slide');
+    const prevBtn = carousel.querySelector('.evidence-nav-prev');
+    const nextBtn = carousel.querySelector('.evidence-nav-next');
+    const dotsContainer = document.querySelector('[data-evidence-dots]');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.evidence-dot') : [];
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    // Click on dots to navigate
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            currentSlide = i;
+            showSlide(currentSlide);
+        });
+    });
+
+    // Auto-rotate every 5 seconds
+    setInterval(nextSlide, 5000);
+}
+
+// Attic Modal
+function initAtticModal() {
+    const openBtn = document.querySelector('[data-open-attic-modal]');
+    const modal = document.getElementById('attic-modal');
+    const closeBtn = modal?.querySelector('.attic-modal-close');
+    const overlay = modal?.querySelector('.attic-modal-overlay');
+
+    if (!openBtn || !modal) return;
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+// Scroll-based animations for headlines
+function initScrollAnimations() {
+    const headlines = document.querySelectorAll('.homepage-headline');
+    
+    const headlineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    headlines.forEach(headline => {
+        headlineObserver.observe(headline);
+    });
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        initEvidenceCarousel();
+        initAtticModal();
+        initScrollAnimations();
+    });
+} else {
+    initEvidenceCarousel();
+    initAtticModal();
+    initScrollAnimations();
 }

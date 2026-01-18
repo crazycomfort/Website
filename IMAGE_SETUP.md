@@ -70,3 +70,4 @@ Then visit `http://localhost:8000` to see your images displayed on the website.
 
 
 
+
