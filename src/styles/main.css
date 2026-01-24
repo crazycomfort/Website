@@ -190,18 +190,25 @@ body {
     }
     
     .top-bar-divider:nth-of-type(2) {
-        display: inline;
-        font-size: 0.7rem;
+        display: none;
     }
     
     .top-bar-badge {
-        font-size: 0.65rem;
-        padding: 0.15rem 0.4rem;
+        display: none !important;
+    }
+    
+    /* Show mobile badge in header */
+    .mobile-badge {
         display: inline-flex !important;
-        align-items: center;
-        gap: 0.2rem;
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 600;
         white-space: nowrap;
-        flex-shrink: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
     }
 
     .hero-trust-strip {
@@ -352,6 +359,11 @@ body {
     margin-left: 3rem;
     position: relative;
     z-index: 1001;
+}
+
+/* Mobile-only badge in header */
+.mobile-badge {
+    display: none;
 }
 
 .theme-toggle {
