@@ -9,3 +9,7 @@ dist/
 
 # Local Netlify folder
 .netlify
+
+# Large video files
+assets/images/Stats.mov
+assets/images/companycam.mov
