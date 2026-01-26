@@ -95,7 +95,7 @@ function initThemeToggle() {
     }
 
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
