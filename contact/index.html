@@ -65,7 +65,19 @@
                         <input type="email" name="email" placeholder="Email" required>
                         <input type="tel" name="phone" placeholder="Phone" required>
                         <textarea name="message" placeholder="How can we help?" required></textarea>
+                        <div class="consent-section" aria-label="Text message consent options">
+                            <p class="consent-title">Text Message Consent (Optional)</p>
+                            <label class="consent-label">
+                                <input type="checkbox" name="sms_non_marketing_consent" value="yes">
+                                <span>By checking this box, I consent to receive non-marketing text messages from Crazy Comfort about SMS notifications, account updates, and non-marketing messages. Message frequency varies, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+                            </label>
+                            <label class="consent-label">
+                                <input type="checkbox" name="sms_marketing_consent" value="yes">
+                                <span>By checking this box, I consent to receive marketing and promotional messages including special offers, discounts, new product updates, and other offers from Crazy Comfort at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+                            </label>
+                        </div>
                         <button type="submit" class="cta-primary" style="width:100%;">Submit</button>
+                        <p class="form-legal"><a href="/#privacy-policy">Privacy Policy</a> | <a href="/#terms-conditions">Terms &amp; Conditions</a></p>
                     </form>
                 </div>
             </div>
@@ -85,6 +97,8 @@
                 <a href="/about">About</a>
                 <a href="/reviews">Reviews</a>
                 <a href="/contact">Contact</a>
+                <a href="/#privacy-policy">Privacy Policy</a>
+                <a href="/#terms-conditions">Terms &amp; Conditions</a>
             </div>
         </div>
     </footer>

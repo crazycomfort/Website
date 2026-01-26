@@ -1541,11 +1541,23 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
+                    <div class="consent-section" aria-label="Text message consent options">
+                        <p class="consent-title">Text Message Consent (Optional)</p>
+                        <label class="consent-label">
+                            <input type="checkbox" name="sms_non_marketing_consent" value="yes">
+                            <span>By checking this box, I consent to receive non-marketing text messages from Crazy Comfort about SMS notifications, account updates, and non-marketing messages. Message frequency varies, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" name="sms_marketing_consent" value="yes">
+                            <span>By checking this box, I consent to receive marketing and promotional messages including special offers, discounts, new product updates, and other offers from Crazy Comfort at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>
+                        </label>
+                    </div>
                     <input type="hidden" name="_subject" value="New Contact Form Submission from Crazy Comfort Website">
                     <input type="hidden" name="_replyto" value="">
                     <input type="hidden" name="_next" value="">
                     <div class="form-message" id="form-message"></div>
                     <button type="submit" class="submit-button" id="submit-button" aria-label="Submit contact form to request HVAC service">Request Service</button>
+                    <p class="form-legal"><a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-conditions">Terms &amp; Conditions</a></p>
                 </form>
             </div>
         </section>
@@ -1575,6 +1587,26 @@
                     <h3>Contact Us</h3>
                     <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a> or <a href="tel:8326338701">(832) 633-8701</a>.</p>
                     
+                    <p><em>Last updated: January 2026</em></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="terms-conditions" class="privacy-policy-section">
+            <div class="container">
+                <h2 class="section-title">Terms &amp; Conditions</h2>
+                <div class="privacy-policy-content">
+                    <p>These Terms &amp; Conditions govern the use of the Crazy Comfort website and services. By submitting a request or using this site, you agree to the terms below.</p>
+
+                    <h3>Service Requests</h3>
+                    <p>Requests submitted through the website are for scheduling and informational purposes. Availability, pricing, and service details will be confirmed by Crazy Comfort.</p>
+
+                    <h3>Communications</h3>
+                    <p>We may contact you by phone, email, or text regarding your request. Marketing messages are only sent if you opt in through the consent checkboxes.</p>
+
+                    <h3>Website Use</h3>
+                    <p>Content on this site is provided for general information and may be updated without notice. Unauthorized use of site content is prohibited.</p>
+
                     <p><em>Last updated: January 2026</em></p>
                 </div>
             </div>
@@ -1616,6 +1648,7 @@
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#trust">Why Choose Us</a></li>
                         <li><a href="#privacy-policy">Privacy Policy</a></li>
+                        <li><a href="#terms-conditions">Terms &amp; Conditions</a></li>
                     </ul>
                 </div>
                 <div class="footer-section footer-contact-section">
@@ -1779,4 +1812,3 @@
     <script src="/dist/main.js?v=202601150830" defer></script>
 </body>
 </html>
-
