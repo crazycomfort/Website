@@ -6089,7 +6089,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 
     .nav-menu {
         position: fixed;
-        top: var(--header-height);
+        top: var(--total-header-height);
         left: 0;
         right: 0;
         background: var(--bg-white);
@@ -6099,8 +6099,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         box-shadow: var(--shadow-lg);
         transform: translateX(-100%);
         transition: transform 0.3s ease;
-        z-index: 999;
-        max-height: calc(100vh - var(--header-height));
+        z-index: 1002;
+        max-height: calc(100vh - var(--total-header-height));
         overflow-y: auto;
         width: 100%;
         list-style: none;
@@ -6124,6 +6124,13 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         font-size: 1rem !important;
         text-align: left;
         color: var(--text-dark) !important;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+    
+    .nav-menu a:hover {
+        background: var(--bg-light);
+        color: var(--primary-color) !important;
     }
 
     /* Lock body scroll when menu is open */
@@ -6133,7 +6140,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 
     .menu-toggle {
         display: flex !important;
-        z-index: 1000;
+        z-index: 1003;
         position: relative;
     }
 
