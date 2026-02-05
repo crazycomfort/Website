@@ -6042,11 +6042,11 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         padding: 0 !important;
         display: flex !important;
         align-items: center !important;
-        background: #ffffff !important;
     }
     
-    .header.is-scrolled {
-        background: #ffffff !important;
+    /* Make hamburger icon visible - use brand blue */
+    .menu-toggle span {
+        background: #2078aa !important;
     }
 
     .logo-image {
@@ -6097,11 +6097,11 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #fdf5ea !important;
+        background: #ffffff !important;
         display: none;
         flex-direction: column;
         padding: 1rem 1.5rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 9999;
