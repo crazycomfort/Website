@@ -6092,11 +6092,11 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: var(--bg-white);
+        background: #ffffff;
         display: none;
         flex-direction: column;
-        padding: 2rem;
-        box-shadow: var(--shadow-lg);
+        padding: 1rem 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 9999;
@@ -6113,31 +6113,40 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     }
     
     .nav-menu li {
-        margin-bottom: 1rem;
+        margin-bottom: 0;
         list-style: none;
         width: 100%;
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .nav-menu li:last-child {
+        border-bottom: none;
     }
     
     .nav-menu a {
         display: block;
-        padding: 0.75rem 1rem;
+        padding: 1rem 0.5rem;
         width: 100%;
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
+        font-weight: 600;
         text-align: left;
-        color: var(--text-dark) !important;
+        color: #1a1a1a !important;
         pointer-events: auto !important;
         cursor: pointer;
         position: relative;
         z-index: 10001;
-        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        -webkit-tap-highlight-color: rgba(254, 154, 69, 0.2);
+        background: transparent;
+        transition: color 0.2s ease;
     }
     
-    .nav-menu a:hover {
-        background: var(--bg-light);
-        color: var(--primary-color) !important;
+    .nav-menu a:hover,
+    .nav-menu a:active {
+        background: transparent;
+        color: #fe9a45 !important;
     }
 
     /* Lock body scroll when menu is open */
