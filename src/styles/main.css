@@ -6034,7 +6034,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .nav-menu.active::before {
         opacity: 1;
         visibility: visible;
-        pointer-events: auto;
+        pointer-events: none;
     }
 
     .header {
@@ -6116,7 +6116,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         margin-bottom: 1rem;
         list-style: none;
         width: 100%;
-        pointer-events: auto;
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 10001;
     }
     
     .nav-menu a {
@@ -6126,8 +6128,11 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         font-size: 1rem !important;
         text-align: left;
         color: var(--text-dark) !important;
-        pointer-events: auto;
+        pointer-events: auto !important;
         cursor: pointer;
+        position: relative;
+        z-index: 10001;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
     }
     
     .nav-menu a:hover {

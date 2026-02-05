@@ -203,8 +203,12 @@ if (menuToggle) {
     });
 }
 
-// Close mobile menu when clicking outside
+// Close mobile menu when clicking outside (but not on nav links)
 document.addEventListener('click', (e) => {
+    // Don't interfere with nav link clicks
+    if (e.target.closest('.nav-menu a')) {
+        return; // Let the link work naturally
+    }
     if (!e.target.closest('.nav') && navMenu?.classList.contains('active')) {
         navMenu.classList.remove('active');
         menuToggle?.classList.remove('active');
