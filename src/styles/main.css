@@ -6059,17 +6059,17 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         background: transparent !important;
     }
 
-    /* MOBILE LOGO */
+    /* MOBILE LOGO - Larger for readability */
     .logo-image {
-        height: 16px !important;
-        max-width: 80px !important;
-        max-height: 16px !important;
+        height: 26px !important;
+        max-width: 130px !important;
+        max-height: 26px !important;
         width: auto !important;
     }
     
     .logo {
-        max-height: 16px !important;
-        height: 16px !important;
+        max-height: 26px !important;
+        height: 26px !important;
         overflow: hidden !important;
         display: flex !important;
         align-items: center !important;
@@ -6081,8 +6081,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .logo a {
         display: flex !important;
         align-items: center !important;
-        height: 16px !important;
-        max-height: 16px !important;
+        height: 26px !important;
+        max-height: 26px !important;
         padding: 0 !important;
         margin: 0 !important;
         line-height: 1 !important;
@@ -6090,9 +6090,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     
     .logo img,
     .logo .logo-image {
-        height: 16px !important;
-        max-height: 16px !important;
-        max-width: 80px !important;
+        height: 26px !important;
+        max-height: 26px !important;
+        max-width: 130px !important;
         width: auto !important;
         object-fit: contain !important;
     }
