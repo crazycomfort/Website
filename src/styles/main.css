@@ -6092,7 +6092,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #ffffff;
+        background: #ffffff !important;
         display: none;
         flex-direction: column;
         padding: 1rem 1.5rem;
@@ -6119,11 +6119,12 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
-        border-bottom: 1px solid #e5e5e5;
+        border-bottom: 1px solid #ddd !important;
+        background: #ffffff !important;
     }
     
     .nav-menu li:last-child {
-        border-bottom: none;
+        border-bottom: none !important;
     }
     
     .nav-menu a {
@@ -6133,19 +6134,20 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         font-size: 1.1rem !important;
         font-weight: 600;
         text-align: left;
-        color: #1a1a1a !important;
+        color: #222222 !important;
         pointer-events: auto !important;
         cursor: pointer;
         position: relative;
         z-index: 10001;
         -webkit-tap-highlight-color: rgba(254, 154, 69, 0.2);
-        background: transparent;
+        background: #ffffff !important;
         transition: color 0.2s ease;
+        text-shadow: none !important;
     }
     
     .nav-menu a:hover,
     .nav-menu a:active {
-        background: transparent;
+        background: #ffffff !important;
         color: #fe9a45 !important;
     }
 
