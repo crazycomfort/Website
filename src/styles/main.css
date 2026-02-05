@@ -6015,40 +6015,39 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Add overlay for mobile menu */
-    .nav-menu::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 998;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        pointer-events: none;
-    }
-
-    .nav-menu.active::before {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: none;
-    }
-
-    .header {
+    /* MOBILE HEADER - Always white background */
+    .header,
+    .header.is-scrolled {
+        background: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
         height: var(--header-height) !important;
         padding: 0 !important;
         display: flex !important;
         align-items: center !important;
     }
     
-    /* Make hamburger icon visible - use brand blue */
-    .menu-toggle span {
+    /* MOBILE HAMBURGER - Always brand blue for visibility */
+    .menu-toggle span,
+    .header:not(.is-scrolled) .menu-toggle span,
+    .header.is-scrolled .menu-toggle span {
         background: #2078aa !important;
     }
 
+    .menu-toggle {
+        display: flex !important;
+        z-index: 10000;
+        position: relative;
+    }
+
+    /* MOBILE NAV CONTAINER */
+    .nav {
+        padding: 0.25rem 0.75rem !important;
+        height: var(--header-height) !important;
+        max-height: var(--header-height) !important;
+        background: transparent !important;
+    }
+
+    /* MOBILE LOGO */
     .logo-image {
         height: 16px !important;
         max-width: 80px !important;
@@ -6077,12 +6076,6 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         line-height: 1 !important;
     }
     
-    .nav {
-        padding: 0.25rem 0.75rem !important;
-        height: var(--header-height) !important;
-        max-height: var(--header-height) !important;
-    }
-    
     .logo img,
     .logo .logo-image {
         height: 16px !important;
@@ -6092,6 +6085,29 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         object-fit: contain !important;
     }
 
+    /* MOBILE MENU OVERLAY - Dark background behind menu */
+    .nav-menu::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        pointer-events: none;
+    }
+
+    .nav-menu.active::before {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: none;
+    }
+
+    /* MOBILE MENU DROPDOWN - White with brand accents */
     .nav-menu {
         position: fixed;
         top: var(--total-header-height);
@@ -6100,8 +6116,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         background: #ffffff !important;
         display: none;
         flex-direction: column;
-        padding: 1rem 1.5rem;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        padding: 0.5rem 0;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 9999;
@@ -6118,6 +6134,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         pointer-events: auto !important;
     }
     
+    /* MOBILE MENU ITEMS */
     .nav-menu li {
         margin-bottom: 0;
         list-style: none;
@@ -6125,17 +6142,18 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
-        border-bottom: 1px solid rgba(32, 120, 170, 0.15) !important;
-        background: transparent !important;
+        border-bottom: 1px solid #e8e8e8 !important;
+        background: #ffffff !important;
     }
     
     .nav-menu li:last-child {
         border-bottom: none !important;
     }
     
+    /* MOBILE MENU LINKS - Brand blue text */
     .nav-menu a {
         display: block;
-        padding: 1rem 0.5rem;
+        padding: 1rem 1.5rem;
         width: 100%;
         font-size: 1.1rem !important;
         font-weight: 600;
@@ -6146,26 +6164,21 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         position: relative;
         z-index: 10001;
         -webkit-tap-highlight-color: rgba(254, 154, 69, 0.3);
-        background: transparent !important;
+        background: #ffffff !important;
         transition: all 0.2s ease;
         text-shadow: none !important;
     }
     
+    /* MOBILE MENU HOVER/TAP - Orange highlight */
     .nav-menu a:hover,
     .nav-menu a:active {
-        background: rgba(254, 154, 69, 0.15) !important;
+        background: #fff8f2 !important;
         color: #fe9a45 !important;
     }
 
     /* Lock body scroll when menu is open */
     body.menu-open {
         overflow: hidden;
-    }
-
-    .menu-toggle {
-        display: flex !important;
-        z-index: 10000;
-        position: relative;
     }
 
     .hero-title {
