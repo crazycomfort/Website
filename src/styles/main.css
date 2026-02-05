@@ -6050,6 +6050,13 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         position: relative;
     }
 
+    /* MOBILE NAV-ACTIONS - Fix spacing so hamburger stays visible */
+    .nav-actions {
+        margin-left: auto !important;
+        gap: 0.5rem !important;
+        flex-shrink: 0 !important;
+    }
+
     /* MOBILE NAV CONTAINER */
     .nav,
     [data-theme="dark"] .nav {
