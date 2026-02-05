@@ -6042,6 +6042,11 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         padding: 0 !important;
         display: flex !important;
         align-items: center !important;
+        background: #ffffff !important;
+    }
+    
+    .header.is-scrolled {
+        background: #ffffff !important;
     }
 
     .logo-image {
