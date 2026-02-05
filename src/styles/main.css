@@ -6097,7 +6097,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #ffffff !important;
+        background: #fdf5ea !important;
         display: none;
         flex-direction: column;
         padding: 1rem 1.5rem;
@@ -6109,6 +6109,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         overflow-y: auto;
         width: 100%;
         list-style: none;
+        border-top: 3px solid #fe9a45;
     }
 
     .nav-menu.active {
@@ -6124,8 +6125,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
-        border-bottom: 1px solid #ddd !important;
-        background: #ffffff !important;
+        border-bottom: 1px solid rgba(32, 120, 170, 0.15) !important;
+        background: transparent !important;
     }
     
     .nav-menu li:last-child {
@@ -6139,20 +6140,20 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         font-size: 1.1rem !important;
         font-weight: 600;
         text-align: left;
-        color: #222222 !important;
+        color: #2078aa !important;
         pointer-events: auto !important;
         cursor: pointer;
         position: relative;
         z-index: 10001;
-        -webkit-tap-highlight-color: rgba(254, 154, 69, 0.2);
-        background: #ffffff !important;
-        transition: color 0.2s ease;
+        -webkit-tap-highlight-color: rgba(254, 154, 69, 0.3);
+        background: transparent !important;
+        transition: all 0.2s ease;
         text-shadow: none !important;
     }
     
     .nav-menu a:hover,
     .nav-menu a:active {
-        background: #ffffff !important;
+        background: rgba(254, 154, 69, 0.15) !important;
         color: #fe9a45 !important;
     }
 
