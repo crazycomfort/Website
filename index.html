@@ -377,51 +377,60 @@
         </section>
 
         <!-- CTA / CONTACT -->
-        <section class="contact">
+        <section class="contact" style="background: linear-gradient(180deg, var(--bg-white) 0%, #f0f7fc 100%);">
             <div class="container">
                 <h2 class="section-title">Ready to Experience Transparent HVAC Service?</h2>
-                <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">Schedule your honest evaluation today. No pressure. No performance. Just the truth, clearly explained.</p>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; color: #333; font-size: 1.1rem;">Schedule your honest evaluation today. No pressure. No performance. Just the truth, clearly explained.</p>
                 
                 <div class="services-grid">
-                    <div class="service-card service-card-featured" style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">📞 Call or Text</h3>
-                        <p style="font-size: 2.25rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1rem;">
+                    <!-- CALL OR TEXT CARD -->
+                    <div class="service-card service-card-featured" style="text-align: center; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%); color: white; border: none;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: white;">📞 Call or Text</h3>
+                        <p style="font-size: 2.5rem; font-weight: 800; color: #fe9a45; margin-bottom: 1rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
                             <a href="tel:832-633-8701" style="text-decoration: none; color: inherit;">832-633-8701</a>
                         </p>
-                        <div style="background: linear-gradient(135deg, rgba(32, 120, 170, 0.1) 0%, rgba(254, 154, 69, 0.1) 100%); border-radius: 12px; padding: 1.25rem; margin: 1rem 0;">
-                            <p style="margin-bottom: 0.5rem;"><strong>Same-Day Service Available</strong></p>
-                            <p style="font-size: 0.9rem; color: var(--text-light);">Mon-Fri: 7am - 7pm | Sat: 8am - 4pm</p>
-                            <p style="font-size: 0.9rem; color: var(--text-light);">24/7 Emergency Service</p>
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem; margin: 1rem 0; backdrop-filter: blur(5px);">
+                            <p style="margin-bottom: 0.5rem; font-weight: 700; font-size: 1.1rem; color: #fe9a45;">Same-Day Service Available</p>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9);">Mon-Fri: 7am - 7pm | Sat: 8am - 4pm</p>
+                            <p style="font-size: 0.95rem; color: rgba(255,255,255,0.9);">24/7 Emergency Service</p>
                         </div>
-                        <p style="margin-top: 0.5rem;"><strong>Serving Katy & Fulshear, TX</strong></p>
+                        <p style="margin-top: 0.5rem; font-weight: 600; color: white;">Serving Katy & Fulshear, TX</p>
                         <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
-                            <span style="background: var(--bg-light); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">✓ Licensed</span>
-                            <span style="background: var(--bg-light); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">✓ Insured</span>
-                            <span style="background: var(--bg-light); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">✓ Woman-Owned</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.85rem; border-radius: 20px; font-size: 0.85rem; color: white; font-weight: 500;">✓ Licensed</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.85rem; border-radius: 20px; font-size: 0.85rem; color: white; font-weight: 500;">✓ Insured</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.85rem; border-radius: 20px; font-size: 0.85rem; color: white; font-weight: 500;">✓ Woman-Owned</span>
                         </div>
                     </div>
-                    <div class="service-card service-card-featured">
-                        <h3 style="margin-bottom: 1rem;">📋 Contact Us</h3>
+                    
+                    <!-- CONTACT FORM CARD -->
+                    <div class="service-card service-card-featured" style="background: white; border: 2px solid #2078aa; box-shadow: 0 8px 30px rgba(32, 120, 170, 0.15);">
+                        <div style="background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%); color: white; margin: -1.5rem -1.5rem 1.5rem -1.5rem; padding: 1rem 1.5rem; border-radius: 14px 14px 0 0;">
+                            <h3 style="margin: 0; color: white; font-size: 1.3rem;">📋 Contact Us</h3>
+                            <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Get your free estimate today</p>
+                        </div>
                         <form class="contact-form" action="https://formspree.io/f/xbldvzye" method="POST">
-                            <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
-                            <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
-                            <input type="tel" name="phone" placeholder="Phone" required style="width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px;">
-                            <input type="text" name="discount_code" placeholder="Discount Code (optional)" style="width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; background: linear-gradient(135deg, rgba(32, 120, 170, 0.05) 0%, rgba(254, 154, 69, 0.05) 100%);">
-                            <textarea name="message" placeholder="How can we help?" style="width: 100%; padding: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; min-height: 60px;"></textarea>
-                            <div class="consent-section" style="margin-bottom: 1rem; font-size: 0.8rem;">
-                                <p style="font-weight: 600; margin-bottom: 0.5rem;">Text Message Consent (Optional)</p>
-                                <label style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">
-                                    <input type="checkbox" name="sms_non_marketing_consent" value="yes">
-                                    <span>I consent to receive service-related text messages.</span>
+                            <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background: #fafafa;">
+                            <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: #fafafa;">
+                            <input type="tel" name="phone" placeholder="Phone *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: #fafafa;">
+                            <div style="position: relative;">
+                                <input type="text" name="discount_code" placeholder="Discount Code" style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px dashed #fe9a45; border-radius: 8px; font-size: 1rem; background: linear-gradient(135deg, rgba(254, 154, 69, 0.08) 0%, rgba(32, 120, 170, 0.08) 100%);">
+                                <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-75%); font-size: 0.75rem; color: #fe9a45; font-weight: 600;">OPTIONAL</span>
+                            </div>
+                            <textarea name="message" placeholder="How can we help?" style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid #e0e0e0; border-radius: 8px; min-height: 70px; font-size: 1rem; resize: vertical; background: #fafafa;"></textarea>
+                            <div style="background: #f5f5f5; border-radius: 8px; padding: 0.75rem; margin-bottom: 1rem;">
+                                <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 0.85rem; color: #333;">Text Message Consent (Optional)</p>
+                                <label style="display: flex; gap: 0.5rem; margin-bottom: 0.4rem; cursor: pointer; font-size: 0.85rem; color: #555;">
+                                    <input type="checkbox" name="sms_non_marketing_consent" value="yes" style="accent-color: #2078aa;">
+                                    <span>I consent to receive service-related texts.</span>
                                 </label>
-                                <label style="display: flex; gap: 0.5rem; cursor: pointer;">
-                                    <input type="checkbox" name="sms_marketing_consent" value="yes">
+                                <label style="display: flex; gap: 0.5rem; cursor: pointer; font-size: 0.85rem; color: #555;">
+                                    <input type="checkbox" name="sms_marketing_consent" value="yes" style="accent-color: #2078aa;">
                                     <span>I consent to receive promotional messages.</span>
                                 </label>
-                                <p style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.5rem;">Msg & data rates may apply. Reply STOP to opt out.</p>
+                                <p style="font-size: 0.7rem; color: #888; margin-top: 0.4rem;">Msg & data rates may apply. Reply STOP to opt out.</p>
                             </div>
-                            <button type="submit" class="cta-primary" style="width: 100%;">Get Free Estimate</button>
-                            <p style="font-size: 0.75rem; margin-top: 0.75rem; text-align: center;"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms & Conditions</a></p>
+                            <button type="submit" class="cta-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem; font-weight: 700;">Get Free Estimate</button>
+                            <p style="font-size: 0.75rem; margin-top: 0.75rem; text-align: center; color: #666;"><a href="/privacy-policy" style="color: #2078aa;">Privacy Policy</a> | <a href="/terms-conditions" style="color: #2078aa;">Terms & Conditions</a></p>
                         </form>
                     </div>
                 </div>
