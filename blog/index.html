@@ -3,27 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>HVAC Tips & Guides | Crazy Comfort Blog | Katy TX</title>
-    <meta name="description" content="Expert HVAC tips, maintenance guides, and home comfort advice from Crazy Comfort in Katy TX. Learn how to keep your heating and cooling systems running efficiently.">
+    <title>The Crazy Comfort Blog | HVAC Truth, No BS | Katy TX</title>
+    <meta name="description" content="The most honest HVAC blog on the internet. Real talk about repairs, maintenance, and home comfort from technicians who actually work on systems—not marketing teams.">
     <link rel="canonical" href="https://crazycomfort.com/blog">
     <link rel="icon" type="image/png" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="HVAC Tips & Guides | Crazy Comfort Blog">
-    <meta property="og:description" content="Expert HVAC tips, maintenance guides, and home comfort advice from Crazy Comfort in Katy TX.">
+    <meta property="og:title" content="The Crazy Comfort Blog | HVAC Truth, No BS">
+    <meta property="og:description" content="The most honest HVAC blog on the internet. Real talk from real technicians.">
     <meta property="og:url" content="https://crazycomfort.com/blog">
     <meta property="og:image" content="https://crazycomfort.com/assets/images/social-share.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property:og:image:height" content="630">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HVAC Tips & Guides | Crazy Comfort Blog">
-    <meta name="twitter:description" content="Expert HVAC tips, maintenance guides, and home comfort advice from Crazy Comfort in Katy TX.">
+    <meta name="twitter:title" content="The Crazy Comfort Blog | HVAC Truth, No BS">
+    <meta name="twitter:description" content="The most honest HVAC blog on the internet. Real talk from real technicians.">
     <meta name="twitter:image" content="https://crazycomfort.com/assets/images/social-share.png">
     
     <link rel="stylesheet" href="/dist/styles.css?v=202601222300">
+    <style>
+        /* Blog Hero Styles */
+        .blog-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            padding: calc(var(--total-header-height) + 3rem) 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fe9a45' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .blog-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #fe9a45, #e8873d);
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(254, 154, 69, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(254, 154, 69, 0); }
+        }
+        .blog-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #ffffff;
+            margin: 0 0 1rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+        .blog-hero h1 span {
+            color: #fe9a45;
+            display: block;
+        }
+        .blog-hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fe9a45;
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.25rem;
+        }
+        
+        /* Featured Article */
+        .featured-section {
+            background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-light) 100%);
+            padding: 0 0 4rem;
+            margin-top: -2rem;
+        }
+        .featured-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 768px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+        }
+        .featured-visual {
+            background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .featured-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-visual h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .featured-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .featured-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #fe9a45, #e8873d);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .featured-content h2 {
+            font-size: 1.75rem;
+            color: #1a1a1a;
+            margin: 0 0 1rem;
+            line-height: 1.3;
+        }
+        .featured-content h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .featured-content h2 a:hover {
+            color: #2078aa;
+        }
+        .featured-content p {
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #888888;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #2078aa, #1a5f85);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.85rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .read-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px -10px rgba(32, 120, 170, 0.5);
+        }
+        
+        /* Articles Grid */
+        .articles-section {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: #1a1a1a;
+            margin: 0 0 0.5rem;
+        }
+        .section-header p {
+            color: #666666;
+            font-size: 1.1rem;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .article-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .article-card-header {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .article-card-header.blue {
+            background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%);
+        }
+        .article-card-header.orange {
+            background: linear-gradient(135deg, #fe9a45 0%, #e8873d 100%);
+        }
+        .article-card-header.dark {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+        .article-card-header svg {
+            width: 60px;
+            height: 60px;
+            opacity: 0.9;
+        }
+        .article-number {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .article-card-body {
+            padding: 1.75rem;
+        }
+        .article-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+        .article-tag.guide { background: #e8f5e9; color: #2e7d32; }
+        .article-tag.seasonal { background: #fff5eb; color: #e8873d; }
+        .article-tag.troubleshoot { background: #e3f2fd; color: #1976d2; }
+        .article-card-body h3 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin: 0 0 0.75rem;
+            line-height: 1.35;
+        }
+        .article-card-body h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .article-card-body h3 a:hover {
+            color: #2078aa;
+        }
+        .article-card-body p {
+            color: #666666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+        .article-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+        .article-meta {
+            color: #999999;
+            font-size: 0.85rem;
+        }
+        .article-link {
+            color: #2078aa;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: gap 0.2s;
+        }
+        .article-link:hover {
+            gap: 0.5rem;
+        }
+        
+        /* Promise Section */
+        .promise-section {
+            background: #1a1a1a;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .promise-section::before {
+            content: '"';
+            position: absolute;
+            top: -50px;
+            left: 5%;
+            font-size: 400px;
+            color: rgba(254, 154, 69, 0.05);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .promise-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .promise-content h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin: 0 0 1.5rem;
+        }
+        .promise-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .promise-content p strong {
+            color: #fe9a45;
+        }
+        
+        /* Coming Soon */
+        .coming-soon {
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+        .topics-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+        .topic-pill {
+            background: #ffffff;
+            border: 2px solid #e8e8e8;
+            padding: 0.85rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: all 0.2s;
+            cursor: default;
+        }
+        .topic-pill:hover {
+            border-color: #2078aa;
+            background: #f0f7fc;
+        }
+        .topic-pill.highlight {
+            background: linear-gradient(135deg, #fe9a45, #e8873d);
+            border-color: transparent;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
@@ -49,6 +460,7 @@
                 <li><a href="/services">Services</a></li>
                 <li><a href="/service-area">Service Area</a></li>
                 <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/blog" class="active">Blog</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -64,99 +476,122 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="homepage-section" style="padding-top: calc(var(--total-header-height) + 2rem);">
-            <div class="container">
-                <nav aria-label="Breadcrumb" class="breadcrumb">
-                    <a href="/">Home</a> › <span>Blog</span>
-                </nav>
-                <h1 class="section-title" style="margin-top: 1rem;">HVAC Tips & Guides</h1>
-                <p class="homepage-headline" style="font-size: 1.4rem; margin-bottom: 1rem;">Honest Advice for Your Home Comfort</p>
-                <p class="homepage-body" style="max-width: 700px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
-                    We believe informed homeowners make better decisions. Here you'll find practical tips, maintenance advice, and honest answers to common HVAC questions—no sales pitch, just helpful information.
+        <section class="blog-hero">
+            <div class="container" style="text-align: center;">
+                <div class="hero-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>
+                    Real Talk. Real Technicians.
+                </div>
+                <h1>
+                    The HVAC Blog That
+                    <span>Doesn't BS You</span>
+                </h1>
+                <p class="blog-hero-subtitle">
+                    No AI-generated fluff. No sales pitches disguised as articles. Just honest answers from technicians with nearly 30 years of combined experience who actually work on systems every day.
                 </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">28+</div>
+                        <div class="hero-stat-label">Years Experience</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-label">No-BS Guarantee</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">0</div>
+                        <div class="hero-stat-label">Hidden Upsells</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Featured Article -->
-        <section class="homepage-section" style="background: var(--bg-light); padding: 3rem 0;">
+        <section class="featured-section">
             <div class="container">
-                <h2 class="homepage-headline" style="text-align: center; margin-bottom: 2rem;">Featured Article</h2>
-                
-                <article style="max-width: 900px; margin: 0 auto; background: #ffffff; border: 2px solid #e8e8e8; border-radius: 16px; overflow: hidden;">
-                    <div style="padding: 2rem;">
-                        <span style="display: inline-block; background: linear-gradient(135deg, #2078aa, #1a5f85); color: #ffffff; font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 6px; margin-bottom: 1rem;">FEATURED</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #1a1a1a;">
-                            <a href="/blog/when-to-repair-vs-replace-hvac" style="color: inherit; text-decoration: none;">When to Repair vs. Replace Your HVAC System: An Honest Guide</a>
-                        </h3>
-                        <p style="color: #555555; line-height: 1.7; margin-bottom: 1rem;">
-                            One of the biggest decisions homeowners face is whether to repair an aging system or invest in a replacement. Here's how we help you evaluate the decision—without the pressure.
-                        </p>
-                        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; color: #777777; font-size: 0.9rem;">
-                            <span>📅 January 2026</span>
-                            <span>•</span>
-                            <span>⏱️ 8 min read</span>
+                <div class="featured-card">
+                    <div class="featured-visual">
+                        <div class="featured-icon">
+                            <svg width="50" height="50" fill="#ffffff" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/></svg>
                         </div>
-                        <a href="/blog/when-to-repair-vs-replace-hvac" style="display: inline-block; margin-top: 1.25rem; color: #2078aa; font-weight: 600; text-decoration: none;">Read Full Article →</a>
+                        <h3>The Big Decision</h3>
                     </div>
-                </article>
+                    <div class="featured-content">
+                        <span class="featured-tag">Featured Guide</span>
+                        <h2><a href="/blog/when-to-repair-vs-replace-hvac">When to Repair vs. Replace Your HVAC System: An Honest Guide</a></h2>
+                        <p>The industry wants to sell you a new system. We'll tell you when that actually makes sense—and when you're being played. No pressure, just facts.</p>
+                        <div class="featured-meta">
+                            <span>📖 8 min read</span>
+                            <span>•</span>
+                            <span>January 2026</span>
+                        </div>
+                        <a href="/blog/when-to-repair-vs-replace-hvac" class="read-btn">
+                            Read the Guide
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- All Articles -->
-        <section class="homepage-section" style="padding: 3rem 0;">
+        <section class="articles-section">
             <div class="container">
-                <h2 class="homepage-headline" style="text-align: center; margin-bottom: 2rem;">All Articles</h2>
+                <div class="section-header">
+                    <h2>All Articles</h2>
+                    <p>Straight answers. Zero fluff. Actually useful.</p>
+                </div>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+                <div class="articles-grid">
                     
                     <!-- Article 1 -->
-                    <article style="background: #ffffff; border: 2px solid #e8e8e8; border-radius: 16px; padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-                            <span style="background: #f0f7fc; color: #2078aa; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 4px;">BUYING GUIDE</span>
+                    <article class="article-card">
+                        <div class="article-card-header blue">
+                            <span class="article-number">01</span>
+                            <svg fill="#ffffff" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: #1a1a1a; line-height: 1.4;">
-                            <a href="/blog/when-to-repair-vs-replace-hvac" style="color: inherit; text-decoration: none;">When to Repair vs. Replace Your HVAC System</a>
-                        </h3>
-                        <p style="color: #555555; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem;">
-                            Is your aging system worth fixing? We break down the factors that actually matter—without the scare tactics.
-                        </p>
-                        <div style="display: flex; justify-content: space-between; align-items: center; color: #777777; font-size: 0.85rem;">
-                            <span>January 2026</span>
-                            <a href="/blog/when-to-repair-vs-replace-hvac" style="color: #2078aa; font-weight: 600; text-decoration: none;">Read →</a>
+                        <div class="article-card-body">
+                            <span class="article-tag guide">Buying Guide</span>
+                            <h3><a href="/blog/when-to-repair-vs-replace-hvac">When to Repair vs. Replace Your HVAC System</a></h3>
+                            <p>The 50% rule is overly simplistic. Here's what actually matters when making this expensive decision.</p>
+                            <div class="article-card-footer">
+                                <span class="article-meta">8 min read</span>
+                                <a href="/blog/when-to-repair-vs-replace-hvac" class="article-link">Read →</a>
+                            </div>
                         </div>
                     </article>
 
                     <!-- Article 2 -->
-                    <article style="background: #ffffff; border: 2px solid #e8e8e8; border-radius: 16px; padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-                            <span style="background: #fff5eb; color: #fe9a45; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 4px;">SEASONAL</span>
+                    <article class="article-card">
+                        <div class="article-card-header orange">
+                            <span class="article-number">02</span>
+                            <svg fill="#ffffff" viewBox="0 0 24 24"><path d="M12.5 2C6.81 2 2.22 6.59 2.22 12.29c0 2.04.6 3.94 1.63 5.54L2 22l4.34-1.81c1.54.9 3.31 1.43 5.16 1.43 5.69 0 10.28-4.59 10.28-10.29S18.19 2 12.5 2zM8 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: #1a1a1a; line-height: 1.4;">
-                            <a href="/blog/hvac-maintenance-tips-texas-summer" style="color: inherit; text-decoration: none;">HVAC Maintenance Tips for Texas Summers</a>
-                        </h3>
-                        <p style="color: #555555; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem;">
-                            Texas heat is brutal on AC systems. Here's how to prepare your system and avoid emergency repairs during peak season.
-                        </p>
-                        <div style="display: flex; justify-content: space-between; align-items: center; color: #777777; font-size: 0.85rem;">
-                            <span>January 2026</span>
-                            <a href="/blog/hvac-maintenance-tips-texas-summer" style="color: #2078aa; font-weight: 600; text-decoration: none;">Read →</a>
+                        <div class="article-card-body">
+                            <span class="article-tag seasonal">Seasonal</span>
+                            <h3><a href="/blog/hvac-maintenance-tips-texas-summer">HVAC Maintenance Tips for Texas Summers</a></h3>
+                            <p>Texas heat destroys AC systems. Here's what you can actually do yourself vs. what needs a pro.</p>
+                            <div class="article-card-footer">
+                                <span class="article-meta">6 min read</span>
+                                <a href="/blog/hvac-maintenance-tips-texas-summer" class="article-link">Read →</a>
+                            </div>
                         </div>
                     </article>
 
                     <!-- Article 3 -->
-                    <article style="background: #ffffff; border: 2px solid #e8e8e8; border-radius: 16px; padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-                            <span style="background: #f0f7fc; color: #2078aa; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 4px;">TROUBLESHOOTING</span>
+                    <article class="article-card">
+                        <div class="article-card-header dark">
+                            <span class="article-number">03</span>
+                            <svg fill="#fe9a45" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                         </div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: #1a1a1a; line-height: 1.4;">
-                            <a href="/blog/signs-your-ac-needs-repair" style="color: inherit; text-decoration: none;">7 Signs Your AC Needs Repair (And What They Mean)</a>
-                        </h3>
-                        <p style="color: #555555; line-height: 1.6; font-size: 0.95rem; margin-bottom: 1rem;">
-                            Not sure if that noise or warm air is serious? Here's how to identify common AC problems before they become emergencies.
-                        </p>
-                        <div style="display: flex; justify-content: space-between; align-items: center; color: #777777; font-size: 0.85rem;">
-                            <span>January 2026</span>
-                            <a href="/blog/signs-your-ac-needs-repair" style="color: #2078aa; font-weight: 600; text-decoration: none;">Read →</a>
+                        <div class="article-card-body">
+                            <span class="article-tag troubleshoot">Troubleshooting</span>
+                            <h3><a href="/blog/signs-your-ac-needs-repair">7 Signs Your AC Needs Repair (And What They Mean)</a></h3>
+                            <p>That noise might be nothing. Or it might cost you $2,000 if you ignore it. Here's how to tell.</p>
+                            <div class="article-card-footer">
+                                <span class="article-meta">7 min read</span>
+                                <a href="/blog/signs-your-ac-needs-repair" class="article-link">Read →</a>
+                            </div>
                         </div>
                     </article>
 
@@ -164,33 +599,50 @@
             </div>
         </section>
 
-        <!-- Topics Section -->
-        <section class="homepage-section" style="background: var(--bg-light); padding: 3rem 0;">
+        <!-- Our Promise Section -->
+        <section class="promise-section">
             <div class="container">
-                <h2 class="homepage-headline" style="text-align: center; margin-bottom: 0.5rem;">Browse by Topic</h2>
-                <p style="text-align: center; color: #555555; margin-bottom: 2rem;">Find articles on the topics that matter most to you.</p>
-                
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 800px; margin: 0 auto;">
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">AC Repair & Troubleshooting</span>
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">Heating & Furnace</span>
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">Maintenance Tips</span>
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">Energy Efficiency</span>
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">Buying Guides</span>
-                    <span style="background: #ffffff; border: 2px solid #e8e8e8; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 500; color: #1a1a1a;">Indoor Air Quality</span>
+                <div class="promise-content">
+                    <h2>Why We Write Differently</h2>
+                    <p>
+                        Most HVAC blogs are written by marketing companies who've never touched a condenser. They're designed to rank on Google, not actually help you.
+                        <br><br>
+                        <strong>Our articles are written by technicians</strong> who crawl through attics, test capacitors, and talk to real homeowners every day. We write what we'd want to know if we were in your shoes.
+                        <br><br>
+                        Sometimes the honest answer is "you probably don't need us." And we're okay with that.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coming Soon -->
+        <section class="coming-soon">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Coming Soon</h2>
+                    <p>Topics we're working on next</p>
+                </div>
+                <div class="topics-grid">
+                    <span class="topic-pill">Indoor Air Quality Myths</span>
+                    <span class="topic-pill">Understanding SEER Ratings</span>
+                    <span class="topic-pill highlight">Heat Pumps in Texas</span>
+                    <span class="topic-pill">Duct Cleaning: Worth It?</span>
+                    <span class="topic-pill">Smart Thermostats Guide</span>
+                    <span class="topic-pill">Why Your Upstairs is Hot</span>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="homepage-section" style="background: linear-gradient(135deg, #2078aa, #1a5f85); padding: 3rem 0;">
+        <section class="homepage-section" style="background: linear-gradient(135deg, #2078aa, #1a5f85); padding: 3.5rem 0;">
             <div class="container" style="text-align: center;">
-                <h2 style="color: #ffffff; font-size: 1.75rem; margin-bottom: 0.75rem;">Have a Question We Haven't Answered?</h2>
-                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 1.5rem; font-size: 1.1rem;">We're happy to help. Reach out and we'll give you an honest answer—even if that answer is "you probably don't need us."</p>
+                <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 0.75rem;">Got a Question We Should Answer?</h2>
+                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 1.5rem; font-size: 1.15rem;">Confused about something HVAC-related? Let us know. If we don't have an article on it, we'll write one.</p>
                 <div class="cta-buttons" style="justify-content: center; gap: 1rem;">
                     <a href="tel:832-633-8701" class="cta-primary cta-phone" style="background: #ffffff; color: #2078aa;">
                         <span class="cta-icon">📞</span> Call: 832-633-8701
                     </a>
-                    <a href="/contact" class="cta-secondary" style="border-color: #ffffff; color: #ffffff;">Contact Us</a>
+                    <a href="/contact" class="cta-secondary" style="border-color: #ffffff; color: #ffffff;">Send Us a Question</a>
                 </div>
             </div>
         </section>
@@ -286,8 +738,8 @@
       "@graph": [
         {
           "@type": "Blog",
-          "name": "Crazy Comfort HVAC Blog",
-          "description": "Expert HVAC tips, maintenance guides, and home comfort advice from Crazy Comfort in Katy TX.",
+          "name": "The Crazy Comfort Blog",
+          "description": "The most honest HVAC blog on the internet. Real talk about repairs, maintenance, and home comfort from technicians who actually work on systems.",
           "url": "https://crazycomfort.com/blog",
           "publisher": {
             "@type": "LocalBusiness",
