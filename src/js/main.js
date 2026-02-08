@@ -127,6 +127,8 @@ function initThemeToggle() {
             // Fallback: update button text directly if .theme-icon doesn't exist
             currentToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
+        // Update tooltip text
+        currentToggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
     }
 }
 
