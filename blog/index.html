@@ -633,17 +633,82 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="homepage-section" style="background: linear-gradient(135deg, #2078aa, #1a5f85); padding: 3.5rem 0;">
-            <div class="container" style="text-align: center;">
-                <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 0.75rem;">Got a Question We Should Answer?</h2>
-                <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 1.5rem; font-size: 1.15rem;">Confused about something HVAC-related? Let us know. If we don't have an article on it, we'll write one.</p>
-                <div class="cta-buttons" style="justify-content: center; gap: 1rem;">
-                    <a href="tel:832-633-8701" class="cta-primary cta-phone" style="background: #ffffff; color: #2078aa;">
-                        <span class="cta-icon">📞</span> Call: 832-633-8701
-                    </a>
-                    <a href="/contact" class="cta-secondary" style="border-color: #ffffff; color: #ffffff;">Send Us a Question</a>
+        <!-- Question Submission Section -->
+        <section class="homepage-section" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d); padding: 4rem 0;">
+            <div class="container">
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-size: 0.8rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                            Ask Us Anything
+                        </span>
+                        <h2 style="color: #ffffff; font-size: 2rem; margin: 0 0 0.75rem;">Got a Question We Should Answer?</h2>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin: 0;">Confused about something HVAC-related? Ask us. If we don't have an article on it, we'll write one.</p>
+                    </div>
+                    
+                    <form action="https://formspree.io/f/xbldvzye" method="POST" style="background: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                        <input type="hidden" name="form_type" value="Blog Question">
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a1a; font-size: 0.95rem;">Your Name *</label>
+                            <input type="text" name="name" placeholder="John Smith" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a1a; font-size: 0.95rem;">Email *</label>
+                            <input type="email" name="email" placeholder="john@example.com" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a1a; font-size: 0.95rem;">What topic is your question about? *</label>
+                            <select name="question_topic" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                                <option value="" disabled selected>Select a topic...</option>
+                                <option value="AC / Cooling">AC / Cooling Issues</option>
+                                <option value="Heating / Furnace">Heating / Furnace</option>
+                                <option value="Heat Pumps">Heat Pumps</option>
+                                <option value="Maintenance">Maintenance & Tune-Ups</option>
+                                <option value="Energy Efficiency">Energy Efficiency / Bills</option>
+                                <option value="Air Quality">Indoor Air Quality</option>
+                                <option value="Ductwork">Ductwork</option>
+                                <option value="Buying / Replacing">Buying / Replacing a System</option>
+                                <option value="Thermostats">Thermostats</option>
+                                <option value="Other">Other / General</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.25rem;">
+                            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a1a; font-size: 0.95rem;">Your Question *</label>
+                            <textarea name="question" placeholder="What would you like to know? Be as specific as you'd like—we'll give you an honest answer." required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; min-height: 120px; font-size: 1rem; resize: vertical;"></textarea>
+                        </div>
+                        
+                        <!-- Consent Section -->
+                        <div style="background: #f8f9fa; border-radius: 8px; padding: 1rem; margin-bottom: 1.25rem; border: 1px solid #e8e8e8;">
+                            <label style="display: flex; gap: 0.6rem; cursor: pointer; font-size: 0.9rem; color: #555555;">
+                                <input type="checkbox" name="publish_consent" value="yes" style="accent-color: #2078aa; width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;">
+                                <span>I consent to Crazy Comfort potentially using my question (anonymously) as inspiration for a future blog article. <span style="color: #888;">(Optional)</span></span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" style="width: 100%; background: linear-gradient(135deg, #2078aa, #1a5f85); color: #ffffff; font-size: 1.1rem; font-weight: 700; padding: 1rem; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s;">
+                            Submit Your Question
+                        </button>
+                        
+                        <p style="font-size: 0.8rem; margin-top: 1rem; text-align: center; color: #888888;">
+                            We typically respond within 1-2 business days. By submitting, you agree to our 
+                            <a href="/privacy-policy" style="color: #2078aa;">Privacy Policy</a>.
+                        </p>
+                    </form>
                 </div>
+            </div>
+        </section>
+        
+        <!-- Quick Contact CTA -->
+        <section class="homepage-section" style="background: linear-gradient(135deg, #2078aa, #1a5f85); padding: 2.5rem 0;">
+            <div class="container" style="text-align: center;">
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.15rem; margin: 0 0 1rem;">Prefer to talk? We're happy to answer questions over the phone too.</p>
+                <a href="tel:832-633-8701" class="cta-primary cta-phone" style="background: #ffffff; color: #2078aa; display: inline-flex;">
+                    <span class="cta-icon">📞</span> Call: 832-633-8701
+                </a>
             </div>
         </section>
     </main>
