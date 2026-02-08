@@ -37,32 +37,121 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://crazycomfort.com",
-      "name": "Crazy Comfort",
-      "image": "https://crazycomfort.com/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png",
-      "description": "Transparent HVAC services with photo and video documentation in Katy and Fulshear, Texas. Woman-owned.",
-      "url": "https://crazycomfort.com",
-      "telephone": "832-633-8701",
-      "email": "ez@crazycomfort.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Katy",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "29.7858",
-        "longitude": "-95.8244"
-      },
-      "priceRange": "$$",
-      "areaServed": ["Katy", "Fulshear"],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "3"
-      }
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://crazycomfort.com/#business",
+          "name": "Crazy Comfort",
+          "image": "https://crazycomfort.com/assets/images/social-share.png",
+          "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos.",
+          "url": "https://crazycomfort.com",
+          "telephone": "+1-832-633-8701",
+          "email": "ez@crazycomfort.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Katy",
+            "addressRegion": "TX",
+            "postalCode": "77494",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "29.7858",
+            "longitude": "-95.8244"
+          },
+          "priceRange": "$$",
+          "areaServed": [
+            {"@type": "City", "name": "Katy", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Fulshear", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Richmond", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Sugar Land", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "Place", "name": "Cinco Ranch"},
+            {"@type": "City", "name": "Brookshire", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Simonton", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "City", "name": "Sealy", "containedInPlace": {"@type": "State", "name": "Texas"}}
+          ],
+          "openingHoursSpecification": [
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "19:00"},
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "16:00"}
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "reviewCount": "3"
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61569695542993",
+            "https://www.instagram.com/crazycomforthvac/"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "HVAC Services",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Repair", "description": "Air conditioning repair with real-time photo documentation"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Heating Repair", "description": "Furnace and heat pump repair services"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Maintenance Plan", "description": "Annual maintenance plan starting at $215/year with priority scheduling"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "System Replacement", "description": "Complete HVAC system installation and replacement"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ductwork Services", "description": "Duct cleaning, sealing, repair, and replacement"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Indoor Air Quality", "description": "Air purification, filtration, and humidity control"}}
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://crazycomfort.com/#website",
+          "url": "https://crazycomfort.com",
+          "name": "Crazy Comfort",
+          "description": "Transparent HVAC services in Katy & Fulshear TX",
+          "publisher": {"@id": "https://crazycomfort.com/#business"}
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What areas does Crazy Comfort serve?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Crazy Comfort provides HVAC services throughout Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, Brookshire, Simonton, Sealy, and surrounding West Houston communities. We serve zip codes including 77494, 77441, 77449, 77450, 77406, 77407, 77469, 77478, 77479, 77423, 77476, and 77474."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer same-day HVAC service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, same-day service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What makes Crazy Comfort different from other HVAC companies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We document every service call with real-time photos and video—timestamped and GPS-stamped so you know it's your home, your system, right now. Not stock photos. Not someone else's job. We never recommend repairs without showing you documented evidence of the problem first."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does AC repair cost in Katy TX?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AC repair costs vary based on the issue. Our diagnostic fee is $129 for residential systems, which is applied toward the repair if you proceed. We provide upfront pricing before any work begins, and you'll see documented evidence of the problem before approving repairs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Crazy Comfort licensed and insured?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Crazy Comfort is fully licensed by the Texas Department of Licensing and Regulation (TDLR) and carries comprehensive liability and workers' compensation insurance. We're also woman-owned and family-operated with nearly 30 years of combined HVAC experience."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -112,9 +201,14 @@
         <section id="home" class="hero-new">
             <div class="container hero-new-grid">
                 <div class="hero-new-left">
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f0f7fc; padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 1rem;">
+                        <span style="color: #fe9a45; font-size: 1rem;">★★★★★</span>
+                        <span style="font-weight: 600; color: #1a1a1a; font-size: 0.9rem;">5.0 Rated</span>
+                        <span style="color: #666; font-size: 0.85rem;">· Katy & Fulshear</span>
+                    </div>
                     <h1 class="hero-new-headline">Watch your HVAC technician work, live, from anywhere.</h1>
                     <div class="hero-new-body">
-                        <p>Every photo. Every video. Shared with you live—while you continue doing you. You'll receive a transparency link via text. Click it. See what we see. In real time. No surprises. No hidden fees. Just <strong>Honest HVAC Service</strong> you can actually see.</p>
+                        <p>Every photo. Every video. Shared with you live—<strong>timestamped and GPS-verified</strong> so you know it's your home, your system, right now. You'll receive a transparency link via text. Click it. See what we see. No surprises. No hidden fees. Just <strong>Honest HVAC Service</strong> you can actually see.</p>
                     </div>
                     <div class="hero-new-cta">
                         <div class="cta-buttons">
@@ -204,26 +298,35 @@
         <section class="services">
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">Full-service HVAC for Katy, Fulshear, and surrounding areas. Every job documented with photos and video.</p>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">Full-service HVAC for Katy, Fulshear, and 8+ West Houston communities. Every job documented with real-time photos.</p>
+                
+                <!-- Featured: Maintenance Plan -->
+                <div style="background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center; position: relative; overflow: hidden;">
+                    <span style="position: absolute; top: 12px; right: 12px; background: #fe9a45; color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 6px;">POPULAR</span>
+                    <h3 style="color: #ffffff; font-size: 1.5rem; margin-bottom: 0.5rem;">HVAC Maintenance Plan</h3>
+                    <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 1rem;">One comprehensive annual service with priority scheduling, member discounts, and detailed documentation. Starting at <strong style="color: #fe9a45;">$215/year</strong>.</p>
+                    <a href="/hvac-maintenance-plan" style="display: inline-block; background: #ffffff; color: #2078aa; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;">View Maintenance Plan →</a>
+                </div>
+                
                 <div class="services-grid">
                     <div class="service-card service-card-featured">
-                        <h3>AC Repair & Maintenance</h3>
-                        <p>Expert repairs and preventive maintenance. Same-day service available. All work documented before and after.</p>
+                        <h3>AC Repair</h3>
+                        <p>Expert cooling repairs with same-day service available. All work documented with timestamped photos before and after.</p>
                         <a href="/services/ac-repair" class="service-link">Learn More →</a>
                     </div>
                     <div class="service-card service-card-featured">
-                        <h3>System Installation</h3>
-                        <p>New HVAC systems properly sized and installed. Free estimates with detailed pricing. Financing available.</p>
+                        <h3>Heating Repair</h3>
+                        <p>Furnace and heat pump service. Safety inspections, component testing, and honest recommendations backed by evidence.</p>
+                        <a href="/contact" class="service-link">Schedule Service →</a>
+                    </div>
+                    <div class="service-card service-card-featured">
+                        <h3>System Replacement</h3>
+                        <p>New HVAC systems properly sized and installed. Free estimates with detailed pricing. Full documentation of every step.</p>
                         <a href="/services/system-replacement" class="service-link">Learn More →</a>
                     </div>
                     <div class="service-card service-card-featured">
-                        <h3>Indoor Air Quality</h3>
-                        <p>Air purifiers, dehumidification, and filtration systems. Breathe cleaner, healthier air.</p>
-                        <a href="/services" class="service-link">Learn More →</a>
-                    </div>
-                    <div class="service-card service-card-featured">
                         <h3>Ductwork Services</h3>
-                        <p>Cleaning, repair, and replacement. Improve airflow and efficiency. Evidence-based recommendations.</p>
+                        <p>Cleaning, repair, and replacement. Improve airflow and efficiency. Evidence-based recommendations only.</p>
                         <a href="/services/ductwork" class="service-link">Learn More →</a>
                     </div>
                 </div>
@@ -373,6 +476,52 @@
                             <a href="/hvac-maintenance-plan" style="display: block; text-align: center; margin-top: 1rem; color: var(--primary-color); font-weight: 600; text-decoration: none;">Learn More →</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="homepage-section" style="background: var(--bg-light); padding: 3rem 0;">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 2rem;">Frequently Asked Questions</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    
+                    <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">What areas does Crazy Comfort serve?</summary>
+                        <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
+                            We provide HVAC services throughout Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, Brookshire, Simonton, Sealy, and surrounding West Houston communities. Our primary focus is Katy and Fulshear, but we regularly serve the entire West Houston area. <a href="/service-area" style="color: #2078aa; font-weight: 600;">View our full service area →</a>
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">Do you offer same-day HVAC service?</summary>
+                        <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
+                            Yes, same-day service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows. Call us at <a href="tel:832-633-8701" style="color: #2078aa; font-weight: 600;">832-633-8701</a> to check availability.
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">What makes Crazy Comfort different from other HVAC companies?</summary>
+                        <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
+                            We document every service call with real-time photos and video—timestamped and GPS-stamped so you know it's your home, your system, right now. Not stock photos. Not someone else's job. We never recommend repairs without showing you documented evidence of the problem first. <a href="/about" style="color: #2078aa; font-weight: 600;">Learn more about our approach →</a>
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">How much does AC repair cost in Katy TX?</summary>
+                        <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
+                            AC repair costs vary based on the issue. Our diagnostic fee is $129 for residential systems, which is applied toward the repair if you proceed. We provide upfront, flat-rate pricing before any work begins, and you'll see documented evidence of the problem before approving repairs. No surprises.
+                        </div>
+                    </details>
+
+                    <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">Is Crazy Comfort licensed and insured?</summary>
+                        <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
+                            Yes, Crazy Comfort is fully licensed by the Texas Department of Licensing and Regulation (TDLR) and carries comprehensive liability and workers' compensation insurance. We're woman-owned and family-operated with nearly 30 years of combined HVAC experience between our technicians.
+                        </div>
+                    </details>
+
                 </div>
             </div>
         </section>
