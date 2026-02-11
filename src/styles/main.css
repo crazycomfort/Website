@@ -5,6 +5,18 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal overflow across all devices */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
 :root {
     --primary-color: #2078aa;
     --primary-dark: #1a5f87;
@@ -40,6 +52,8 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-white);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Skip to content link for accessibility */
@@ -7006,4 +7020,115 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .nomination-submit {
         width: 100%;
     }
+}
+
+/* ============================================
+   LARGE SCREEN / DESKTOP OPTIMIZATIONS
+   For larger monitors (iMacs, large external displays)
+   ============================================ */
+
+/* Larger screens - increase max-width for better use of space */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        padding: 0 2.5rem;
+    }
+    
+    /* Increase content areas for large screens */
+    .hero-new-grid {
+        gap: 4rem;
+    }
+    
+    .services-grid {
+        gap: 2rem;
+    }
+    
+    .footer-content {
+        gap: 3rem;
+    }
+}
+
+/* Extra large screens (27" iMacs, ultrawide monitors) */
+@media (min-width: 1800px) {
+    .container {
+        max-width: 1600px;
+        padding: 0 3rem;
+    }
+    
+    /* Ensure full-width sections stretch properly */
+    .hero-new,
+    .homepage-section,
+    .services,
+    .testimonials,
+    .coupons-section,
+    .contact,
+    .footer {
+        width: 100%;
+    }
+    
+    /* Larger font sizes for better readability on big screens */
+    .hero-new-headline {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .homepage-headline {
+        font-size: 2rem;
+    }
+    
+    /* Better grid layouts for large screens */
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .coupons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* Ultrawide monitors (2560px+) */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 1800px;
+        padding: 0 4rem;
+    }
+    
+    /* Even larger fonts for very large screens */
+    .hero-new-headline {
+        font-size: 4rem;
+    }
+    
+    .hero-new-body {
+        font-size: 1.3rem;
+    }
+    
+    /* Ensure sections don't look stretched */
+    .homepage-section {
+        padding: 5rem 0;
+    }
+}
+
+/* Fix for any potential horizontal overflow */
+section,
+header,
+footer,
+main {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Ensure images don't cause overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix inline styles that might cause overflow */
+[style*="width: 100vw"] {
+    width: 100% !important;
 }
