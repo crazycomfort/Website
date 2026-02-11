@@ -30,7 +30,6 @@
     <meta name="geo.region" content="US-TX">
     <meta name="geo.placename" content="Katy">
     
-    <link rel="preconnect" href="https://formspree.io">
     <link rel="stylesheet" href="/dist/styles.css?v=202601222300">
     
     <!-- Structured Data -->
@@ -625,7 +624,9 @@
                             <h3 style="margin: 0; color: #ffffff; font-size: 1.3rem;">📋 Contact Us</h3>
                             <p style="margin: 0.25rem 0 0 0; font-size: 0.95rem; color: rgba(255,255,255,0.95);">Get your free estimate today</p>
                         </div>
-                        <form class="contact-form" action="https://formspree.io/f/xbldvzye" method="POST" style="background: transparent; padding: 0; box-shadow: none; border: none;">
+                        <form class="contact-form" name="homepage-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="background: transparent; padding: 0; box-shadow: none; border: none;">
+                            <input type="hidden" name="form-name" value="homepage-contact">
+                            <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
                             <input type="text" name="name" placeholder="Full Name *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">
                             <input type="email" name="email" placeholder="Email *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">
                             <input type="tel" name="phone" placeholder="Phone *" required style="width: 100%; padding: 0.85rem 1rem; margin-bottom: 0.75rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--bg-white); color: var(--text-dark);">

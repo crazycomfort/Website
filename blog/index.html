@@ -665,8 +665,10 @@
                         <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin: 0;">Confused about something HVAC-related? Ask us. If we don't have an article on it, we'll write one.</p>
                     </div>
                     
-                    <form action="https://formspree.io/f/xbldvzye" method="POST" style="background: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                    <form name="blog-question" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="background: #ffffff; border-radius: 16px; padding: 2rem; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                        <input type="hidden" name="form-name" value="blog-question">
                         <input type="hidden" name="form_type" value="Blog Question">
+                        <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
                         
                         <div style="margin-bottom: 1rem;">
                             <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a1a; font-size: 0.95rem;">Your Name *</label>
