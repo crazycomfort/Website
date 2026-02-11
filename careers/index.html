@@ -275,27 +275,92 @@
 
         <!-- Apply Section -->
         <section class="homepage-section" style="background: var(--bg-light);">
-            <div class="container" style="text-align: center;">
-                <h2 class="homepage-headline">Ready to Join Us?</h2>
-                <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Send us your resume and a brief message about why you'd be a good fit. No cover letter templates—just tell us about yourself.</p>
+            <div class="container">
+                <h2 class="homepage-headline" style="text-align: center;">Ready to Join Us?</h2>
+                <p style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; text-align: center;">Fill out the quick form below, or reach out directly. No resume upload required—just tell us about yourself.</p>
                 
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                    <a href="mailto:ez@crazycomfort.com?subject=Career%20Inquiry%20-%20HVAC%20Technician" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(254,154,69,0.3); cursor: pointer;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        Email Your Resume
-                    </a>
-                    <a href="tel:832-633-8701" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ffffff; border: 2px solid #2078aa; color: #2078aa; font-weight: 700; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; cursor: pointer;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        Call to Inquire
-                    </a>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    
+                    <!-- Application Form -->
+                    <div style="background: #ffffff; border-radius: 16px; padding: 2rem; border: 2px solid #e8e8e8; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1.5rem; text-align: center;">Quick Application</h3>
+                        <form action="https://formspree.io/f/xbldvzye" method="POST" style="max-width: 500px; margin: 0 auto;">
+                            <input type="hidden" name="_subject" value="Career Application - Crazy Comfort">
+                            <input type="hidden" name="form_type" value="Career Application">
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Full Name *</label>
+                                <input type="text" name="name" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a;">
+                            </div>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Phone Number *</label>
+                                <input type="tel" name="phone" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a;">
+                            </div>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Email Address *</label>
+                                <input type="email" name="email" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a;">
+                            </div>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Years of HVAC Experience *</label>
+                                <select name="experience" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a;">
+                                    <option value="">Select...</option>
+                                    <option value="0-2 years">0-2 years</option>
+                                    <option value="3-5 years">3-5 years</option>
+                                    <option value="6-10 years">6-10 years</option>
+                                    <option value="10+ years">10+ years</option>
+                                </select>
+                            </div>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Do you have EPA 608 Certification? *</label>
+                                <select name="epa_certification" required style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a;">
+                                    <option value="">Select...</option>
+                                    <option value="Yes - Universal">Yes - Universal</option>
+                                    <option value="Yes - Type I">Yes - Type I</option>
+                                    <option value="Yes - Type II">Yes - Type II</option>
+                                    <option value="No">No</option>
+                                    <option value="In Progress">In Progress</option>
+                                </select>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Tell us about yourself <span style="font-weight: 400; color: #888;">(optional)</span></label>
+                                <textarea name="message" rows="4" placeholder="What makes you a good fit? Any specialties or certifications?" style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a; resize: vertical;"></textarea>
+                            </div>
+                            
+                            <button type="submit" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(254,154,69,0.3);">
+                                Submit Application
+                            </button>
+                            
+                            <p style="font-size: 0.85rem; color: #888; text-align: center; margin-top: 1rem;">We'll reach out within 1-2 business days.</p>
+                        </form>
+                    </div>
+                    
+                    <!-- Alternative Contact Options -->
+                    <div style="text-align: center; padding: 1.5rem 0;">
+                        <p style="color: #555555; font-size: 1rem; margin-bottom: 1.25rem; font-weight: 600;">Or reach out directly:</p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                            <a href="mailto:ez@crazycomfort.com?subject=Career%20Inquiry%20-%20HVAC%20Technician" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ffffff; border: 2px solid #2078aa; color: #2078aa; font-weight: 700; padding: 0.85rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; cursor: pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Email Us
+                            </a>
+                            <a href="tel:832-633-8701" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ffffff; border: 2px solid #2078aa; color: #2078aa; font-weight: 700; padding: 0.85rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; cursor: pointer;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                Call: 832-633-8701
+                            </a>
+                        </div>
+                        <p style="margin-top: 1.25rem; color: #888; font-size: 0.9rem;">ez@crazycomfort.com</p>
+                    </div>
+                    
                 </div>
-                
-                <p style="margin-top: 2rem; color: #555555; font-size: 0.95rem;">Email: <a href="mailto:ez@crazycomfort.com" style="color: #2078aa; font-weight: 600;">ez@crazycomfort.com</a> | Phone: <a href="tel:832-633-8701" style="color: #2078aa; font-weight: 600;">832-633-8701</a></p>
             </div>
         </section>
     </main>
