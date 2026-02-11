@@ -284,7 +284,7 @@
                     <!-- Application Form -->
                     <div style="background: #ffffff; border-radius: 16px; padding: 2rem; border: 2px solid #e8e8e8; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
                         <h3 style="font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1.5rem; text-align: center;">Quick Application</h3>
-                        <form action="https://formspree.io/f/xbldvzye" method="POST" style="max-width: 500px; margin: 0 auto;">
+                        <form action="https://formspree.io/f/xbldvzye" method="POST" enctype="multipart/form-data" style="max-width: 500px; margin: 0 auto;">
                             <input type="hidden" name="_subject" value="Career Application - Crazy Comfort">
                             <input type="hidden" name="form_type" value="Career Application">
                             
@@ -326,9 +326,15 @@
                                 </select>
                             </div>
                             
-                            <div style="margin-bottom: 1.5rem;">
+                            <div style="margin-bottom: 1rem;">
                                 <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Tell us about yourself <span style="font-weight: 400; color: #888;">(optional)</span></label>
                                 <textarea name="message" rows="4" placeholder="What makes you a good fit? Any specialties or certifications?" style="width: 100%; padding: 0.85rem 1rem; border: 2px solid #e8e8e8; border-radius: 8px; font-size: 1rem; background: #f8f9fa; color: #1a1a1a; resize: vertical;"></textarea>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem;">Upload Resume <span style="font-weight: 400; color: #888;">(optional)</span></label>
+                                <input type="file" name="resume" accept=".pdf,.doc,.docx" style="width: 100%; padding: 0.75rem; border: 2px dashed #e8e8e8; border-radius: 8px; font-size: 0.95rem; background: #f8f9fa; color: #1a1a1a; cursor: pointer;">
+                                <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">PDF, DOC, or DOCX (max 10MB)</p>
                             </div>
                             
                             <button type="submit" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(254,154,69,0.3);">
