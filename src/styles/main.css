@@ -2363,11 +2363,10 @@ body {
 
 .evidence-slide img {
     width: 100%;
-    height: 350px;
+    height: auto;
+    max-height: 400px;
     border-radius: 12px;
     object-fit: contain;
-    object-position: center;
-    background: #1a1a1a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -3512,8 +3511,8 @@ section {
     }
 
     .evidence-slide img {
-        max-height: 280px;
-        object-fit: contain;
+        height: auto;
+        max-height: 300px;
     }
 
     .micro-trust-bar {
