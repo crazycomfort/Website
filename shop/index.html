@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The Crazy Shop | Merch from Crazy Comfort</title>
+    <meta name="description" content="Official merch from Crazy Comfort. Tees, hats, and gear for people who like to stay comfortable and keep it real. Katy, TX born.">
+    <link rel="canonical" href="https://crazycomfort.com/shop">
+    <link rel="icon" type="image/png" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Crazy Shop | Official Crazy Comfort Merch">
+    <meta property="og:description" content="Tees, hats, and gear for people who like to stay comfortable. Katy, TX born.">
+    <meta property="og:url" content="https://crazycomfort.com/shop">
+    <meta property="og:image" content="https://crazycomfort.com/assets/images/social-share.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Crazy Shop | Official Crazy Comfort Merch">
+    <meta name="twitter:description" content="Tees, hats, and gear for people who like to stay comfortable. Katy, TX born.">
+    
+    <link rel="stylesheet" href="/dist/styles.css?v=202602122000">
+    <style>
+        .shop-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: white;
+            padding: calc(var(--total-header-height) + 3rem) 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shop-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fe9a45' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .shop-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .shop-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fe9a45 0%, #e8863a 100%);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .shop-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            margin: 0 0 1rem;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        
+        .shop-title span {
+            color: #fe9a45;
+        }
+        
+        .shop-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .products-section {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-color: #fe9a45;
+        }
+        
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: #888;
+        }
+        
+        .product-image-placeholder span {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .product-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #fe9a45;
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .product-tag.limited {
+            background: #e74c3c;
+        }
+        
+        .product-tag.bestseller {
+            background: #27ae60;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem;
+        }
+        
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 1rem;
+        }
+        
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        
+        .product-btn {
+            background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .product-btn:hover {
+            background: linear-gradient(135deg, #1a5f85 0%, #14496a 100%);
+            transform: scale(1.05);
+        }
+        
+        .coming-soon-section {
+            background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .coming-soon-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 1rem;
+        }
+        
+        .coming-soon-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        
+        .coming-soon-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .coming-soon-item {
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        
+        .why-section {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .why-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.5rem;
+        }
+        
+        .why-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .shop-hero {
+                padding: calc(var(--total-header-height) + 2rem) 0 3rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .coming-soon-items {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div class="top-contact-bar">
+        <div class="container">
+            <a href="tel:832-633-8701" class="top-bar-phone">📞 832-633-8701</a>
+            <span class="top-bar-divider">|</span>
+            <span class="top-bar-location">Katy & Fulshear</span>
+            <span class="top-bar-divider">|</span>
+            <span class="top-bar-badge">Same Day Service Available</span>
+        </div>
+    </div>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/assets/images/CrazyComfort_Logo_Files_1/MORE%20LOGO%20PNG%20SIZES/Crazy_Comfort_500x66_1.png" alt="Crazy Comfort Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/commercial">Commercial</a></li>
+                <li><a href="/service-area">Service Area</a></li>
+                <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle" aria-label="Toggle dark/light mode" title="Switch to dark mode" id="themeToggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="shop-hero">
+            <div class="container shop-hero-content">
+                <span class="shop-badge">Official Merch</span>
+                <h1 class="shop-title">THE <span>CRAZY</span> SHOP</h1>
+                <p class="shop-subtitle">Gear for people who like it honest, comfortable, and a little crazy. Katy, TX born.</p>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="homepage-headline" style="text-align: center; margin-bottom: 3rem;">The Collection</h2>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag bestseller">Fan Favorite</span>
+                            <div class="product-image-placeholder">
+                                👕
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">"That's Crazy." Tee</h3>
+                            <p class="product-description">The one that started it all. Clean. Simple. Says what you mean. Heavyweight cotton, relaxed fit.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$28</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">New</span>
+                            <div class="product-image-placeholder">
+                                🧢
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Swirl Trucker Hat</h3>
+                            <p class="product-description">The iconic orange swirl on a classic trucker. Mesh back, snapback closure. Looks good on everyone.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$32</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                👕
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">"Stay Crazy Comfortable" Tee</h3>
+                            <p class="product-description">For the ones who don't settle. Premium ringspun cotton. Actually comfortable, not just the name.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$28</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag limited">Limited</span>
+                            <div class="product-image-placeholder">
+                                👕
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">"My HVAC Guy Sends Me Photos" Tee</h3>
+                            <p class="product-description">IYKYK. For customers who've experienced the transparency and can't stop talking about it.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$30</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-image-placeholder">
+                                🧢
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">"Katy, TX" Dad Hat</h3>
+                            <p class="product-description">Rep where you're from. Embroidered "Crazy Comfort • Katy, TX" on unstructured cotton. Low profile.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$26</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag">New</span>
+                            <div class="product-image-placeholder">
+                                🥤
+                                <span>Product Image</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">"Stay Cool" Tumbler</h3>
+                            <p class="product-description">20oz stainless steel. Keeps drinks cold for 24 hours. Because staying cool is the whole point.</p>
+                            <div class="product-footer">
+                                <span class="product-price">$35</span>
+                                <a href="#" class="product-btn">Coming Soon</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Coming Soon -->
+        <section class="coming-soon-section">
+            <div class="container">
+                <h2 class="coming-soon-title">More Dropping Soon</h2>
+                <p class="coming-soon-text">We're cooking up more gear. Sign up for HVAC service and we'll let you know when the shop goes live.</p>
+                <div class="coming-soon-items">
+                    <span class="coming-soon-item">Hoodies</span>
+                    <span class="coming-soon-item">Work Shirts</span>
+                    <span class="coming-soon-item">Stickers</span>
+                    <span class="coming-soon-item">Koozies</span>
+                    <span class="coming-soon-item">Kids Tees</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why -->
+        <section class="why-section">
+            <div class="container">
+                <h2 class="homepage-headline" style="text-align: center;">Why We Made This</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">🎯</div>
+                        <h3 class="why-title">Not Just a Logo Slap</h3>
+                        <p class="why-text">We designed stuff we'd actually wear. If it's not fire, it doesn't make the cut.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">🏠</div>
+                        <h3 class="why-title">Katy Pride</h3>
+                        <p class="why-text">Local company, local gear. Rep your hometown while staying comfortable.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">💯</div>
+                        <h3 class="why-title">Quality Materials</h3>
+                        <p class="why-text">Same standards we bring to HVAC. No cheap stuff. Built to last.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="/assets/images/CrazyComfort_Logo_Files_1/SWIRL ICON/PNG/SWIRL ICON-03.png" alt="Crazy Comfort Swirl" class="footer-swirl">
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Photo Documented</p>
+                </div>
+                <div class="footer-about">
+                    <h3>About Crazy Comfort</h3>
+                    <p>Woman-owned HVAC company providing transparent, documented service in Katy, Fulshear, and West Houston. Every visit documented with <span style="color: #fe9a45; font-weight: 600;">real-time, timestamped photos</span>.</p>
+                </div>
+                <div class="footer-links-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><a href="tel:832-633-8701" style="color: #fe9a45; font-weight: 600;">832-633-8701</a></p>
+                    <p>Katy & Fulshear, TX</p>
+                    <p><span>Mon-Fri: 8am-5pm<br>Sat-Sun: Emergency Only<br>After-Hours Emergency Available</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Crazy Comfort LLC. All rights reserved. Woman-Owned Business.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">HVAC Service in Katy, Fulshear, Richmond, Sugar Land & West Houston</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><a href="/privacy-policy" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> · <a href="/terms-conditions" style="color: rgba(255,255,255,0.7);">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/dist/main.js?v=202602122000"></script>
+</body>
+</html>
