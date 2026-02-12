@@ -433,85 +433,19 @@ function initFAQ() {
 // Initialize FAQ on DOM ready
 document.addEventListener('DOMContentLoaded', initFAQ);
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    const formMessage = document.getElementById('form-message');
-    const submitButton = document.getElementById('submit-button');
-    
-    // Check if form action is set up
-    const formAction = contactForm.getAttribute('action');
-    if (formAction && formAction.includes('YOUR_FORM_ID')) {
-        console.warn('Formspree form ID not configured. Please set up your Formspree account and update the form action URL.');
-    }
-    
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Check if form is properly configured
-        if (formAction && formAction.includes('YOUR_FORM_ID')) {
-            formMessage.textContent = 'Form is not yet configured. Please contact us directly at (832) 633-8701 or ez@crazycomfort.com';
-            formMessage.className = 'form-message form-message-error';
-            return;
+// Form submission handler - Netlify Forms
+// Netlify Forms handle submission automatically, we just add visual feedback
+const allForms = document.querySelectorAll('form[data-netlify="true"]');
+allForms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
         }
-        
-        // Disable submit button
-        submitButton.disabled = true;
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        
-        // Clear previous messages
-        formMessage.textContent = '';
-        formMessage.className = 'form-message';
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        
-        // Set reply-to email from form
-        const emailInput = contactForm.querySelector('#email');
-        if (emailInput && emailInput.value) {
-            formData.set('_replyto', emailInput.value);
-        }
-        
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (response.ok) {
-                // Success
-                formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
-                formMessage.className = 'form-message form-message-success';
-                submitButton.textContent = 'Message Sent! ✓';
-                submitButton.style.background = '#10b981';
-                contactForm.reset();
-                
-                // Reset button after 5 seconds
-                setTimeout(() => {
-                    submitButton.textContent = originalText;
-                    submitButton.style.background = '';
-                    submitButton.disabled = false;
-                    formMessage.textContent = '';
-                    formMessage.className = 'form-message';
-                }, 5000);
-            } else {
-                // Error from Formspree
-                const data = await response.json();
-                throw new Error(data.error || 'There was an error submitting your form. Please try again.');
-            }
-        } catch (error) {
-            // Network or other error
-            formMessage.textContent = error.message || 'There was an error submitting your form. Please try again or call us at (832) 633-8701.';
-            formMessage.className = 'form-message form-message-error';
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }
+        // Let the form submit naturally to Netlify
     });
-}
+});
 
 // CTA button handler
 const ctaButton = document.querySelector('.cta-button');
