@@ -140,11 +140,7 @@ if (document.readyState === 'loading') {
     initThemeToggle();
 }
 
-// Force scroll to top on page load/refresh
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-window.scrollTo(0, 0);
+// Let browser handle scroll restoration naturally (prevents mobile jumping)
 
 // Header scroll effect
 function initHeaderScroll() {
