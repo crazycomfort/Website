@@ -6286,21 +6286,16 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         overflow: hidden;
     }
     
-    /* Dark header when menu is open */
+    /* Keep header cream when menu is open - logo stays readable */
     body.menu-open .header,
     body.menu-open .header.is-scrolled {
-        background: #0a0a0a !important;
-        box-shadow: none !important;
+        background: #fdf5ea !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     }
     
-    /* White hamburger/X when menu is open */
+    /* Orange X when menu is open */
     body.menu-open .menu-toggle span {
-        background: #ffffff !important;
-    }
-    
-    /* White logo when menu is open */
-    body.menu-open .logo-image {
-        filter: brightness(0) invert(1);
+        background: #fe9a45 !important;
     }
 
     .hero-title {
