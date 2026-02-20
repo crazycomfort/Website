@@ -6190,14 +6190,16 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         object-fit: contain !important;
     }
 
-    /* MOBILE MENU DROPDOWN - Dark dropdown from header */
+    /* MOBILE MENU DROPDOWN - Dark dropdown with swirl */
     .nav-menu,
     [data-theme="dark"] .nav-menu {
         position: fixed;
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #0a0a0a !important;
+        background: #0a0a0a url('/assets/images/SWIRL ICON-01.png') no-repeat !important;
+        background-position: 120% 50% !important;
+        background-size: 280px 280px !important;
         display: none;
         flex-direction: column;
         padding: 2rem 0;
@@ -6210,19 +6212,16 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-top: 3px solid #fe9a45;
     }
     
-    /* Brand watermark */
+    /* Swirl glow overlay */
     .nav-menu::after,
     [data-theme="dark"] .nav-menu::after {
-        content: 'STAY CRAZY';
+        content: '';
         position: absolute;
-        bottom: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 2.5rem;
-        font-weight: 900;
-        color: rgba(254, 154, 69, 0.1);
-        letter-spacing: 0.1em;
-        white-space: nowrap;
+        top: 0;
+        right: -50px;
+        width: 300px;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(32, 120, 170, 0.15) 0%, transparent 70%);
         pointer-events: none;
     }
 
