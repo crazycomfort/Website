@@ -6190,74 +6190,57 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         object-fit: contain !important;
     }
 
-    /* MOBILE MENU - Close button area at top */
-    .nav-menu::before {
-        content: '';
-        display: none;
-    }
-
-    .nav-menu.active::before {
-        display: none;
-    }
-
-    /* MOBILE MENU DROPDOWN - Full-screen dark takeover */
+    /* MOBILE MENU DROPDOWN - Dark dropdown from header */
     .nav-menu,
     [data-theme="dark"] .nav-menu {
         position: fixed;
-        top: 0;
+        top: var(--total-header-height);
         left: 0;
         right: 0;
-        bottom: 0;
         background: #0a0a0a !important;
         display: none;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        padding-top: calc(var(--total-header-height) + 2rem);
-        box-shadow: none;
-        transform: translateY(-100%);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 2rem 0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
         z-index: 9999;
-        height: 100vh;
+        max-height: calc(100vh - var(--total-header-height));
+        overflow-y: auto;
         width: 100%;
         list-style: none;
-        border-top: none;
+        border-top: 3px solid #fe9a45;
     }
     
-    /* Brand graphic watermark behind menu */
+    /* Brand watermark */
     .nav-menu::after,
     [data-theme="dark"] .nav-menu::after {
         content: 'STAY CRAZY';
         position: absolute;
-        bottom: 15%;
+        bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 4rem;
+        font-size: 2.5rem;
         font-weight: 900;
-        color: rgba(254, 154, 69, 0.08);
-        letter-spacing: 0.05em;
+        color: rgba(254, 154, 69, 0.1);
+        letter-spacing: 0.1em;
         white-space: nowrap;
         pointer-events: none;
-        z-index: -1;
     }
 
     .nav-menu.active {
         display: flex !important;
-        transform: translateY(0);
         pointer-events: auto !important;
     }
     
-    /* MOBILE MENU ITEMS - Centered, no borders */
+    /* MOBILE MENU ITEMS - Centered */
     .nav-menu li,
     [data-theme="dark"] .nav-menu li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
         list-style: none;
-        width: auto;
+        width: 100%;
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
-        border-bottom: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
         background: transparent !important;
         text-align: center;
     }
@@ -6267,14 +6250,14 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-bottom: none !important;
     }
     
-    /* MOBILE MENU LINKS - Big, bold, centered */
+    /* MOBILE MENU LINKS - Bold white text */
     .nav-menu a,
     [data-theme="dark"] .nav-menu a {
         display: block;
-        padding: 1rem 2rem;
-        width: auto;
-        font-size: 1.75rem !important;
-        font-weight: 800;
+        padding: 1.25rem 2rem;
+        width: 100%;
+        font-size: 1.5rem !important;
+        font-weight: 700;
         text-align: center;
         color: #ffffff !important;
         pointer-events: auto !important;
@@ -6283,21 +6266,20 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         z-index: 10001;
         -webkit-tap-highlight-color: rgba(254, 154, 69, 0.3);
         background: transparent !important;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         text-shadow: none !important;
         text-decoration: none !important;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
     }
     
-    /* MOBILE MENU HOVER/TAP - Orange glow */
+    /* MOBILE MENU HOVER/TAP - Orange */
     .nav-menu a:hover,
     .nav-menu a:active,
     [data-theme="dark"] .nav-menu a:hover,
     [data-theme="dark"] .nav-menu a:active {
-        background: transparent !important;
+        background: rgba(254, 154, 69, 0.15) !important;
         color: #fe9a45 !important;
-        text-shadow: 0 0 20px rgba(254, 154, 69, 0.5) !important;
     }
 
     /* Lock body scroll when menu is open */
@@ -6307,22 +6289,19 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     
     /* Dark header when menu is open */
     body.menu-open .header,
-    body.menu-open .header.is-scrolled,
-    body.menu-open [data-theme="dark"] .header {
+    body.menu-open .header.is-scrolled {
         background: #0a0a0a !important;
         box-shadow: none !important;
     }
     
     /* White hamburger/X when menu is open */
-    body.menu-open .menu-toggle span,
-    body.menu-open .header .menu-toggle span {
+    body.menu-open .menu-toggle span {
         background: #ffffff !important;
     }
     
-    /* Hide logo when menu is open for cleaner look */
-    body.menu-open .logo {
-        opacity: 0;
-        pointer-events: none;
+    /* White logo when menu is open */
+    body.menu-open .logo-image {
+        filter: brightness(0) invert(1);
     }
 
     .hero-title {
