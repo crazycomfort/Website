@@ -1150,6 +1150,20 @@ body {
     margin: 0;
 }
 
+/* Brand Parallax - Typography-focused backgrounds */
+.parallax-brand {
+    background-size: contain;
+    background-position: center center;
+    height: 300px;
+}
+
+.parallax-brand .parallax-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: none;
+}
+
 /* Mobile: disable parallax (doesn't work well on mobile browsers) */
 @media (max-width: 768px) {
     .parallax-section {
@@ -1158,9 +1172,19 @@ body {
         height: 350px;
     }
     
+    .parallax-brand {
+        height: 250px;
+        background-size: 90%;
+    }
+    
     .parallax-tagline {
         font-size: 1.25rem;
         letter-spacing: 0.05em;
+    }
+    
+    .parallax-brand .parallax-tagline {
+        font-size: 0.9rem;
+        padding: 0 1rem;
     }
 }
 
@@ -6188,14 +6212,15 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         pointer-events: none;
     }
 
-    /* MOBILE MENU DROPDOWN - Brand cream with orange accent */
+    /* MOBILE MENU DROPDOWN - Brand cream with graphic accent */
     .nav-menu,
     [data-theme="dark"] .nav-menu {
         position: fixed;
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #fdf5ea !important;
+        background: #fdf5ea url('/assets/images/stay_crazy_spine.png') no-repeat right bottom !important;
+        background-size: 120px auto !important;
         display: none;
         flex-direction: column;
         padding: 0;

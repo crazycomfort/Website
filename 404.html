@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Crazy Comfort</title>
+    <link rel="icon" type="image/png" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
+    <link rel="stylesheet" href="/dist/styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem;
+        }
+        .error-content {
+            max-width: 600px;
+        }
+        .error-graphic {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #fe9a45;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .error-submessage {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+        .error-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #fe9a45 0%, #e8863a 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .error-btn:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 4rem;
+            }
+            .error-message {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="error-page">
+        <div class="error-content">
+            <img src="/assets/images/thats_crazy_brand.png" alt="That's Crazy - Crazy Comfort" class="error-graphic">
+            <p class="error-code">404</p>
+            <p class="error-message">This page doesn't exist.</p>
+            <p class="error-submessage">But hey, at least your HVAC is still working... right?</p>
+            <a href="/" class="error-btn">Back to Home →</a>
+        </div>
+    </main>
+</body>
+</html>
