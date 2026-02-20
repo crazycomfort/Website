@@ -6190,68 +6190,76 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         object-fit: contain !important;
     }
 
-    /* MOBILE MENU OVERLAY - Semi-transparent brand blue */
+    /* MOBILE MENU - Close button area at top */
     .nav-menu::before {
         content: '';
+        display: none;
+    }
+
+    .nav-menu.active::before {
+        display: none;
+    }
+
+    /* MOBILE MENU DROPDOWN - Full-screen dark takeover */
+    .nav-menu,
+    [data-theme="dark"] .nav-menu {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(32, 120, 170, 0.4);
-        z-index: -1;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        pointer-events: none;
-    }
-
-    .nav-menu.active::before {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: none;
-    }
-
-    /* MOBILE MENU DROPDOWN - Brand cream with graphic accent */
-    .nav-menu,
-    [data-theme="dark"] .nav-menu {
-        position: fixed;
-        top: var(--total-header-height);
-        left: 0;
-        right: 0;
-        background: #fdf5ea url('/assets/images/stay_crazy_spine.png') no-repeat right bottom !important;
-        background-size: 120px auto !important;
+        background: #0a0a0a !important;
         display: none;
         flex-direction: column;
-        padding: 0;
-        box-shadow: 0 8px 30px rgba(32, 120, 170, 0.2);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        padding-top: calc(var(--total-header-height) + 2rem);
+        box-shadow: none;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 9999;
-        max-height: calc(100vh - var(--total-header-height));
-        overflow-y: auto;
+        height: 100vh;
         width: 100%;
         list-style: none;
-        border-top: 4px solid #fe9a45;
+        border-top: none;
+    }
+    
+    /* Brand graphic watermark behind menu */
+    .nav-menu::after,
+    [data-theme="dark"] .nav-menu::after {
+        content: 'STAY CRAZY';
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 4rem;
+        font-weight: 900;
+        color: rgba(254, 154, 69, 0.08);
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: -1;
     }
 
     .nav-menu.active {
         display: flex !important;
-        transform: translateX(0);
+        transform: translateY(0);
         pointer-events: auto !important;
     }
     
-    /* MOBILE MENU ITEMS - Cream with orange separator */
+    /* MOBILE MENU ITEMS - Centered, no borders */
     .nav-menu li,
     [data-theme="dark"] .nav-menu li {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
         list-style: none;
-        width: 100%;
+        width: auto;
         pointer-events: auto !important;
         position: relative;
         z-index: 10001;
-        border-bottom: 1px solid rgba(254, 154, 69, 0.3) !important;
-        background: #fdf5ea !important;
+        border-bottom: none !important;
+        background: transparent !important;
+        text-align: center;
     }
     
     .nav-menu li:last-child,
@@ -6259,39 +6267,62 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-bottom: none !important;
     }
     
-    /* MOBILE MENU LINKS - Brand blue text on cream */
+    /* MOBILE MENU LINKS - Big, bold, centered */
     .nav-menu a,
     [data-theme="dark"] .nav-menu a {
         display: block;
-        padding: 1rem 1.5rem;
-        width: 100%;
-        font-size: 1.1rem !important;
-        font-weight: 600;
-        text-align: left;
-        color: #2078aa !important;
+        padding: 1rem 2rem;
+        width: auto;
+        font-size: 1.75rem !important;
+        font-weight: 800;
+        text-align: center;
+        color: #ffffff !important;
         pointer-events: auto !important;
         cursor: pointer;
         position: relative;
         z-index: 10001;
         -webkit-tap-highlight-color: rgba(254, 154, 69, 0.3);
-        background: #fdf5ea !important;
-        transition: all 0.2s ease;
+        background: transparent !important;
+        transition: all 0.3s ease;
         text-shadow: none !important;
         text-decoration: none !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
-    /* MOBILE MENU HOVER/TAP - Orange text with lighter cream bg */
+    /* MOBILE MENU HOVER/TAP - Orange glow */
     .nav-menu a:hover,
     .nav-menu a:active,
     [data-theme="dark"] .nav-menu a:hover,
     [data-theme="dark"] .nav-menu a:active {
-        background: #fff8f0 !important;
+        background: transparent !important;
         color: #fe9a45 !important;
+        text-shadow: 0 0 20px rgba(254, 154, 69, 0.5) !important;
     }
 
     /* Lock body scroll when menu is open */
     body.menu-open {
         overflow: hidden;
+    }
+    
+    /* Dark header when menu is open */
+    body.menu-open .header,
+    body.menu-open .header.is-scrolled,
+    body.menu-open [data-theme="dark"] .header {
+        background: #0a0a0a !important;
+        box-shadow: none !important;
+    }
+    
+    /* White hamburger/X when menu is open */
+    body.menu-open .menu-toggle span,
+    body.menu-open .header .menu-toggle span {
+        background: #ffffff !important;
+    }
+    
+    /* Hide logo when menu is open for cleaner look */
+    body.menu-open .logo {
+        opacity: 0;
+        pointer-events: none;
     }
 
     .hero-title {
