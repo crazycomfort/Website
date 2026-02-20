@@ -1112,9 +1112,9 @@ body {
 /* Parallax Section - The Work Speaks */
 .parallax-section {
     position: relative;
-    height: 400px;
+    height: 450px;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -1154,7 +1154,8 @@ body {
 @media (max-width: 768px) {
     .parallax-section {
         background-attachment: scroll;
-        height: 300px;
+        background-position: center top;
+        height: 350px;
     }
     
     .parallax-tagline {
