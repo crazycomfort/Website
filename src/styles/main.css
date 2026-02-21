@@ -174,7 +174,6 @@ body {
     z-index: 1001;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     height: var(--header-height, 70px);
-    overflow: hidden;
     display: flex;
     align-items: center;
 }
@@ -299,7 +298,6 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
     gap: 1rem;
     height: 100%;
     max-height: var(--header-height);
-    overflow: hidden;
     width: 100%;
 }
 
@@ -309,7 +307,6 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
     flex-shrink: 0;
     height: 100%;
     max-height: var(--header-height);
-    overflow: hidden;
 }
 
 .logo a {
