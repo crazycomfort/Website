@@ -3,7 +3,7 @@ Company: Crazy Comfort LLC
 Owner: Kim
 Site: https://crazycomfort.com
 Location: Katy & Fulshear, Texas, USA
-License: TACLA150322C
+License: TACLA00048090C
 
 /* THANKS */
 Our amazing customers in Katy, Fulshear, and West Houston who trust us with their comfort.
