@@ -1,0 +1,21 @@
+/* TEAM */
+Company: Crazy Comfort LLC
+Owner: Kim
+Site: https://crazycomfort.com
+Location: Katy & Fulshear, Texas, USA
+License: TACLA150322C
+
+/* THANKS */
+Our amazing customers in Katy, Fulshear, and West Houston who trust us with their comfort.
+
+/* SITE */
+Last update: 2026-01-22
+Language: English
+Standards: HTML5, CSS3, JavaScript
+Components: Accessible, Mobile-First, SEO Optimized
+
+/* BUSINESS */
+Type: Woman-Owned HVAC Company
+Services: AC Repair, Heating, Installation, Maintenance, Indoor Air Quality
+Promise: Every visit documented with real-time, timestamped photos
+Phone: 832-403-7466

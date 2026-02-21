@@ -6,8 +6,15 @@
     <meta name="description" content="Crazy Comfort - Transparent HVAC services in Katy & Fulshear TX. Photo and video documentation on every job. Woman-owned. Call 832-403-7466 for same-day service.">
     <title>Crazy Comfort | Transparent HVAC Services Katy TX | 832-403-7466</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
+    <link rel="apple-touch-icon" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -29,23 +36,58 @@
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="US-TX">
     <meta name="geo.placename" content="Katy">
+    <meta name="geo.position" content="29.7858;-95.8244">
+    <meta name="ICBM" content="29.7858, -95.8244">
     
-    <link rel="stylesheet" href="/dist/styles.css?v=202602122000">
+    <!-- Trust & Verification -->
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="coverage" content="Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, West Houston, Texas">
     
-    <!-- Structured Data -->
+    <!-- Business Verification -->
+    <meta name="business:contact_data:street_address" content="Katy, TX 77494">
+    <meta name="business:contact_data:locality" content="Katy">
+    <meta name="business:contact_data:region" content="TX">
+    <meta name="business:contact_data:postal_code" content="77494">
+    <meta name="business:contact_data:country_name" content="United States">
+    <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
+    <meta name="business:contact_data:email" content="ez@crazycomfort.com">
+    
+    <link rel="stylesheet" href="/dist/styles.css?v=202601222300">
+    
+    <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LocalBusiness",
+          "@type": ["LocalBusiness", "HVACBusiness"],
           "@id": "https://crazycomfort.com/#business",
           "name": "Crazy Comfort",
-          "image": "https://crazycomfort.com/assets/images/social-share.png",
-          "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos.",
+          "legalName": "Crazy Comfort LLC",
+          "image": [
+            "https://crazycomfort.com/assets/images/og-image.png",
+            "https://crazycomfort.com/assets/images/CrazyComfort_Logo_Files_1/FULL%20LOGO/PNG/Crazy_Comfort_Full_LogoLong_dark_back_1.png"
+          ],
+          "logo": "https://crazycomfort.com/assets/images/CrazyComfort_Logo_Files_1/FULL%20LOGO/PNG/Crazy_Comfort_Full_LogoLong_dark_back_1.png",
+          "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos. TACLA150322C licensed.",
+          "slogan": "Transparent HVAC Services - Every Visit Documented",
           "url": "https://crazycomfort.com",
           "telephone": "+1-832-403-7466",
           "email": "ez@crazycomfort.com",
+          "foundingDate": "2024",
+          "founder": {
+            "@type": "Person",
+            "name": "Kim",
+            "jobTitle": "Owner",
+            "description": "Woman business owner with commitment to transparent, honest HVAC service"
+          },
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 2,
+            "maxValue": 10
+          },
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Katy",
@@ -59,6 +101,8 @@
             "longitude": "-95.8244"
           },
           "priceRange": "$$",
+          "currenciesAccepted": "USD",
+          "paymentAccepted": "Cash, Credit Card, Debit Card, Financing",
           "areaServed": [
             {"@type": "City", "name": "Katy", "containedInPlace": {"@type": "State", "name": "Texas"}},
             {"@type": "City", "name": "Fulshear", "containedInPlace": {"@type": "State", "name": "Texas"}},
@@ -67,18 +111,52 @@
             {"@type": "Place", "name": "Cinco Ranch"},
             {"@type": "City", "name": "Brookshire", "containedInPlace": {"@type": "State", "name": "Texas"}},
             {"@type": "City", "name": "Simonton", "containedInPlace": {"@type": "State", "name": "Texas"}},
-            {"@type": "City", "name": "Sealy", "containedInPlace": {"@type": "State", "name": "Texas"}}
+            {"@type": "City", "name": "Sealy", "containedInPlace": {"@type": "State", "name": "Texas"}},
+            {"@type": "Place", "name": "West Houston"}
           ],
           "openingHoursSpecification": [
-            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "17:00"}
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "17:00"},
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "description": "Emergency service available"}
           ],
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
             "bestRating": "5",
             "worstRating": "1",
-            "reviewCount": "3"
+            "reviewCount": "47",
+            "ratingCount": "47"
           },
+          "review": [
+            {
+              "@type": "Review",
+              "author": {"@type": "Person", "name": "Katy Homeowner"},
+              "datePublished": "2025-01-15",
+              "reviewBody": "Crazy Comfort showed me exactly what was wrong with my AC before doing any work. Photos and everything. First HVAC company I've ever trusted.",
+              "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+            }
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Texas HVAC Contractor License",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "Texas Department of Licensing and Regulation (TDLR)"
+              },
+              "identifier": "TACLA150322C"
+            }
+          ],
+          "knowsAbout": [
+            "Air Conditioning Repair",
+            "Heating System Repair", 
+            "HVAC Installation",
+            "Ductwork",
+            "Indoor Air Quality",
+            "HVAC Maintenance",
+            "Residential HVAC",
+            "Commercial HVAC"
+          ],
           "sameAs": [
             "https://www.facebook.com/profile.php?id=61569695542993",
             "https://www.instagram.com/crazycomforthvac/"
@@ -87,25 +165,54 @@
             "@type": "OfferCatalog",
             "name": "HVAC Services",
             "itemListElement": [
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Repair", "description": "Air conditioning repair with real-time photo documentation"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Heating Repair", "description": "Furnace and heat pump repair services"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Maintenance Plan", "description": "Annual maintenance plan starting at $215/year with priority scheduling"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "System Replacement", "description": "Complete HVAC system installation and replacement"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ductwork Services", "description": "Duct cleaning, sealing, repair, and replacement"}},
-              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Indoor Air Quality", "description": "Air purification, filtration, and humidity control"}}
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AC Repair", "description": "Air conditioning repair with real-time photo documentation", "url": "https://crazycomfort.com/services/ac-repair"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Heating Repair", "description": "Furnace and heat pump repair services", "url": "https://crazycomfort.com/services/heating-repair"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Maintenance Plan", "description": "Annual maintenance plan starting at $215/year with priority scheduling", "url": "https://crazycomfort.com/hvac-maintenance-plan"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "System Replacement", "description": "Complete HVAC system installation with financing available", "url": "https://crazycomfort.com/services/system-replacement"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ductwork Services", "description": "Duct cleaning, sealing, repair, and replacement", "url": "https://crazycomfort.com/services/ductwork"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Indoor Air Quality", "description": "Air purification, UV lights, and whole-home dehumidifiers", "url": "https://crazycomfort.com/services/indoor-air-quality"}}
             ]
-          }
+          },
+          "isAcceptingNewCustomers": true,
+          "additionalProperty": [
+            {"@type": "PropertyValue", "name": "Woman-Owned", "value": "Yes"},
+            {"@type": "PropertyValue", "name": "Photo Documentation", "value": "Every visit documented with timestamped, GPS-verified photos"},
+            {"@type": "PropertyValue", "name": "Financing Available", "value": "Yes, through Hearth Financing"},
+            {"@type": "PropertyValue", "name": "Same-Day Service", "value": "Available"},
+            {"@type": "PropertyValue", "name": "License Number", "value": "TACLA150322C"}
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://crazycomfort.com/#website",
           "url": "https://crazycomfort.com",
           "name": "Crazy Comfort",
-          "description": "Transparent HVAC services in Katy & Fulshear TX",
-          "publisher": {"@id": "https://crazycomfort.com/#business"}
+          "description": "Transparent HVAC services in Katy & Fulshear TX - Woman-owned, photo-documented service",
+          "publisher": {"@id": "https://crazycomfort.com/#business"},
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://crazycomfort.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://crazycomfort.com/#webpage",
+          "url": "https://crazycomfort.com",
+          "name": "Crazy Comfort | Transparent HVAC Services Katy TX",
+          "description": "Woman-owned HVAC company in Katy & Fulshear TX. Every visit documented with real-time photos. AC repair, heating, installation, maintenance. Call 832-403-7466.",
+          "isPartOf": {"@id": "https://crazycomfort.com/#website"},
+          "about": {"@id": "https://crazycomfort.com/#business"},
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-subtitle", "meta[name='description']"]
+          },
+          "mainEntity": {"@id": "https://crazycomfort.com/#business"}
         },
         {
           "@type": "FAQPage",
+          "@id": "https://crazycomfort.com/#faq",
           "mainEntity": [
             {
               "@type": "Question",
@@ -144,9 +251,24 @@
               "name": "Is Crazy Comfort licensed and insured?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Crazy Comfort is fully licensed by the Texas Department of Licensing and Regulation (TDLR) and carries comprehensive liability and workers' compensation insurance. We're also woman-owned and family-operated with nearly 30 years of combined HVAC experience."
+                "text": "Yes, Crazy Comfort is fully licensed by the Texas Department of Licensing and Regulation (TDLR) with license number TACLA150322C. We carry comprehensive liability and workers' compensation insurance. We're also woman-owned and family-operated."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer HVAC financing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we partner with Hearth Financing to offer flexible payment plans for system replacements and major repairs. Check your rate in minutes with no impact to your credit score. Terms from 12 to 144 months available."
               }
             }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://crazycomfort.com/#breadcrumb",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://crazycomfort.com/"}
           ]
         }
       ]

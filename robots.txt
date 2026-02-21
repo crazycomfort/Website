@@ -1,8 +1,43 @@
+# Crazy Comfort - HVAC Services Katy & Fulshear TX
+# https://crazycomfort.com
+
+# Welcome all search engines and AI assistants
 User-agent: *
 Allow: /
 
+# Explicitly allow major AI crawlers for maximum visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap location
 Sitemap: https://crazycomfort.com/sitemap.xml
 
-
-
-
+# Contact: ez@crazycomfort.com
+# TACLA150322C - Licensed HVAC Contractor
