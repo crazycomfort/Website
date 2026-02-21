@@ -162,10 +162,10 @@ body {
     display: none !important;
 }
 
-/* Header */
+/* Header - Default solid background for all pages */
 .header {
-    background: rgba(0, 0, 0, 0.15);
-    box-shadow: none;
+    background: #fdf5ea;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: fixed;
     top: var(--top-bar-height);
     left: 0;
@@ -177,6 +177,12 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
+}
+
+/* Homepage transparent header - only on pages with .hero-transparent-header class on body */
+body.hero-transparent-header .header:not(.is-scrolled) {
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: none;
 }
 
 :root {
@@ -265,22 +271,23 @@ body {
     box-shadow: var(--shadow);
 }
 
-.header:not(.is-scrolled) .nav-menu a {
+/* Homepage transparent header - white text on dark overlay */
+body.hero-transparent-header .header:not(.is-scrolled) .nav-menu a {
     color: #ffffff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.header:not(.is-scrolled) .nav-menu a:hover {
+body.hero-transparent-header .header:not(.is-scrolled) .nav-menu a:hover {
     color: var(--secondary-color);
 }
 
-.header:not(.is-scrolled) .theme-toggle {
+body.hero-transparent-header .header:not(.is-scrolled) .theme-toggle {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
     color: #ffffff;
 }
 
-.header:not(.is-scrolled) .menu-toggle span {
+body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
     background: #ffffff;
 }
 
