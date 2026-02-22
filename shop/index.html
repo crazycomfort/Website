@@ -86,14 +86,17 @@
         }
         
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
         
         .product-card {
+            flex: 0 1 340px;
+            max-width: 380px;
             background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
@@ -286,8 +289,12 @@
             }
             
             .products-grid {
-                grid-template-columns: 1fr;
                 padding: 0 1rem;
+            }
+            
+            .product-card {
+                flex: 1 1 100%;
+                max-width: 100%;
             }
             
             .coming-soon-items {
