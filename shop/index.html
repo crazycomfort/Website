@@ -29,6 +29,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
         }
         
         .shop-hero::before {
@@ -45,6 +49,11 @@
         .shop-hero-content {
             position: relative;
             z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .shop-badge {
@@ -346,7 +355,11 @@
 
     <main id="main-content">
         <!-- Hero -->
-        <section class="shop-hero" style="background-image: url('/assets/images/stay_crazy_spine.png'); background-size: contain; background-position: right center; background-repeat: no-repeat;">
+        <section class="shop-hero">
+            <!-- Spine graphic as subtle background element -->
+            <div style="position: absolute; right: -5%; top: 50%; transform: translateY(-50%); opacity: 0.15; pointer-events: none;">
+                <img src="/assets/images/spine_white_clean_transparent.png" alt="" style="height: 400px; width: auto;" aria-hidden="true">
+            </div>
             <div class="container shop-hero-content">
                 <span class="shop-badge">Official Collection</span>
                 <h1 class="shop-title">THE <span>CRAZY</span> SHOP</h1>
