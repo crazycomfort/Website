@@ -399,12 +399,12 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
 }
 
 .logo-tagline {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     color: var(--primary-color);
-    margin-top: -4px;
+    margin-top: -2px;
     text-align: center;
 }
 
@@ -6405,9 +6405,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     }
     
     .logo-tagline {
-        font-size: 0.6rem !important;
+        font-size: 0.7rem !important;
         font-weight: 700 !important;
-        letter-spacing: 1px !important;
+        letter-spacing: 1.5px !important;
         margin-top: 1px !important;
         color: var(--primary-color) !important;
         text-align: center !important;
