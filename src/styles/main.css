@@ -409,8 +409,8 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
 }
 
 body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #fe9a45;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Top bar trust badges */
@@ -6415,8 +6415,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     }
     
     body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
-        color: #ffffff !important;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+        color: #fe9a45 !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
     }
 
     /* MOBILE MENU DROPDOWN - Dark dropdown with swirl */
