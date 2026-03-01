@@ -234,18 +234,6 @@ body.hero-transparent-header .header:not(.is-scrolled) {
         font-weight: 700;
     }
     
-    /* Logo smaller on mobile */
-    .logo-image {
-        height: 32px;
-        max-width: 140px;
-    }
-    
-    .logo-tagline {
-        font-size: 0.6rem;
-        letter-spacing: 1px;
-        margin-top: -2px;
-    }
-    
     /* Hide dropdown on mobile - use regular menu */
     .dropdown-menu {
         display: none !important;
@@ -6325,18 +6313,18 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         background: transparent !important;
     }
 
-    /* MOBILE LOGO - Larger for readability */
+    /* MOBILE LOGO - Compact with tagline */
     .logo-image {
-        height: 26px !important;
-        max-width: 130px !important;
-        max-height: 26px !important;
+        height: 28px !important;
+        max-width: 140px !important;
+        max-height: 28px !important;
         width: auto !important;
     }
     
     .logo {
-        max-height: 26px !important;
-        height: 26px !important;
-        overflow: hidden !important;
+        max-height: 40px !important;
+        height: auto !important;
+        overflow: visible !important;
         display: flex !important;
         align-items: center !important;
         flex-shrink: 0 !important;
@@ -6346,21 +6334,34 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     
     .logo a {
         display: flex !important;
-        align-items: center !important;
-        height: 26px !important;
-        max-height: 26px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        height: auto !important;
+        max-height: 40px !important;
         padding: 0 !important;
         margin: 0 !important;
         line-height: 1 !important;
+        gap: 0 !important;
     }
     
     .logo img,
     .logo .logo-image {
-        height: 26px !important;
-        max-height: 26px !important;
-        max-width: 130px !important;
+        height: 28px !important;
+        max-height: 28px !important;
+        max-width: 140px !important;
         width: auto !important;
         object-fit: contain !important;
+    }
+    
+    .logo-tagline {
+        font-size: 0.55rem !important;
+        letter-spacing: 0.5px !important;
+        margin-top: -1px !important;
+        color: var(--primary-color) !important;
+    }
+    
+    body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
+        color: rgba(255, 255, 255, 0.85) !important;
     }
 
     /* MOBILE MENU DROPDOWN - Dark dropdown with swirl */
