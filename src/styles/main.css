@@ -347,7 +347,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
 
 .logo a {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0;
 }
 
@@ -358,7 +358,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
     letter-spacing: 1.5px;
     color: var(--primary-color);
     margin-top: -2px;
-    margin-left: 2px;
+    text-align: center;
 }
 
 body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
@@ -410,17 +410,29 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     min-width: 200px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 1002;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 9999;
     list-style: none;
-    margin-top: 0.5rem;
+    margin-top: 0;
 }
 
 .has-dropdown:hover .dropdown-menu,
 .has-dropdown:focus-within .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    margin-top: 0;
+}
+
+/* Ensure header allows dropdown overflow */
+.header {
+    overflow: visible !important;
+}
+
+.nav {
+    overflow: visible !important;
+}
+
+.nav-menu {
+    overflow: visible !important;
 }
 
 .dropdown-menu li {
