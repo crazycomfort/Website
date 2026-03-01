@@ -2606,7 +2606,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 }
 
 [data-theme="dark"] .evidence-pack-sub {
-    color: #ffffff;
+    color: var(--text-dark);
 }
 
 .evidence-carousel {
