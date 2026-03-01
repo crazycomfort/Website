@@ -2605,6 +2605,10 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     letter-spacing: 0.02em;
 }
 
+[data-theme="dark"] .evidence-pack-sub {
+    color: #ffffff;
+}
+
 .evidence-carousel {
     position: relative;
     overflow: hidden;
