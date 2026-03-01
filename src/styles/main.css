@@ -101,7 +101,7 @@ body {
 .top-contact-bar {
     background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: white;
-    padding: 0.6rem 0;
+    padding: 0.75rem 0;
     font-size: 0.85rem;
     font-weight: 600;
     position: fixed;
@@ -123,9 +123,10 @@ body {
 .top-bar-phone {
     color: white;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 1.3rem;
+    font-weight: 800;
+    font-size: 1.5rem;
     transition: color 0.2s ease;
+    letter-spacing: 0.5px;
 }
 
 .top-bar-phone:hover {
@@ -143,12 +144,12 @@ body {
 .top-bar-badge {
     background: var(--secondary-color);
     color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.5px;
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -187,7 +188,7 @@ body.hero-transparent-header .header:not(.is-scrolled) {
 :root {
     --header-h-desktop: 70px;
     --header-h-mobile: 40px;
-    --top-bar-height: 36px;
+    --top-bar-height: 44px;
     --header-height: var(--header-h-desktop);
     --total-header-height: calc(var(--header-height) + var(--top-bar-height));
 }
