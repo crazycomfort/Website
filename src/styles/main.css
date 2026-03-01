@@ -345,6 +345,107 @@ body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
     background-clip: text;
 }
 
+.logo a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.logo-tagline {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-color);
+    margin-top: -2px;
+    margin-left: 2px;
+}
+
+body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Top bar trust badges */
+.top-bar-trust {
+    opacity: 0.95;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.desktop-only {
+    display: inline;
+}
+
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .top-bar-trust {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .top-bar-trust:first-of-type {
+        display: none;
+    }
+}
+
+/* Navigation dropdown */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 0.75rem 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1002;
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text-dark) !important;
+    text-shadow: none !important;
+}
+
+.dropdown-menu a:hover {
+    background: var(--bg-light);
+    color: var(--primary-color) !important;
+}
+
+.dropdown-menu a::after {
+    display: none;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
