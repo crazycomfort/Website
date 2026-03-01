@@ -2599,9 +2599,9 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .evidence-pack-sub {
     display: block;
     margin-top: 0.25rem;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 600;
     letter-spacing: 0.02em;
 }
 
