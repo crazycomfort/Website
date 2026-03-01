@@ -196,53 +196,59 @@ body.hero-transparent-header .header:not(.is-scrolled) {
 @media (max-width: 768px) {
     :root {
         --header-height: var(--header-h-mobile);
-        --top-bar-height: 32px;
+        --top-bar-height: 38px;
     }
 
     .top-contact-bar {
-        padding: 0.4rem 0;
+        padding: 0.5rem 0;
         font-size: 0.75rem;
         height: var(--top-bar-height);
     }
 
     .top-contact-bar .container {
-        gap: 0.3rem;
+        gap: 0.5rem;
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
     }
 
     .top-bar-phone {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+        font-weight: 700;
     }
 
     .top-bar-location {
         font-size: 0.7rem;
-        display: inline;
-    }
-    
-    .top-bar-divider:nth-of-type(2) {
         display: none;
     }
     
-    .top-bar-badge {
-        display: none !important;
+    .top-bar-divider {
+        display: inline;
+        opacity: 0.5;
     }
     
-    /* Show mobile badge in header */
-    .mobile-badge {
+    .top-bar-badge {
         display: inline-flex !important;
-        background: var(--secondary-color);
-        color: white;
+        font-size: 0.7rem;
         padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.65rem;
-        font-weight: 600;
-        white-space: nowrap;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
+        font-weight: 700;
+    }
+    
+    /* Logo smaller on mobile */
+    .logo-image {
+        height: 32px;
+        max-width: 140px;
+    }
+    
+    .logo-tagline {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+        margin-top: -2px;
+    }
+    
+    /* Hide dropdown on mobile - use regular menu */
+    .dropdown-menu {
+        display: none !important;
     }
 
     .hero-trust-strip {
