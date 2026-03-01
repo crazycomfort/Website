@@ -214,6 +214,21 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Mobile dropdown toggle for Services
+const hasDropdown = document.querySelector('.has-dropdown');
+if (hasDropdown) {
+    const dropdownLink = hasDropdown.querySelector(':scope > a');
+    if (dropdownLink) {
+        dropdownLink.addEventListener('click', (e) => {
+            // Only toggle on mobile (when menu is in mobile mode)
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                hasDropdown.classList.toggle('mobile-open');
+            }
+        });
+    }
+}
+
 // Stats Counter Animation
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-target'));

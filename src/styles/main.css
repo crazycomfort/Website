@@ -234,9 +234,61 @@ body.hero-transparent-header .header:not(.is-scrolled) {
         font-weight: 700;
     }
     
-    /* Hide dropdown on mobile - use regular menu */
+    /* Mobile dropdown - inline submenu style */
+    .has-dropdown {
+        flex-direction: column !important;
+    }
+    
     .dropdown-menu {
+        position: static !important;
+        display: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    
+    .has-dropdown.mobile-open .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-menu li {
+        border-bottom: none !important;
+    }
+    
+    .dropdown-menu a {
+        font-size: 1rem !important;
+        padding: 0.75rem 2rem 0.75rem 3rem !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        background: transparent !important;
+    }
+    
+    .dropdown-menu a:hover {
+        color: #fe9a45 !important;
+        background: rgba(254, 154, 69, 0.1) !important;
+    }
+    
+    .dropdown-menu a::before {
         display: none !important;
+    }
+    
+    /* Arrow indicator for Services */
+    .has-dropdown > a::after {
+        content: ' ▼' !important;
+        font-size: 0.6rem !important;
+        margin-left: 0.5rem !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    .has-dropdown.mobile-open > a::after {
+        content: ' ▲' !important;
     }
 
     .hero-trust-strip {
@@ -6335,9 +6387,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .logo a {
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important;
+        align-items: center !important;
         height: auto !important;
-        max-height: 40px !important;
+        max-height: 42px !important;
         padding: 0 !important;
         margin: 0 !important;
         line-height: 1 !important;
@@ -6354,14 +6406,17 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     }
     
     .logo-tagline {
-        font-size: 0.55rem !important;
-        letter-spacing: 0.5px !important;
-        margin-top: -1px !important;
+        font-size: 0.6rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 1px !important;
+        margin-top: 1px !important;
         color: var(--primary-color) !important;
+        text-align: center !important;
     }
     
     body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
-        color: rgba(255, 255, 255, 0.85) !important;
+        color: #ffffff !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
     }
 
     /* MOBILE MENU DROPDOWN - Dark dropdown with swirl */
