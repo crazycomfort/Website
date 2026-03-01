@@ -113,175 +113,93 @@
         </section>
 
         <!-- HVAC Diagnostic Challenge Mini-Game -->
-        <section id="diagnostic-challenge" style="background: linear-gradient(135deg, #0d1f2d 0%, #1a3a52 50%, #0d1f2d 100%); padding: 4rem 0; position: relative; overflow: hidden;">
-            <!-- Animated background elements -->
-            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;">
-                <div style="position: absolute; top: 20%; left: 10%; width: 100px; height: 100px; border: 2px solid rgba(254,154,69,0.1); border-radius: 50%; animation: pulse-ring 4s infinite;"></div>
-                <div style="position: absolute; bottom: 30%; right: 15%; width: 60px; height: 60px; border: 2px solid rgba(32,120,170,0.15); border-radius: 50%; animation: pulse-ring 3s infinite 1s;"></div>
-                <div style="position: absolute; top: 60%; left: 5%; width: 40px; height: 40px; background: rgba(254,154,69,0.05); border-radius: 8px; animation: float 6s infinite;"></div>
-            </div>
-            
-            <div class="container" style="position: relative; z-index: 1;">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <span style="display: inline-block; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #fff; padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Interactive Challenge</span>
-                    <h2 style="font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: #ffffff; margin-bottom: 0.75rem;">Think You've Got What It Takes?</h2>
-                    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Test your diagnostic skills with a quick HVAC challenge. Real techs know these.</p>
+        <section id="diagnostic-challenge" style="background: linear-gradient(135deg, #0d1f2d 0%, #1a3a52 100%); padding: 3rem 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <span style="display: inline-block; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #fff; padding: 0.4rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">Quick Challenge</span>
+                    <h2 style="font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 800; color: #ffffff; margin: 0;">Think You've Got What It Takes?</h2>
                 </div>
                 
                 <!-- Game Container -->
-                <div id="game-container" style="max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; backdrop-filter: blur(10px);">
+                <div id="game-container" style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem;">
                     
                     <!-- Score Display -->
-                    <div id="score-display" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Round:</span>
-                            <span id="round-number" style="color: #fe9a45; font-weight: 700; font-size: 1.1rem;">1</span>
+                    <div id="score-display" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                            <span style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Question</span>
+                            <span id="round-number" style="color: #fe9a45; font-weight: 700;">1</span>
                             <span style="color: rgba(255,255,255,0.4);">/</span>
                             <span style="color: rgba(255,255,255,0.6);">5</span>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">Score:</span>
-                            <span id="score-value" style="color: #2078aa; font-weight: 700; font-size: 1.25rem;">0</span>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                            <span style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Score:</span>
+                            <span id="score-value" style="color: #22c55e; font-weight: 700; font-size: 1.1rem;">0</span>
                         </div>
                     </div>
                     
-                    <!-- Scenario Display -->
-                    <div id="scenario-area" style="text-align: center; margin-bottom: 2rem;">
-                        <!-- AC Unit Visual -->
-                        <div id="ac-unit-visual" style="width: 180px; height: 200px; margin: 0 auto 1.5rem; position: relative;">
-                            <svg viewBox="0 0 100 120" style="width: 100%; height: 100%;">
-                                <!-- AC Unit Body -->
-                                <rect x="10" y="20" width="80" height="70" rx="5" fill="#2a4a5f" stroke="#3d6478" stroke-width="2"/>
-                                <!-- Vents -->
-                                <g id="ac-vents">
-                                    <rect x="20" y="35" width="60" height="4" rx="2" fill="#1a3a4f"/>
-                                    <rect x="20" y="45" width="60" height="4" rx="2" fill="#1a3a4f"/>
-                                    <rect x="20" y="55" width="60" height="4" rx="2" fill="#1a3a4f"/>
-                                    <rect x="20" y="65" width="60" height="4" rx="2" fill="#1a3a4f"/>
-                                </g>
-                                <!-- Brand Badge -->
-                                <rect x="35" y="75" width="30" height="8" rx="2" fill="#fe9a45"/>
-                                <!-- Status Light -->
-                                <circle id="status-light" cx="75" cy="28" r="4" fill="#22c55e">
-                                    <animate id="blink-anim" attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite" begin="indefinite"/>
-                                </circle>
-                                <!-- Problem Indicators (hidden by default) -->
-                                <g id="ice-indicator" style="display: none;">
-                                    <polygon points="25,30 30,40 20,40" fill="#a5d8ff" opacity="0.8"/>
-                                    <polygon points="70,32 75,42 65,42" fill="#a5d8ff" opacity="0.8"/>
-                                    <polygon points="45,28 50,38 40,38" fill="#a5d8ff" opacity="0.8"/>
-                                </g>
-                                <g id="smoke-indicator" style="display: none;">
-                                    <circle cx="30" cy="15" r="6" fill="rgba(150,150,150,0.6)">
-                                        <animate attributeName="cy" values="15;5;15" dur="2s" repeatCount="indefinite"/>
-                                        <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
-                                    </circle>
-                                    <circle cx="50" cy="12" r="8" fill="rgba(150,150,150,0.5)">
-                                        <animate attributeName="cy" values="12;0;12" dur="2.5s" repeatCount="indefinite"/>
-                                        <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
-                                    </circle>
-                                </g>
-                                <g id="water-indicator" style="display: none;">
-                                    <ellipse cx="50" cy="100" rx="25" ry="8" fill="rgba(59,130,246,0.5)"/>
-                                    <ellipse cx="50" cy="100" rx="15" ry="5" fill="rgba(59,130,246,0.7)"/>
-                                </g>
-                                <!-- Condenser Fan (for outdoor scenarios) -->
-                                <g id="fan-indicator" style="display: none;" transform="translate(50,50)">
-                                    <circle r="20" fill="none" stroke="#3d6478" stroke-width="2"/>
-                                    <g id="fan-blades">
-                                        <rect x="-3" y="-18" width="6" height="16" rx="2" fill="#fe9a45"/>
-                                        <rect x="-3" y="2" width="6" height="16" rx="2" fill="#fe9a45"/>
-                                        <rect x="-18" y="-3" width="16" height="6" rx="2" fill="#fe9a45"/>
-                                        <rect x="2" y="-3" width="16" height="6" rx="2" fill="#fe9a45"/>
-                                    </g>
-                                    <circle r="5" fill="#2a4a5f"/>
-                                </g>
-                            </svg>
-                        </div>
-                        
-                        <!-- Scenario Text -->
-                        <div id="scenario-text" style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
-                            <p id="symptom-description" style="color: #ffffff; font-size: 1.1rem; line-height: 1.6; margin: 0; font-weight: 500;">Customer says: "My AC is running but it's blowing warm air. The outdoor unit fan isn't spinning."</p>
-                        </div>
+                    <!-- Question Area -->
+                    <div id="scenario-area">
+                        <p id="symptom-description" style="color: #ffffff; font-size: 1rem; line-height: 1.5; margin: 0 0 1rem; padding: 0.75rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fe9a45;">Loading...</p>
                     </div>
                     
                     <!-- Answer Options -->
-                    <div id="options-area" style="display: grid; gap: 0.75rem;">
-                        <button class="game-option" data-answer="0" style="width: 100%; padding: 1rem 1.25rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 12px; color: #ffffff; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="width: 28px; height: 28px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">A</span>
-                            <span class="option-text">Low refrigerant - needs recharge</span>
+                    <div id="options-area" style="display: grid; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <button class="game-option" data-answer="0" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 8px; color: #ffffff; font-size: 0.95rem; text-align: left; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.6rem;">
+                            <span style="width: 24px; height: 24px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">A</span>
+                            <span class="option-text"></span>
                         </button>
-                        <button class="game-option" data-answer="1" style="width: 100%; padding: 1rem 1.25rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 12px; color: #ffffff; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="width: 28px; height: 28px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">B</span>
-                            <span class="option-text">Bad capacitor or fan motor</span>
+                        <button class="game-option" data-answer="1" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 8px; color: #ffffff; font-size: 0.95rem; text-align: left; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.6rem;">
+                            <span style="width: 24px; height: 24px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">B</span>
+                            <span class="option-text"></span>
                         </button>
-                        <button class="game-option" data-answer="2" style="width: 100%; padding: 1rem 1.25rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 12px; color: #ffffff; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="width: 28px; height: 28px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">C</span>
-                            <span class="option-text">Dirty evaporator coil</span>
+                        <button class="game-option" data-answer="2" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 8px; color: #ffffff; font-size: 0.95rem; text-align: left; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.6rem;">
+                            <span style="width: 24px; height: 24px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">C</span>
+                            <span class="option-text"></span>
                         </button>
-                        <button class="game-option" data-answer="3" style="width: 100%; padding: 1rem 1.25rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 12px; color: #ffffff; font-size: 1rem; text-align: left; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.75rem;">
-                            <span style="width: 28px; height: 28px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">D</span>
-                            <span class="option-text">Thermostat malfunction</span>
+                        <button class="game-option" data-answer="3" style="width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.15); border-radius: 8px; color: #ffffff; font-size: 0.95rem; text-align: left; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.6rem;">
+                            <span style="width: 24px; height: 24px; background: rgba(32,120,170,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;">D</span>
+                            <span class="option-text"></span>
                         </button>
                     </div>
                     
-                    <!-- Feedback Area (hidden by default) -->
-                    <div id="feedback-area" style="display: none; margin-top: 1.5rem; padding: 1.25rem; border-radius: 12px; text-align: center;">
-                        <div id="feedback-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></div>
-                        <p id="feedback-text" style="color: #ffffff; font-size: 1rem; line-height: 1.6; margin: 0 0 1rem;"></p>
-                        <button id="next-btn" style="padding: 0.75rem 2rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 1rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease;">Next Question</button>
+                    <!-- Feedback Area (appears after answer, replaces options visually) -->
+                    <div id="feedback-area" style="display: none; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <p id="feedback-text" style="color: #ffffff; font-size: 0.9rem; line-height: 1.5; margin: 0 0 0.75rem;"></p>
+                        <button id="next-btn" style="padding: 0.6rem 1.5rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 0.95rem; border: none; border-radius: 50px; cursor: pointer;">Next →</button>
                     </div>
                     
-                    <!-- Final Results (hidden by default) -->
-                    <div id="results-area" style="display: none; text-align: center; padding: 2rem 0;">
-                        <div id="results-icon" style="font-size: 4rem; margin-bottom: 1rem;"></div>
-                        <h3 id="results-title" style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem;"></h3>
-                        <p id="results-score" style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 1.5rem;"></p>
-                        <p id="results-message" style="color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;"></p>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-                            <button id="retry-btn" style="padding: 0.85rem 2rem; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 700; font-size: 1rem; border-radius: 50px; cursor: pointer; transition: all 0.3s ease;">Try Again</button>
-                            <a href="#apply-section" id="apply-cta" style="display: inline-block; padding: 0.85rem 2rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 1rem; border-radius: 50px; text-decoration: none; transition: all 0.3s ease;">Apply Now</a>
+                    <!-- Final Results -->
+                    <div id="results-area" style="display: none; text-align: center; padding: 1.5rem 0;">
+                        <div id="results-icon" style="font-size: 3rem; margin-bottom: 0.75rem;"></div>
+                        <h3 id="results-title" style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;"></h3>
+                        <p id="results-score" style="color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 1rem;"></p>
+                        <p id="results-message" style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;"></p>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+                            <button id="retry-btn" style="padding: 0.7rem 1.5rem; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: #ffffff; font-weight: 600; font-size: 0.95rem; border-radius: 50px; cursor: pointer;">Try Again</button>
+                            <a href="#apply-section" id="apply-cta" style="display: inline-block; padding: 0.7rem 1.5rem; background: linear-gradient(135deg, #fe9a45, #e8873d); color: #ffffff; font-weight: 700; font-size: 0.95rem; border-radius: 50px; text-decoration: none;">Apply Now</a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <style>
-                @keyframes pulse-ring {
-                    0% { transform: scale(1); opacity: 0.3; }
-                    50% { transform: scale(1.1); opacity: 0.1; }
-                    100% { transform: scale(1); opacity: 0.3; }
-                }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(5deg); }
-                }
-                .game-option:hover {
+                .game-option:hover:not(.disabled) {
                     background: rgba(255,255,255,0.1) !important;
                     border-color: rgba(254,154,69,0.5) !important;
-                    transform: translateX(5px);
                 }
                 .game-option.correct {
-                    background: rgba(34,197,94,0.2) !important;
+                    background: rgba(34,197,94,0.25) !important;
                     border-color: #22c55e !important;
                 }
                 .game-option.incorrect {
-                    background: rgba(239,68,68,0.2) !important;
+                    background: rgba(239,68,68,0.25) !important;
                     border-color: #ef4444 !important;
                 }
                 .game-option.disabled {
                     pointer-events: none;
-                    opacity: 0.6;
                 }
-                #fan-blades {
-                    transform-origin: center;
-                }
-                .fan-spinning #fan-blades {
-                    animation: spin-fan 0.5s linear infinite;
-                }
-                @keyframes spin-fan {
-                    from { transform: rotate(0deg); }
-                    to { transform: rotate(360deg); }
+                .game-option.dimmed {
+                    opacity: 0.4;
                 }
             </style>
             
@@ -289,39 +207,34 @@
             (function() {
                 const scenarios = [
                     {
-                        symptom: "Customer says: \"My AC is running but it's blowing warm air. The outdoor unit fan isn't spinning.\"",
-                        options: ["Low refrigerant - needs recharge", "Bad capacitor or fan motor", "Dirty evaporator coil", "Thermostat malfunction"],
+                        symptom: "AC runs but blows warm air. Outdoor fan isn't spinning.",
+                        options: ["Low refrigerant", "Bad capacitor or fan motor", "Dirty evaporator coil", "Thermostat issue"],
                         correct: 1,
-                        explanation: "When the outdoor fan won't spin but the compressor runs, it's usually a failed capacitor or fan motor. The capacitor provides the initial jolt to start the motor spinning.",
-                        visual: "fan-stopped"
+                        explanation: "Correct! A failed capacitor or fan motor is the likely cause. The capacitor provides the jolt to start the motor."
                     },
                     {
-                        symptom: "The indoor unit is freezing up with ice forming on the refrigerant lines and evaporator coil.",
-                        options: ["Overcharged system", "Low refrigerant or restricted airflow", "Bad compressor", "Faulty expansion valve only"],
+                        symptom: "Ice forming on refrigerant lines and evaporator coil.",
+                        options: ["Overcharged system", "Low refrigerant or poor airflow", "Bad compressor", "Faulty expansion valve"],
                         correct: 1,
-                        explanation: "Ice formation typically indicates low refrigerant (causing low pressure and freezing temps) or restricted airflow from a dirty filter/blocked return, preventing proper heat absorption.",
-                        visual: "ice"
+                        explanation: "Correct! Ice usually means low refrigerant or restricted airflow (dirty filter, blocked return)."
                     },
                     {
-                        symptom: "The system short cycles - compressor turns on for 2-3 minutes, shuts off, then repeats.",
-                        options: ["Oversized system or refrigerant issue", "Weak blower motor", "Clogged drain line", "Bad thermostat batteries"],
+                        symptom: "Compressor short cycles - runs 2-3 min, shuts off, repeats.",
+                        options: ["Oversized unit or refrigerant issue", "Weak blower motor", "Clogged drain line", "Bad thermostat batteries"],
                         correct: 0,
-                        explanation: "Short cycling often points to an oversized unit (satisfies too quickly), high head pressure from a dirty condenser, or low refrigerant causing the low-pressure switch to trip.",
-                        visual: "blink"
+                        explanation: "Correct! Short cycling often points to an oversized unit, dirty condenser, or low refrigerant tripping the low-pressure switch."
                     },
                     {
-                        symptom: "Water is pooling around the indoor unit on the floor.",
-                        options: ["Low refrigerant", "Clogged condensate drain line", "Bad reversing valve", "Incorrect thermostat setting"],
+                        symptom: "Water pooling on floor around the indoor unit.",
+                        options: ["Low refrigerant", "Clogged condensate drain", "Bad reversing valve", "Wrong thermostat setting"],
                         correct: 1,
-                        explanation: "Water pooling inside almost always means a clogged condensate drain line. The AC removes humidity, and that water needs somewhere to go. Algae and debris commonly block the line.",
-                        visual: "water"
+                        explanation: "Correct! Water inside = clogged drain line. The AC removes humidity and that water needs to drain somewhere."
                     },
                     {
-                        symptom: "Customer complains of a burning smell when the heat kicks on for the first time this season.",
-                        options: ["Call fire department immediately", "Normal - dust burning off heat exchanger", "Cracked heat exchanger leaking CO", "Electrical fire in the unit"],
+                        symptom: "Burning smell when heat kicks on for first time this season.",
+                        options: ["Call fire department", "Normal - dust burning off", "Cracked heat exchanger", "Electrical fire"],
                         correct: 1,
-                        explanation: "A burning dust smell at first seasonal heat use is normal - it's dust that settled on the heat exchanger during the off-season burning off. It should clear within 30 minutes.",
-                        visual: "smoke"
+                        explanation: "Correct! Dust burning off the heat exchanger at first seasonal use is normal. Should clear in 30 minutes."
                     }
                 ];
                 
@@ -334,40 +247,11 @@
                 const symptomDesc = document.getElementById('symptom-description');
                 const optionsArea = document.getElementById('options-area');
                 const feedbackArea = document.getElementById('feedback-area');
-                const feedbackIcon = document.getElementById('feedback-icon');
                 const feedbackText = document.getElementById('feedback-text');
                 const nextBtn = document.getElementById('next-btn');
                 const resultsArea = document.getElementById('results-area');
                 const scenarioArea = document.getElementById('scenario-area');
-                const statusLight = document.getElementById('status-light');
-                const blinkAnim = document.getElementById('blink-anim');
-                
-                function showVisual(type) {
-                    document.getElementById('ice-indicator').style.display = 'none';
-                    document.getElementById('smoke-indicator').style.display = 'none';
-                    document.getElementById('water-indicator').style.display = 'none';
-                    document.getElementById('fan-indicator').style.display = 'none';
-                    document.getElementById('ac-vents').style.display = 'block';
-                    statusLight.setAttribute('fill', '#22c55e');
-                    blinkAnim.beginElement && blinkAnim.endElement();
-                    
-                    if (type === 'ice') {
-                        document.getElementById('ice-indicator').style.display = 'block';
-                        statusLight.setAttribute('fill', '#3b82f6');
-                    } else if (type === 'smoke') {
-                        document.getElementById('smoke-indicator').style.display = 'block';
-                        statusLight.setAttribute('fill', '#f59e0b');
-                    } else if (type === 'water') {
-                        document.getElementById('water-indicator').style.display = 'block';
-                    } else if (type === 'fan-stopped') {
-                        document.getElementById('fan-indicator').style.display = 'block';
-                        document.getElementById('ac-vents').style.display = 'none';
-                        statusLight.setAttribute('fill', '#ef4444');
-                    } else if (type === 'blink') {
-                        statusLight.setAttribute('fill', '#f59e0b');
-                        blinkAnim.beginElement && blinkAnim.beginElement();
-                    }
-                }
+                const gameContainer = document.getElementById('game-container');
                 
                 function loadRound() {
                     answered = false;
@@ -375,17 +259,17 @@
                     
                     roundNum.textContent = currentRound + 1;
                     symptomDesc.textContent = scenario.symptom;
-                    showVisual(scenario.visual);
                     
                     const options = optionsArea.querySelectorAll('.game-option');
                     options.forEach((opt, i) => {
-                        opt.classList.remove('correct', 'incorrect', 'disabled');
+                        opt.classList.remove('correct', 'incorrect', 'disabled', 'dimmed');
                         opt.querySelector('.option-text').textContent = scenario.options[i];
                     });
                     
                     feedbackArea.style.display = 'none';
                     scenarioArea.style.display = 'block';
                     optionsArea.style.display = 'grid';
+                    nextBtn.textContent = currentRound < scenarios.length - 1 ? 'Next →' : 'See Results';
                 }
                 
                 function handleAnswer(selectedIndex) {
@@ -394,35 +278,35 @@
                     
                     const scenario = scenarios[currentRound];
                     const options = optionsArea.querySelectorAll('.game-option');
+                    const isCorrect = selectedIndex === scenario.correct;
                     
                     options.forEach((opt, i) => {
                         opt.classList.add('disabled');
                         if (i === scenario.correct) {
                             opt.classList.add('correct');
-                        } else if (i === selectedIndex) {
+                        } else if (i === selectedIndex && !isCorrect) {
                             opt.classList.add('incorrect');
+                        } else {
+                            opt.classList.add('dimmed');
                         }
                     });
                     
-                    const isCorrect = selectedIndex === scenario.correct;
                     if (isCorrect) {
                         score++;
                         scoreVal.textContent = score;
                         feedbackArea.style.background = 'rgba(34,197,94,0.15)';
-                        feedbackIcon.textContent = '✓';
-                        feedbackIcon.style.color = '#22c55e';
+                        feedbackText.innerHTML = '<span style="color:#22c55e;font-weight:700;">✓</span> ' + scenario.explanation;
                     } else {
                         feedbackArea.style.background = 'rgba(239,68,68,0.15)';
-                        feedbackIcon.textContent = '✗';
-                        feedbackIcon.style.color = '#ef4444';
+                        feedbackText.innerHTML = '<span style="color:#ef4444;font-weight:700;">✗</span> ' + scenario.explanation.replace('Correct!', 'Actually:');
                     }
                     
-                    feedbackText.textContent = scenario.explanation;
                     feedbackArea.style.display = 'block';
                     
-                    if (currentRound === scenarios.length - 1) {
-                        nextBtn.textContent = 'See Results';
-                    }
+                    // Auto-scroll to keep everything visible
+                    setTimeout(() => {
+                        gameContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 100);
                 }
                 
                 function showResults() {
@@ -436,25 +320,27 @@
                     const resultsScore = document.getElementById('results-score');
                     const resultsMessage = document.getElementById('results-message');
                     
-                    resultsScore.textContent = `You scored ${score} out of ${scenarios.length}`;
+                    resultsScore.textContent = score + ' out of ' + scenarios.length;
                     
                     if (score === scenarios.length) {
                         resultsIcon.textContent = '🏆';
-                        resultsTitle.textContent = 'Perfect Score!';
-                        resultsMessage.textContent = "You clearly know your stuff. We'd love to talk to you about joining the Crazy Comfort team.";
+                        resultsTitle.textContent = 'Perfect!';
+                        resultsMessage.textContent = "You know your stuff. We'd love to talk.";
                     } else if (score >= 3) {
                         resultsIcon.textContent = '🔧';
-                        resultsTitle.textContent = 'Solid Diagnostic Skills!';
-                        resultsMessage.textContent = "You've got good instincts. Whether you're looking to grow or already a pro, we want to hear from you.";
+                        resultsTitle.textContent = 'Solid Skills!';
+                        resultsMessage.textContent = "Good instincts. Let's chat.";
                     } else if (score >= 1) {
                         resultsIcon.textContent = '📚';
                         resultsTitle.textContent = 'Room to Grow';
-                        resultsMessage.textContent = "Everyone starts somewhere. If you're eager to learn and work hard, we offer paid training for the right person.";
+                        resultsMessage.textContent = "We offer paid training for the right person.";
                     } else {
                         resultsIcon.textContent = '🌱';
-                        resultsTitle.textContent = 'Just Getting Started?';
-                        resultsMessage.textContent = "No worries! We have apprentice positions for people who want to learn the trade. Attitude matters more than experience.";
+                        resultsTitle.textContent = 'Just Starting?';
+                        resultsMessage.textContent = "We have apprentice spots. Attitude > experience.";
                     }
+                    
+                    gameContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
                 
                 function resetGame() {
@@ -463,6 +349,7 @@
                     scoreVal.textContent = '0';
                     resultsArea.style.display = 'none';
                     loadRound();
+                    gameContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
                 
                 optionsArea.querySelectorAll('.game-option').forEach((opt, i) => {
