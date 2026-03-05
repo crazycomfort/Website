@@ -165,6 +165,28 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- Community Initiative -->
+  <url>
+    <loc>https://crazycomfort.com/comfort-to-all</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Location-Specific Service Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/ac-repair-katy</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-repair-fulshear</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
   <!-- Secondary Pages -->
   <url>
     <loc>https://crazycomfort.com/careers</loc>
