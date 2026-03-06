@@ -816,15 +816,321 @@ function initScrollAnimations() {
     });
 }
 
+// ============================================
+// AI CHATBOT WIDGET
+// ============================================
+
+function initChatbot() {
+    // Don't show on review page or other special pages
+    if (window.location.pathname.includes('leave-review')) return;
+    
+    // Create chatbot HTML
+    const chatbotHTML = `
+        <div class="chatbot-widget">
+            <button class="chatbot-toggle" aria-label="Open chat">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                <span class="chatbot-badge">1</span>
+            </button>
+            <div class="chatbot-window">
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">👋</div>
+                    <div class="chatbot-header-text">
+                        <h4>Crazy Comfort</h4>
+                        <p class="chatbot-status">Online now</p>
+                    </div>
+                </div>
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="chat-message bot">
+                        Hey there! 👋 I'm here to help with your HVAC questions. What can I help you with today?
+                        <div class="chat-quick-replies">
+                            <button class="quick-reply-btn" data-reply="schedule">Schedule Service</button>
+                            <button class="quick-reply-btn" data-reply="areas">Service Areas</button>
+                            <button class="quick-reply-btn" data-reply="emergency">Emergency Help</button>
+                            <button class="quick-reply-btn" data-reply="pricing">Get a Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatbot-input-area">
+                    <input type="text" class="chatbot-input" placeholder="Type your message..." id="chatInput">
+                    <button class="chatbot-send" id="chatSend">
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
+    
+    const toggle = document.querySelector('.chatbot-toggle');
+    const chatWindow = document.querySelector('.chatbot-window');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const messagesContainer = document.getElementById('chatMessages');
+    const badge = document.querySelector('.chatbot-badge');
+    
+    // Toggle chat window
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        chatWindow.classList.toggle('active');
+        if (chatWindow.classList.contains('active')) {
+            badge.style.display = 'none';
+            chatInput.focus();
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'chatbot_opened', { 'event_category': 'Engagement' });
+            }
+        }
+    });
+    
+    // Chat responses
+    const responses = {
+        schedule: {
+            text: "Great! You can schedule service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact'>filling out our online form</a>. We offer same-day service!",
+            followUp: ["What's your availability?", "Do you offer financing?", "Talk to a human"]
+        },
+        areas: {
+            text: "We serve Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, Brookshire, Simonton, Sealy, and surrounding West Houston areas. Are you in one of these areas?",
+            followUp: ["Yes, I'm in the area", "I'm not sure", "Schedule service"]
+        },
+        emergency: {
+            text: "For HVAC emergencies, call us right now at <a href='tel:832-403-7466'>832-403-7466</a>. We're available 24/7 for qualified emergencies like complete system failures during extreme weather.",
+            followUp: ["Call now", "It can wait", "Schedule for later"]
+        },
+        pricing: {
+            text: "Our pricing depends on the service needed. AC tune-ups start at $89, and repairs vary based on the issue. Want to schedule a diagnostic visit? It includes a full inspection with photo documentation.",
+            followUp: ["Schedule diagnostic", "Maintenance plans", "Call for quote"]
+        },
+        "yes, i'm in the area": {
+            text: "Perfect! We'd love to help. Would you like to schedule service or get a quote?",
+            followUp: ["Schedule service", "Get a quote", "Learn more"]
+        },
+        "call now": {
+            text: "Calling is the fastest way to get help. Dial <a href='tel:832-403-7466'>832-403-7466</a> now and we'll get you taken care of!",
+            followUp: []
+        },
+        "schedule diagnostic": {
+            text: "Great choice! Our diagnostic includes a full system inspection with real-time photos so you see exactly what we see. Call <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact'>book online</a>.",
+            followUp: ["Book online", "Call now"]
+        },
+        "maintenance plans": {
+            text: "Our maintenance plan is $215/year (or $21.99/month) and includes annual tune-ups plus discounts on repairs. <a href='/hvac-maintenance-plan'>Learn more here</a>.",
+            followUp: ["Sign up", "More questions"]
+        },
+        "talk to a human": {
+            text: "Of course! Call us at <a href='tel:832-403-7466'>832-403-7466</a> and a real person will answer. We're available during business hours.",
+            followUp: []
+        },
+        default: {
+            text: "Thanks for your message! For the fastest response, call us at <a href='tel:832-403-7466'>832-403-7466</a>. Or let me know what you need help with:",
+            followUp: ["Schedule Service", "Service Areas", "Get a Quote"]
+        }
+    };
+    
+    function addMessage(text, isUser = false) {
+        const msg = document.createElement('div');
+        msg.className = `chat-message ${isUser ? 'user' : 'bot'}`;
+        msg.innerHTML = text;
+        messagesContainer.appendChild(msg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    function addQuickReplies(replies) {
+        if (!replies || replies.length === 0) return;
+        
+        const container = document.createElement('div');
+        container.className = 'chat-quick-replies';
+        replies.forEach(reply => {
+            const btn = document.createElement('button');
+            btn.className = 'quick-reply-btn';
+            btn.textContent = reply;
+            btn.dataset.reply = reply.toLowerCase();
+            container.appendChild(btn);
+        });
+        messagesContainer.appendChild(container);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
+    function handleUserMessage(message) {
+        addMessage(message, true);
+        
+        // Remove old quick replies
+        document.querySelectorAll('.chat-quick-replies').forEach(el => el.remove());
+        
+        const key = message.toLowerCase().replace(/[^a-z\s]/g, '').trim();
+        const response = responses[key] || responses.default;
+        
+        // Simulate typing delay
+        setTimeout(() => {
+            addMessage(response.text);
+            if (response.followUp && response.followUp.length > 0) {
+                setTimeout(() => addQuickReplies(response.followUp), 300);
+            }
+        }, 500);
+        
+        // Track in analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'chatbot_message', { 
+                'event_category': 'Engagement',
+                'event_label': message
+            });
+        }
+    }
+    
+    // Quick reply buttons
+    messagesContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('quick-reply-btn')) {
+            handleUserMessage(e.target.textContent);
+        }
+    });
+    
+    // Send message
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+            handleUserMessage(message);
+            chatInput.value = '';
+        }
+    }
+    
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+}
+
+// ============================================
+// EXIT-INTENT POPUP
+// ============================================
+
+function initExitPopup() {
+    // Don't show on certain pages
+    const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup'];
+    if (excludedPaths.some(path => window.location.pathname.includes(path))) return;
+    
+    // Check if already shown or dismissed
+    if (sessionStorage.getItem('exitPopupShown') || localStorage.getItem('exitPopupDismissed')) return;
+    
+    const popupHTML = `
+        <div class="exit-popup-overlay" id="exitPopup">
+            <div class="exit-popup">
+                <button class="exit-popup-close" aria-label="Close">&times;</button>
+                <div class="exit-popup-header">
+                    <h2>Wait! Before You Go...</h2>
+                    <div class="exit-popup-discount">$50 OFF</div>
+                    <p>Your First Service Call</p>
+                </div>
+                <div class="exit-popup-content">
+                    <p>Get $50 off your first AC repair or tune-up. Just enter your info below and we'll send your exclusive discount code.</p>
+                    <form class="exit-popup-form" name="exit-popup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="exitPopupForm">
+                        <input type="hidden" name="form-name" value="exit-popup">
+                        <p style="display:none"><input name="bot-field"></p>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <button type="submit" class="exit-popup-submit">Get My $50 Discount</button>
+                    </form>
+                    <button class="exit-popup-skip" id="exitPopupSkip">No thanks, I'll pay full price</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', popupHTML);
+    
+    const popup = document.getElementById('exitPopup');
+    const closeBtn = popup.querySelector('.exit-popup-close');
+    const skipBtn = document.getElementById('exitPopupSkip');
+    const form = document.getElementById('exitPopupForm');
+    
+    function showPopup() {
+        popup.classList.add('active');
+        sessionStorage.setItem('exitPopupShown', 'true');
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exit_popup_shown', { 'event_category': 'Engagement' });
+        }
+    }
+    
+    function hidePopup(permanent = false) {
+        popup.classList.remove('active');
+        if (permanent) {
+            localStorage.setItem('exitPopupDismissed', 'true');
+        }
+    }
+    
+    // Exit intent detection (desktop only)
+    let exitTriggered = false;
+    document.addEventListener('mouseout', (e) => {
+        if (exitTriggered) return;
+        if (e.clientY < 10 && e.relatedTarget === null) {
+            exitTriggered = true;
+            setTimeout(showPopup, 100);
+        }
+    });
+    
+    // Mobile: Show after 30 seconds of engagement
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            if (!exitTriggered && !sessionStorage.getItem('exitPopupShown')) {
+                exitTriggered = true;
+                showPopup();
+            }
+        }, 30000);
+    }
+    
+    // Close handlers
+    closeBtn.addEventListener('click', () => hidePopup(true));
+    skipBtn.addEventListener('click', () => hidePopup(true));
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) hidePopup();
+    });
+    
+    // Form submission
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exit_popup_conversion', { 'event_category': 'Lead' });
+            }
+            
+            // Show success
+            form.innerHTML = `
+                <div style="text-align: center; padding: 1rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">You're All Set!</h3>
+                    <p style="color: var(--text-light);">We'll text you your discount code shortly. Call <a href="tel:832-403-7466">832-403-7466</a> to use it!</p>
+                </div>
+            `;
+            
+            setTimeout(() => hidePopup(true), 5000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error. Please call 832-403-7466 for your discount.');
+        });
+    });
+}
+
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
+        initChatbot();
+        initExitPopup();
     });
 } else {
     initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();
+    initChatbot();
+    initExitPopup();
 }
