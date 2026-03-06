@@ -6443,7 +6443,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         background-size: 280px 280px !important;
         display: none;
         flex-direction: column;
-        padding: 1.5rem 0 3rem 0;
+        padding: 0.75rem 0 1rem 0;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
         z-index: 9999;
         max-height: calc(100vh - var(--total-header-height));
@@ -6497,7 +6497,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        margin-top: 1rem !important;
+        margin-top: 0.5rem !important;
         border-top: 3px solid #fe9a45 !important;
         border-bottom: none !important;
         background: rgba(254, 154, 69, 0.25) !important;
@@ -6511,9 +6511,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         visibility: visible !important;
         opacity: 1 !important;
         color: #fe9a45 !important;
-        font-size: 1.5rem !important;
+        font-size: 1.1rem !important;
         font-weight: 700 !important;
-        padding: 1.5rem 2rem !important;
+        padding: 0.85rem 1.5rem !important;
         text-align: center !important;
     }
     
@@ -6521,13 +6521,13 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         content: '❤️ ' !important;
     }
     
-    /* MOBILE MENU LINKS - Bold white text */
+    /* MOBILE MENU LINKS - Compact to fit all items */
     .nav-menu a,
     [data-theme="dark"] .nav-menu a {
         display: block;
-        padding: 1.25rem 2rem;
+        padding: 0.85rem 1.5rem;
         width: 100%;
-        font-size: 1.5rem !important;
+        font-size: 1.1rem !important;
         font-weight: 700;
         text-align: center;
         color: #ffffff !important;
