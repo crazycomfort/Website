@@ -6433,7 +6433,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         background-size: 280px 280px !important;
         display: none;
         flex-direction: column;
-        padding: 2rem 0;
+        padding: 1.5rem 0 3rem 0;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
         z-index: 9999;
         max-height: calc(100vh - var(--total-header-height));
@@ -6481,17 +6481,26 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     }
     
     /* Comfort To All - Special styling on mobile */
-    .nav-menu li:last-child a,
-    [data-theme="dark"] .nav-menu li:last-child a {
-        color: #fe9a45 !important;
-        background: rgba(254, 154, 69, 0.1) !important;
-        border-top: 2px solid rgba(254, 154, 69, 0.3) !important;
-        margin-top: 0.5rem;
-        padding-top: 1.5rem !important;
+    .nav-menu > li:last-child,
+    [data-theme="dark"] .nav-menu > li:last-child {
+        margin-top: 0.75rem !important;
+        border-top: 2px solid rgba(254, 154, 69, 0.4) !important;
+        border-bottom: none !important;
+        background: rgba(254, 154, 69, 0.15) !important;
     }
     
-    .nav-menu li:last-child a::before {
-        content: '❤️ ';
+    .nav-menu > li:last-child > a,
+    [data-theme="dark"] .nav-menu > li:last-child > a,
+    .nav-menu a[href="/comfort-to-all"],
+    [data-theme="dark"] .nav-menu a[href="/comfort-to-all"] {
+        color: #fe9a45 !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+    
+    .nav-menu > li:last-child > a::before,
+    .nav-menu a[href="/comfort-to-all"]::before {
+        content: '❤️ ' !important;
     }
     
     /* MOBILE MENU LINKS - Bold white text */
