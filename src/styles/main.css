@@ -6480,6 +6480,20 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-bottom: none !important;
     }
     
+    /* Comfort To All - Special styling on mobile */
+    .nav-menu li:last-child a,
+    [data-theme="dark"] .nav-menu li:last-child a {
+        color: #fe9a45 !important;
+        background: rgba(254, 154, 69, 0.1) !important;
+        border-top: 2px solid rgba(254, 154, 69, 0.3) !important;
+        margin-top: 0.5rem;
+        padding-top: 1.5rem !important;
+    }
+    
+    .nav-menu li:last-child a::before {
+        content: '❤️ ';
+    }
+    
     /* MOBILE MENU LINKS - Bold white text */
     .nav-menu a,
     [data-theme="dark"] .nav-menu a {
