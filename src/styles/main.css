@@ -6480,22 +6480,28 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-bottom: none !important;
     }
     
-    /* Comfort To All - Special styling on mobile */
+    /* Comfort To All - MUST be visible in mobile menu */
     .nav-menu > li:last-child,
     [data-theme="dark"] .nav-menu > li:last-child {
-        margin-top: 0.75rem !important;
-        border-top: 2px solid rgba(254, 154, 69, 0.4) !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-top: 1rem !important;
+        border-top: 3px solid #fe9a45 !important;
         border-bottom: none !important;
-        background: rgba(254, 154, 69, 0.15) !important;
+        background: rgba(254, 154, 69, 0.2) !important;
     }
     
     .nav-menu > li:last-child > a,
     [data-theme="dark"] .nav-menu > li:last-child > a,
     .nav-menu a[href="/comfort-to-all"],
     [data-theme="dark"] .nav-menu a[href="/comfort-to-all"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         color: #fe9a45 !important;
-        padding-top: 1.25rem !important;
-        padding-bottom: 1.25rem !important;
+        font-size: 1.5rem !important;
+        padding: 1.5rem 2rem !important;
     }
     
     .nav-menu > li:last-child > a::before,
@@ -6953,6 +6959,25 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-links {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.5rem;
+    }
+    
+    .footer-links li {
+        margin: 0 !important;
+    }
+    
+    /* Ensure Comfort To All is visible in footer on mobile */
+    .footer-links a[href="/comfort-to-all"] {
+        color: #fe9a45 !important;
+        font-weight: 700 !important;
+        display: inline-block !important;
     }
     
     .footer-logo-image {
