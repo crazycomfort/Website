@@ -591,6 +591,16 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     width: 100%;
 }
 
+/* Comfort To All CTA in nav - Desktop */
+.nav-menu .nav-cta a {
+    color: #fe9a45 !important;
+    font-weight: 700;
+}
+
+.nav-menu .nav-cta a:hover {
+    color: #e8872e !important;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -6480,32 +6490,34 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-bottom: none !important;
     }
     
-    /* Comfort To All - MUST be visible in mobile menu */
-    .nav-menu > li:last-child,
-    [data-theme="dark"] .nav-menu > li:last-child {
+    /* Comfort To All CTA - MUST be visible in mobile menu */
+    .nav-menu .nav-cta,
+    .nav-menu > li.nav-cta,
+    [data-theme="dark"] .nav-menu .nav-cta {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         margin-top: 1rem !important;
         border-top: 3px solid #fe9a45 !important;
         border-bottom: none !important;
-        background: rgba(254, 154, 69, 0.2) !important;
+        background: rgba(254, 154, 69, 0.25) !important;
+        width: 100% !important;
     }
     
-    .nav-menu > li:last-child > a,
-    [data-theme="dark"] .nav-menu > li:last-child > a,
-    .nav-menu a[href="/comfort-to-all"],
-    [data-theme="dark"] .nav-menu a[href="/comfort-to-all"] {
+    .nav-menu .nav-cta a,
+    .nav-menu > li.nav-cta > a,
+    [data-theme="dark"] .nav-menu .nav-cta a {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         color: #fe9a45 !important;
         font-size: 1.5rem !important;
+        font-weight: 700 !important;
         padding: 1.5rem 2rem !important;
+        text-align: center !important;
     }
     
-    .nav-menu > li:last-child > a::before,
-    .nav-menu a[href="/comfort-to-all"]::before {
+    .nav-menu .nav-cta a::before {
         content: '❤️ ' !important;
     }
     
