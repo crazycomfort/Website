@@ -12,91 +12,146 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Leave a Review | Crazy Comfort HVAC</title>
-    <meta name="description" content="Share your experience with Crazy Comfort HVAC. Your feedback helps us serve Katy, Fulshear & West Houston better.">
+    <title>How'd We Do? | Crazy Comfort HVAC</title>
+    <meta name="description" content="We'd love to hear about your experience with Crazy Comfort! Your feedback helps us keep delivering honest, transparent HVAC service to Katy & West Houston.">
     <link rel="canonical" href="https://crazycomfort.com/leave-review">
     <link rel="icon" type="image/png" href="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png">
     <meta name="robots" content="noindex, nofollow">
     
+    <!-- Open Graph - Better Link Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How'd We Do? | Crazy Comfort HVAC">
+    <meta property="og:description" content="Thanks for choosing Crazy Comfort! We'd love to hear about your experience. Your feedback means everything to us.">
+    <meta property="og:url" content="https://crazycomfort.com/leave-review">
+    <meta property="og:image" content="https://crazycomfort.com/assets/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Crazy Comfort HVAC">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How'd We Do? | Crazy Comfort HVAC">
+    <meta name="twitter:description" content="Thanks for choosing Crazy Comfort! We'd love to hear about your experience.">
+    <meta name="twitter:image" content="https://crazycomfort.com/assets/images/og-image.png">
+    
     <link rel="stylesheet" href="/dist/styles.css?v=202601222300">
     
     <style>
-        .review-hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-        }
-        
-        .review-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .review-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .review-container {
-            max-width: 600px;
-            margin: -3rem auto 4rem;
-            padding: 3rem;
-            background: var(--bg-white);
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .review-question {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-        }
-        
-        .rating-options {
+        body {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
+            flex-direction: column;
         }
         
-        .rating-btn {
+        main {
+            flex: 1;
+        }
+        
+        .review-page {
+            min-height: calc(100vh - 200px);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.5rem 1rem;
-            background: var(--bg-light);
-            border: 3px solid transparent;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 80px;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
-        .rating-btn:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-color);
+        .review-page::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(254, 154, 69, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
         
-        .rating-btn.selected {
-            border-color: var(--secondary-color);
-            background: rgba(254, 154, 69, 0.1);
+        .review-page::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(32, 120, 170, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
         
-        .rating-emoji {
-            font-size: 2.5rem;
+        .review-card {
+            background: var(--bg-white);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 520px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .review-card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a5f87 100%);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .review-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 20px solid #1a5f87;
+        }
+        
+        .review-logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .review-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        .review-card-header h1 {
+            font-size: 1.75rem;
             margin-bottom: 0.5rem;
+            font-weight: 800;
         }
         
-        .rating-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 600;
+        .review-card-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .review-card-body {
+            padding: 3rem 2rem 2rem;
         }
         
         .review-step {
@@ -113,155 +168,368 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .google-review-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2.5rem;
-            background: #4285f4;
-            color: white;
-            font-size: 1.2rem;
+        .rating-question {
+            text-align: center;
+            font-size: 1.4rem;
             font-weight: 700;
-            border-radius: 50px;
-            text-decoration: none;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .rating-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .rating-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.25rem 0.5rem;
+            background: var(--bg-light);
+            border: 3px solid transparent;
+            border-radius: 16px;
+            cursor: pointer;
             transition: all 0.3s ease;
+        }
+        
+        .rating-btn:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rating-btn.selected {
+            border-color: var(--secondary-color);
+            background: rgba(254, 154, 69, 0.15);
+            transform: translateY(-6px);
+        }
+        
+        .rating-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .rating-btn:hover .rating-emoji {
+            transform: scale(1.2);
+        }
+        
+        .rating-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .rating-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
             margin-top: 1rem;
         }
         
-        .google-review-btn:hover {
-            background: #3367d6;
-            transform: scale(1.05);
+        /* Positive Review Step */
+        .positive-content {
+            text-align: center;
         }
         
-        .google-review-btn svg {
+        .celebration-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 0.6s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .positive-content h2 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .positive-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, #4285f4 0%, #3367d6 100%);
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .google-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
+        }
+        
+        .google-btn svg {
             width: 24px;
             height: 24px;
         }
         
-        .thank-you-message {
-            padding: 2rem;
+        .time-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
         
-        .thank-you-message h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
+        /* Feedback Form Step */
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .feedback-header .feedback-emoji {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
         
-        .thank-you-message p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-        
-        .feedback-form {
-            text-align: left;
-        }
-        
-        .feedback-form label {
-            display: block;
-            font-weight: 600;
+        .feedback-header h2 {
+            font-size: 1.5rem;
             color: var(--text-dark);
             margin-bottom: 0.5rem;
         }
         
-        .feedback-form textarea {
+        .feedback-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-field label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-field input,
+        .form-field textarea {
             width: 100%;
             padding: 1rem;
             border: 2px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
-            min-height: 120px;
-            margin-bottom: 1rem;
             font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-field input:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-field textarea {
+            min-height: 100px;
             resize: vertical;
         }
         
-        .feedback-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
-        .feedback-form input[type="text"],
-        .feedback-form input[type="tel"] {
+        .submit-btn {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .feedback-form input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
-        .submit-feedback-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary-color);
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
         }
         
-        .submit-feedback-btn:hover {
-            background: var(--primary-dark);
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(32, 120, 170, 0.3);
         }
         
         .privacy-note {
+            text-align: center;
             font-size: 0.85rem;
             color: var(--text-light);
             margin-top: 1rem;
         }
         
-        .quick-links {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+        /* Success Step */
+        .success-content {
+            text-align: center;
+            padding: 1rem 0;
         }
         
-        .quick-links p {
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: scaleIn 0.4s ease;
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        
+        .success-checkmark svg {
+            width: 40px;
+            height: 40px;
+            stroke: white;
+        }
+        
+        .success-content h2 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .success-content p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .call-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+        
+        .call-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Card Footer */
+        .review-card-footer {
+            padding: 1.5rem 2rem;
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .review-card-footer p {
             font-size: 0.9rem;
             color: var(--text-light);
         }
         
-        .quick-links a {
+        .review-card-footer a {
             color: var(--primary-color);
-            text-decoration: none;
             font-weight: 600;
+            text-decoration: none;
         }
         
-        .quick-links a:hover {
+        .review-card-footer a:hover {
             text-decoration: underline;
         }
         
+        /* Dark Mode */
+        [data-theme="dark"] .review-card {
+            background: var(--bg-dark);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-theme="dark"] .review-card-footer {
+            background: var(--bg-dark-secondary);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="dark"] .form-field input,
+        [data-theme="dark"] .form-field textarea {
+            background: var(--bg-dark-secondary);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-dark);
+        }
+        
+        /* Mobile Responsive */
         @media (max-width: 600px) {
-            .review-hero {
-                padding: 3rem 1rem;
+            .review-page {
+                padding: 1rem;
+                min-height: auto;
             }
             
-            .review-hero h1 {
-                font-size: 1.8rem;
+            .review-card {
+                border-radius: 20px;
             }
             
-            .review-container {
-                margin: -2rem 1rem 2rem;
+            .review-card-header {
                 padding: 2rem 1.5rem;
             }
             
+            .review-card-header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .review-card-body {
+                padding: 2.5rem 1.5rem 1.5rem;
+            }
+            
+            .rating-question {
+                font-size: 1.2rem;
+            }
+            
+            .rating-grid {
+                gap: 0.5rem;
+            }
+            
             .rating-btn {
-                min-width: 60px;
-                padding: 1rem 0.75rem;
+                padding: 1rem 0.25rem;
+                border-radius: 12px;
             }
             
             .rating-emoji {
                 font-size: 2rem;
+            }
+            
+            .rating-label {
+                font-size: 0.65rem;
+            }
+            
+            .google-btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .review-card-footer {
+                padding: 1.25rem 1.5rem;
             }
         }
     </style>
@@ -314,144 +582,235 @@
     </header>
 
     <main id="main-content">
-        <section class="review-hero">
-            <h1>Thank You for Choosing Crazy Comfort!</h1>
-            <p>Your feedback means the world to us.</p>
+        <section class="review-page">
+            <div class="review-card">
+                <div class="review-card-header">
+                    <div class="review-logo">
+                        <img src="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png" alt="Crazy Comfort">
+                    </div>
+                    <h1>Thanks for Choosing Us!</h1>
+                    <p>We'd love to hear how we did.</p>
+                </div>
+                
+                <div class="review-card-body">
+                    <!-- Step 1: Rating -->
+                    <div class="review-step active" id="step-rating">
+                        <p class="rating-question">How was your experience?</p>
+                        
+                        <div class="rating-grid">
+                            <button class="rating-btn" data-rating="1" onclick="selectRating(1)">
+                                <span class="rating-emoji">😞</span>
+                                <span class="rating-label">Poor</span>
+                            </button>
+                            <button class="rating-btn" data-rating="2" onclick="selectRating(2)">
+                                <span class="rating-emoji">😕</span>
+                                <span class="rating-label">Fair</span>
+                            </button>
+                            <button class="rating-btn" data-rating="3" onclick="selectRating(3)">
+                                <span class="rating-emoji">😐</span>
+                                <span class="rating-label">Okay</span>
+                            </button>
+                            <button class="rating-btn" data-rating="4" onclick="selectRating(4)">
+                                <span class="rating-emoji">😊</span>
+                                <span class="rating-label">Good</span>
+                            </button>
+                            <button class="rating-btn" data-rating="5" onclick="selectRating(5)">
+                                <span class="rating-emoji">🤩</span>
+                                <span class="rating-label">Amazing</span>
+                            </button>
+                        </div>
+                        
+                        <p class="rating-note">Tap to select your rating</p>
+                    </div>
+                    
+                    <!-- Step 2a: Positive -->
+                    <div class="review-step" id="step-positive">
+                        <div class="positive-content">
+                            <div class="celebration-emoji">🎉</div>
+                            <h2>That's Awesome!</h2>
+                            <p>We're so glad you had a great experience! Would you mind taking 30 seconds to share it on Google? It helps other families find honest HVAC service.</p>
+                            
+                            <a href="https://g.page/r/CQVKcxh2S6lrEBM/review" target="_blank" class="google-btn" onclick="trackGoogleReview()">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                                Leave a Google Review
+                            </a>
+                            
+                            <p class="time-note">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                Takes about 30 seconds
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2b: Feedback -->
+                    <div class="review-step" id="step-feedback">
+                        <div class="feedback-header">
+                            <div class="feedback-emoji">💬</div>
+                            <h2>We Want to Hear From You</h2>
+                            <p>Tell us what happened so we can make it right.</p>
+                        </div>
+                        
+                        <form class="feedback-form" name="review-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFeedbackSubmit(event)">
+                            <input type="hidden" name="form-name" value="review-feedback">
+                            <input type="hidden" name="rating" id="rating-input" value="">
+                            <p style="display:none"><input name="bot-field"></p>
+                            
+                            <div class="form-field">
+                                <label for="feedback-name">Your Name</label>
+                                <input type="text" id="feedback-name" name="name" required placeholder="John Smith">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="feedback-phone">Phone Number</label>
+                                <input type="tel" id="feedback-phone" name="phone" required placeholder="832-555-1234">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="feedback-message">What happened?</label>
+                                <textarea id="feedback-message" name="message" required placeholder="Tell us about your experience..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Feedback</button>
+                            
+                            <p class="privacy-note">We'll reach out within 24 hours to resolve this.</p>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 3: Success -->
+                    <div class="review-step" id="step-submitted">
+                        <div class="success-content">
+                            <div class="success-checkmark">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <h2>Message Received!</h2>
+                            <p>Thank you for your feedback. A team member will reach out within 24 hours to make things right.</p>
+                            <a href="tel:832-403-7466" class="call-link">
+                                📞 832-403-7466
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card-footer">
+                    <p>Questions? <a href="tel:832-403-7466">Call 832-403-7466</a> or <a href="/contact">contact us</a></p>
+                </div>
+            </div>
         </section>
-        
-        <div class="review-container">
-            <!-- Step 1: Rating Selection -->
-            <div class="review-step active" id="step-rating">
-                <p class="review-question">How was your experience?</p>
-                
-                <div class="rating-options">
-                    <button class="rating-btn" data-rating="1" onclick="selectRating(1)">
-                        <span class="rating-emoji">😞</span>
-                        <span class="rating-label">Poor</span>
-                    </button>
-                    <button class="rating-btn" data-rating="2" onclick="selectRating(2)">
-                        <span class="rating-emoji">😕</span>
-                        <span class="rating-label">Fair</span>
-                    </button>
-                    <button class="rating-btn" data-rating="3" onclick="selectRating(3)">
-                        <span class="rating-emoji">😐</span>
-                        <span class="rating-label">Okay</span>
-                    </button>
-                    <button class="rating-btn" data-rating="4" onclick="selectRating(4)">
-                        <span class="rating-emoji">😊</span>
-                        <span class="rating-label">Good</span>
-                    </button>
-                    <button class="rating-btn" data-rating="5" onclick="selectRating(5)">
-                        <span class="rating-emoji">🤩</span>
-                        <span class="rating-label">Amazing!</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Step 2a: Positive Review - Redirect to Google -->
-            <div class="review-step" id="step-positive">
-                <div class="thank-you-message">
-                    <h2>We're So Glad!</h2>
-                    <p>Thank you for the kind words! Would you mind sharing your experience on Google? It really helps other families find honest HVAC service.</p>
-                    
-                    <a href="https://g.page/r/CQVKcxh2S6lrEBM/review" target="_blank" class="google-review-btn" onclick="trackGoogleReview()">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                        </svg>
-                        Leave a Google Review
-                    </a>
-                    
-                    <p class="privacy-note">Opens in a new tab. Takes about 30 seconds.</p>
-                </div>
-            </div>
-            
-            <!-- Step 2b: Needs Improvement - Feedback Form -->
-            <div class="review-step" id="step-feedback">
-                <div class="thank-you-message">
-                    <h2>We Want to Make It Right</h2>
-                    <p>We're sorry your experience wasn't perfect. Please tell us what happened so we can fix it.</p>
-                </div>
-                
-                <form class="feedback-form" name="review-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFeedbackSubmit(event)">
-                    <input type="hidden" name="form-name" value="review-feedback">
-                    <input type="hidden" name="rating" id="rating-input" value="">
-                    <p style="display:none"><input name="bot-field"></p>
-                    
-                    <label for="feedback-name">Your Name</label>
-                    <input type="text" id="feedback-name" name="name" required placeholder="John Smith">
-                    
-                    <label for="feedback-phone">Phone Number</label>
-                    <input type="tel" id="feedback-phone" name="phone" required placeholder="832-555-1234">
-                    
-                    <label for="feedback-message">What can we do better?</label>
-                    <textarea id="feedback-message" name="message" required placeholder="Tell us what happened and how we can make it right..."></textarea>
-                    
-                    <button type="submit" class="submit-feedback-btn">Send Feedback</button>
-                    
-                    <p class="privacy-note">A team member will reach out within 24 hours to resolve your concerns.</p>
-                </form>
-            </div>
-            
-            <!-- Step 3: Feedback Submitted -->
-            <div class="review-step" id="step-submitted">
-                <div class="thank-you-message">
-                    <h2>Thank You for Your Feedback</h2>
-                    <p>We've received your message and a team member will reach out within 24 hours. We take all feedback seriously and will work to make things right.</p>
-                    <p style="margin-top: 1.5rem;"><strong>Questions?</strong> Call us at <a href="tel:832-403-7466" style="color: var(--primary-color);">832-403-7466</a></p>
-                </div>
-            </div>
-            
-            <div class="quick-links">
-                <p>Need help? <a href="tel:832-403-7466">Call 832-403-7466</a> or <a href="/contact">contact us online</a></p>
-            </div>
-        </div>
     </main>
 
     <footer class="footer">
         <div class="container">
+            <!-- Stats Bar -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.15);">
+                <div style="text-align: center;">
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #fe9a45; margin: 0; line-height: 1;">28+</p>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Years Combined Experience</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #fe9a45; margin: 0; line-height: 1;">8+</p>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Communities Served</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #fe9a45; margin: 0; line-height: 1;">5.0</p>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">★★★★★ Rating</p>
+                </div>
+                <div style="text-align: center;">
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #fe9a45; margin: 0; line-height: 1;">100%</p>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Photo Documented</p>
+                </div>
+            </div>
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
+                    <h3>Crazy Comfort</h3>
+                    <p>Woman-owned HVAC company providing transparent, documented service in Katy, Fulshear, and West Houston. Every visit documented with <span style="color: #fe9a45; font-weight: 600;">real-time, timestamped photos</span>.</p>
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="https://www.facebook.com/profile.php?id=61569695542993" target="_blank" rel="noopener" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #fe9a45; border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/crazycomforthvac/" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #fe9a45; border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; margin-left: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/services">Services</a></li>
                         <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
                         <li><a href="/contact">Contact</a></li>
-                        <li><a href="/comfort-to-all">Comfort To All</a></li>
+                        <li><a href="/financing">Financing</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/comfort-to-all" style="color: #fe9a45;">Comfort To All ❤️</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Our Services</h3>
-                    <ul>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
                         <li><a href="/services/ac-repair">AC Repair</a></li>
-                        <li><a href="/services/heating-repair">Heating Repair</a></li>
-                        <li><a href="/hvac-maintenance-plan">Maintenance Plans</a></li>
-                        <li><a href="/services/indoor-air-quality">Indoor Air Quality</a></li>
+                        <li><a href="/hvac-maintenance-plan">HVAC Maintenance Plan</a></li>
+                        <li><a href="/services/system-replacement">System Replacement</a></li>
+                        <li><a href="/services/ductwork">Ductwork</a></li>
+                        <li><a href="/service-area">Service Area</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Service Areas</h3>
-                    <ul>
-                        <li><a href="/service-area/katy">Katy</a></li>
-                        <li><a href="/service-area/fulshear">Fulshear</a></li>
-                        <li><a href="/service-area/richmond">Richmond</a></li>
-                        <li><a href="/service-area/sugar-land">Sugar Land</a></li>
-                        <li><a href="/service-area/cinco-ranch">Cinco Ranch</a></li>
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span style="color: var(--secondary-color);">📞</span>
+                            <a href="tel:832-403-7466">832-403-7466</a>
+                        </li>
+                        <li>
+                            <span style="color: var(--secondary-color);">✉️</span>
+                            <a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a>
+                        </li>
+                        <li>
+                            <span style="color: var(--secondary-color);">📍</span>
+                            <span>Katy & Fulshear, TX</span>
+                        </li>
+                        <li>
+                            <span style="color: var(--secondary-color);">🕐</span>
+                            <span>Mon-Fri: 8am-5pm<br>Emergency Available</span>
+                        </li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><a href="tel:832-403-7466">832-403-7466</a></p>
-                    <p><a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a></p>
-                    <p>Katy, TX 77494</p>
-                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">TACLA00048090C</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Crazy Comfort. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms</a></p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; padding: 1.25rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #fe9a45 0%, #e8863a 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        </div>
+                        <div>
+                            <p style="color: #ffffff; font-weight: 700; font-size: 0.95rem; margin: 0;">Licensed & Insured</p>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin: 0;">Texas HVAC License</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <p style="color: #fe9a45; font-weight: 800; font-size: 1.1rem; margin: 0; letter-spacing: 0.5px;">TACLA00048090C</p>
+                        <a href="https://www.tdlr.texas.gov/LicenseSearch/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.6); font-size: 0.75rem; text-decoration: underline;">Verify on TDLR →</a>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #2078aa 0%, #1a5f85 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8v6"></path><path d="M23 11h-6"></path></svg>
+                        </div>
+                        <div>
+                            <p style="color: #ffffff; font-weight: 700; font-size: 0.95rem; margin: 0;">Woman-Owned</p>
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; margin: 0;">Family Operated</p>
+                        </div>
+                    </div>
+                </div>
+                <p>&copy; 2026 Crazy Comfort. All rights reserved. | <a href="/privacy-policy" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="/terms-conditions" style="color: rgba(255,255,255,0.7);">Terms & Conditions</a></p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">Serving <span style="color: #fe9a45;">Katy</span>, <span style="color: #fe9a45;">Fulshear</span>, <span style="color: #fe9a45;">Richmond</span>, <span style="color: #fe9a45;">Sugar Land</span>, <span style="color: #fe9a45;">Cinco Ranch</span>, and surrounding West Houston communities.</p>
             </div>
         </div>
     </footer>
@@ -471,11 +830,13 @@
             document.querySelector(`[data-rating="${rating}"]`).classList.add('selected');
             
             // Track in analytics
-            gtag('event', 'review_rating_selected', {
-                'event_category': 'Reviews',
-                'event_label': 'Rating: ' + rating,
-                'value': rating
-            });
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'review_rating_selected', {
+                    'event_category': 'Reviews',
+                    'event_label': 'Rating: ' + rating,
+                    'value': rating
+                });
+            }
             
             // Brief delay then show next step
             setTimeout(() => {
@@ -486,14 +847,19 @@
                 } else {
                     document.getElementById('step-feedback').classList.add('active');
                 }
-            }, 300);
+                
+                // Scroll to top of card on mobile
+                document.querySelector('.review-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 400);
         }
         
         function trackGoogleReview() {
-            gtag('event', 'google_review_click', {
-                'event_category': 'Reviews',
-                'event_label': 'Left Google Review'
-            });
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'google_review_click', {
+                    'event_category': 'Reviews',
+                    'event_label': 'Left Google Review'
+                });
+            }
         }
         
         function handleFeedbackSubmit(event) {
@@ -508,13 +874,18 @@
                 body: new URLSearchParams(formData).toString()
             })
             .then(() => {
-                gtag('event', 'feedback_submitted', {
-                    'event_category': 'Reviews',
-                    'event_label': 'Rating: ' + selectedRating
-                });
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'feedback_submitted', {
+                        'event_category': 'Reviews',
+                        'event_label': 'Rating: ' + selectedRating
+                    });
+                }
                 
                 document.getElementById('step-feedback').classList.remove('active');
                 document.getElementById('step-submitted').classList.add('active');
+                
+                // Scroll to top of card
+                document.querySelector('.review-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
             })
             .catch(error => {
                 console.error('Error:', error);
