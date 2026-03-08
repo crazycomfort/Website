@@ -52,11 +52,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            justify-content: flex-start;
+            padding: 3rem 2rem 4rem;
+            padding-top: calc(var(--total-header-height, 120px) + 2rem);
             background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
         
         .review-page::before {
@@ -483,6 +484,8 @@
         @media (max-width: 600px) {
             .review-page {
                 padding: 1rem;
+                padding-top: calc(var(--total-header-height, 100px) + 1rem);
+                padding-bottom: 2rem;
                 min-height: auto;
             }
             
@@ -848,8 +851,8 @@
                     document.getElementById('step-feedback').classList.add('active');
                 }
                 
-                // Scroll to top of card on mobile
-                document.querySelector('.review-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Scroll to top of page smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 400);
         }
         
@@ -884,8 +887,8 @@
                 document.getElementById('step-feedback').classList.remove('active');
                 document.getElementById('step-submitted').classList.add('active');
                 
-                // Scroll to top of card
-                document.querySelector('.review-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Scroll to top of page
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             })
             .catch(error => {
                 console.error('Error:', error);
