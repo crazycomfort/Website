@@ -2,16 +2,13 @@
 # Fix 404s and redirect old/incorrect URLs to correct pages
 
 # Fix Google Search Console 404 error
-/services/ac-maintenance    /hvac-maintenance-plan    301
+/services/ac-maintenance    /hvac-maintenance-plan/    301
+/services/ac-maintenance/   /hvac-maintenance-plan/    301
 
 # Common variations people might type
-/maintenance              /hvac-maintenance-plan    301
-/ac-maintenance           /hvac-maintenance-plan    301
-/services/maintenance     /hvac-maintenance-plan    301
-
-# Ensure trailing slashes work correctly
-/contact/                 /contact                  301
-/about/                   /about                    301
-/services/                /services                 301
-/reviews/                 /reviews                  301
-/blog/                    /blog                     301
+/maintenance                /hvac-maintenance-plan/    301
+/maintenance/               /hvac-maintenance-plan/    301
+/ac-maintenance             /hvac-maintenance-plan/    301
+/ac-maintenance/            /hvac-maintenance-plan/    301
+/services/maintenance       /hvac-maintenance-plan/    301
+/services/maintenance/      /hvac-maintenance-plan/    301
