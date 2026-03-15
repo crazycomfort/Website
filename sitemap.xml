@@ -218,7 +218,31 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
+  <url>
+    <loc>https://crazycomfort.com/services/ac-repair-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/heating-repair-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-repair-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/heating-repair-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Secondary Pages -->
   <url>
     <loc>https://crazycomfort.com/careers/</loc>
