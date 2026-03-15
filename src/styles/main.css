@@ -796,13 +796,66 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     }
 }
 
+/* Hero badges for trust signals */
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.hero-badge-primary {
+    background: rgba(254, 154, 69, 0.2);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.hero-badge-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+.hero-urgency {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-offer {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(254, 154, 69, 0.15);
+    border: 1px dashed var(--secondary-color);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.hero-offer strong {
+    color: var(--secondary-color);
+}
+
 .hero-new-headline {
     font-size: 3.2rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     color: #ffffff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -3778,9 +3831,31 @@ section {
         order: 2;
     }
 
+    .hero-badges {
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+
+    .hero-urgency {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-offer {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+        margin-top: 0.75rem;
+    }
+
     .hero-new-headline {
         font-size: 1.5rem;
         margin-bottom: 1rem;
+        margin-top: 0.25rem;
         line-height: 1.3;
         padding: 0;
         font-weight: 800;
