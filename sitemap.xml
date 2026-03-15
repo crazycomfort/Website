@@ -315,7 +315,91 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- New Blog Posts -->
+  <!-- Emergency AC Repair Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/emergency-ac-repair-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/emergency-ac-repair-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/emergency-ac-repair-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Indoor Air Quality Location Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/indoor-air-quality-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/indoor-air-quality-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/indoor-air-quality-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/indoor-air-quality-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/indoor-air-quality-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- HVAC Maintenance Location Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/hvac-maintenance-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/hvac-maintenance-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/hvac-maintenance-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/hvac-maintenance-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/hvac-maintenance-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Blog Posts -->
   <url>
     <loc>https://crazycomfort.com/blog/ac-not-cooling/</loc>
     <lastmod>2026-01-22</lastmod>
@@ -324,6 +408,36 @@
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/ac-drain-clogged/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/hvac-capacitor-replacement/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/why-is-my-heater-not-working/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/hvac-filter-change-frequency/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/refrigerant-leak-signs/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/thermostat-not-working/</loc>
     <lastmod>2026-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
