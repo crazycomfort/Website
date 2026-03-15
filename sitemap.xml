@@ -243,6 +243,92 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Woman-Owned HVAC Page -->
+  <url>
+    <loc>https://crazycomfort.com/woman-owned-hvac/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- System Replacement Location Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/system-replacement-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/system-replacement-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/system-replacement-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/system-replacement-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/system-replacement-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Ductwork Location Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/ductwork-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ductwork-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ductwork-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ductwork-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ductwork-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- New Blog Posts -->
+  <url>
+    <loc>https://crazycomfort.com/blog/ac-not-cooling/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/ac-drain-clogged/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Secondary Pages -->
   <url>
     <loc>https://crazycomfort.com/careers/</loc>
