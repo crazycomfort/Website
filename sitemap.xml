@@ -399,6 +399,52 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Emergency Heating Repair Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/emergency-heating-repair-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/emergency-heating-repair-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- AC Installation Location Pages -->
+  <url>
+    <loc>https://crazycomfort.com/services/ac-installation-katy/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-installation-fulshear/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-installation-sugar-land/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-installation-richmond/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/services/ac-installation-cinco-ranch/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Blog Posts -->
   <url>
     <loc>https://crazycomfort.com/blog/ac-not-cooling/</loc>
@@ -438,6 +484,30 @@
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/thermostat-not-working/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/ac-compressor-failure/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/frozen-evaporator-coil/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/ac-making-noise/</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://crazycomfort.com/blog/how-long-do-ac-units-last/</loc>
     <lastmod>2026-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
