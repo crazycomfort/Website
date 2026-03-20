@@ -913,7 +913,7 @@ function initChatbot() {
             followUp: ["Book online", "Call now"]
         },
         "maintenance plans": {
-            text: "Our maintenance plan is $215/year (or $21.99/month) and includes annual tune-ups plus discounts on repairs. <a href='/hvac-maintenance-plan'>Learn more here</a>.",
+            text: "Our maintenance plan is $189/year (or $17.99/month) and includes annual tune-ups plus discounts on repairs. <a href='/hvac-maintenance-plan'>Learn more here</a>.",
             followUp: ["Sign up", "More questions"]
         },
         "talk to a human": {
