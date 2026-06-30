@@ -32,33 +32,39 @@ body {
 }
 
 :root {
-    --primary-color: #2078aa;
-    --primary-dark: #1a5f87;
-    --primary-light: #2a8bc4;
-    --secondary-color: #fe9a45;
-    --secondary-dark: #e8872e;
-    --secondary-light: #ffb366;
-    --brand-cream: #fdf5ea;
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
-    --bg-light: #fdf5ea;
-    --bg-white: #ffffff;
-    --border-color: #e5e7eb;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --primary-color: #c6ff00;
+    --primary-dark: #a8d900;
+    --primary-light: #d4ff4d;
+    --secondary-color: #FF2D6D;
+    --secondary-dark: #e0245e;
+    --secondary-light: #ff5c8a;
+    --brand-dark: #0a0a0a;
+    --brand-gray: #1a1a1a;
+    --brand-gray-light: #2a2a2a;
+    --text-dark: #1a1a1a;
+    --text-light: #a0a0a0;
+    --text-on-light: #1a1a1a;
+    --bg-light: #1a1a1a;
+    --bg-dark: #0a0a0a;
+    --bg-white: #0a0a0a;
+    --bg-card: #1a1a1a;
+    --border-color: #333333;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 [data-theme="dark"] {
-    --text-dark: #f9fafb;
-    --text-light: #d1d5db;
-    --bg-light: #1a1a1a;
-    --bg-white: #0f0f0f;
-    --border-color: #374151;
-    --primary-color: #2a8bc4;
-    --secondary-color: #ffb366;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --text-dark: #1a1a1a;
+    --text-light: #a0a0a0;
+    --bg-light: #0a0a0a;
+    --bg-white: #000000;
+    --bg-card: #0f0f0f;
+    --border-color: #2a2a2a;
+    --primary-color: #c6ff00;
+    --secondary-color: #FF2D6D;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -163,10 +169,10 @@ body {
     display: none !important;
 }
 
-/* Header - Default solid background for all pages */
+/* Header - Light background for contrast with dark body */
 .header {
-    background: #fdf5ea;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: var(--top-bar-height);
     left: 0;
@@ -271,7 +277,7 @@ body.hero-transparent-header .header:not(.is-scrolled) {
     }
     
     .dropdown-menu a:hover {
-        color: #fe9a45 !important;
+        color: #FF2D6D !important;
         background: rgba(254, 154, 69, 0.1) !important;
     }
     
@@ -319,7 +325,7 @@ body.hero-transparent-header .header:not(.is-scrolled) {
 
 /* Homepage transparent header - white text on dark overlay */
 body.hero-transparent-header .header:not(.is-scrolled) .nav-menu a {
-    color: #ffffff;
+    color: #1a1a1a;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -330,11 +336,11 @@ body.hero-transparent-header .header:not(.is-scrolled) .nav-menu a:hover {
 body.hero-transparent-header .header:not(.is-scrolled) .theme-toggle {
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    color: #1a1a1a;
 }
 
 body.hero-transparent-header .header:not(.is-scrolled) .menu-toggle span {
-    background: #ffffff;
+    background: #1a1a1a;
 }
 
 .nav {
@@ -449,7 +455,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    background: linear-gradient(180deg, #1a1a1a 0%, #f8f9fa 100%);
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
     padding: 0.75rem;
@@ -490,7 +496,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     transform: translateX(-50%);
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #ffffff;
+    border-bottom: 10px solid #1a1a1a;
 }
 
 /* Ensure header allows dropdown overflow */
@@ -533,7 +539,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 
 .dropdown-menu a:hover {
     background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     transform: translateX(4px);
 }
 
@@ -560,7 +566,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: #1a1a1a;
     font-weight: 600;
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -593,12 +599,12 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 
 /* Comfort To All CTA in nav - Desktop */
 .nav-menu .nav-cta a {
-    color: #fe9a45 !important;
+    color: #FF2D6D !important;
     font-weight: 700;
 }
 
 .nav-menu .nav-cta a:hover {
-    color: #e8872e !important;
+    color: #e0245e !important;
 }
 
 .nav-actions {
@@ -822,7 +828,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .hero-badge-secondary {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff;
+    color: #1a1a1a;
 }
 
 .hero-urgency {
@@ -854,7 +860,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     font-weight: 800;
     line-height: 1.2;
     margin-top: 0.5rem;
-    color: #ffffff;
+    color: #1a1a1a;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
@@ -951,7 +957,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .hero-brand-landing {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #1a1a1a;
     margin: 0;
     line-height: 1.4;
     letter-spacing: -0.01em;
@@ -981,7 +987,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     gap: 0.4rem;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #ffffff;
+    color: #1a1a1a;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 0.5rem 0.9rem;
     border-radius: 20px;
@@ -1418,7 +1424,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .parallax-tagline {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: #ffffff;
+    color: #1a1a1a;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
@@ -1726,7 +1732,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .crazy-card h3 {
     font-size: 1.05rem;
     font-weight: 500;
-    color: #ffffff; /* White text */
+    color: #1a1a1a; /* White text */
     line-height: 1.6;
     margin: 0;
 }
@@ -1762,7 +1768,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .crazy-footer {
     text-align: center;
     font-size: 1.2rem;
-    color: #ffffff; /* White text for readability on black background */
+    color: #1a1a1a; /* White text for readability on black background */
     margin-top: 3rem;
     padding: 2rem;
     background: #1a1a1a; /* Black background to match cards */
@@ -1789,7 +1795,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .crazy-footer {
     text-align: center;
     font-size: 1.1rem;
-    color: #ffffff; /* White text for readability on black background */
+    color: #1a1a1a; /* White text for readability on black background */
     margin-top: 2rem;
 }
 
@@ -1995,7 +2001,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 }
 
 .evidence-section .homepage-headline {
-    color: #ffffff;
+    color: #1a1a1a;
 }
 
 .evidence-stats-video {
@@ -2045,7 +2051,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .evidence-stats-video p:first-child {
     font-size: 1.4rem !important;
     font-weight: 700 !important;
-    color: #ffffff !important;
+    color: #1a1a1a !important;
     text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
     margin-bottom: 0.75rem !important;
     position: relative;
@@ -2610,7 +2616,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 
 /* Hero Evidence Pack & Micro Trust Bar */
 .evidence-pack-card {
-    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(145deg, #1a1a1a 0%, #f8fafc 100%);
     border-radius: 20px;
     padding: 1.5rem;
     box-shadow: 
@@ -3537,7 +3543,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 30%, var(--bg-light) 60%, #ffffff 100%);
+    background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 30%, var(--bg-light) 60%, #1a1a1a 100%);
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
@@ -5691,7 +5697,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 
 /* FAQ Section */
 .faq {
-    background: linear-gradient(135deg, #f8fafc 0%, var(--bg-light) 50%, #ffffff 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, var(--bg-light) 50%, #1a1a1a 100%);
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
@@ -5782,7 +5788,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 }
 
 .faq-item {
-    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #fafbfc 100%);
     border-radius: 16px;
     margin-bottom: 1.25rem;
     overflow: hidden;
@@ -5824,7 +5830,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
         0 12px 32px rgba(254, 154, 69, 0.2),
         0 0 0 1px rgba(254, 154, 69, 0.3);
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #ffffff 0%, #fff9f5 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #fff9f5 100%);
 }
 
 .faq-item.active::before {
@@ -6030,7 +6036,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 
 [data-theme="dark"] .faq-item.active .faq-question {
     background: linear-gradient(135deg, rgba(255, 179, 102, 0.15) 0%, rgba(42, 139, 196, 0.15) 100%);
-    color: #ffb366;
+    color: #ff5c8a;
 }
 
 [data-theme="dark"] .faq-question-icon {
@@ -6050,11 +6056,11 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 }
 
 [data-theme="dark"] .faq-answer a {
-    color: #2a8bc4;
+    color: #d4ff4d;
 }
 
 [data-theme="dark"] .faq-answer a:hover {
-    color: #ffb366;
+    color: #ff5c8a;
 }
 
 [data-theme="dark"] .faq-cta-text {
@@ -6404,9 +6410,9 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 @media (max-width: 768px) {
     /* ============================================
        MOBILE HEADER & MENU - BRAND COLORS
-       Brand Cream: #fdf5ea
-       Brand Blue: #2078aa
-       Brand Orange: #fe9a45
+       Brand Cream: #1a1a1a
+       Brand Blue: #c6ff00
+       Brand Orange: #FF2D6D
        ============================================ */
     
     /* MOBILE HEADER - Brand cream background */
@@ -6414,7 +6420,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .header.is-scrolled,
     [data-theme="dark"] .header,
     [data-theme="dark"] .header.is-scrolled {
-        background: #fdf5ea !important;
+        background: #1a1a1a !important;
         box-shadow: 0 2px 10px rgba(32, 120, 170, 0.15) !important;
         height: var(--header-height) !important;
         padding: 0 !important;
@@ -6428,7 +6434,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     .header.is-scrolled .menu-toggle span,
     [data-theme="dark"] .menu-toggle span,
     [data-theme="dark"] .header .menu-toggle span {
-        background: #fe9a45 !important;
+        background: #FF2D6D !important;
     }
 
     .menu-toggle {
@@ -6525,7 +6531,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         overflow-y: auto;
         width: 100%;
         list-style: none;
-        border-top: 3px solid #fe9a45;
+        border-top: 3px solid #FF2D6D;
     }
     
     /* Swirl glow overlay */
@@ -6573,7 +6579,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         visibility: visible !important;
         opacity: 1 !important;
         margin-top: 0.5rem !important;
-        border-top: 3px solid #fe9a45 !important;
+        border-top: 3px solid #FF2D6D !important;
         border-bottom: none !important;
         background: rgba(254, 154, 69, 0.25) !important;
         width: 100% !important;
@@ -6585,7 +6591,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        color: #fe9a45 !important;
+        color: #FF2D6D !important;
         font-size: 1.1rem !important;
         font-weight: 700 !important;
         padding: 0.85rem 1.5rem !important;
@@ -6605,7 +6611,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         font-size: 1.1rem !important;
         font-weight: 700;
         text-align: center;
-        color: #ffffff !important;
+        color: #1a1a1a !important;
         pointer-events: auto !important;
         cursor: pointer;
         position: relative;
@@ -6625,7 +6631,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     [data-theme="dark"] .nav-menu a:hover,
     [data-theme="dark"] .nav-menu a:active {
         background: rgba(254, 154, 69, 0.15) !important;
-        color: #fe9a45 !important;
+        color: #FF2D6D !important;
     }
 
     /* Lock body scroll when menu is open */
@@ -6636,13 +6642,13 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     /* Keep header cream when menu is open - logo stays readable */
     body.menu-open .header,
     body.menu-open .header.is-scrolled {
-        background: #fdf5ea !important;
+        background: #1a1a1a !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     }
     
     /* Orange X when menu is open */
     body.menu-open .menu-toggle span {
-        background: #fe9a45 !important;
+        background: #FF2D6D !important;
     }
 
     .hero-title {
@@ -7062,7 +7068,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     
     /* Ensure Comfort To All is visible in footer on mobile */
     .footer-links a[href="/comfort-to-all"] {
-        color: #fe9a45 !important;
+        color: #FF2D6D !important;
         font-weight: 700 !important;
         display: inline-block !important;
     }
@@ -7953,7 +7959,7 @@ img {
 }
 
 .exit-popup-header {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #e8872e 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #e0245e 100%);
     color: white;
     padding: 2.5rem 2rem;
     text-align: center;
