@@ -1005,16 +1005,27 @@
                                 <textarea name="message" placeholder="How can we help?" style="width: 100%; padding: 1rem 1.25rem; margin-bottom: 1rem; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; min-height: 80px; font-size: 1rem; resize: vertical; background: rgba(255,255,255,0.05); color: #ffffff;"></textarea>
                                 
                                 <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,0.08);">
-                                    <p style="font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; color: #ffffff;">Text Message Consent <span style="font-weight: 400; color: rgba(255,255,255,0.5);">(Optional)</span></p>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                                        <svg width="16" height="16" fill="#c6ff00" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                                        <p style="font-weight: 700; font-size: 0.9rem; color: #ffffff; margin: 0;">Text Message Consent <span style="font-weight: 400; color: rgba(255,255,255,0.5);">(Optional)</span></p>
+                                    </div>
                                     
-                                    <label style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; cursor: pointer; align-items: flex-start;">
-                                        <input type="checkbox" name="sms_non_marketing_consent" value="yes" style="accent-color: #c6ff00; width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;">
-                                        <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5;">I consent to receive <strong style="color: #ffffff;">appointment reminders</strong> via text. Reply STOP to opt out.</span>
+                                    <!-- Non-Marketing Consent -->
+                                    <label style="display: flex; gap: 0.75rem; margin-bottom: 1rem; cursor: pointer; align-items: flex-start; padding: 0.75rem; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.2s ease;">
+                                        <input type="checkbox" name="sms_non_marketing_consent" value="yes" style="accent-color: #c6ff00; width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0;">
+                                        <div>
+                                            <span style="font-size: 0.85rem; color: #ffffff; font-weight: 600; display: block; margin-bottom: 0.25rem;">Appointment Reminders</span>
+                                            <span style="font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.5; display: block;">I consent to receive non-marketing text messages from Crazy Comfort about appointment reminders and service updates. Message frequency varies. Msg & data rates may apply. Text <strong style="color: #c6ff00;">HELP</strong> to (832) 633-8701 for help, <strong style="color: #c6ff00;">STOP</strong> to opt out.</span>
+                                        </div>
                                     </label>
                                     
-                                    <label style="display: flex; gap: 0.75rem; cursor: pointer; align-items: flex-start;">
-                                        <input type="checkbox" name="sms_marketing_consent" value="yes" style="accent-color: #c6ff00; width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0;">
-                                        <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5;">I consent to receive <strong style="color: #ffffff;">promotional offers</strong> via text. Reply STOP to opt out.</span>
+                                    <!-- Marketing Consent -->
+                                    <label style="display: flex; gap: 0.75rem; cursor: pointer; align-items: flex-start; padding: 0.75rem; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.2s ease;">
+                                        <input type="checkbox" name="sms_marketing_consent" value="yes" style="accent-color: #c6ff00; width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0;">
+                                        <div>
+                                            <span style="font-size: 0.85rem; color: #ffffff; font-weight: 600; display: block; margin-bottom: 0.25rem;">Promotional Offers</span>
+                                            <span style="font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.5; display: block;">I consent to receive marketing and promotional text messages from Crazy Comfort including special offers and discounts. Message frequency varies. Msg & data rates may apply. Text <strong style="color: #c6ff00;">HELP</strong> to (832) 633-8701 for help, <strong style="color: #c6ff00;">STOP</strong> to opt out.</span>
+                                        </div>
                                     </label>
                                 </div>
                                 
