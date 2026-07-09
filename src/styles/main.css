@@ -533,9 +533,9 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #1a1a1a 0%, #f8f9fa 100%);
+    background: #1a1a1a;
     border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.25);
     padding: 0.75rem;
     min-width: 260px;
     opacity: 0;
@@ -544,7 +544,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     z-index: 9999;
     list-style: none;
     transform: translateX(-50%) translateY(-15px);
-    border: 2px solid var(--secondary-color);
+    border: 2px solid #c6ff00;
 }
 
 .has-dropdown:hover .dropdown-menu,
@@ -563,7 +563,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     transform: translateX(-50%);
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
-    border-bottom: 12px solid var(--secondary-color);
+    border-bottom: 12px solid #c6ff00;
 }
 
 .dropdown-menu::after {
@@ -607,7 +607,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     font-size: 1rem;
     text-transform: none;
     letter-spacing: 0;
-    color: #1a1a1a !important;
+    color: #ffffff !important;
     text-shadow: none !important;
     border-radius: 10px;
     transition: all 0.15s ease;
@@ -616,8 +616,8 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 }
 
 .dropdown-menu a:hover {
-    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
-    color: #1a1a1a !important;
+    background: linear-gradient(135deg, #c6ff00, #a8d900);
+    color: #0a0a0a !important;
     transform: translateX(4px);
 }
 
