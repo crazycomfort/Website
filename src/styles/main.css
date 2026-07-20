@@ -97,7 +97,7 @@ body {
     top: -100px;
     left: 0;
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
     padding: 1rem 2rem;
     text-decoration: none;
     font-weight: 600;
@@ -1496,7 +1496,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .woman-owned-badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     padding: 0.75rem 2rem;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -1801,7 +1801,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .loop-icon {
     width: 36px;
     height: 36px;
-    color: white;
+    color: #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2924,7 +2924,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: white;
+    color: #0a0a0a;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     padding: 0.25rem 0.6rem;
     border-radius: 4px;
@@ -3068,7 +3068,7 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     height: 32px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     border-radius: 8px;
-    color: white;
+    color: #0a0a0a;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(32, 120, 170, 0.2);
     transition: all 0.3s ease;
@@ -3694,7 +3694,7 @@ section {
     top: 1rem;
     right: 1rem;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -3934,7 +3934,7 @@ section {
 .submit-button {
     width: 100%;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     padding: 1.25rem 2rem;
     font-size: 1.15rem;
     font-weight: 700;
@@ -4730,7 +4730,7 @@ button.comfort-cta-secondary {
 
 .comfort-cta-primary {
     background: var(--primary-color) !important;
-    color: white !important;
+    color: #0a0a0a !important;
     box-shadow: 0 4px 15px rgba(32, 120, 170, 0.3);
 }
 
@@ -4744,14 +4744,14 @@ button.comfort-cta-primary span,
 .btn.btn-primary.comfort-cta-primary,
 .btn.btn-primary.comfort-cta-primary *,
 .btn.btn-primary.comfort-cta-primary span {
-    color: white !important;
+    color: #0a0a0a !important;
 }
 
 .comfort-cta-primary:hover {
     background: var(--secondary-color) !important;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(254, 154, 69, 0.5);
-    color: white !important;
+    color: #0a0a0a !important;
 }
 
 .comfort-cta-primary:hover,
@@ -4764,7 +4764,7 @@ button.comfort-cta-primary:hover span,
 .btn.btn-primary.comfort-cta-primary:hover,
 .btn.btn-primary.comfort-cta-primary:hover *,
 .btn.btn-primary.comfort-cta-primary:hover span {
-    color: white !important;
+    color: #0a0a0a !important;
 }
 
 /* Specific fix for nominate button - highest priority */
@@ -4775,8 +4775,8 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn,
 button.btn.btn-primary.comfort-cta-primary#nominate-btn *,
 button.btn.btn-primary.comfort-cta-primary#nominate-btn span {
     background: var(--primary-color) !important;
-    color: white !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    color: #0a0a0a !important;
+    text-shadow: none;
 }
 
 button#nominate-btn:hover,
@@ -5661,7 +5661,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 
 .copy-code-btn {
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
     border: none;
     padding: 0.5rem 0.875rem;
     border-radius: 8px;
@@ -5697,7 +5697,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
     left: 50%;
     transform: translateX(-50%);
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
     padding: 0.5rem 1rem;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -5718,7 +5718,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
     width: 100%;
     text-align: center;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     padding: 1rem 2rem;
     border-radius: 12px;
     text-decoration: none;
@@ -5844,7 +5844,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #0a0a0a;
     font-weight: 700;
     font-size: 1.2rem;
 }
@@ -5869,7 +5869,7 @@ button.btn.btn-primary.comfort-cta-primary#nominate-btn:hover span {
 
 .testimonial-btn {
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
     border: none;
     width: 40px;
     height: 40px;
@@ -7634,7 +7634,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 
 .nomination-submit {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     border: none;
     box-shadow: 0 4px 15px rgba(32, 120, 170, 0.3);
 }
@@ -7903,7 +7903,7 @@ img {
 
 .chatbot-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: #0a0a0a;
     padding: 1.25rem;
     display: flex;
     align-items: center;
@@ -7984,7 +7984,7 @@ img {
 
 .chat-message.user {
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
     align-self: flex-end;
     border-bottom-right-radius: 4px;
 }
@@ -8009,7 +8009,7 @@ img {
 
 .quick-reply-btn:hover {
     background: var(--primary-color);
-    color: white;
+    color: #0a0a0a;
 }
 
 .chatbot-input-area {
