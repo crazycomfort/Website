@@ -5,6 +5,77 @@
     box-sizing: border-box;
 }
 
+/* Swirl Watermark Styles */
+.swirl-watermark {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+}
+
+.swirl-watermark-hero {
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+}
+
+.swirl-watermark-footer {
+    left: -5%;
+    bottom: -15%;
+    width: 400px;
+    height: 400px;
+    opacity: 0.06;
+}
+
+.swirl-section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+}
+
+.swirl-section-divider::before,
+.swirl-section-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 255, 0, 0.3), transparent);
+}
+
+.swirl-section-divider img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .swirl-watermark-hero {
+        width: 300px;
+        height: 300px;
+        right: -15%;
+        opacity: 0.03;
+    }
+    
+    .swirl-watermark-footer {
+        width: 200px;
+        height: 200px;
+        opacity: 0.04;
+    }
+    
+    .swirl-section-divider {
+        padding: 1.5rem 0;
+    }
+    
+    .swirl-section-divider img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 /* Prevent horizontal overflow across all devices */
 html {
     overflow-x: hidden;
