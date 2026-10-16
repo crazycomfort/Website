@@ -12,3 +12,7 @@
 /ac-maintenance/            /hvac-maintenance-plan/    301
 /services/maintenance       /hvac-maintenance-plan/    301
 /services/maintenance/      /hvac-maintenance-plan/    301
+
+# Seasonal offer moved from spring AC tune-up to fall heating checkup
+/spring-ac-tuneup           /fall-heating-checkup/     301
+/spring-ac-tuneup/          /fall-heating-checkup/     301

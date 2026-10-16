@@ -1004,7 +1004,7 @@ function initChatbot() {
 
 function initExitPopup() {
     // Don't show on certain pages
-    const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup'];
+    const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup', '/fall-heating-checkup'];
     if (excludedPaths.some(path => window.location.pathname.includes(path))) return;
     
     // Check if already shown or dismissed
