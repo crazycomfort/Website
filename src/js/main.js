@@ -444,17 +444,134 @@ function initFAQ() {
 // Initialize FAQ on DOM ready
 document.addEventListener('DOMContentLoaded', initFAQ);
 
-// Form submission handler - Netlify Forms
-// Netlify Forms handle submission automatically, we just add visual feedback
-const allForms = document.querySelectorAll('form[data-netlify="true"]');
-allForms.forEach(form => {
+// Homepage and contact lead forms post to Netlify with fetch so a Google Ads
+// conversion is recorded only after Netlify accepts the submission. The page
+// stays in place, which gives gtag time to send. Other Netlify forms keep
+// their existing submit behavior.
+const LEAD_FORM_NAMES = new Set(['contact', 'homepage-contact']);
+const ADS_CONTACT_CONVERSION = 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC';
+
+function reportConfirmedLead(formName) {
+    if (typeof gtag !== 'function') return;
+    try {
+        gtag('event', 'conversion', {
+            send_to: ADS_CONTACT_CONVERSION
+        });
+    } catch (err) {
+        // Keep going so a conversion error still allows the GA4 event.
+    }
+    try {
+        gtag('event', 'generate_lead', {
+            event_category: 'Contact',
+            event_label: formName === 'homepage-contact'
+                ? 'Homepage Contact Form Submission'
+                : 'Contact Form Submission'
+        });
+    } catch (err) {
+        // Confirmation is shown by the caller even if analytics throws.
+    }
+}
+
+function showLeadFormSuccess(form) {
+    const field = form.querySelector('input:not([type="hidden"]), textarea, select');
+    const color = field ? window.getComputedStyle(field).color : '';
+    const success = document.createElement('div');
+    success.setAttribute('role', 'status');
+    success.style.cssText = 'text-align: center; padding: 1.5rem 0.5rem;';
+    if (color) success.style.color = color;
+    success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
+        + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
+    form.replaceWith(success);
+}
+
+function showLeadFormError(form) {
+    let error = form.querySelector('.lead-form-error');
+    if (!error) {
+        error = document.createElement('p');
+        error.className = 'lead-form-error';
+        error.setAttribute('role', 'alert');
+        error.style.cssText = 'color: #ff5a6a; font-size: 0.9rem; margin: 0 0 0.75rem; text-align: center;';
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.before(error);
+        } else {
+            form.appendChild(error);
+        }
+    }
+    error.textContent = 'We could not send your request. Please try again or call 832-403-7466.';
+}
+
+function bindLeadForm(form) {
     form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (form.dataset.leadSubmitting === 'true') return;
+        form.dataset.leadSubmitting = 'true';
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.textContent : '';
+        const existingError = form.querySelector('.lead-form-error');
+        if (existingError) existingError.remove();
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        }
+
+        const formData = new FormData(form);
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Netlify rejected the submission');
+            }
+            if (form.dataset.leadTracked === 'true') return;
+            form.dataset.leadTracked = 'true';
+            try {
+                reportConfirmedLead(form.getAttribute('name'));
+            } catch (err) {
+                // A tracking failure should not hide a submission Netlify already accepted.
+            }
+            showLeadFormSuccess(form);
+        })
+        .catch(function() {
+            delete form.dataset.leadSubmitting;
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+            showLeadFormError(form);
+        });
+    });
+}
+
+// Netlify removes data-netlify from published HTML and keeps the form-name field.
+// Match either so this still binds after deploy.
+function netlifyFormName(form) {
+    if (form.hasAttribute('data-netlify')) return form.getAttribute('name');
+    const formName = form.querySelector('input[name="form-name"]');
+    return formName ? formName.value : '';
+}
+
+document.querySelectorAll('form').forEach(form => {
+    const name = netlifyFormName(form);
+    if (!name) return;
+
+    if (LEAD_FORM_NAMES.has(name)) {
+        bindLeadForm(form);
+        return;
+    }
+
+    form.addEventListener('submit', function() {
         const submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
         }
-        // Let the form submit naturally to Netlify
     });
 });
 

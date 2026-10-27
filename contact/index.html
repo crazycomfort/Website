@@ -617,27 +617,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202606301300"></script>
-    <script>
-        // Google Ads Form Submission Conversion Tracking
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.querySelector('form[name="contact"]');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function() {
-                    // Fire Google Ads conversion event
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC'
-                        });
-                        // Also send to GA4 for backup tracking
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'Contact',
-                            'event_label': 'Contact Form Submission'
-                        });
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="/dist/main.js?v=202610271600"></script>
 </body>
 </html>
