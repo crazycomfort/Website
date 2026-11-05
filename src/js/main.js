@@ -478,20 +478,51 @@ function reportConfirmedLead(formName) {
     }
 }
 
+function showHeatingCheckSuccess(form) {
+    const card = form.closest('.hc-form-card');
+    const success = document.createElement('div');
+    success.className = 'hc-success';
+    success.setAttribute('role', 'status');
+    success.setAttribute('aria-live', 'polite');
+    success.setAttribute('aria-atomic', 'true');
+    success.innerHTML = '<h2 id="hc-success-title" tabindex="-1">Your $49 Heating Check Request Was Received!</h2>'
+        + '<p>Thank you for contacting Crazy Comfort! We\'ve received your request for a $49 Heating Check. Our team will contact you to confirm availability and schedule your appointment.</p>'
+        + '<p class="hc-success-note">Submitting this form does not confirm your appointment.</p>'
+        + '<p class="hc-legal"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms &amp; Conditions</a></p>';
+
+    if (card) {
+        card.setAttribute('aria-labelledby', 'hc-success-title');
+        card.replaceChildren(success);
+    } else {
+        form.replaceWith(success);
+    }
+
+    const heading = success.querySelector('#hc-success-title');
+    const scrollTarget = card || success;
+    window.requestAnimationFrame(function() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        scrollTarget.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
+        if (heading) heading.focus({ preventScroll: true });
+    });
+}
+
 function showLeadFormSuccess(form) {
+    if (form.getAttribute('name') === 'heating-check') {
+        showHeatingCheckSuccess(form);
+        return;
+    }
+
     const field = form.querySelector('input:not([type="hidden"]), textarea, select');
     const color = field ? window.getComputedStyle(field).color : '';
     const success = document.createElement('div');
     success.setAttribute('role', 'status');
     success.style.cssText = 'text-align: center; padding: 1.5rem 0.5rem;';
     if (color) success.style.color = color;
-    if (form.getAttribute('name') === 'heating-check') {
-        success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Request received</p>'
-            + '<p style="margin: 0; line-height: 1.6;">Our team will contact you to confirm availability. Submitting this form does not confirm the appointment. For immediate help, call <a href="tel:832-403-7466" style="color: #c6ff00; font-weight: 700;">832-403-7466</a>.</p>';
-    } else {
-        success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
-            + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
-    }
+    success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
+        + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
     form.replaceWith(success);
 }
 
