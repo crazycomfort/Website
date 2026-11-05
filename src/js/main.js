@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', initFAQ);
 // conversion is recorded only after Netlify accepts the submission. The page
 // stays in place, which gives gtag time to send. Other Netlify forms keep
 // their existing submit behavior.
-const LEAD_FORM_NAMES = new Set(['contact', 'homepage-contact']);
+const LEAD_FORM_NAMES = new Set(['contact', 'homepage-contact', 'heating-check']);
 const ADS_CONTACT_CONVERSION = 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC';
 
 function reportConfirmedLead(formName) {
@@ -461,12 +461,18 @@ function reportConfirmedLead(formName) {
         // Keep going so a conversion error still allows the GA4 event.
     }
     try {
-        gtag('event', 'generate_lead', {
+        const leadEvent = {
             event_category: 'Contact',
             event_label: formName === 'homepage-contact'
                 ? 'Homepage Contact Form Submission'
-                : 'Contact Form Submission'
-        });
+                : formName === 'heating-check'
+                    ? '$49 Heating Check'
+                    : 'Contact Form Submission'
+        };
+        if (formName === 'heating-check') {
+            leadEvent.offer = 'heating_check_49';
+        }
+        gtag('event', 'generate_lead', leadEvent);
     } catch (err) {
         // Confirmation is shown by the caller even if analytics throws.
     }
@@ -479,8 +485,13 @@ function showLeadFormSuccess(form) {
     success.setAttribute('role', 'status');
     success.style.cssText = 'text-align: center; padding: 1.5rem 0.5rem;';
     if (color) success.style.color = color;
-    success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
-        + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
+    if (form.getAttribute('name') === 'heating-check') {
+        success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Request received</p>'
+            + '<p style="margin: 0; line-height: 1.6;">Our team will contact you to confirm availability. Submitting this form does not confirm the appointment. For immediate help, call <a href="tel:832-403-7466" style="color: #c6ff00; font-weight: 700;">832-403-7466</a>.</p>';
+    } else {
+        success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
+            + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
+    }
     form.replaceWith(success);
 }
 
@@ -516,6 +527,15 @@ function bindLeadForm(form) {
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
+        }
+
+        if (form.getAttribute('name') === 'heating-check') {
+            const params = new URLSearchParams(window.location.search);
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(key) {
+                const field = form.querySelector('input[name="' + key + '"]');
+                const value = params.get(key);
+                if (field && value) field.value = value.slice(0, 200);
+            });
         }
 
         const formData = new FormData(form);
@@ -939,7 +959,7 @@ function initScrollAnimations() {
 
 function initChatbot() {
     // Don't show on review page or other special pages
-    if (window.location.pathname.includes('leave-review')) return;
+    if (window.location.pathname.includes('leave-review') || window.location.pathname.includes('heating-check')) return;
     
     // Create chatbot HTML
     const chatbotHTML = `
@@ -1121,7 +1141,7 @@ function initChatbot() {
 
 function initExitPopup() {
     // Don't show on certain pages
-    const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup', '/fall-heating-checkup'];
+    const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup', '/fall-heating-checkup', '/heating-check'];
     if (excludedPaths.some(path => window.location.pathname.includes(path))) return;
     
     // Check if already shown or dismissed
