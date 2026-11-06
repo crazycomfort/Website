@@ -20,3 +20,7 @@
 # Temporary Facebook campaign link for the $49 Heating Check
 /49heat                     /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302
 /49heat/                    /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302
+
+# Temporary Instagram campaign link for the $49 Heating Check
+/49heat-ig                  /heating-check/?utm_source=instagram&utm_medium=social&utm_campaign=heating_check_49  302
+/49heat-ig/                 /heating-check/?utm_source=instagram&utm_medium=social&utm_campaign=heating_check_49  302
