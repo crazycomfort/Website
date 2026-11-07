@@ -840,7 +840,7 @@ function initNominationModal() {
             } catch (error) {
                 console.error('Form submission error:', error);
                 if (formMessage) {
-                    formMessage.textContent = error.message || 'There was an error submitting your nomination. Please try again or call us at (832) 633-8701.';
+                    formMessage.textContent = error.message || 'There was an error submitting your nomination. Please try again or call us at (832) 403-7466.';
                     formMessage.className = 'nomination-form-message error';
                     formMessage.style.display = 'block';
                 }
@@ -1020,7 +1020,7 @@ function initChatbot() {
                     <div class="chat-message bot">
                         Hey there! 👋 I'm here to help with your HVAC questions. What can I help you with today?
                         <div class="chat-quick-replies">
-                            <button class="quick-reply-btn" data-reply="schedule">Schedule Service</button>
+                            <button class="quick-reply-btn" data-reply="schedule">Request Service</button>
                             <button class="quick-reply-btn" data-reply="areas">Service Areas</button>
                             <button class="quick-reply-btn" data-reply="emergency">Emergency Help</button>
                             <button class="quick-reply-btn" data-reply="pricing">Get a Quote</button>
@@ -1062,7 +1062,7 @@ function initChatbot() {
     // Chat responses
     const responses = {
         schedule: {
-            text: "Great! You can schedule service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact'>filling out our online form</a>. We offer same-day service!",
+            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer same-day service!",
             followUp: ["What's your availability?", "Do you offer financing?", "Talk to a human"]
         },
         areas: {
@@ -1099,7 +1099,7 @@ function initChatbot() {
         },
         default: {
             text: "Thanks for your message! For the fastest response, call us at <a href='tel:832-403-7466'>832-403-7466</a>. Or let me know what you need help with:",
-            followUp: ["Schedule Service", "Service Areas", "Get a Quote"]
+            followUp: ["Request Service", "Service Areas", "Get a Quote"]
         }
     };
     
@@ -1133,7 +1133,12 @@ function initChatbot() {
         // Remove old quick replies
         document.querySelectorAll('.chat-quick-replies').forEach(el => el.remove());
         
-        const key = message.toLowerCase().replace(/[^a-z\s]/g, '').trim();
+        const normalized = message.toLowerCase().replace(/[^a-z\s]/g, '').trim();
+        const aliases = {
+            'schedule service': 'schedule',
+            'request service': 'schedule'
+        };
+        const key = aliases[normalized] || normalized;
         const response = responses[key] || responses.default;
         
         // Simulate typing delay
@@ -1156,6 +1161,11 @@ function initChatbot() {
     // Quick reply buttons
     messagesContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('quick-reply-btn')) {
+            const label = e.target.textContent.trim().toLowerCase();
+            if (label === 'request service' || label === 'schedule service') {
+                window.location.href = '/contact/';
+                return;
+            }
             handleUserMessage(e.target.textContent);
         }
     });
