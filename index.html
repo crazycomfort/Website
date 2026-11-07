@@ -12,6 +12,77 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="/assets/images/Logo-Green/Crazy-Comfort-02.svg" fetchpriority="high">
+    <style>
+        :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { background: #0a0a0a; color: #fff; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
+        .skip-to-content { position: absolute; top: -100px; left: 0; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #0a0a0a; width: 100%; font-size: 0.85rem; font-weight: 600; }
+        .top-contact-bar .container { display: flex; align-items: center; justify-content: space-between; max-width: 100%; margin: 0; padding: 0 1rem 0 1.5rem; }
+        .top-bar-phone { color: #000; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.5px; text-decoration: none; display: inline-flex; align-items: center; }
+        .top-bar-divider, .top-bar-location { display: none; }
+        .top-bar-badge { display: inline-flex; align-items: center; justify-content: center; height: 100%; margin-right: -1rem; padding: 0.6rem 1.5rem; background: #FF2D6D; color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+        .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: rgba(0, 0, 0, 0.15); border-bottom: 1px solid #1a1a1a; }
+        .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; gap: 1rem; padding: 0.25rem 1rem; }
+        .logo { display: flex; align-items: center; flex-shrink: 0; height: 100%; }
+        .logo a { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 0; text-decoration: none; }
+        .logo-image { display: block; height: 95px; width: auto; max-width: 380px; object-fit: contain; }
+        .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: 3rem; position: relative; }
+        .menu-toggle { display: none; }
+        .nav-menu { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
+        .dropdown-menu { position: absolute; opacity: 0; visibility: hidden; }
+        .hero-new { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: var(--total-header-height) 0 2rem; background: #0a0a0a; }
+        .hero-new-grid { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%; min-height: 60vh; }
+        .hero-new-left { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 800px; }
+        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #fff; margin: 0.5rem 0 1.5rem; letter-spacing: -0.03em; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.9); }
+        .hero-new-headline strong { color: #c6ff00; display: block; font-size: 1.1em; }
+        .hero-new-body { color: rgba(255, 255, 255, 0.95); font-size: 1.1rem; line-height: 1.7; margin: 0 0 2rem; max-width: 520px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+        p { color: #b0b0b0; }
+        .hero-new-body p { margin: 0 0 1.5rem; }
+        .hero-new-body p strong { color: #FF2D6D; font-weight: 700; }
+        .hero-new-cta { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem; }
+        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+        .cta-primary, .cta-secondary { display: inline-block; text-decoration: none; text-align: center; border-radius: 8px; }
+        .cta-primary { background: #c6ff00; color: #0a0a0a; border: 0; padding: 1.3rem 3rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(198, 255, 0, 0.3); }
+        .cta-secondary { background: transparent; color: #c6ff00; border: 2px solid #c6ff00; padding: 1.1rem 2.5rem; font-size: 1.1rem; font-weight: 600; }
+        .hero-trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+        .hero-trust-strip span { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 600; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
+        @media (max-width: 768px) {
+            :root { --top-bar-height: 38px; --header-height: 80px; }
+            .container { max-width: 100%; padding-left: 1rem; padding-right: 1rem; }
+            .top-contact-bar .container { padding: 0 1rem; }
+            .top-bar-phone { font-size: 0.9rem; white-space: nowrap; }
+            .top-bar-badge { margin-right: 0; padding: 0.5rem 0.75rem; font-size: 0.65rem; letter-spacing: 0.5px; }
+            .header { background: #1a1a1a; }
+            .nav { padding: 0.25rem 0.75rem; height: var(--header-height); }
+            .logo { height: auto; max-height: 80px; }
+            .logo a { height: auto; max-height: 42px; }
+            .logo-image { height: 65px; max-height: 65px; max-width: 260px; }
+            .menu-toggle { display: flex; flex-direction: column; gap: 4px; background: none; border: 0; padding: 0.5rem; }
+            .nav-actions { margin-left: auto; }
+            .menu-toggle span { display: block; width: 25px; height: 3px; background: #FF2D6D; border-radius: 2px; }
+            .nav-menu { display: none; }
+            .nav-menu.active { display: flex; position: fixed; top: var(--total-header-height); left: 0; right: 0; z-index: 9999; flex-direction: column; gap: 0; width: 100%; background: #0a0a0a; padding: 0.75rem 0 1rem; }
+            .hero-new { padding: calc(var(--total-header-height) + 1rem) 0 2rem; }
+            .hero-new-headline { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0.25rem 0 1rem; letter-spacing: normal; text-shadow: none; }
+            .hero-new-body { width: 100%; margin-bottom: 2rem; }
+            .hero-new-cta { order: 3; margin-top: 1rem; width: 100%; align-items: stretch; gap: 1rem; }
+            .cta-buttons { flex-direction: column; width: 100%; }
+            .cta-primary, .cta-secondary { width: 100%; padding: 1rem 2rem; }
+        }
+        @media (min-width: 1400px) {
+            .container { max-width: 1320px; padding: 0 2.5rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-new { padding-bottom: 2.5rem; }
+            .hero-new-headline { margin-bottom: 2rem; }
+            .hero-new-body { font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+            .hero-new-body p { margin-bottom: 1.75rem; }
+        }
+    </style>
     <meta name="description" content="Woman-owned HVAC company in Katy & Fulshear TX. Transparent AC repair, heating service & installations with real-time photo documentation. Same-day service. Call 832-403-7466.">
     <title>Woman-Owned HVAC Company Katy TX | Crazy Comfort | 832-403-7466</title>
     
@@ -63,7 +134,9 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link rel="stylesheet" href="/dist/styles.css?v=202611062245">
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611062330" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611062330"></noscript>
+    <script>!function(){var l=document.getElementById('site-css');if(!l)return;function a(){l.media='all'}if(l.sheet)a();else l.addEventListener('load',a)}();</script>
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
     <script type="application/ld+json">
@@ -391,7 +464,7 @@
         <nav class="nav container">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/Logo-Green/Crazy-Comfort-02.svg" alt="Crazy Comfort Logo" class="logo-image">
+                    <img src="/assets/images/Logo-Green/Crazy-Comfort-02.svg" alt="Crazy Comfort Logo" class="logo-image" width="2000" height="2000" fetchpriority="high">
                 </a>
             </div>
             <ul class="nav-menu">
