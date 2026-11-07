@@ -5,77 +5,6 @@
     box-sizing: border-box;
 }
 
-/* Swirl Watermark Styles */
-.swirl-watermark {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.04;
-}
-
-.swirl-watermark-hero {
-    right: -10%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 600px;
-    height: 600px;
-}
-
-.swirl-watermark-footer {
-    left: -5%;
-    bottom: -15%;
-    width: 400px;
-    height: 400px;
-    opacity: 0.06;
-}
-
-.swirl-section-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-    gap: 1.5rem;
-}
-
-.swirl-section-divider::before,
-.swirl-section-divider::after {
-    content: '';
-    flex: 1;
-    max-width: 200px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(198, 255, 0, 0.3), transparent);
-}
-
-.swirl-section-divider img {
-    width: 40px;
-    height: 40px;
-    opacity: 0.6;
-}
-
-@media (max-width: 768px) {
-    .swirl-watermark-hero {
-        width: 300px;
-        height: 300px;
-        right: -15%;
-        opacity: 0.03;
-    }
-    
-    .swirl-watermark-footer {
-        width: 200px;
-        height: 200px;
-        opacity: 0.04;
-    }
-    
-    .swirl-section-divider {
-        padding: 1.5rem 0;
-    }
-    
-    .swirl-section-divider img {
-        width: 30px;
-        height: 30px;
-    }
-}
-
 /* Prevent horizontal overflow across all devices */
 html {
     overflow-x: hidden;
@@ -2667,24 +2596,6 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
     margin-top: 2rem;
 }
 
-.process-swirl {
-    text-align: center;
-    margin: 2rem 0 1rem 0;
-}
-
-.process-swirl .swirl-icon {
-    width: 50px;
-    height: 50px;
-    opacity: 0.6;
-    filter: brightness(0) invert(1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.process-swirl .swirl-icon:hover {
-    opacity: 0.9;
-    transform: rotate(90deg);
-}
-
 /* Section 8: Pricing */
 .pricing-bullets {
     list-style: none;
@@ -2982,42 +2893,6 @@ body.hero-transparent-header .header:not(.is-scrolled) .logo-tagline {
 .evidence-slide.active {
     display: block;
     animation: fadeIn 0.4s ease;
-}
-
-.evidence-slide.has-logo-overlay {
-    position: relative;
-}
-
-.evidence-slide.has-logo-overlay::after {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    backdrop-filter: blur(4px);
-    border: 2px solid rgba(254, 154, 69, 0.2);
-    background-image: url("../../assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png");
-    background-size: 45px 45px;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-@media (max-width: 768px) {
-    .evidence-slide.has-logo-overlay::after {
-        top: -10px;
-        width: 55px;
-        height: 55px;
-        background-size: 42px 42px;
-    }
 }
 
 @keyframes fadeIn {
@@ -6872,16 +6747,14 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         color: var(--primary-color) !important;
     }
 
-    /* MOBILE MENU DROPDOWN - Dark dropdown with swirl */
+    /* MOBILE MENU DROPDOWN */
     .nav-menu,
     [data-theme="dark"] .nav-menu {
         position: fixed;
         top: var(--total-header-height);
         left: 0;
         right: 0;
-        background: #0a0a0a url('/assets/images/SWIRL ICON-01.png') no-repeat !important;
-        background-position: 120% 50% !important;
-        background-size: 280px 280px !important;
+        background: #0a0a0a !important;
         display: none;
         flex-direction: column;
         padding: 0.75rem 0 1rem 0;
@@ -6894,7 +6767,7 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
         border-top: 3px solid #FF2D6D;
     }
     
-    /* Swirl glow overlay */
+    /* Soft edge on the mobile menu */
     .nav-menu::after,
     [data-theme="dark"] .nav-menu::after {
         content: '';
