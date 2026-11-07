@@ -519,11 +519,20 @@ function showLeadFormSuccess(form) {
     const color = field ? window.getComputedStyle(field).color : '';
     const success = document.createElement('div');
     success.setAttribute('role', 'status');
-    success.style.cssText = 'text-align: center; padding: 1.5rem 0.5rem;';
+    success.setAttribute('tabindex', '-1');
+    success.style.cssText = 'text-align: center; padding: 1.5rem 0.5rem; scroll-margin-top: calc(var(--total-header-height, 154px) + 1rem);';
     if (color) success.style.color = color;
     success.innerHTML = '<p style="font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem;">Thank you!</p>'
         + '<p style="margin: 0; line-height: 1.6;">Your request was sent. We will get back to you shortly. For immediate help, call <a href="tel:832-403-7466" style="color: inherit; font-weight: 700;">832-403-7466</a>.</p>';
     form.replaceWith(success);
+    window.requestAnimationFrame(function() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        success.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
+        success.focus({ preventScroll: true });
+    });
 }
 
 function showLeadFormError(form) {
