@@ -1,16 +1,11 @@
-// Google Ads "calls to a phone number on your website" conversion label.
-// In Google Ads: Goals → Conversions → the website-call action → Tag setup.
-// Paste only the label (the segment after AW-17839379589/), for example:
-// const WEBSITE_CALL_CONVERSION_LABEL = 'AbCdEfGhIjKlMnOpQr';
+// Google Ads "Calls from website" conversion label (the segment after AW-17839379589/).
 // A full AW-17839379589/LABEL value is also accepted.
-// While this is empty, the phone_conversion_number config below is not sent.
-const WEBSITE_CALL_CONVERSION_LABEL = '';
+// An empty value skips the phone_conversion_number config below.
+const WEBSITE_CALL_CONVERSION_LABEL = 'qQVLCJWMyLYdEIWpvbpC';
 
-// Header, hero, footer, and tel: link text render this number as text
-// ("832-403-7466", sometimes prefixed with a phone emoji in the same text node).
-// Google swaps that displayed text for a forwarding number, so the configured
-// value uses those same digits with no country code.
-const WEBSITE_CALL_PHONE_NUMBER = '(832) 403-7466';
+// Matches Google's snippet and the on-page text. The header renders this as
+// "832-403-7466" (sometimes with a phone emoji in the same text node).
+const WEBSITE_CALL_PHONE_NUMBER = '832-403-7466';
 
 function websiteCallSendTo(label) {
     let value = String(label || '').trim();
