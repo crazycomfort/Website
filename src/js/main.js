@@ -1,88 +1,56 @@
-// DEV BUILD STAMP: 2026-01-17 12:00 (debug-lite)
-console.log('[CrazyComfort] Build: 2026-01-17-1200');
+// Google Ads "calls to a phone number on your website" conversion label.
+// In Google Ads: Goals → Conversions → the website-call action → Tag setup.
+// Paste only the label (the segment after AW-17839379589/), for example:
+// const WEBSITE_CALL_CONVERSION_LABEL = 'AbCdEfGhIjKlMnOpQr';
+// A full AW-17839379589/LABEL value is also accepted.
+// While this is empty, the phone_conversion_number config below is not sent.
+const WEBSITE_CALL_CONVERSION_LABEL = '';
 
-// #region agent log - Bug chat disappearance (lightweight, throttled)
-const DEBUG_LOG_ENDPOINT = 'http://127.0.0.1:7244/ingest/50e3056f-7000-49cf-b237-fd436abdf00e';
-const DEBUG_SESSION_ID = 'debug-session';
-const CHAT_LOG_MIN_INTERVAL_MS = 1500;
-let lastChatLogTs = 0;
+// Header, hero, footer, and tel: link text render this number as text
+// ("832-403-7466", sometimes prefixed with a phone emoji in the same text node).
+// Google swaps that displayed text for a forwarding number, so the configured
+// value uses those same digits with no country code.
+const WEBSITE_CALL_PHONE_NUMBER = '(832) 403-7466';
 
-function sendDebugLog(hypothesisId, location, message, data = {}, runId = 'pre-fix') {
-    const now = Date.now();
-    // Throttle to avoid flooding
-    if (now - lastChatLogTs < CHAT_LOG_MIN_INTERVAL_MS && hypothesisId !== 'B') return;
-    lastChatLogTs = now;
-
-    fetch(DEBUG_LOG_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            sessionId: DEBUG_SESSION_ID,
-            runId,
-            hypothesisId,
-            location,
-            message,
-            data,
-            timestamp: now
-        })
-    }).catch(() => {});
+function websiteCallSendTo(label) {
+    let value = String(label || '').trim();
+    if (!value) return '';
+    const prefix = 'AW-17839379589/';
+    if (value.startsWith(prefix)) value = value.slice(prefix.length).trim();
+    if (!value) return '';
+    return prefix + value;
 }
 
-function captureBugChatState(trigger, hypothesisId = 'A', runId = 'pre-fix') {
-    const candidates = Array.from(document.querySelectorAll('[data-bug-chat], [data-chat], .chat, [class*="chat"], [id*="chat"]'))
-        .slice(0, 5)
-        .map(el => ({
-            tag: el.tagName,
-            id: el.id,
-            class: el.className,
-            textSample: (el.textContent || '').trim().slice(0, 120)
-        }));
-
-    sendDebugLog(
-        hypothesisId,
-        'main.js:captureBugChatState',
-        `Bug chat state: ${trigger}`,
-        {
-            trigger,
-            candidateCount: candidates.length,
-            candidates,
-            url: window.location.href,
-            visibility: document.visibilityState
-        },
-        runId
-    );
-}
-
-// Track the meta+alt+r key combo the user reported
-window.addEventListener('keydown', (e) => {
-    if (e.metaKey && e.altKey && (e.key === 'r' || e.key === 'R')) {
-        sendDebugLog('B', 'main.js:keydown', 'meta+alt+r pressed', {
-            metaKey: e.metaKey,
-            altKey: e.altKey,
-            ctrlKey: e.ctrlKey,
-            shiftKey: e.shiftKey,
-            key: e.key
-        });
-        captureBugChatState('meta+alt+r', 'B');
-    }
-});
-
-// Capture state on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        captureBugChatState('domcontentloaded', 'A');
-        setTimeout(() => captureBugChatState('post-domcontentloaded-500ms', 'A'), 500);
+function initWebsiteCallConversion() {
+    const sendTo = websiteCallSendTo(WEBSITE_CALL_CONVERSION_LABEL);
+    if (!sendTo || typeof gtag !== 'function') return;
+    gtag('config', sendTo, {
+        phone_conversion_number: WEBSITE_CALL_PHONE_NUMBER
     });
-} else {
-    captureBugChatState('dom-already-ready', 'A');
-    setTimeout(() => captureBugChatState('post-ready-500ms', 'A'), 500);
 }
 
-// Capture before page unload (helps distinguish refresh-driven disappearance)
-window.addEventListener('beforeunload', () => {
-    captureBugChatState('beforeunload', 'C');
-});
-// #endregion
+// GA4 only. This does not send the Ads form conversion.
+function initPhoneClickTracking() {
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        if (!target || typeof target.closest !== 'function') return;
+        const link = target.closest('a[href^="tel:"]');
+        if (!link || typeof gtag !== 'function') return;
+        const href = link.getAttribute('href') || '';
+        try {
+            gtag('event', 'phone_click', {
+                event_category: 'Contact',
+                event_label: href,
+                link_url: href
+            });
+        } catch (err) {
+            // A tracking failure must not block the call.
+        }
+    }, true);
+}
+
+initWebsiteCallConversion();
+initPhoneClickTracking();
 
 // Dark Mode Toggle
 function initThemeToggle() {
@@ -451,12 +419,16 @@ document.addEventListener('DOMContentLoaded', initFAQ);
 const LEAD_FORM_NAMES = new Set(['contact', 'homepage-contact', 'heating-check']);
 const ADS_CONTACT_CONVERSION = 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC';
 
+function reportAdsContactConversion() {
+    gtag('event', 'conversion', {
+        send_to: ADS_CONTACT_CONVERSION
+    });
+}
+
 function reportConfirmedLead(formName) {
     if (typeof gtag !== 'function') return;
     try {
-        gtag('event', 'conversion', {
-            send_to: ADS_CONTACT_CONVERSION
-        });
+        reportAdsContactConversion();
     } catch (err) {
         // Keep going so a conversion error still allows the GA4 event.
     }
@@ -1271,10 +1243,15 @@ function initExitPopup() {
         if (e.target === popup) hidePopup();
     });
     
-    // Form submission
+    // Form submission. Ads and GA4 each fire once, and only after Netlify accepts it.
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+        if (form.dataset.exitSubmitting === 'true') return;
+        form.dataset.exitSubmitting = 'true';
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
         const formData = new FormData(form);
         
         fetch('/', {
@@ -1282,11 +1259,26 @@ function initExitPopup() {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
         })
-        .then(() => {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'exit_popup_conversion', { 'event_category': 'Lead' });
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Netlify rejected the submission');
             }
-            
+            if (form.dataset.exitTracked !== 'true') {
+                form.dataset.exitTracked = 'true';
+                try {
+                    if (typeof gtag === 'function') reportAdsContactConversion();
+                } catch (err) {
+                    // Keep going so a conversion error still allows the GA4 event.
+                }
+                try {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'exit_popup_conversion', { 'event_category': 'Lead' });
+                    }
+                } catch (err) {
+                    // Success UI still shows after Netlify has accepted the lead.
+                }
+            }
+
             // Show success
             form.innerHTML = `
                 <div style="text-align: center; padding: 1rem;">
@@ -1299,6 +1291,8 @@ function initExitPopup() {
             setTimeout(() => hidePopup(true), 5000);
         })
         .catch(error => {
+            delete form.dataset.exitSubmitting;
+            if (submitBtn) submitBtn.disabled = false;
             console.error('Error:', error);
             alert('There was an error. Please call 832-403-7466 for your discount.');
         });
