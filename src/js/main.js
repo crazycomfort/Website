@@ -7,6 +7,10 @@ const WEBSITE_CALL_CONVERSION_LABEL = 'qQVLCJWMyLYdEIWpvbpC';
 // "832-403-7466" (sometimes with a phone emoji in the same text node).
 const WEBSITE_CALL_PHONE_NUMBER = '832-403-7466';
 
+// GA4 measurement id. Events that omit send_to are delivered to every gtag
+// config on the page, including the website-call conversion label above.
+const GA4_MEASUREMENT_ID = 'G-NL2HPX23K3';
+
 function websiteCallSendTo(label) {
     let value = String(label || '').trim();
     if (!value) return '';
@@ -24,16 +28,25 @@ function initWebsiteCallConversion() {
     });
 }
 
-// GA4 only. This does not send the Ads form conversion.
+// Name the GA4 destination so the event is not also sent to the website-call
+// conversion label. Ads call tracking stays on the config above.
+function trackGa4Event(eventName, params) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', eventName, Object.assign({}, params, {
+        send_to: GA4_MEASUREMENT_ID
+    }));
+}
+
+// GA4 only. This does not send the Ads form conversion or the website-call label.
 function initPhoneClickTracking() {
     document.addEventListener('click', function(event) {
         const target = event.target;
         if (!target || typeof target.closest !== 'function') return;
         const link = target.closest('a[href^="tel:"]');
-        if (!link || typeof gtag !== 'function') return;
+        if (!link) return;
         const href = link.getAttribute('href') || '';
         try {
-            gtag('event', 'phone_click', {
+            trackGa4Event('phone_click', {
                 event_category: 'Contact',
                 event_label: href,
                 link_url: href
@@ -439,7 +452,7 @@ function reportConfirmedLead(formName) {
         if (formName === 'heating-check') {
             leadEvent.offer = 'heating_check_49';
         }
-        gtag('event', 'generate_lead', leadEvent);
+        trackGa4Event('generate_lead', leadEvent);
     } catch (err) {
         // Confirmation is shown by the caller even if analytics throws.
     }
@@ -1020,9 +1033,7 @@ function initChatbot() {
         if (chatWindow.classList.contains('active')) {
             badge.style.display = 'none';
             chatInput.focus();
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'chatbot_opened', { 'event_category': 'Engagement' });
-            }
+            trackGa4Event('chatbot_opened', { 'event_category': 'Engagement' });
         }
     });
     
@@ -1117,12 +1128,10 @@ function initChatbot() {
         }, 500);
         
         // Track in analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'chatbot_message', { 
-                'event_category': 'Engagement',
-                'event_label': message
-            });
-        }
+        trackGa4Event('chatbot_message', {
+            'event_category': 'Engagement',
+            'event_label': message
+        });
     }
     
     // Quick reply buttons
@@ -1199,9 +1208,7 @@ function initExitPopup() {
     function showPopup() {
         popup.classList.add('active');
         sessionStorage.setItem('exitPopupShown', 'true');
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exit_popup_shown', { 'event_category': 'Engagement' });
-        }
+        trackGa4Event('exit_popup_shown', { 'event_category': 'Engagement' });
     }
     
     function hidePopup(permanent = false) {
@@ -1266,9 +1273,7 @@ function initExitPopup() {
                     // Keep going so a conversion error still allows the GA4 event.
                 }
                 try {
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'exit_popup_conversion', { 'event_category': 'Lead' });
-                    }
+                    trackGa4Event('exit_popup_conversion', { 'event_category': 'Lead' });
                 } catch (err) {
                     // Success UI still shows after Netlify has accepted the lead.
                 }

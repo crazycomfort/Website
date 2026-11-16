@@ -858,6 +858,7 @@
             // Track in analytics
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'review_rating_selected', {
+                    'send_to': 'G-NL2HPX23K3',
                     'event_category': 'Reviews',
                     'event_label': 'Rating: ' + rating,
                     'value': rating
@@ -882,6 +883,7 @@
         function trackGoogleReview() {
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'google_review_click', {
+                    'send_to': 'G-NL2HPX23K3',
                     'event_category': 'Reviews',
                     'event_label': 'Left Google Review'
                 });
@@ -902,6 +904,7 @@
             .then(() => {
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'feedback_submitted', {
+                        'send_to': 'G-NL2HPX23K3',
                         'event_category': 'Reviews',
                         'event_label': 'Rating: ' + selectedRating
                     });
