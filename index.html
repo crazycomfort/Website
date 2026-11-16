@@ -516,6 +516,132 @@
     <main id="main-content">
         <!-- HERO SECTION -->
         <section id="home" class="hero-new" style="position: relative; overflow: hidden;">
+            <!--
+                $49 HEATING CHECK PROMO
+                Homepage-only. Delete this whole block (through "END $49 HEATING CHECK PROMO")
+                to remove the offer. It also hides itself after Nov 30, 2026 23:59 America/Chicago.
+                The call link shows 832-403-7466, the same on-page number Google Ads website-call
+                conversion already matches. Clicks are tracked by the existing tel: listener in src/js/main.js.
+            -->
+            <script>
+                (function () {
+                    // Hide at Dec 1, 2026 00:00 America/Chicago. Nov 30 23:59 is still shown.
+                    // Late November is CST (UTC-6); daylight saving ended November 1, 2026.
+                    var cutoff = Date.parse('2026-12-01T00:00:00-06:00');
+                    if (!isNaN(cutoff) && Date.now() >= cutoff) {
+                        document.documentElement.setAttribute('data-heating-check-promo', 'ended');
+                    }
+                })();
+            </script>
+            <style>
+                html[data-heating-check-promo="ended"] .heating-check-promo { display: none !important; }
+                html:not([data-heating-check-promo="ended"]) .hero-new {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+                html:not([data-heating-check-promo="ended"]) .hero-new .hero-new-grid {
+                    min-height: 0;
+                    justify-content: flex-start;
+                    margin-top: 1.35rem;
+                }
+                .heating-check-promo {
+                    width: min(1100px, calc(100% - 2rem));
+                    margin: 0.75rem auto 0;
+                    position: relative;
+                    z-index: 2;
+                }
+                .heating-check-promo-card {
+                    text-align: center;
+                    background:
+                        radial-gradient(ellipse 80% 140% at 0% 0%, rgba(255, 45, 109, 0.22), transparent 52%),
+                        radial-gradient(ellipse 70% 140% at 100% 100%, rgba(198, 255, 0, 0.14), transparent 48%),
+                        #121212;
+                    border: 2px solid #c6ff00;
+                    border-radius: 18px;
+                    padding: 0.95rem 1.25rem 1.05rem;
+                    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+                }
+                .heating-check-promo-kicker {
+                    margin: 0;
+                }
+                .heating-check-promo-kicker span {
+                    display: inline-block;
+                    background: #FF2D6D;
+                    color: #ffffff;
+                    font-size: 0.72rem;
+                    font-weight: 800;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    padding: 0.32rem 0.75rem;
+                    border-radius: 999px;
+                    line-height: 1.2;
+                }
+                .heating-check-promo-title {
+                    margin: 0.45rem 0 0.35rem;
+                    color: #ffffff;
+                    font-size: clamp(1.35rem, 2.5vw, 2.05rem);
+                    font-weight: 900;
+                    line-height: 1.12;
+                    letter-spacing: -0.03em;
+                }
+                .heating-check-promo-price {
+                    color: #c6ff00;
+                }
+                .heating-check-promo-lead {
+                    margin: 0 auto 0.9rem;
+                    max-width: 40rem;
+                    color: rgba(255, 255, 255, 0.92);
+                    font-size: 1.02rem;
+                    line-height: 1.45;
+                }
+                .heating-check-promo-actions {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
+                .heating-check-promo .cta-primary,
+                .heating-check-promo .cta-secondary {
+                    width: auto;
+                    margin: 0;
+                    padding: 0.85rem 1.35rem;
+                    font-size: 1rem;
+                    line-height: 1.2;
+                }
+                .heating-check-promo-call {
+                    font-weight: 800;
+                    letter-spacing: 0.01em;
+                    white-space: nowrap;
+                }
+                .heating-check-promo a:focus-visible {
+                    outline: 3px solid #FF2D6D;
+                    outline-offset: 3px;
+                }
+                @media (max-width: 768px) {
+                    .heating-check-promo { margin-top: 0.35rem; }
+                    .heating-check-promo-card { padding: 0.85rem 0.9rem 0.95rem; border-radius: 16px; }
+                    .heating-check-promo-title { font-size: 1.28rem; }
+                    .heating-check-promo-lead { font-size: 0.95rem; margin-bottom: 0.8rem; }
+                    html:not([data-heating-check-promo="ended"]) .hero-new .hero-new-grid { margin-top: 1rem; }
+                    .heating-check-promo-actions { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+                    .heating-check-promo .cta-primary,
+                    .heating-check-promo .cta-secondary { width: 100%; }
+                }
+            </style>
+            <aside class="heating-check-promo" aria-labelledby="heating-check-promo-title">
+                <div class="heating-check-promo-card">
+                    <p class="heating-check-promo-kicker"><span>Limited time</span></p>
+                    <h2 id="heating-check-promo-title"><span class="heating-check-promo-price">$49</span> Heating Check — ends November 30</h2>
+                    <p class="heating-check-promo-lead">Get your heater checked before the next cold front. Family-run, licensed HVAC in Katy, Fulshear &amp; West Houston.</p>
+                    <div class="heating-check-promo-actions">
+                        <a class="cta-primary heating-check-promo-book" href="/heating-check/">Book My $49 Check</a>
+                        <a class="cta-secondary cta-phone heating-check-promo-call" href="tel:8324037466">832-403-7466</a>
+                    </div>
+                </div>
+            </aside>
+            <!-- END $49 HEATING CHECK PROMO -->
             <div class="container hero-new-grid" style="position: relative; z-index: 1;">
                 <div class="hero-new-left">
                     <h1 class="hero-new-headline">
