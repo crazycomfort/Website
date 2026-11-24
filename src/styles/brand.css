@@ -82,16 +82,6 @@ body.site-brand .footer h3,
 body.site-brand .footer h4,
 body.site-brand .footer li,
 body.site-brand .footer span,
-body.site-brand .hero-new-headline {
-    text-transform: none !important;
-    letter-spacing: -0.02em;
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    line-height: 1.15;
-    max-width: 18ch;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 body.site-brand .hero-new-headline,
 body.site-brand .hero-new-headline strong,
 body.site-brand .hero-new-headline .accent,
@@ -104,6 +94,38 @@ body.site-brand summary {
     color: var(--cc-ink) !important;
     text-shadow: none !important;
     opacity: 1 !important;
+}
+
+body.site-brand .hero-new-headline {
+    text-transform: none !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.15;
+    max-width: 14em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.site-brand .heating-check-promo-title {
+    display: block;
+    max-width: none !important;
+    color: #141414 !important;
+    font-size: clamp(1.35rem, 2.5vw, 2.05rem) !important;
+    font-weight: 900;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em;
+    white-space: normal;
+}
+
+body.site-brand .heating-check-promo-lead,
+body.site-brand .hero-new-body,
+body.site-brand .hero-new-body p {
+    max-width: 40rem !important;
+    color: #333333 !important;
+    font-size: 1.05rem !important;
+    font-weight: 400;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
 }
 
 body.site-brand .homepage-headline {
@@ -327,5 +349,16 @@ body.site-brand .cc-fold[open] summary {
         min-height: 40px;
         padding: 0.35rem 0.7rem;
         font-size: 0.8rem;
+    }
+
+    body.site-brand .heating-check-promo-title {
+        font-size: 1.28rem !important;
+    }
+
+    body.site-brand .heating-check-promo-lead,
+    body.site-brand .hero-new-body,
+    body.site-brand .hero-new-body p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
     }
 }
