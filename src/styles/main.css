@@ -8849,6 +8849,36 @@ input::placeholder, textarea::placeholder {
     text-align: center;
 }
 
+.lp-hero .breadcrumb {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0 auto 0.85rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .lp-hero .breadcrumb,
+    .lp-hero .breadcrumb a,
+    .lp-hero .breadcrumb span {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .lp-hero .section-title {
+        font-size: 1.7rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.7rem;
+    }
+
+    .lp-subhead {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        font-weight: 400;
+    }
+}
+
 .lp-benefits {
     max-width: 40rem;
     margin: 1.75rem auto 0;
