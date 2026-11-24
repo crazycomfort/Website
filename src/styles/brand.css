@@ -1,6 +1,9 @@
 /* Sitewide Crazy Comfort brand layer. Appended after main.css.
+   Header and footer use the sharp wordmark until the final logo files arrive.
    Swap these files when the final logo and van wrap arrive:
-   assets/images/Logo-Green/Crazy-Comfort-02.svg
+   assets/images/brand/wordmark.svg
+   assets/images/brand/wordmark.png
+   assets/images/brand/favicon-logo.png
    assets/images/brand/service-van.webp
    assets/images/brand/service-van.jpg
    Tokens below are the source of truth for the light theme. */
@@ -9,13 +12,14 @@
     --cc-lime: #c6ff00;
     --cc-lime-deep: #a8d900;
     --cc-pink: #FF2D6D;
+    --cc-pink-solid: #C8004A;
     --cc-ink: #141414;
     --cc-ink-soft: #333333;
     --cc-muted: #5c5c5c;
     --cc-bg: #ffffff;
     --cc-bg-soft: #f7f7f5;
     --cc-line: #e6e6e6;
-    --cc-logo: url("/assets/images/Logo-Green/Crazy-Comfort-02.svg");
+    --cc-logo: url("/assets/images/brand/wordmark.svg");
     --cc-hero-image: url("/assets/images/brand/service-van.webp");
     --bg-body: var(--cc-bg);
     --bg-section: var(--cc-bg);
@@ -165,7 +169,8 @@ body.site-brand .cta-primary,
 body.site-brand .cta-primary:hover {
     background: var(--cc-lime) !important;
     border-color: var(--cc-lime) !important;
-    color: #0a0a0a !important;
+    color: #1f1a2e !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .page-contact-book,
@@ -173,17 +178,23 @@ body.site-brand .page-contact-book:hover,
 body.site-brand .book-bar-call,
 body.site-brand .book-bar-call:hover,
 body.site-brand .hc-call-secondary,
-body.site-brand .hc-call-secondary:hover {
-    background: var(--cc-pink) !important;
-    border-color: var(--cc-pink) !important;
-    color: #0a0a0a !important;
+body.site-brand .hc-call-secondary:hover,
+body.site-brand .heating-check-promo-call,
+body.site-brand .heating-check-promo-call:hover,
+body.site-brand .heating-check-promo .cta-secondary,
+body.site-brand .heating-check-promo .cta-secondary:hover {
+    background: var(--cc-pink-solid) !important;
+    border-color: var(--cc-pink-solid) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .top-contact-bar,
 body.site-brand .top-bar-phone,
 body.site-brand .top-bar-phone:hover {
     background: var(--cc-lime) !important;
-    color: #0a0a0a !important;
+    color: #1f1a2e !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .top-bar-badge,
@@ -485,9 +496,11 @@ body.site-brand .heating-check-promo-card {
 }
 
 body.site-brand .heating-check-promo-price,
+body.site-brand .heating-check-promo-kicker span,
 .hc-hero .hc-price {
-    background: #FF2D6D !important;
-    color: #0a0a0a !important;
+    background: #C8004A !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .hero-new .cta-primary,
@@ -495,15 +508,17 @@ body.site-brand .hero-new .cta-primary:hover,
 body.site-brand .nav-book,
 body.site-brand .nav-book:hover {
     background: #c6ff00 !important;
-    color: #0a0a0a !important;
+    color: #1f1a2e !important;
     border: 2px solid #1f1a2e !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .hero-new .cta-secondary,
 body.site-brand .hero-new .cta-secondary:hover {
-    background: #FF2D6D !important;
-    color: #0a0a0a !important;
-    border-color: #FF2D6D !important;
+    background: #C8004A !important;
+    color: #ffffff !important;
+    border-color: #C8004A !important;
+    font-weight: 800 !important;
 }
 
 body.site-brand .hero-new strong,
@@ -525,11 +540,24 @@ body.site-brand .hero-trust-strip span {
     border-color: #141414 !important;
 }
 
-body.site-brand .logo-image {
-    height: 44px !important;
+body.site-brand .logo a,
+body.lp-light .logo a,
+.hc-logo {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+body.site-brand .logo-image,
+body.lp-light .logo-image,
+.hc-logo img,
+.footer-brand-logo {
+    height: 56px !important;
     width: auto !important;
     max-width: 240px !important;
     max-height: none !important;
+    object-fit: contain;
+    background: transparent !important;
 }
 
 body.site-brand .hero-new-headline,
@@ -599,10 +627,105 @@ body.site-brand .footer span {
 }
 
 @media (min-width: 769px) {
-    body.site-brand .logo-image {
-        height: 56px !important;
-        max-width: 320px !important;
+    body.site-brand .logo-image,
+    body.lp-light .logo-image,
+    .hc-logo img {
+        height: 72px !important;
+        max-width: 300px !important;
     }
+
+    .footer-brand-logo {
+        height: 84px !important;
+        max-width: 340px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .cc-jester {
+        display: none !important;
+    }
+
+    body.site-brand .hero-new-headline,
+    body.site-brand main > .homepage-section:first-of-type h1,
+    .lp-hero .section-title,
+    .hc-title,
+    .cc-trust,
+    .lp-subhead,
+    .hc-lead {
+        padding-right: 0 !important;
+    }
+}
+
+.cc-hero-visual,
+.cc-van-strip {
+    position: relative;
+    overflow: hidden;
+}
+
+.cc-van-strip .cc-jester,
+.cc-hero-visual .cc-jester {
+    position: absolute !important;
+    width: 92px !important;
+    height: auto !important;
+    left: auto !important;
+    right: 0.35rem !important;
+    bottom: 0.35rem !important;
+    top: auto !important;
+}
+
+.hc-hero .cc-jester {
+    display: none !important;
+}
+
+body.hc-page .hc-main {
+    display: block !important;
+    width: min(1180px, calc(100% - 2rem)) !important;
+    max-width: none !important;
+    overflow: visible !important;
+}
+
+.hc-page .hc-hero {
+    width: auto !important;
+    margin-left: 0 !important;
+}
+
+@media (min-width: 900px) {
+    .hc-page .hc-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: center;
+        gap: 1.5rem;
+        max-width: 1180px;
+    }
+
+    .hc-page .hc-hero {
+        grid-column: 1;
+        text-align: left;
+    }
+
+    .hc-page .cc-van-strip {
+        grid-column: 2;
+        grid-row: 1;
+        background: transparent;
+    }
+
+    .hc-page .hc-layout > :not(.hc-hero):not(.cc-van-strip) {
+        grid-column: 1 / -1;
+    }
+
+    .hc-page .hc-lead,
+    .hc-page .hc-actions {
+        text-align: left;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+}
+
+.lp-hero .section-title,
+.lp-hero .lp-subhead,
+.hc-title,
+.hc-lead {
+    padding-right: 0 !important;
 }
 
 .cc-van-strip {
@@ -773,11 +896,27 @@ body.site-brand .crazy-cards-section {
 
     body.site-brand .cc-hero-visual .cc-jester {
         position: absolute;
-        width: 150px;
-        right: 6%;
-        bottom: 6%;
+        display: block !important;
+        width: 120px;
+        left: 2%;
+        right: auto;
+        bottom: 12%;
         top: auto;
         padding: 0;
+    }
+
+    .cc-van-strip {
+        position: relative;
+    }
+
+    .cc-van-strip .cc-jester {
+        position: absolute;
+        display: block !important;
+        width: 110px;
+        left: 6%;
+        right: auto;
+        bottom: 8%;
+        top: auto;
     }
 
     body.site-brand main > .homepage-section:first-of-type,

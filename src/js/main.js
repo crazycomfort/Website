@@ -161,15 +161,6 @@ function initWrapChrome() {
     var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
     if (adPage) return;
     var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
-    if (hero && !hero.querySelector('.cc-jester')) {
-        var jester = document.createElement('img');
-        jester.className = 'cc-jester';
-        jester.src = '/assets/images/brand/jester.webp';
-        jester.width = 205;
-        jester.height = 342;
-        jester.alt = '';
-        hero.appendChild(jester);
-    }
     if (hero && !hero.querySelector('.cc-trust') && !document.querySelector('.cc-trust')) {
         var trust = document.createElement('ul');
         trust.className = 'cc-trust';
@@ -180,6 +171,16 @@ function initWrapChrome() {
     }
     var footer = document.querySelector('footer');
     if (!footer) return;
+    var footerSection = footer.querySelector('.footer-section');
+    if (footerSection && !footer.querySelector('.footer-brand-logo')) {
+        var logo = document.createElement('img');
+        logo.className = 'footer-brand-logo';
+        logo.src = '/assets/images/brand/wordmark.svg';
+        logo.alt = 'Crazy Comfort Heating & Cooling';
+        logo.width = 280;
+        logo.height = 120;
+        footerSection.insertBefore(logo, footerSection.firstChild);
+    }
     if (!document.querySelector('.cc-van-strip')) {
         var strip = document.createElement('section');
         strip.className = 'cc-van-strip';

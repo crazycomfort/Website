@@ -13,13 +13,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" as="image" href="/assets/images/brand/wordmark.svg" fetchpriority="high">
+    <!-- Header logo swap: assets/images/brand/wordmark.svg until the final logo arrives -->
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { background: #ffffff; color: #141414; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
         .skip-to-content { position: absolute; top: -100px; left: 0; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #0a0a0a; width: 100%; font-size: 0.85rem; font-weight: 600; }
+        .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #1f1a2e; width: 100%; font-size: 0.85rem; font-weight: 800; }
         .top-contact-bar .container { display: flex; align-items: center; justify-content: space-between; max-width: 100%; margin: 0; padding: 0 1rem 0 1.5rem; }
         .top-bar-phone { color: #000; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.5px; text-decoration: none; display: inline-flex; align-items: center; }
         .top-bar-divider, .top-bar-location { display: none; }
@@ -27,8 +28,8 @@
         .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: #ffffff; border-bottom: 1px solid #eeeeee; }
         .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; gap: 1rem; padding: 0.25rem 1rem; }
         .logo { display: flex; align-items: center; flex-shrink: 0; height: 100%; }
-        .logo a { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 0; text-decoration: none; }
-        .logo-image { display: block; height: 95px; width: auto; max-width: 380px; object-fit: contain; }
+        .logo a { display: flex; flex-direction: column; align-items: center; height: auto; max-height: none; gap: 0; text-decoration: none; }
+        .logo-image { display: block; height: 72px; width: auto; max-width: 280px; object-fit: contain; background: transparent; }
         .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: 3rem; position: relative; }
         .menu-toggle { display: none; }
         .nav-menu { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
@@ -46,7 +47,7 @@
         .hero-new-cta { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem; }
         .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
         .cta-primary, .cta-secondary { display: inline-block; text-decoration: none; text-align: center; border-radius: 8px; }
-        .cta-primary { background: #c6ff00; color: #0a0a0a; border: 0; padding: 1.3rem 3rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(198, 255, 0, 0.3); }
+        .cta-primary { background: #c6ff00; color: #1f1a2e; border: 0; padding: 1.3rem 3rem; font-size: 1.15rem; font-weight: 800; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(198, 255, 0, 0.3); }
         .cta-secondary { background: transparent; color: #c6ff00; border: 2px solid #c6ff00; padding: 1.1rem 2.5rem; font-size: 1.1rem; font-weight: 600; }
         .hero-trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
         .hero-trust-strip span { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 600; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -58,9 +59,9 @@
             .top-bar-badge { margin-right: 0; padding: 0.5rem 0.75rem; font-size: 0.65rem; letter-spacing: 0.5px; }
             .header { background: #ffffff; }
             .nav { padding: 0.25rem 0.75rem; height: var(--header-height); }
-            .logo { height: auto; max-height: 80px; }
-            .logo a { height: auto; max-height: 42px; }
-            .logo-image { height: 65px; max-height: 65px; max-width: 260px; }
+            .logo { height: auto; max-height: none; }
+            .logo a { height: auto; max-height: none; }
+            .logo-image { height: 56px; max-height: none; max-width: 220px; }
             .menu-toggle { display: flex; flex-direction: column; gap: 4px; background: none; border: 0; padding: 0.5rem; }
             .nav-actions { margin-left: auto; }
             .menu-toggle span { display: block; width: 25px; height: 3px; background: #FF2D6D; border-radius: 2px; }
@@ -87,8 +88,8 @@
     <title>Woman-Owned HVAC Company Katy TX | Crazy Comfort | 832-403-7466</title>
     
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/png" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
-    <link rel="apple-touch-icon" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
+    <link rel="icon" type="image/png" href="/assets/images/brand/favicon-logo.png">
+    <link rel="apple-touch-icon" href="/assets/images/brand/favicon-logo.png">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +102,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Crazy Comfort | Comfort This Good is Crazy!">
     <meta property="og:description" content="Comfort This Good is Crazy! Photo and video documentation on every job. Serving Katy and Fulshear, TX.">
-    <meta property="og:image" content="https://crazycomfort.com/assets/images/og-image.png">
+    <meta property="og:image" content="https://crazycomfort.com/assets/images/brand/wordmark.png">
     <meta property="og:url" content="https://crazycomfort.com">
     
     <!-- Twitter -->
@@ -151,9 +152,9 @@
           "legalName": "Crazy Comfort LLC",
           "image": [
             "https://crazycomfort.com/assets/images/og-image.png",
-            "https://crazycomfort.com/assets/images/brand/wordmark.svg"
+            "https://crazycomfort.com/assets/images/brand/wordmark.png"
           ],
-          "logo": "https://crazycomfort.com/assets/images/brand/wordmark.svg",
+          "logo": "https://crazycomfort.com/assets/images/brand/wordmark.png",
           "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos. TACLA00048090C licensed.",
           "slogan": "Transparent HVAC Services - Every Visit Documented",
           "url": "https://crazycomfort.com",
@@ -568,8 +569,8 @@
                 }
                 .heating-check-promo-kicker span {
                     display: inline-block;
-                    background: #FF2D6D;
-                    color: #0a0a0a;
+                    background: #C8004A;
+                    color: #ffffff;
                     font-size: 0.72rem;
                     font-weight: 800;
                     letter-spacing: 0.14em;
@@ -587,8 +588,9 @@
                     letter-spacing: -0.03em;
                 }
                 .heating-check-promo-price {
-                    background: #c6ff00;
-                    color: #0a0a0a;
+                    background: #C8004A;
+                    color: #ffffff;
+                    font-weight: 800;
                     padding: 0 0.12em;
                     border-radius: 6px;
                 }
@@ -615,9 +617,9 @@
                     line-height: 1.2;
                 }
                 .heating-check-promo-call {
-                    background: #FF2D6D;
-                    border-color: #FF2D6D;
-                    color: #0a0a0a;
+                    background: #C8004A;
+                    border-color: #C8004A;
+                    color: #ffffff;
                     font-weight: 800;
                     letter-spacing: 0.01em;
                     white-space: nowrap;
@@ -1238,6 +1240,7 @@
             </div>
             <div class="footer-content">
                 <div class="footer-section">
+                    <img class="footer-brand-logo" src="/assets/images/brand/wordmark.svg" width="280" height="120" alt="Crazy Comfort Heating &amp; Cooling">
                     <h3>Crazy Comfort</h3>
                     <p>Woman-owned HVAC company providing transparent, documented service in Katy, Fulshear, and West Houston. Every visit documented with <span style="color: #c6ff00; font-weight: 600;">real-time, timestamped photos</span>.</p>
                     <div class="social-links" style="margin-top: 1.5rem;">
