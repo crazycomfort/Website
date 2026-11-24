@@ -181,6 +181,7 @@ function initWrapChrome() {
                 var text = span.textContent.replace(/[✓✔]/g, '').replace(/\s+/g, ' ').trim();
                 if (!text || /licensed\s*&\s*insured/i.test(text)) return;
                 if (/photo/i.test(text) || /upfront|flat-rate pricing/i.test(text)) return;
+                if (/trip fee|trip charge|no extra trip|no trip/i.test(text)) return;
                 if (items.indexOf(text) === -1) items.push(text);
             });
             local.replaceWith(trust);
