@@ -362,3 +362,164 @@ body.site-brand .cc-fold[open] summary {
         line-height: 1.5 !important;
     }
 }
+
+/* Van-wrap energy: lime heroes, pink swooshes, and alternating bands.
+   Text on lime and pink stays near-black. */
+body.site-brand {
+    font-family: Nunito, "Segoe UI", sans-serif;
+}
+
+body.site-brand h1,
+body.site-brand h2,
+body.lp-light h1,
+body.lp-light h2,
+.hc-page h1,
+.hc-page h2 {
+    font-family: "Lilita One", Nunito, sans-serif;
+    letter-spacing: 0.01em;
+}
+
+body.site-brand .hero-new,
+body.site-brand main .homepage-section:first-of-type {
+    background: #c6ff00 !important;
+    color: #141414 !important;
+}
+
+body.site-brand main .homepage-section:nth-of-type(3n+1) {
+    background: #ffffff !important;
+}
+
+body.site-brand main .homepage-section:nth-of-type(3n+2) {
+    background: #c6ff00 !important;
+}
+
+body.site-brand main .homepage-section:nth-of-type(3n) {
+    background: #ffe4ee !important;
+}
+
+body.site-brand main .homepage-section:first-of-type {
+    background: #c6ff00 !important;
+}
+
+body.site-brand main .homepage-section {
+    position: relative;
+}
+
+body.site-brand main .homepage-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34px;
+    background: #FF2D6D;
+    clip-path: polygon(0 62%, 100% 0, 100% 42%, 0 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+body.site-brand .heating-check-promo-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.site-brand .heating-check-promo-price,
+.hc-hero .hc-price {
+    background: #FF2D6D !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .hero-new .cta-primary,
+body.site-brand .hero-new .cta-primary:hover {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+    border: 3px solid #141414 !important;
+}
+
+body.site-brand .hero-new .cta-secondary,
+body.site-brand .hero-new .cta-secondary:hover {
+    background: #FF2D6D !important;
+    color: #0a0a0a !important;
+    border-color: #FF2D6D !important;
+}
+
+body.site-brand .hero-new strong,
+body.site-brand .hero-new b {
+    background: none;
+    color: inherit !important;
+    padding: 0;
+}
+
+.hc-page .hc-hero .cc-rating,
+.hc-page .hc-hero .cc-rating:hover {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .hero-trust-strip span {
+    color: #141414 !important;
+    background: #ffffff !important;
+    border-color: #141414 !important;
+}
+
+.cc-hero-art {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(920px, 100%);
+    margin: 0.25rem auto 0.5rem;
+}
+
+.cc-hero-art .cc-jester {
+    width: min(220px, 58vw);
+}
+
+.cc-van-strip {
+    background: #ffffff;
+    padding: 1.25rem 0 1.75rem;
+}
+
+.cc-van-strip img {
+    display: block;
+    width: min(1100px, 100%);
+    height: auto;
+    margin: 0 auto;
+}
+
+.cc-book-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: #ffe4ee;
+    color: #141414;
+    padding: 1.5rem 1rem 2.75rem;
+    text-align: left;
+}
+
+.cc-book-prompt .cc-jester {
+    width: 120px;
+    margin: 0;
+}
+
+.cc-book-prompt h2,
+.cc-book-prompt p {
+    margin: 0 0 0.4rem;
+    max-width: none !important;
+    color: #141414 !important;
+}
+
+.cc-book-prompt a,
+.cc-book-prompt a:hover {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    background: #c6ff00 !important;
+    color: #0a0a0a !important;
+    font-weight: 800;
+    text-decoration: none;
+}

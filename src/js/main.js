@@ -149,10 +149,49 @@ function initSectionFolds() {
     });
 }
 
+function initWrapChrome() {
+    if (!document.body || !document.body.classList.contains('site-brand')) return;
+    if (!document.querySelector('link[data-cc-fonts]')) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.setAttribute('data-cc-fonts', '');
+        link.href = 'https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap';
+        document.head.appendChild(link);
+    }
+    var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
+    if (adPage) return;
+    var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
+    if (hero && !document.querySelector('.cc-hero-art') && !hero.querySelector('.cc-jester')) {
+        var art = document.createElement('div');
+        art.className = 'cc-hero-art';
+        art.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="">'
+            + '<img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van">';
+        hero.appendChild(art);
+    }
+    var footer = document.querySelector('footer');
+    if (!footer) return;
+    if (!document.querySelector('.cc-van-strip')) {
+        var strip = document.createElement('section');
+        strip.className = 'cc-van-strip';
+        strip.setAttribute('aria-label', 'Crazy Comfort service van');
+        strip.innerHTML = '<img src="/assets/images/brand/service-van.webp" width="1200" height="600" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">';
+        footer.parentNode.insertBefore(strip, footer);
+    }
+    if (!document.querySelector('.cc-book-prompt')) {
+        var prompt = document.createElement('section');
+        prompt.className = 'cc-book-prompt';
+        prompt.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="" loading="lazy" decoding="async">'
+            + '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
+            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a></div>';
+        footer.parentNode.insertBefore(prompt, footer);
+    }
+}
+
 function initSiteChrome() {
     ensureBookBar();
     initBookBarClearance();
     initSectionFolds();
+    initWrapChrome();
 }
 
 if (document.readyState === 'loading') {
