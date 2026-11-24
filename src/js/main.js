@@ -125,23 +125,21 @@ function ensureBookBar() {
     document.body.classList.add('has-book-bar');
 }
 
+function isFaqHeading(text) {
+    return /\b(faq|faqs|questions)\b/i.test(text || '');
+}
+
 function initSectionFolds() {
     if (!document.body.classList.contains('cc-collapse')) return;
     if (document.body.classList.contains('lp-light')) return;
-    const sections = document.querySelectorAll('main .homepage-section');
-    let openLeft = document.body.classList.contains('hero-transparent-header') ? 2 : 1;
-    sections.forEach(function(section) {
-        if (section.querySelector('form')) return;
-        if (openLeft > 0) {
-            openLeft -= 1;
-            return;
-        }
-        const container = section.querySelector('.container') || section;
-        const heading = container.querySelector('h2, h3');
-        if (!heading || container.querySelector('.cc-fold')) return;
-        const details = document.createElement('details');
+    document.querySelectorAll('main .homepage-section').forEach(function (section) {
+        if (section.querySelector('form, details, .cc-fold')) return;
+        var container = section.querySelector('.container') || section;
+        var heading = container.querySelector('h2, h3');
+        if (!heading || !isFaqHeading(heading.textContent)) return;
+        var details = document.createElement('details');
         details.className = 'cc-fold';
-        const summary = document.createElement('summary');
+        var summary = document.createElement('summary');
         summary.appendChild(heading);
         details.appendChild(summary);
         while (container.firstChild) details.appendChild(container.firstChild);
@@ -191,9 +189,9 @@ function initWrapChrome() {
     if (!document.querySelector('.cc-book-prompt')) {
         var prompt = document.createElement('section');
         prompt.className = 'cc-book-prompt';
-        prompt.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="" loading="lazy" decoding="async">'
-            + '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
-            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a></div>';
+        prompt.innerHTML = '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
+            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a>'
+            + '<a class="cc-cta-call" href="tel:832-403-7466">Call 832-403-7466</a></div>';
         footer.parentNode.insertBefore(prompt, footer);
     }
 }

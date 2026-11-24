@@ -478,8 +478,16 @@ body.site-brand main .homepage-section {
     position: relative;
 }
 
+body.site-brand .homepage-section::before,
 body.site-brand main .homepage-section::after {
-    content: "";
+    display: none !important;
+    content: none !important;
+}
+
+body.site-brand main > .homepage-section:first-of-type::after,
+body.site-brand .hero-new::after {
+    content: "" !important;
+    display: block !important;
     position: absolute;
     left: 0;
     right: 0;
@@ -489,6 +497,11 @@ body.site-brand main .homepage-section::after {
     clip-path: polygon(0 62%, 100% 0, 100% 42%, 0 100%);
     pointer-events: none;
     z-index: 2;
+}
+
+body.site-brand:not(.lp-light) main .homepage-section:not(:first-of-type) {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
 }
 
 body.site-brand .heating-check-promo-card {
@@ -870,9 +883,9 @@ body.hc-page .hc-main {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    background: #ffe4ee;
-    color: #141414;
-    padding: 1.5rem 1rem 2.75rem;
+    background: #1f1a2e;
+    color: #f5f5f5;
+    padding: 2.5rem 1.25rem;
     text-align: left;
 }
 
@@ -886,7 +899,23 @@ body.hc-page .hc-main {
 .cc-book-prompt p {
     margin: 0 0 0.4rem;
     max-width: none !important;
-    color: #141414 !important;
+    color: #f5f5f5 !important;
+}
+
+.cc-book-prompt .cc-cta-call,
+.cc-book-prompt .cc-cta-call:hover {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-left: 0.5rem;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    background: #FF2D6D !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 19px !important;
+    text-decoration: none !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .cc-book-prompt a,
@@ -1115,4 +1144,417 @@ body.site-brand .heating-check-promo .cta-primary,
 body.site-brand .heating-check-promo .cta-secondary {
     border: 0 !important;
     border-radius: 999px !important;
+}
+
+/* The wrap already includes the jester. Do not paint a second one on the van. */
+.cc-hero-visual .cc-jester,
+.cc-van-strip .cc-jester,
+.hc-hero .cc-jester,
+.cc-book-prompt .cc-jester {
+    display: none !important;
+}
+
+/* Links on light surfaces stay plum-ink. Lime is a fill, not a text color. */
+body.site-brand a:not(.cta-primary):not(.cta-secondary):not(.nav-book):not(.page-contact-call):not(.page-contact-book):not(.book-bar-call):not(.book-bar-book):not(.book-bar a):not(.hc-book):not(.hc-call-secondary):not(.top-bar-phone):not(.nav-phone):not(.cc-rating):not(.heating-check-promo-call):not(.heating-check-promo-book):not(.error-btn) {
+    color: #1f1a2e;
+}
+
+body.site-brand a:not(.cta-primary):not(.cta-secondary):not(.nav-book):hover {
+    color: #1f1a2e;
+}
+
+body.site-brand .footer,
+body.site-brand .footer p,
+body.site-brand .footer a,
+body.site-brand .footer a:hover,
+body.site-brand .footer li,
+body.site-brand .footer span,
+body.site-brand .footer small,
+body.site-brand .footer h2,
+body.site-brand .footer h3,
+body.site-brand .footer h4,
+body.site-brand .footer-bottom,
+body.site-brand .footer-bottom p,
+body.site-brand .footer-bottom a {
+    color: #f5f5f5 !important;
+}
+
+body.site-brand .testimonials,
+body.site-brand .testimonials h2,
+body.site-brand .testimonials p,
+body.site-brand .testimonials li,
+body.site-brand .testimonials span,
+body.site-brand .testimonials .author-name,
+body.site-brand .testimonials .author-role,
+body.site-brand .testimonials .testimonial-content,
+body.site-brand .testimonials .cta-secondary {
+    color: #f5f5f5 !important;
+}
+
+body.site-brand .cc-stars {
+    color: #1f1a2e !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em;
+    line-height: 1 !important;
+    background: none !important;
+    -webkit-text-fill-color: #1f1a2e !important;
+}
+
+body.site-brand .testimonials .cc-stars,
+body.site-brand .footer .cc-stars,
+body.site-brand .heating-check-promo .cc-stars {
+    color: #FFB800 !important;
+    -webkit-text-fill-color: #FFB800 !important;
+}
+
+body.site-brand .services-kicker {
+    color: #1f1a2e !important;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    text-align: left;
+}
+
+body.site-brand .services .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+}
+
+body.site-brand .services .service-card {
+    padding: 1.15rem 1rem 1.25rem !important;
+    border: 1px solid #e6e6e6 !important;
+    background: #ffffff !important;
+    text-align: left;
+}
+
+body.site-brand .services .service-card h3 {
+    color: #1f1a2e !important;
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    text-wrap: balance;
+    margin-bottom: 0.4rem;
+}
+
+body.site-brand .services .service-card p {
+    color: #1f1a2e !important;
+}
+
+body.site-brand .services .service-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0.8rem !important;
+    border-radius: 50%;
+    background: #c6ff00;
+    color: #1f1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.site-brand .services .service-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #1f1a2e !important;
+}
+
+body.site-brand .service-link,
+body.site-brand .service-link:hover,
+body.site-brand .services .learn-more {
+    align-self: flex-start;
+    width: fit-content;
+    color: #1f1a2e !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+    background-image: linear-gradient(#FF2D6D, #FF2D6D);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+}
+
+body.site-brand .crazy-cards-section .cta-secondary,
+body.site-brand .crazy-cards-section .cta-secondary:hover {
+    color: #1f1a2e !important;
+    background: transparent !important;
+    border: 2px solid #1f1a2e !important;
+}
+
+body.site-brand .cc-arrow {
+    color: #FF2D6D !important;
+    -webkit-text-fill-color: #FF2D6D !important;
+    background: none !important;
+}
+
+body.site-brand .cc-highlight {
+    color: #1f1a2e !important;
+    -webkit-text-fill-color: #1f1a2e !important;
+    background: #c6ff00 !important;
+    border-radius: 4px;
+    padding: 0 0.15em;
+}
+
+body.site-brand .crazy-card {
+    background: #ffffff !important;
+    color: #1f1a2e !important;
+    border: 1px solid #e4e4e4 !important;
+    box-shadow: none !important;
+}
+
+body.site-brand .crazy-card h3,
+body.site-brand .crazy-card h3 strong {
+    color: #1f1a2e !important;
+    -webkit-text-fill-color: #1f1a2e !important;
+    background: none !important;
+    filter: none !important;
+    animation: none !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+body.site-brand .crazy-card h3 strong {
+    display: inline;
+    background: #c6ff00 !important;
+    border-radius: 4px;
+    padding: 0 0.15em;
+}
+
+body.site-brand .evidence-pack-card {
+    background: #1f1a2e !important;
+    color: #f5f5f5 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+body.site-brand .evidence-pack-label,
+body.site-brand .evidence-pack-sub,
+body.site-brand .evidence-caption,
+body.site-brand .evidence-pack-card p,
+body.site-brand .evidence-pack-card span,
+body.site-brand .evidence-pack-card button {
+    color: #f5f5f5 !important;
+    -webkit-text-fill-color: #f5f5f5 !important;
+    background: none !important;
+}
+
+body.site-brand .evidence-pack-label {
+    font-weight: 800 !important;
+    letter-spacing: 0.08em;
+}
+
+body.site-brand .evidence-caption {
+    display: block;
+    background: #1f1a2e !important;
+    color: #f5f5f5 !important;
+    padding: 0.45rem 0.25rem;
+}
+
+@media (max-width: 900px) {
+    body.site-brand .services .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 560px) {
+    body.site-brand .services .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (min-width: 769px) {
+    body.site-brand .heating-check-promo-card {
+        padding-right: 7.5rem !important;
+    }
+
+    body.site-brand .chatbot-widget {
+        right: 16px !important;
+        bottom: 20px !important;
+    }
+}
+
+body.site-brand details {
+    background: #ffffff !important;
+    border: 1px solid #e4e4e4 !important;
+    border-radius: 14px !important;
+    margin: 0 0 0.75rem !important;
+    overflow: hidden;
+}
+
+body.site-brand details summary {
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    padding: 1rem 2.75rem 1rem 1.15rem !important;
+    color: #1f1a2e !important;
+    font-weight: 800 !important;
+    background: #ffffff !important;
+}
+
+body.site-brand details summary::-webkit-details-marker {
+    display: none;
+}
+
+body.site-brand details summary::after {
+    content: "" !important;
+    position: absolute;
+    right: 1.15rem;
+    top: 1.15rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 3px solid #1f1a2e;
+    border-bottom: 3px solid #1f1a2e;
+    transform: rotate(45deg);
+    float: none;
+}
+
+body.site-brand details[open] summary::after {
+    transform: rotate(225deg);
+    top: 1.35rem;
+}
+
+body.site-brand details > div,
+body.site-brand details p {
+    color: #1f1a2e !important;
+}
+
+body.site-brand [style*="background: #2a2a2a"],
+body.site-brand [style*="background:#2a2a2a"],
+body.site-brand [style*="background: #fff5eb"] {
+    background: #f4ffd6 !important;
+    color: #1f1a2e !important;
+}
+
+body.site-brand [style*="background: #2a2a2a"] svg,
+body.site-brand [style*="background:#2a2a2a"] svg {
+    fill: #1f1a2e !important;
+}
+
+body.site-brand .cc-book-prompt,
+body.site-brand .cc-book-prompt h2,
+body.site-brand .cc-book-prompt p,
+body.site-brand .cc-book-prompt div {
+    color: #f5f5f5 !important;
+}
+
+body.site-brand .process-step {
+    color: #1f1a2e !important;
+    background: #c6ff00 !important;
+}
+
+body.site-brand .stat-number,
+body.site-brand .price-amount,
+body.site-brand .hero-badge {
+    color: #1f1a2e !important;
+    text-shadow: none !important;
+}
+
+body.site-brand .sign-card {
+    background: #ffffff !important;
+    color: #1f1a2e !important;
+    border-color: #e4e4e4 !important;
+}
+
+body.site-brand .sign-card h3,
+body.site-brand .sign-card p,
+body.site-brand .sign-card li,
+body.site-brand .sign-card strong {
+    color: #1f1a2e !important;
+}
+
+body.site-brand .severity-medium {
+    color: #1f1a2e !important;
+    background: #f4ffd6 !important;
+}
+
+body.site-brand .severity-high {
+    color: #7a1020 !important;
+}
+
+body.site-brand .severity-low {
+    color: #14532d !important;
+}
+
+body.site-brand [style*="color: #777"],
+body.site-brand [style*="color:#777"],
+body.site-brand [style*="color: #888"],
+body.site-brand [style*="color:#888"] {
+    color: #1f1a2e !important;
+}
+
+body.site-brand .heating-check-promo-kicker span {
+    text-shadow: none !important;
+    color: #1f1a2e !important;
+    -webkit-text-fill-color: #1f1a2e !important;
+}
+
+body.site-brand .testimonials .testimonial-card,
+body.site-brand .testimonials .testimonial-card p,
+body.site-brand .testimonials .testimonial-card .author-name,
+body.site-brand .testimonials .testimonial-card .author-role {
+    color: #f5f5f5 !important;
+}
+
+body.site-brand .testimonials [style*="background: #1a1a1a"] {
+    background: #ffffff !important;
+    color: #1f1a2e !important;
+}
+
+body.site-brand .request-optional,
+body.site-brand .request-consent-copy,
+body.site-brand .request-consent-note,
+body.site-brand .request-field-label {
+    color: #1f1a2e !important;
+}
+
+body.site-brand .cta-secondary,
+body.site-brand .cta-secondary:hover {
+    color: #1f1a2e !important;
+    background: #c6ff00 !important;
+    border: 0 !important;
+}
+
+body.site-brand .hero-new .cta-secondary,
+body.site-brand .hero-new .cta-secondary:hover,
+body.site-brand .heating-check-promo .cta-secondary,
+body.site-brand .heating-check-promo .cta-secondary:hover,
+body.site-brand .book-bar-call,
+body.site-brand .book-bar-call:hover {
+    background: #FF2D6D !important;
+    color: #ffffff !important;
+    border: 0 !important;
+}
+
+body.site-brand .error-btn {
+    color: #1f1a2e !important;
+    background: #c6ff00 !important;
+}
+
+body.site-brand .error-book,
+body.site-brand .error-book:hover {
+    background: #FF2D6D !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 19px !important;
+}
+
+body.site-brand .testimonials .cta-secondary,
+body.site-brand .testimonials .cta-secondary:hover {
+    color: #1f1a2e !important;
+    background: #c6ff00 !important;
+    border: 0 !important;
+}
+
+body.site-brand .request-faq,
+body.site-brand .faq-item,
+body.site-brand .faq-question,
+body.site-brand .faq-answer {
+    background: #ffffff !important;
+    color: #1f1a2e !important;
+}
+
+body.site-brand .request-faq .section-title,
+body.site-brand .faq-question-text,
+body.site-brand .faq-answer p {
+    color: #1f1a2e !important;
 }
