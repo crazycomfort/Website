@@ -9506,7 +9506,7 @@ body.lp-light .logo-image {
     border-radius: 999px !important;
     background: #c6ff00 !important;
     color: #0a0a0a !important;
-    border: 2px solid #1f1a2e !important;
+    border: 0 !important;
     font-weight: 800 !important;
     text-decoration: none !important;
     box-sizing: border-box;

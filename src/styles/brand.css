@@ -522,7 +522,8 @@ body.site-brand .nav-book,
 body.site-brand .nav-book:hover {
     background: #c6ff00 !important;
     color: #1f1a2e !important;
-    border: 2px solid #1f1a2e !important;
+    border: 0 !important;
+    border-radius: 999px !important;
     font-weight: 800 !important;
 }
 
@@ -530,10 +531,118 @@ body.site-brand .hero-new .cta-secondary,
 body.site-brand .hero-new .cta-secondary:hover {
     background: #FF2D6D !important;
     color: #ffffff !important;
-    border-color: #FF2D6D !important;
+    border: 0 !important;
+    border-radius: 999px !important;
     font-weight: 800 !important;
     font-size: 19px !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Home shows the rating once, in the hero pill. The top bar copy is the duplicate. */
+body.hero-transparent-header .top-bar-badge {
+    display: none !important;
+}
+
+body.site-brand .hero-new-left,
+body.site-brand .hero-new-cta,
+body.site-brand .hero-new .cta-buttons {
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+body.site-brand .hero-new .lp-rating-row {
+    order: 1;
+    margin: 0 0 0.45rem !important;
+    text-align: left !important;
+    width: 100%;
+}
+
+body.site-brand .hero-new-headline {
+    order: 2;
+}
+
+body.site-brand .hero-new-body {
+    order: 3;
+}
+
+body.site-brand .hero-new-cta {
+    order: 4 !important;
+}
+
+body.site-brand .hero-new .cc-trust {
+    order: 5;
+}
+
+body.site-brand .hero-new .cc-rating,
+body.site-brand .hero-new .cc-rating:hover {
+    display: inline-flex !important;
+    width: auto !important;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0.4rem 0.85rem !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: #c6ff00 !important;
+    color: #1f1a2e !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+}
+
+body.site-brand .hero-new-headline {
+    margin: 0.35rem 0 0.4rem !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+}
+
+body.site-brand .hero-new-body,
+body.site-brand .hero-new-body p {
+    margin: 0 !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+}
+
+body.site-brand .hero-new-cta {
+    margin-top: 0.9rem !important;
+    width: 100%;
+}
+
+body.site-brand .hero-new .cc-trust {
+    justify-content: flex-start !important;
+    margin: 0.85rem 0 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    text-align: left !important;
+}
+
+@media (max-width: 768px) {
+    body.site-brand .hero-new .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.65rem;
+    }
+
+    body.site-brand .hero-new .cta-primary,
+    body.site-brand .hero-new .cta-secondary {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 860px) {
+    body.site-brand .hero-new .cta-buttons {
+        flex-direction: row;
+        width: auto;
+    }
+
+    body.site-brand .hero-new .cta-primary,
+    body.site-brand .hero-new .cta-secondary {
+        width: auto !important;
+        min-width: 220px;
+    }
 }
 
 body.site-brand .hero-new strong,
@@ -983,4 +1092,27 @@ body.site-brand .crazy-cards-section {
         bottom: 0.25rem;
         top: auto;
     }
+}
+
+/* Filled brand buttons are pills with no dark outline, same as the ad pages. */
+body.site-brand .cta-primary,
+body.site-brand .cta-primary:hover,
+body.site-brand .nav-book,
+body.site-brand .nav-book:hover,
+body.site-brand .page-contact-call,
+body.site-brand .page-contact-call:hover,
+body.site-brand .page-contact-book,
+body.site-brand .page-contact-book:hover,
+body.site-brand .book-bar a,
+body.site-brand .book-bar a:hover,
+body.site-brand .hc-book,
+body.site-brand .hc-book:hover,
+body.site-brand .hc-call-secondary,
+body.site-brand .hc-call-secondary:hover,
+body.site-brand .request-submit,
+body.site-brand .request-submit:hover,
+body.site-brand .heating-check-promo .cta-primary,
+body.site-brand .heating-check-promo .cta-secondary {
+    border: 0 !important;
+    border-radius: 999px !important;
 }
