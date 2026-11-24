@@ -12,41 +12,42 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="image" href="/assets/images/Logo-Green/Crazy-Comfort-02.svg" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/wordmark.svg" fetchpriority="high">
+    <!-- Header logo swap: assets/images/brand/wordmark.svg until the final logo arrives -->
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { background: #0a0a0a; color: #fff; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
+        html, body { background: #ffffff; color: #141414; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
         .skip-to-content { position: absolute; top: -100px; left: 0; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #0a0a0a; width: 100%; font-size: 0.85rem; font-weight: 600; }
+        .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #1f1a2e; width: 100%; font-size: 0.85rem; font-weight: 800; }
         .top-contact-bar .container { display: flex; align-items: center; justify-content: space-between; max-width: 100%; margin: 0; padding: 0 1rem 0 1.5rem; }
         .top-bar-phone { color: #000; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.5px; text-decoration: none; display: inline-flex; align-items: center; }
         .top-bar-divider, .top-bar-location { display: none; }
-        .top-bar-badge { display: inline-flex; align-items: center; justify-content: center; height: 100%; margin-right: -1rem; padding: 0.6rem 1.5rem; background: #FF2D6D; color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
-        .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: rgba(0, 0, 0, 0.15); border-bottom: 1px solid #1a1a1a; }
+        .top-bar-badge { display: inline-flex; align-items: center; justify-content: center; height: 100%; margin-right: -1rem; padding: 0.6rem 1rem; background: transparent; color: #0a0a0a; font-size: 0.9rem; font-weight: 800; letter-spacing: 0; text-transform: none; white-space: nowrap; text-decoration: none; }
+        .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: #ffffff; border-bottom: 1px solid #eeeeee; }
         .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; gap: 1rem; padding: 0.25rem 1rem; }
         .logo { display: flex; align-items: center; flex-shrink: 0; height: 100%; }
-        .logo a { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 0; text-decoration: none; }
-        .logo-image { display: block; height: 95px; width: auto; max-width: 380px; object-fit: contain; }
+        .logo a { display: flex; flex-direction: column; align-items: center; height: auto; max-height: none; gap: 0; text-decoration: none; }
+        .logo-image { display: block; height: 72px; width: auto; max-width: 280px; object-fit: contain; background: transparent; }
         .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: 3rem; position: relative; }
         .menu-toggle { display: none; }
         .nav-menu { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
-        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
+        .nav-menu a { color: #141414; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
         .dropdown-menu { position: absolute; opacity: 0; visibility: hidden; }
-        .hero-new { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: var(--total-header-height) 0 2rem; background: #0a0a0a; }
-        .hero-new-grid { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%; min-height: 60vh; }
-        .hero-new-left { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 800px; }
-        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #fff; margin: 0.5rem 0 1.5rem; letter-spacing: -0.03em; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.9); }
+        .hero-new { min-height: 0; display: flex; align-items: flex-start; justify-content: center; padding: var(--total-header-height) 0 1.5rem; background: linear-gradient(180deg, #eaff99 0%, #f4ffd6 55%, #ffffff 100%); }
+        .hero-new-grid { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; width: 100%; min-height: 0; }
+        .hero-new-left { display: flex; flex-direction: column; align-items: flex-start; text-align: left; width: 100%; max-width: 800px; }
+        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #141414; margin: 0.35rem 0 0.4rem; letter-spacing: -0.03em; text-shadow: none; }
         .hero-new-headline strong { color: #c6ff00; display: block; font-size: 1.1em; }
-        .hero-new-body { color: rgba(255, 255, 255, 0.95); font-size: 1.1rem; line-height: 1.7; margin: 0 0 2rem; max-width: 520px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+        .hero-new-body { color: #333333; font-size: 1.05rem; line-height: 1.5; margin: 0; max-width: 36rem; text-shadow: none; }
         p { color: #b0b0b0; }
-        .hero-new-body p { margin: 0 0 1.5rem; }
+        .hero-new-body p { margin: 0; }
         .hero-new-body p strong { color: #FF2D6D; font-weight: 700; }
-        .hero-new-cta { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2rem; }
-        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .cta-primary, .cta-secondary { display: inline-block; text-decoration: none; text-align: center; border-radius: 8px; }
-        .cta-primary { background: #c6ff00; color: #0a0a0a; border: 0; padding: 1.3rem 3rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 4px 20px rgba(198, 255, 0, 0.3); }
+        .hero-new-cta { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; margin-top: 0.9rem; }
+        .cta-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-start; }
+        .cta-primary, .cta-secondary { display: inline-block; text-decoration: none; text-align: center; border-radius: 999px; border: 0; }
+        .cta-primary { background: #c6ff00; color: #1f1a2e; border: 0; padding: 0.85rem 1.5rem; font-size: 19px; font-weight: 800; letter-spacing: 0.02em; box-shadow: none; }
         .cta-secondary { background: transparent; color: #c6ff00; border: 2px solid #c6ff00; padding: 1.1rem 2.5rem; font-size: 1.1rem; font-weight: 600; }
         .hero-trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
         .hero-trust-strip span { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 600; color: #fff; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -56,57 +57,58 @@
             .top-contact-bar .container { padding: 0 1rem; }
             .top-bar-phone { font-size: 0.9rem; white-space: nowrap; }
             .top-bar-badge { margin-right: 0; padding: 0.5rem 0.75rem; font-size: 0.65rem; letter-spacing: 0.5px; }
-            .header { background: #1a1a1a; }
+            .header { background: #ffffff; }
             .nav { padding: 0.25rem 0.75rem; height: var(--header-height); }
-            .logo { height: auto; max-height: 80px; }
-            .logo a { height: auto; max-height: 42px; }
-            .logo-image { height: 65px; max-height: 65px; max-width: 260px; }
+            .logo { height: auto; max-height: none; }
+            .logo a { height: auto; max-height: none; }
+            .logo-image { height: 56px; max-height: none; max-width: 220px; }
             .menu-toggle { display: flex; flex-direction: column; gap: 4px; background: none; border: 0; padding: 0.5rem; }
             .nav-actions { margin-left: auto; }
             .menu-toggle span { display: block; width: 25px; height: 3px; background: #FF2D6D; border-radius: 2px; }
             .nav-menu { display: none; }
             .nav-menu.active { display: flex; position: fixed; top: var(--total-header-height); left: 0; right: 0; z-index: 9999; flex-direction: column; gap: 0; width: 100%; background: #0a0a0a; padding: 0.75rem 0 1rem; }
             .hero-new { padding: calc(var(--total-header-height) + 1rem) 0 2rem; }
-            .hero-new-headline { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0.25rem 0 1rem; letter-spacing: normal; text-shadow: none; }
-            .hero-new-body { width: 100%; margin-bottom: 2rem; }
-            .hero-new-cta { order: 3; margin-top: 1rem; width: 100%; align-items: stretch; gap: 1rem; }
+            .hero-new-headline { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0.35rem 0 0.4rem; letter-spacing: normal; text-shadow: none; }
+            .hero-new-body { width: 100%; margin-bottom: 0; }
+            .hero-new-cta { margin-top: 0.9rem; width: 100%; align-items: stretch; gap: 0.65rem; }
             .cta-buttons { flex-direction: column; width: 100%; }
-            .cta-primary, .cta-secondary { width: 100%; padding: 1rem 2rem; }
+            .cta-primary, .cta-secondary { width: 100%; padding: 0.85rem 1.25rem; border-radius: 999px; border: 0; }
         }
         @media (min-width: 1400px) {
             .container { max-width: 1320px; padding: 0 2.5rem; }
         }
         @media (max-width: 480px) {
-            .hero-new { padding-bottom: 2.5rem; }
-            .hero-new-headline { margin-bottom: 2rem; }
-            .hero-new-body { font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
-            .hero-new-body p { margin-bottom: 1.75rem; }
+            .hero-new { padding-bottom: 1.5rem; }
+            .hero-new-headline { margin: 0.35rem 0 0.4rem; }
+            .hero-new-body { font-size: 1rem; line-height: 1.5; margin-bottom: 0; }
+            .hero-new-body p { margin: 0; }
         }
     </style>
-    <meta name="description" content="Woman-owned HVAC company in Katy & Fulshear TX. Transparent AC repair, heating service & installations with real-time photo documentation. Same-day service. Call 832-403-7466.">
+    <meta name="description" content="Woman-owned HVAC company in Katy & Fulshear TX. Comfort This Good is Crazy! Transparent AC repair, heating service, and installations with real-time photo documentation. Call 832-403-7466.">
     <title>Woman-Owned HVAC Company Katy TX | Crazy Comfort | 832-403-7466</title>
     
     <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/png" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
-    <link rel="apple-touch-icon" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
+    <link rel="icon" type="image/png" href="/assets/images/brand/favicon-logo.png">
+    <link rel="apple-touch-icon" href="/assets/images/brand/favicon-logo.png">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link data-cc-fonts href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Crazy Comfort | Transparent HVAC Services Katy TX">
-    <meta property="og:description" content="HVAC services you can actually see. Photo and video documentation on every job. Serving Katy & Fulshear TX.">
-    <meta property="og:image" content="https://crazycomfort.com/assets/images/og-image.png">
+    <meta property="og:title" content="Crazy Comfort | Comfort This Good is Crazy!">
+    <meta property="og:description" content="Comfort This Good is Crazy! Photo and video documentation on every job. Serving Katy and Fulshear, TX.">
+    <meta property="og:image" content="https://crazycomfort.com/assets/images/brand/wordmark.png">
     <meta property="og:url" content="https://crazycomfort.com">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Crazy Comfort | Transparent HVAC Services Katy TX">
-    <meta name="twitter:description" content="HVAC services you can actually see. Photo and video documentation on every job.">
+    <meta name="twitter:title" content="Crazy Comfort | Comfort This Good is Crazy!">
+    <meta name="twitter:description" content="Comfort This Good is Crazy! Photo and video documentation on every job. Serving Katy and Fulshear, TX.">
     <meta name="twitter:image" content="https://crazycomfort.com/assets/images/og-image.png">
     
     <!-- Additional Meta Tags -->
@@ -134,8 +136,8 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611062330" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611062330"></noscript>
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611242230" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611242230"></noscript>
     <script>!function(){var l=document.getElementById('site-css');if(!l)return;function a(){l.media='all'}if(l.sheet)a();else l.addEventListener('load',a)}();</script>
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
@@ -150,9 +152,9 @@
           "legalName": "Crazy Comfort LLC",
           "image": [
             "https://crazycomfort.com/assets/images/og-image.png",
-            "https://crazycomfort.com/assets/images/Logo-Green/Crazy-Comfort-02.svg"
+            "https://crazycomfort.com/assets/images/brand/wordmark.png"
           ],
-          "logo": "https://crazycomfort.com/assets/images/Logo-Green/Crazy-Comfort-02.svg",
+          "logo": "https://crazycomfort.com/assets/images/brand/wordmark.png",
           "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos. TACLA00048090C licensed.",
           "slogan": "Transparent HVAC Services - Every Visit Documented",
           "url": "https://crazycomfort.com",
@@ -260,7 +262,7 @@
             {"@type": "PropertyValue", "name": "Woman-Owned", "value": "Yes"},
             {"@type": "PropertyValue", "name": "Photo Documentation", "value": "Every visit documented with timestamped, GPS-verified photos"},
             {"@type": "PropertyValue", "name": "Financing Available", "value": "Yes, through Hearth Financing"},
-            {"@type": "PropertyValue", "name": "Same-Day Service", "value": "Available"},
+            {"@type": "PropertyValue", "name": "Fast local service", "value": "Available"},
             {"@type": "PropertyValue", "name": "License Number", "value": "TACLA00048090C"}
           ]
         },
@@ -306,10 +308,10 @@
             },
             {
               "@type": "Question",
-              "name": "Do you offer same-day HVAC service?",
+              "name": "Do you offer fast local HVAC service?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, same-day service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows."
+                "text": "Yes, fast local service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows."
               }
             },
             {
@@ -467,13 +469,13 @@
 </script>
 <!-- End MailerLite Universal -->
 </head>
-<body class="hero-transparent-header">
+<body class="hero-transparent-header site-brand cc-collapse">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <header class="header">
         <nav class="nav container">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/Logo-Green/Crazy-Comfort-02.svg" alt="Crazy Comfort Logo" class="logo-image" width="2000" height="2000" fetchpriority="high">
+                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort Logo" class="logo-image" width="2000" height="2000" fetchpriority="high">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -489,13 +491,16 @@
                         <li><a href="/hvac-maintenance-plan">Maintenance Plans</a></li>
                     </ul>
                 </li>
-                <li><a href="/service-area">Service Area</a></li>
+                <li><a href="/service-area">Service Areas</a></li>
                 <li><a href="/reviews">Reviews</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="nav-cta"><a href="/comfort-to-all">Comfort To All</a></li>
             </ul>
             <div class="nav-actions">
+                <a class="nav-phone" href="tel:832-403-7466">832-403-7466</a>
+                <a class="nav-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Header" target="_blank" rel="noopener noreferrer">Book Online</a>
+                
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -509,7 +514,7 @@
         <div class="container">
             <a href="tel:832-403-7466" class="top-bar-phone">📞 832-403-7466</a>
             <span class="top-bar-divider">|</span>
-            <span class="top-bar-badge">Same Day Service</span>
+            <a class="top-bar-badge cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a>
         </div>
     </div>
 
@@ -553,14 +558,11 @@
                 }
                 .heating-check-promo-card {
                     text-align: center;
-                    background:
-                        radial-gradient(ellipse 80% 140% at 0% 0%, rgba(255, 45, 109, 0.22), transparent 52%),
-                        radial-gradient(ellipse 70% 140% at 100% 100%, rgba(198, 255, 0, 0.14), transparent 48%),
-                        #121212;
-                    border: 2px solid #c6ff00;
+                    background: #ffffff;
+                    border: 2px solid #141414;
                     border-radius: 18px;
                     padding: 0.95rem 1.25rem 1.05rem;
-                    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+                    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
                 }
                 .heating-check-promo-kicker {
                     margin: 0;
@@ -569,29 +571,35 @@
                     display: inline-block;
                     background: #FF2D6D;
                     color: #ffffff;
-                    font-size: 0.72rem;
+                    font-size: 15px;
                     font-weight: 800;
-                    letter-spacing: 0.14em;
+                    letter-spacing: 0.12em;
                     text-transform: uppercase;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
                     padding: 0.32rem 0.75rem;
                     border-radius: 999px;
                     line-height: 1.2;
                 }
                 .heating-check-promo-title {
                     margin: 0.45rem 0 0.35rem;
-                    color: #ffffff;
+                    color: #141414;
                     font-size: clamp(1.35rem, 2.5vw, 2.05rem);
                     font-weight: 900;
                     line-height: 1.12;
                     letter-spacing: -0.03em;
                 }
                 .heating-check-promo-price {
-                    color: #c6ff00;
+                    background: #FF2D6D;
+                    color: #ffffff;
+                    font-weight: 800;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+                    padding: 0 0.12em;
+                    border-radius: 6px;
                 }
                 .heating-check-promo-lead {
                     margin: 0 auto 0.9rem;
                     max-width: 40rem;
-                    color: rgba(255, 255, 255, 0.92);
+                    color: #333333;
                     font-size: 1.02rem;
                     line-height: 1.45;
                 }
@@ -607,12 +615,17 @@
                     width: auto;
                     margin: 0;
                     padding: 0.85rem 1.35rem;
-                    font-size: 1rem;
+                    font-size: 19px;
+                    font-weight: 800;
                     line-height: 1.2;
                 }
                 .heating-check-promo-call {
+                    background: #FF2D6D;
+                    border-color: #FF2D6D;
+                    color: #ffffff;
                     font-weight: 800;
                     letter-spacing: 0.01em;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
                     white-space: nowrap;
                 }
                 .heating-check-promo a:focus-visible {
@@ -630,10 +643,36 @@
                     .heating-check-promo .cta-secondary { width: 100%; }
                 }
             </style>
+            <div class="container hero-new-grid" style="position: relative; z-index: 1;">
+                <div class="hero-new-left">
+                    <p class="lp-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
+                    <h1 class="hero-new-headline">Comfort This Good is Crazy!</h1>
+                    <div class="hero-new-body">
+                        <p>Photo-documented HVAC in Katy and Fulshear.</p>
+                    </div>
+                    <div class="hero-new-cta">
+                        <div class="cta-buttons">
+                            <a class="cta-primary" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Home hero" target="_blank" rel="noopener noreferrer">Book Online</a>
+                            <a href="tel:832-403-7466" class="cta-secondary">Call 832-403-7466</a>
+                        </div>
+                    </div>
+                    <ul class="cc-trust">
+                        <li>Licensed &amp; insured</li>
+                        <li>Upfront pricing</li>
+                        <li>Photo-documented service</li>
+                        <li>TACLA00048090C</li>
+                    </ul>
+                </div>
+                <div class="cc-hero-visual">
+                    <img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van">
+                    <img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="">
+                </div>
+            </div>
+        </section>
             <aside class="heating-check-promo" aria-labelledby="heating-check-promo-title">
                 <div class="heating-check-promo-card">
                     <p class="heating-check-promo-kicker"><span>Limited time</span></p>
-                    <h2 id="heating-check-promo-title"><span class="heating-check-promo-price">$49</span> Heating Check — ends November 30</h2>
+                    <h2 id="heating-check-promo-title" class="heating-check-promo-title"><span class="heating-check-promo-price">$49</span> Heating Check — ends November 30</h2>
                     <p class="heating-check-promo-lead">Get your heater checked before the next cold front. Family-run, licensed HVAC in Katy, Fulshear &amp; West Houston.</p>
                     <div class="heating-check-promo-actions">
                         <a class="cta-primary heating-check-promo-book" href="/heating-check/">Book My $49 Check</a>
@@ -642,92 +681,6 @@
                 </div>
             </aside>
             <!-- END $49 HEATING CHECK PROMO -->
-            <div class="container hero-new-grid" style="position: relative; z-index: 1;">
-                <div class="hero-new-left">
-                    <h1 class="hero-new-headline">
-                        COMFORT<br>
-                        <strong>THAT HITS DIFFERENT.</strong>
-                    </h1>
-                    <div class="hero-new-body">
-                        <p>Transparent HVAC you can actually trust... <strong>And SEE.</strong></p>
-                    </div>
-                    <div class="hero-new-cta">
-                        <div class="cta-buttons">
-                            <a href="tel:832-403-7466" class="cta-primary">📞 Call 832-403-7466</a>
-                            <a href="#request-service" class="cta-secondary">Request Service</a>
-                        </div>
-                    </div>
-                    <div class="hero-trust-strip">
-                        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 24/7 SERVICE</span>
-                        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> UPFRONT PRICING</span>
-                        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> EXPERT TECHS</span>
-                        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> GUARANTEED</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHAT "CRAZY" MEANS - Brief -->
-        <section class="homepage-section crazy-cards-section">
-            <div class="container">
-                <h2 class="homepage-headline">What "<span style="color: var(--primary-color);">Crazy</span>" means to us</h2>
-                <div class="crazy-cards-grid" style="max-width: 900px; margin: 0 auto;">
-                    <div class="crazy-card">
-                        <h3>Texas weather is crazy. 110° summers. Freezing winters. We get crazy right back. <strong>That's Crazy.</strong></h3>
-                    </div>
-                    <div class="crazy-card">
-                        <h3>You get a transparency link via text. Photos/Videos appear seconds after we take them. <strong>That's Crazy.</strong></h3>
-                    </div>
-                    <div class="crazy-card">
-                        <h3>Every service helps another family. A portion of every job supports our Comfort to All program for families in need. <strong>That's Crazy.</strong></h3>
-                    </div>
-                </div>
-                
-                <!-- Tech Vision - Live Photos -->
-                <div class="evidence-pack-card" style="max-width: 500px; margin: 3rem auto 2rem;">
-                    <div class="evidence-pack-header">
-                        <span class="evidence-pack-label">Tech Vision</span>
-                        <span class="evidence-pack-sub">Live from real service calls</span>
-                    </div>
-                    <div class="evidence-carousel" data-evidence-carousel>
-                        <button class="evidence-nav evidence-nav-prev" type="button" aria-label="Previous">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <div class="evidence-slides">
-                            <div class="evidence-slide active">
-                                <img src="assets/images/time-stamped-photos-600.webp?v=202611062245" srcset="assets/images/time-stamped-photos-450.webp?v=202611062245 450w, assets/images/time-stamped-photos-600.webp?v=202611062245 600w, assets/images/time-stamped-photos-900.webp?v=202611062245 900w" sizes="(max-width: 768px) 225px, 300px" width="600" height="800" alt="Time-stamped photo documentation" loading="lazy" decoding="async">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Time-stamped documentation</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/Condenser-Top-Off.jpg?v=202602111900" alt="Condenser inspection" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Condenser inspection</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/filter.jpg?v=202601150900" alt="Filter inspection" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Filter inspection</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/duct_clean.jpg?v=202601150900" alt="Duct cleaning" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Duct cleaning</p>
-                            </div>
-                        </div>
-                        <button class="evidence-nav evidence-nav-next" type="button" aria-label="Next">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
-                    </div>
-                    <div class="evidence-dots" data-evidence-dots>
-                        <span class="evidence-dot active"></span>
-                        <span class="evidence-dot"></span>
-                        <span class="evidence-dot"></span>
-                        <span class="evidence-dot"></span>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/about" class="cta-secondary">Learn More About Us →</a>
-                </div>
-            </div>
-        </section>
 
         <!-- SERVICES OVERVIEW -->
         <section class="services">
@@ -868,6 +821,68 @@
             </div>
         </section>
 
+        <!-- WHAT "CRAZY" MEANS - Brief -->
+        <section class="homepage-section crazy-cards-section">
+            <div class="container">
+                <h2 class="homepage-headline">What "<span style="color: var(--primary-color);">Crazy</span>" means to us</h2>
+                <div class="crazy-cards-grid" style="max-width: 900px; margin: 0 auto;">
+                    <div class="crazy-card">
+                        <h3>Texas weather is crazy. 110° summers. Freezing winters. We get crazy right back. <strong>That's Crazy.</strong></h3>
+                    </div>
+                    <div class="crazy-card">
+                        <h3>You get a transparency link via text. Photos/Videos appear seconds after we take them. <strong>That's Crazy.</strong></h3>
+                    </div>
+                    <div class="crazy-card">
+                        <h3>Every service helps another family. A portion of every job supports our Comfort to All program for families in need. <strong>That's Crazy.</strong></h3>
+                    </div>
+                </div>
+                
+                <!-- Tech Vision - Live Photos -->
+                <div class="evidence-pack-card" style="max-width: 500px; margin: 3rem auto 2rem;">
+                    <div class="evidence-pack-header">
+                        <span class="evidence-pack-label">Tech Vision</span>
+                        <span class="evidence-pack-sub">Live from real service calls</span>
+                    </div>
+                    <div class="evidence-carousel" data-evidence-carousel>
+                        <button class="evidence-nav evidence-nav-prev" type="button" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="evidence-slides">
+                            <div class="evidence-slide active">
+                                <img src="assets/images/time-stamped-photos-600.webp?v=202611062245" srcset="assets/images/time-stamped-photos-450.webp?v=202611062245 450w, assets/images/time-stamped-photos-600.webp?v=202611062245 600w, assets/images/time-stamped-photos-900.webp?v=202611062245 900w" sizes="(max-width: 768px) 225px, 300px" width="600" height="800" alt="Time-stamped photo documentation" loading="lazy" decoding="async">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Time-stamped documentation</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/Condenser-Top-Off.jpg?v=202602111900" alt="Condenser inspection" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Condenser inspection</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/filter.jpg?v=202601150900" alt="Filter inspection" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Filter inspection</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/duct_clean.jpg?v=202601150900" alt="Duct cleaning" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Duct cleaning</p>
+                            </div>
+                        </div>
+                        <button class="evidence-nav evidence-nav-next" type="button" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="evidence-dots" data-evidence-dots>
+                        <span class="evidence-dot active"></span>
+                        <span class="evidence-dot"></span>
+                        <span class="evidence-dot"></span>
+                        <span class="evidence-dot"></span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/about" class="cta-secondary">Learn More About Us →</a>
+                </div>
+            </div>
+        </section>
+
         <!-- COUPONS -->
         <section class="coupons-section">
             <div class="container">
@@ -987,9 +1002,9 @@
                     </details>
 
                     <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">Do you offer same-day HVAC service?</summary>
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">Do you offer fast local HVAC service?</summary>
                         <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
-                            Yes, same-day service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows. Call us at <a href="tel:832-403-7466" style="color: #c6ff00; font-weight: 600;">832-403-7466</a> to check availability.
+                            Yes, fast local service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows. Call us at <a href="tel:832-403-7466" style="color: #c6ff00; font-weight: 600;">832-403-7466</a> to check availability.
                         </div>
                     </details>
 
@@ -1219,8 +1234,8 @@
                     <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Communities Served</p>
                 </div>
                 <div style="text-align: center;">
-                    <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">5.0</p>
-                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">★★★★★ Rating</p>
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #141414; margin: 0; line-height: 1;">4.9</p>
+                    <p style="font-size: 0.85rem; color: #141414; margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;"><a href="/reviews">21 Google reviews</a></p>
                 </div>
                 <div style="text-align: center;">
                     <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">100%</p>
@@ -1229,6 +1244,7 @@
             </div>
             <div class="footer-content">
                 <div class="footer-section">
+                    <img class="footer-brand-logo" src="/assets/images/brand/wordmark.svg" width="280" height="120" alt="Crazy Comfort Heating &amp; Cooling">
                     <h3>Crazy Comfort</h3>
                     <p>Woman-owned HVAC company providing transparent, documented service in Katy, Fulshear, and West Houston. Every visit documented with <span style="color: #c6ff00; font-weight: 600;">real-time, timestamped photos</span>.</p>
                     <div class="social-links" style="margin-top: 1.5rem;">
@@ -1332,6 +1348,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611111900"></script>
+    <script src="/dist/main.js?v=202611242230"></script>
 </body>
 </html>

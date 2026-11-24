@@ -109,10 +109,121 @@ function initBookBarClearance() {
     watch();
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBookBarClearance);
-} else {
+const HCP_BOOKING_URL = 'https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true';
+
+function ensureBookBar() {
+    if (document.querySelector('.book-bar')) {
+        document.body.classList.add('has-book-bar');
+        return;
+    }
+    const nav = document.createElement('nav');
+    nav.className = 'book-bar';
+    nav.setAttribute('aria-label', 'Call or book online');
+    nav.innerHTML = '<a class="book-bar-call" href="tel:832-403-7466">Call</a>'
+        + '<a class="book-bar-book" href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Sitewide sticky" target="_blank" rel="noopener noreferrer">Book Online</a>';
+    document.body.appendChild(nav);
+    document.body.classList.add('has-book-bar');
+}
+
+function initSectionFolds() {
+    if (!document.body.classList.contains('cc-collapse')) return;
+    if (document.body.classList.contains('lp-light')) return;
+    const sections = document.querySelectorAll('main .homepage-section');
+    let openLeft = document.body.classList.contains('hero-transparent-header') ? 2 : 1;
+    sections.forEach(function(section) {
+        if (section.querySelector('form')) return;
+        if (openLeft > 0) {
+            openLeft -= 1;
+            return;
+        }
+        const container = section.querySelector('.container') || section;
+        const heading = container.querySelector('h2, h3');
+        if (!heading || container.querySelector('.cc-fold')) return;
+        const details = document.createElement('details');
+        details.className = 'cc-fold';
+        const summary = document.createElement('summary');
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        while (container.firstChild) details.appendChild(container.firstChild);
+        container.appendChild(details);
+    });
+}
+
+function initWrapChrome() {
+    if (!document.body || !document.body.classList.contains('site-brand')) return;
+    if (!document.querySelector('link[data-cc-fonts]')) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.setAttribute('data-cc-fonts', '');
+        link.href = 'https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap';
+        document.head.appendChild(link);
+    }
+    var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
+    if (adPage) return;
+    var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
+    if (hero && !hero.querySelector('.cc-trust') && !document.querySelector('.cc-trust')) {
+        var trust = document.createElement('ul');
+        trust.className = 'cc-trust';
+        trust.innerHTML = '<li>Licensed &amp; insured</li><li>Upfront pricing</li><li>Photo-documented service</li><li>TACLA00048090C</li>';
+        var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
+        if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
+        else hero.appendChild(trust);
+    }
+    var footer = document.querySelector('footer');
+    if (!footer) return;
+    var footerSection = footer.querySelector('.footer-section');
+    if (footerSection && !footer.querySelector('.footer-brand-logo')) {
+        var logo = document.createElement('img');
+        logo.className = 'footer-brand-logo';
+        logo.src = '/assets/images/brand/wordmark.svg';
+        logo.alt = 'Crazy Comfort Heating & Cooling';
+        logo.width = 280;
+        logo.height = 120;
+        footerSection.insertBefore(logo, footerSection.firstChild);
+    }
+    if (!document.querySelector('.cc-van-strip')) {
+        var strip = document.createElement('section');
+        strip.className = 'cc-van-strip';
+        strip.setAttribute('aria-label', 'Crazy Comfort service van');
+        strip.innerHTML = '<img src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">';
+        footer.parentNode.insertBefore(strip, footer);
+    }
+    if (!document.querySelector('.cc-book-prompt')) {
+        var prompt = document.createElement('section');
+        prompt.className = 'cc-book-prompt';
+        prompt.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="" loading="lazy" decoding="async">'
+            + '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
+            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a></div>';
+        footer.parentNode.insertBefore(prompt, footer);
+    }
+}
+
+function ensureHeaderPhone() {
+    document.querySelectorAll('.nav-actions').forEach(function (actions) {
+        if (actions.querySelector('.nav-phone')) return;
+        var phone = document.createElement('a');
+        phone.className = 'nav-phone';
+        phone.href = 'tel:832-403-7466';
+        phone.textContent = '832-403-7466';
+        actions.insertBefore(phone, actions.firstChild);
+    });
+    document.querySelectorAll('.nav-menu a[href="/service-area"]').forEach(function (link) {
+        if (link.textContent.trim() === 'Service Area') link.textContent = 'Service Areas';
+    });
+}
+
+function initSiteChrome() {
+    ensureBookBar();
+    ensureHeaderPhone();
     initBookBarClearance();
+    initSectionFolds();
+    initWrapChrome();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteChrome);
+} else {
+    initSiteChrome();
 }
 
 // Dark Mode Toggle

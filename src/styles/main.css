@@ -40,23 +40,23 @@ body {
     --secondary-dark: #e0245e;
     --secondary-light: #ff5c8a;
     
-    /* Background Colors - Dark Theme */
-    --bg-body: #0a0a0a;
-    --bg-section: #111111;
-    --bg-section-alt: #1a1a1a;
-    --bg-card: #1e1e1e;
-    --bg-card-hover: #252525;
-    --bg-white: #0a0a0a;
-    --bg-light: #1a1a1a;
+    /* Backgrounds. The light brand is the default. See src/styles/brand.css. */
+    --bg-body: #ffffff;
+    --bg-section: #ffffff;
+    --bg-section-alt: #f7f7f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f7f7f5;
+    --bg-white: #ffffff;
+    --bg-light: #f7f7f5;
     
     /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --text-muted: #707070;
-    --text-dark: #ffffff;
-    --text-light: #b0b0b0;
+    --text-primary: #141414;
+    --text-secondary: #333333;
+    --text-muted: #5c5c5c;
+    --text-dark: #141414;
+    --text-light: #333333;
     --text-on-primary: #0a0a0a;
-    --text-on-secondary: #ffffff;
+    --text-on-secondary: #0a0a0a;
     
     /* Borders */
     --border-color: #333333;
@@ -6611,19 +6611,17 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     /* ============================================
-       MOBILE HEADER & MENU - BRAND COLORS
-       Brand Cream: #1a1a1a
-       Brand Blue: #c6ff00
-       Brand Orange: #FF2D6D
+       MOBILE HEADER & MENU
+       Header background stays white so the logo tile stays legible.
        ============================================ */
     
-    /* MOBILE HEADER - Brand cream background */
+    /* MOBILE HEADER - light background */
     .header,
     .header.is-scrolled,
     [data-theme="dark"] .header,
     [data-theme="dark"] .header.is-scrolled {
-        background: #1a1a1a !important;
-        box-shadow: 0 2px 10px rgba(32, 120, 170, 0.15) !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
         height: var(--header-height) !important;
         padding: 0 !important;
         display: flex !important;
@@ -6842,8 +6840,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     /* Keep header cream when menu is open - logo stays readable */
     body.menu-open .header,
     body.menu-open .header.is-scrolled {
-        background: #1a1a1a !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
     }
     
     /* Orange X when menu is open */
@@ -9400,19 +9398,18 @@ body.lp-light .lp-hero {
 
 .cc-jester {
     position: absolute;
-    top: 0.4rem;
-    right: 0.2rem;
-    width: 112px;
+    top: auto;
+    bottom: 0.35rem;
+    right: 0.15rem;
+    width: 108px;
     height: auto;
     z-index: 0;
     pointer-events: none;
 }
 
 .lp-hero .section-title,
-.hc-title,
-.lp-hero .lp-subhead,
-.hc-lead {
-    padding-right: 108px;
+.hc-title {
+    padding-right: 96px;
 }
 
 .lp-hero .container,
@@ -9509,7 +9506,7 @@ body.lp-light .logo-image {
     border-radius: 999px !important;
     background: #c6ff00 !important;
     color: #0a0a0a !important;
-    border: 2px solid #1f1a2e !important;
+    border: 0 !important;
     font-weight: 800 !important;
     text-decoration: none !important;
     box-sizing: border-box;
