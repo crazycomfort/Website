@@ -31,6 +31,10 @@
             min-height: 100vh;
         }
 
+        .hc-page section {
+            padding: 0;
+        }
+
         .hc-bar {
             position: sticky;
             top: 0;
@@ -61,15 +65,10 @@
             text-underline-offset: 3px;
         }
 
-        a.hc-call,
-        a.hc-call:hover {
-            display: inline-flex;
-            align-items: center;
-            min-height: 44px;
-            padding: 0.45rem 0.9rem;
-            border-radius: 999px;
-            background: #FF2D6D;
-            color: #0a0a0a !important;
+        a.hc-header-phone,
+        a.hc-header-phone:hover {
+            margin-left: auto;
+            color: #ffffff !important;
             font-weight: 800;
             font-size: 0.95rem;
             text-decoration: none;
@@ -84,7 +83,9 @@
 
         .hc-layout {
             display: grid;
-            gap: 1.5rem;
+            gap: 1.75rem;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .hc-kicker {
@@ -96,9 +97,14 @@
             text-transform: uppercase;
         }
 
+        .hc-hero,
+        .hc-benefits-block {
+            text-align: center;
+        }
+
         .hc-title {
             margin: 0;
-            font-size: clamp(2.4rem, 10vw, 4.6rem);
+            font-size: clamp(2.2rem, 8vw, 3.4rem);
             line-height: 0.95;
             letter-spacing: -0.03em;
             text-transform: uppercase;
@@ -117,21 +123,32 @@
         }
 
         .hc-benefits {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.15rem 0 0;
+            display: grid;
+            gap: 0.35rem;
+            margin: 0;
             padding: 0;
             list-style: none;
         }
 
+        .hc-benefits-block {
+            margin-top: 0.25rem;
+        }
+
+        .hc-benefits {
+            justify-content: center;
+        }
+
         .hc-benefits li {
-            padding: 0.45rem 0.75rem;
-            border: 1px solid rgba(198, 255, 0, 0.45);
-            border-radius: 999px;
             color: #ffffff;
-            font-size: 0.92rem;
+            font-size: 1rem;
             font-weight: 700;
+        }
+
+        .hc-license {
+            margin: 0.75rem 0 0;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.45;
         }
 
         .hc-actions {
@@ -449,74 +466,15 @@
             display: none;
         }
 
-        @media (max-width: 720px) {
-            a.hc-reviews,
-            a.hc-reviews:hover {
-                order: 3;
-                flex: 1 1 100%;
-                margin-left: 0;
-            }
-
-            a.hc-call,
-            a.hc-call:hover {
-                margin-left: auto;
-            }
-
-            .hc-page {
-                padding-bottom: calc(4.6rem + env(safe-area-inset-bottom));
-            }
-
-            .hc-sticky {
-                position: fixed;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 30;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.5rem;
-                padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
-                background: rgba(10, 10, 10, 0.96);
-                border-top: 1px solid rgba(198, 255, 0, 0.35);
-            }
-
-            .hc-sticky a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 48px;
-                border-radius: 999px;
-                font-weight: 800;
-                text-decoration: none;
-            }
-
-            a.hc-sticky-call,
-            a.hc-sticky-call:hover {
-                background: #FF2D6D;
-                color: #0a0a0a !important;
-            }
-
-            a.hc-sticky-book,
-            a.hc-sticky-book:hover {
-                background: #c6ff00;
-                color: #0a0a0a !important;
-            }
-        }
-
         @media (min-width: 860px) {
             .hc-main {
                 padding-top: 2.5rem;
             }
 
-            .hc-layout {
-                grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
-                gap: 2.5rem;
-                align-items: start;
-            }
-
             .hc-actions {
                 flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: center;
             }
 
             .hc-actions a.hc-book,
@@ -528,9 +486,6 @@
                 padding-right: 1.35rem;
             }
 
-            .hc-trust {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
     </style>
 <!-- MailerLite Universal -->
@@ -549,33 +504,28 @@
         <a href="/" class="hc-logo" aria-label="Crazy Comfort home">
             <img src="/assets/images/Logo-Green/Crazy-Comfort-02.svg" alt="Crazy Comfort">
         </a>
-        <a class="hc-reviews" href="/reviews">Read our Google reviews</a>
-        <a class="hc-call" href="tel:832-403-7466">Call 832-403-7466</a>
+        <a class="hc-header-phone" href="tel:832-403-7466">832-403-7466</a>
     </header>
 
     <main class="hc-main" id="main-content">
         <div class="hc-layout">
-            <section>
-                <p class="hc-kicker">Offer ends <time datetime="2026-11-30">November 30, 2026</time></p>
+            <section class="hc-hero">
                 <h1 class="hc-title"><span class="hc-price">$49</span> Heating Check</h1>
-                <p class="hc-lead">Make sure your heater is safe, performing properly, and ready for colder weather. Book by November 30, 2026.</p>
+                <p class="hc-lead">Make sure your heater is safe, performing properly, and ready for colder weather. Offer ends November 30, 2026.</p>
+                <div class="hc-actions">
+                    <a class="hc-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check hero" target="_blank" rel="noopener noreferrer">Book Online</a>
+                    <a class="hc-call-secondary" href="tel:832-403-7466">Call 832-403-7466</a>
+                </div>
+            </section>
+
+            <section class="hc-benefits-block" aria-label="What is included">
                 <ul class="hc-benefits">
                     <li>Safety Inspection</li>
                     <li>Heating Performance Check</li>
                     <li>System Assessment</li>
                 </ul>
-                <div class="hc-actions">
-                    <a class="hc-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check hero" target="_blank" rel="noopener noreferrer">Book Online</a>
-                    <a class="hc-call-secondary" href="tel:832-403-7466">Call 832-403-7466</a>
-                </div>
-                <p class="hc-follow"><a href="#book">Or request this check on the form below</a></p>
                 <p class="hc-hours">Mon–Fri 8am–7pm · Sat 8am–1pm · Sun emergency only</p>
-                <ul class="hc-points">
-                    <li>Licensed &amp; Insured</li>
-                    <li>Photo-documented service</li>
-                    <li>Upfront pricing</li>
-                </ul>
-                <p class="hc-hero-reviews"><a href="/reviews">Read our Google reviews</a></p>
+                <p class="hc-license">Licensed &amp; Insured. Texas HVAC license TACLA00048090C. Serving Katy, Fulshear, and West Houston.</p>
             </section>
 
             <section class="hc-form-card" id="book" aria-labelledby="book-title">
@@ -632,34 +582,7 @@
                 </form>
             </section>
         </div>
-
-        <section class="hc-trust" aria-label="Why Crazy Comfort">
-            <div>
-                <strong>Licensed &amp; Insured</strong>
-                <p>Texas HVAC license TACLA00048090C</p>
-            </div>
-            <div>
-                <strong>Serving Katy, Fulshear, and West Houston</strong>
-                <p>Local heating and cooling service</p>
-            </div>
-            <div>
-                <strong>Crazy Comfort Heating &amp; Cooling</strong>
-                <p>Woman-owned and family operated</p>
-            </div>
-        </section>
-
-        <section class="hc-phone">
-            <strong>Prefer to call us?</strong>
-            <p><a class="hc-phone-link" href="tel:832-403-7466">832-403-7466</a></p>
-            <a class="hc-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check phone" target="_blank" rel="noopener noreferrer">Book Online</a>
-        </section>
-
-        <p class="hc-foot">Crazy Comfort Heating &amp; Cooling · Katy &amp; Fulshear, TX · Licensed &amp; Insured. Texas HVAC license TACLA00048090C</p>
     </main>
-    <nav class="hc-sticky" aria-label="Call or book online">
-        <a class="hc-sticky-call" href="tel:832-403-7466">Call</a>
-        <a class="hc-sticky-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
-    </nav>
-    <script src="/dist/main.js?v=202611241630"></script>
+    <script src="/dist/main.js?v=202611241700"></script>
 </body>
 </html>

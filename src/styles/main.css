@@ -8825,7 +8825,7 @@ input::placeholder, textarea::placeholder {
 
 /* Paid landing pages: hero, short repair form, and mobile book bar */
 .lp-hero.homepage-section {
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
 }
 
 .lp-hero .section-title {
@@ -8833,12 +8833,40 @@ input::placeholder, textarea::placeholder {
 }
 
 .lp-subhead {
-    max-width: 42rem;
+    max-width: 40rem;
     margin: 0 auto;
     color: rgba(255, 255, 255, 0.92);
     font-size: 1.15rem;
     line-height: 1.55;
     text-align: center;
+}
+
+.lp-benefits {
+    max-width: 40rem;
+    margin: 1.75rem auto 0;
+    text-align: center;
+}
+
+.lp-benefits ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lp-benefits li {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.lp-benefits p {
+    margin: 0.7rem 0 0;
+    color: #c8c8c8;
+    font-size: 0.95rem;
+    line-height: 1.45;
 }
 
 .lp-diagnostic {
