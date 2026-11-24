@@ -71,6 +71,7 @@ for (const width of [390, 1280]) {
           ? el.textContent.replace(/\s+/g, " ").trim()
           : "";
         if (!text) continue;
+        if (el.closest("[aria-hidden='true']") || el.classList.contains("cc-stars")) continue;
         const cs = getComputedStyle(el);
         if (cs.visibility === "hidden" || cs.display === "none" || Number(cs.opacity) === 0) continue;
         const rect = el.getBoundingClientRect();
@@ -91,6 +92,10 @@ for (const width of [390, 1280]) {
         }
         const size = parseFloat(cs.fontSize);
         const weight = parseInt(cs.fontWeight, 10) || 400;
+        const sampleX = Math.max(0, Math.min(window.innerWidth - 1, rect.left + Math.min(12, rect.width / 2)));
+        const sampleY = Math.max(0, Math.min(window.innerHeight - 1, rect.top + rect.height / 2));
+        const hit = document.elementFromPoint(sampleX, sampleY);
+        if (!hit || !(el.contains(hit) || hit.contains(el) || el.parentElement?.contains(hit))) continue;
         out.push({
           text: text.slice(0, 70),
           color: cs.color,
@@ -113,10 +118,13 @@ for (const width of [390, 1280]) {
     for (const node of nodes) {
       const fg = parseColor(node.color);
       if (!fg) continue;
-      const x = Math.min(png.width - 1, Math.max(0, Math.round(node.x)));
-      const y = Math.min(png.height - 1, Math.max(0, Math.round(node.y)));
-      const i = (png.width * y + x) << 2;
-      const bg = [png.data[i], png.data[i + 1], png.data[i + 2]];
+      let bg = !node.gradient ? parseColor(node.bg || "") : null;
+      if (!bg) {
+        const x = Math.min(png.width - 1, Math.max(0, Math.round(node.x)));
+        const y = Math.min(png.height - 1, Math.max(0, Math.round(node.y)));
+        const i = (png.width * y + x) << 2;
+        bg = [png.data[i], png.data[i + 1], png.data[i + 2]];
+      }
       const score = ratio(fg, bg);
       const need = node.large ? 3 : 4.5;
       if (score + 0.05 < need) {
