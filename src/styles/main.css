@@ -8823,3 +8823,191 @@ input::placeholder, textarea::placeholder {
     }
 }
 
+/* Paid landing pages: hero, short repair form, and mobile book bar */
+.lp-hero.homepage-section {
+    padding-bottom: 2.5rem;
+}
+
+.lp-hero .section-title {
+    margin-bottom: 0.85rem;
+}
+
+.lp-subhead {
+    max-width: 42rem;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.15rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.lp-diagnostic {
+    max-width: 40rem;
+    margin: 1rem auto 0;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(198, 255, 0, 0.55);
+    border-radius: 12px;
+    background: rgba(198, 255, 0, 0.12);
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.lp-reviews,
+.lp-hours,
+.lp-text-link {
+    margin: 0.85rem 0 0;
+    text-align: center;
+}
+
+.lp-reviews a,
+.lp-text-link a {
+    color: #c6ff00;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lp-hours {
+    color: #e8e8e8;
+    font-weight: 700;
+}
+
+.lp-actions.page-contact a {
+    min-height: 48px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+}
+
+.lp-request.homepage-section {
+    padding-top: 0;
+    padding-bottom: 3.5rem;
+}
+
+.lp-request.homepage-section::before {
+    display: none;
+}
+
+.lp-request .request-card {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.lp-request .request-card-head a,
+.lp-request .request-disclaimer a {
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.lp-request .request-card-head a {
+    color: #0a0a0a !important;
+}
+
+#request {
+    scroll-margin-top: calc(var(--total-header-height) + 0.75rem);
+}
+
+.lp-hero .hero-trust-strip span {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.lp-request .request-disclaimer a {
+    color: #c6ff00;
+}
+
+.repair-success {
+    padding: 1.5rem 1.35rem 1.6rem;
+    text-align: center;
+}
+
+.repair-success h2 {
+    margin: 0 0 0.75rem;
+    color: #c6ff00;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+.repair-success h2:focus {
+    outline: 2px solid #c6ff00;
+    outline-offset: 4px;
+}
+
+.repair-success p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.55;
+}
+
+.repair-success p + p {
+    margin-top: 0.75rem;
+}
+
+.repair-success a {
+    color: #c6ff00;
+    font-weight: 800;
+}
+
+.book-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .lp-actions.page-contact {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lp-actions.page-contact a {
+        width: 100%;
+    }
+
+    body.has-book-bar {
+        padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+    }
+
+    body.has-book-bar .chatbot-widget {
+        bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+
+    .book-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1002;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+        background: rgba(10, 10, 10, 0.96);
+        border-top: 1px solid rgba(198, 255, 0, 0.35);
+    }
+
+    .book-bar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        border-radius: 999px;
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .book-bar-call,
+    .book-bar-call:hover {
+        background: #FF2D6D;
+        color: #0a0a0a !important;
+    }
+
+    .book-bar-book,
+    .book-bar-book:hover {
+        background: #c6ff00;
+        color: #0a0a0a !important;
+    }
+}
+
