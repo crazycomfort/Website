@@ -9325,3 +9325,93 @@ body.lp-light .repair-success a {
     }
 }
 
+/* Van-wrap hero treatment for the three ad pages. Dark text on lime and pink. */
+body.lp-light,
+.hc-page {
+    font-family: Nunito, "Segoe UI", sans-serif;
+}
+
+body.lp-light h1,
+body.lp-light h2,
+.hc-page h1,
+.hc-page h2 {
+    font-family: "Lilita One", Nunito, sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+}
+
+.cc-hot {
+    background-image: linear-gradient(#FF2D6D, #FF2D6D);
+    background-repeat: no-repeat;
+    background-size: 100% 0.22em;
+    background-position: 0 92%;
+}
+
+body.lp-light .lp-hero.homepage-section,
+.hc-page .hc-hero {
+    background: #c6ff00 !important;
+    color: #141414;
+}
+
+.hc-page .hc-hero {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 1.35rem 1rem 2.75rem;
+    position: relative;
+}
+
+.hc-page .hc-hero::after,
+body.lp-light .lp-hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 42px;
+    background: #FF2D6D;
+    clip-path: polygon(0 62%, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+}
+
+body.lp-light .lp-hero {
+    position: relative;
+    padding-bottom: 3.25rem !important;
+}
+
+.cc-jester {
+    display: block;
+    width: min(200px, 52vw);
+    height: auto;
+    margin: 0.35rem auto 0;
+}
+
+.lp-van-cut,
+.hc-van-cut {
+    display: block;
+    width: min(920px, 100%);
+    height: auto;
+    margin: 0.25rem auto 0;
+}
+
+.hc-hero .cc-rating,
+.hc-hero .cc-rating:hover,
+.lp-hero .cc-rating,
+.lp-hero .cc-rating:hover {
+    background: #ffffff;
+    color: #0a0a0a !important;
+}
+
+.hc-hero .hc-price {
+    background: #FF2D6D;
+    color: #0a0a0a;
+}
+
+.lp-hero .page-contact-call,
+.lp-hero .page-contact-call:hover,
+.hc-hero .hc-book,
+.hc-hero .hc-book:hover {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+    border: 3px solid #141414 !important;
+}
+

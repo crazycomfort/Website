@@ -1413,9 +1413,41 @@ function initExitPopup() {
     });
 }
 
+function markWrapWords() {
+    if (!document.body || (!document.body.classList.contains('lp-light') && !document.body.classList.contains('site-brand') && !document.body.classList.contains('hc-page'))) return;
+    const nodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    const pattern = /\b(Crazy|Comfort)\b/;
+    while ((node = walker.nextNode())) {
+        if (!pattern.test(node.nodeValue)) continue;
+        const parent = node.parentElement;
+        if (!parent || parent.closest('script, style, .cc-hot, input, textarea, button')) continue;
+        if (!parent.closest('h1, h2')) continue;
+        nodes.push(node);
+    }
+    nodes.forEach(function (textNode) {
+        const text = textNode.nodeValue;
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        text.replace(/\b(Crazy|Comfort)\b/g, function (match, word, index) {
+            frag.appendChild(document.createTextNode(text.slice(last, index)));
+            const span = document.createElement('span');
+            span.className = 'cc-hot';
+            span.textContent = word;
+            frag.appendChild(span);
+            last = index + match.length;
+            return match;
+        });
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        textNode.parentNode.replaceChild(frag, textNode);
+    });
+}
+
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
+        markWrapWords();
         initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
@@ -1423,6 +1455,7 @@ if (document.readyState === 'loading') {
         initExitPopup();
     });
 } else {
+    markWrapWords();
     initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();
