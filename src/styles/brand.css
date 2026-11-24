@@ -82,6 +82,16 @@ body.site-brand .footer h3,
 body.site-brand .footer h4,
 body.site-brand .footer li,
 body.site-brand .footer span,
+body.site-brand .hero-new-headline {
+    text-transform: none !important;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.15;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body.site-brand .hero-new-headline,
 body.site-brand .hero-new-headline strong,
 body.site-brand .hero-new-headline .accent,
@@ -304,6 +314,13 @@ body.site-brand .cc-fold[open] summary {
 
     body.site-brand .menu-toggle span {
         background: #141414 !important;
+    }
+
+    body.site-brand .chatbot-widget,
+    body.lp-light .chatbot-widget {
+        bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important;
+        right: 12px !important;
+        z-index: 1003;
     }
 
     body.site-brand .nav-book {

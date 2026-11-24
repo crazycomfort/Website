@@ -6611,19 +6611,17 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     /* ============================================
-       MOBILE HEADER & MENU - BRAND COLORS
-       Brand Cream: #1a1a1a
-       Brand Blue: #c6ff00
-       Brand Orange: #FF2D6D
+       MOBILE HEADER & MENU
+       Header background stays white so the logo tile stays legible.
        ============================================ */
     
-    /* MOBILE HEADER - Brand cream background */
+    /* MOBILE HEADER - light background */
     .header,
     .header.is-scrolled,
     [data-theme="dark"] .header,
     [data-theme="dark"] .header.is-scrolled {
-        background: #1a1a1a !important;
-        box-shadow: 0 2px 10px rgba(32, 120, 170, 0.15) !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
         height: var(--header-height) !important;
         padding: 0 !important;
         display: flex !important;
@@ -6842,8 +6840,8 @@ html:not([data-theme="dark"]) .install-showcase-item:hover {
     /* Keep header cream when menu is open - logo stays readable */
     body.menu-open .header,
     body.menu-open .header.is-scrolled {
-        background: #1a1a1a !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
     }
     
     /* Orange X when menu is open */
