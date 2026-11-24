@@ -9609,3 +9609,60 @@ body.lp-light .logo-image {
     font-weight: 800 !important;
 }
 
+body.lp-light .logo a,
+.hc-logo {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+body.lp-light .logo-image,
+.hc-logo img {
+    height: 56px !important;
+    max-height: none !important;
+    width: auto !important;
+    background: transparent !important;
+}
+
+@media (min-width: 769px) {
+    body.lp-light .logo-image,
+    .hc-logo img {
+        height: 56px !important;
+    }
+}
+
+.hc-page .hc-main {
+    overflow: visible !important;
+}
+
+@media (max-width: 720px) {
+    .lp-hero .cc-jester,
+    .hc-hero .cc-jester {
+        display: none !important;
+    }
+
+    .lp-hero .section-title,
+    .lp-hero .lp-subhead,
+    .hc-title,
+    .hc-lead {
+        padding-right: 0 !important;
+    }
+}
+
+@media (min-width: 721px) {
+    .cc-jester {
+        width: 120px !important;
+        top: 0.6rem;
+        right: 0.4rem;
+    }
+
+    .lp-hero .section-title,
+    .lp-hero .lp-subhead,
+    .hc-title,
+    .hc-lead,
+    .lp-hero .lp-actions,
+    .hc-actions {
+        padding-right: 140px !important;
+    }
+}
+
