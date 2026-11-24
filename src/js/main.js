@@ -1129,6 +1129,9 @@ function initChatbot() {
     
     const toggle = document.querySelector('.chatbot-toggle');
     const chatWindow = document.querySelector('.chatbot-window');
+    chatWindow.classList.remove('active');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
     const chatInput = document.getElementById('chatInput');
     const chatSend = document.getElementById('chatSend');
     const messagesContainer = document.getElementById('chatMessages');
@@ -1136,9 +1139,11 @@ function initChatbot() {
     
     // Toggle chat window
     toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        chatWindow.classList.toggle('active');
-        if (chatWindow.classList.contains('active')) {
+        const willOpen = !chatWindow.classList.contains('active');
+        toggle.classList.toggle('active', willOpen);
+        chatWindow.classList.toggle('active', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        if (willOpen) {
             badge.style.display = 'none';
             chatInput.focus();
             trackGa4Event('chatbot_opened', { 'event_category': 'Engagement' });
@@ -1148,7 +1153,7 @@ function initChatbot() {
     // Chat responses
     const responses = {
         schedule: {
-            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer same-day service!",
+            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer fast local service.",
             followUp: ["What's your availability?", "Do you offer financing?", "Talk to a human"]
         },
         areas: {
@@ -1156,7 +1161,7 @@ function initChatbot() {
             followUp: ["Yes, I'm in the area", "I'm not sure", "Schedule service"]
         },
         emergency: {
-            text: "For HVAC emergencies, call us right now at <a href='tel:832-403-7466'>832-403-7466</a>. We're available 24/7 for qualified emergencies like complete system failures during extreme weather.",
+            text: "For HVAC emergencies, call us at <a href='tel:832-403-7466'>832-403-7466</a>. We offer fast local service for qualified emergencies such as a complete system failure in extreme weather.",
             followUp: ["Call now", "It can wait", "Schedule for later"]
         },
         pricing: {
