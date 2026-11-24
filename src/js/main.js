@@ -125,28 +125,38 @@ function ensureBookBar() {
     document.body.classList.add('has-book-bar');
 }
 
+function isFaqHeading(text) {
+    return /\b(faq|faqs|questions)\b/i.test(text || '');
+}
+
 function initSectionFolds() {
     if (!document.body.classList.contains('cc-collapse')) return;
     if (document.body.classList.contains('lp-light')) return;
-    const sections = document.querySelectorAll('main .homepage-section');
-    let openLeft = document.body.classList.contains('hero-transparent-header') ? 2 : 1;
-    sections.forEach(function(section) {
-        if (section.querySelector('form')) return;
-        if (openLeft > 0) {
-            openLeft -= 1;
-            return;
-        }
-        const container = section.querySelector('.container') || section;
-        const heading = container.querySelector('h2, h3');
-        if (!heading || container.querySelector('.cc-fold')) return;
-        const details = document.createElement('details');
+    document.querySelectorAll('main .homepage-section').forEach(function (section) {
+        if (section.querySelector('form, details, .cc-fold')) return;
+        var container = section.querySelector('.container') || section;
+        var heading = container.querySelector('h2, h3');
+        if (!heading || !isFaqHeading(heading.textContent)) return;
+        var details = document.createElement('details');
         details.className = 'cc-fold';
-        const summary = document.createElement('summary');
+        var summary = document.createElement('summary');
         summary.appendChild(heading);
         details.appendChild(summary);
         while (container.firstChild) details.appendChild(container.firstChild);
         container.appendChild(details);
     });
+}
+
+function heroTrustRow(hero) {
+    var rows = hero.querySelectorAll('div');
+    for (var i = 0; i < rows.length; i++) {
+        var row = rows[i];
+        var spans = row.querySelectorAll(':scope > span');
+        if (spans.length < 2) continue;
+        var blob = row.textContent || '';
+        if (/licensed/i.test(blob) && /fast local|woman-owned|trip fee|photo/i.test(blob)) return row;
+    }
+    return null;
 }
 
 function initWrapChrome() {
@@ -161,13 +171,28 @@ function initWrapChrome() {
     var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
     if (adPage) return;
     var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
-    if (hero && !hero.querySelector('.cc-trust') && !document.querySelector('.cc-trust')) {
+    if (hero && !document.querySelector('.cc-trust')) {
         var trust = document.createElement('ul');
         trust.className = 'cc-trust';
-        trust.innerHTML = '<li>Licensed &amp; insured</li><li>Upfront pricing</li><li>Photo-documented service</li><li>TACLA00048090C</li>';
-        var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
-        if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
-        else hero.appendChild(trust);
+        var items = ['Licensed & insured', 'Upfront pricing', 'Photo-documented service', 'TACLA00048090C'];
+        var local = heroTrustRow(hero);
+        if (local) {
+            local.querySelectorAll(':scope > span').forEach(function (span) {
+                var text = span.textContent.replace(/[✓✔]/g, '').replace(/\s+/g, ' ').trim();
+                if (!text || /licensed\s*&\s*insured/i.test(text)) return;
+                if (/photo/i.test(text) || /upfront|flat-rate pricing/i.test(text)) return;
+                if (/trip fee|trip charge|no extra trip|no trip/i.test(text)) return;
+                if (items.indexOf(text) === -1) items.push(text);
+            });
+            local.replaceWith(trust);
+        } else {
+            var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
+            if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
+            else hero.appendChild(trust);
+        }
+        trust.innerHTML = items.map(function (item) {
+            return '<li>' + item.replace(/&/g, '&amp;') + '</li>';
+        }).join('');
     }
     var footer = document.querySelector('footer');
     if (!footer) return;
@@ -191,9 +216,9 @@ function initWrapChrome() {
     if (!document.querySelector('.cc-book-prompt')) {
         var prompt = document.createElement('section');
         prompt.className = 'cc-book-prompt';
-        prompt.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="" loading="lazy" decoding="async">'
-            + '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
-            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a></div>';
+        prompt.innerHTML = '<div><h2>Book with Crazy Comfort</h2><p>Pick a time, or call 832-403-7466.</p>'
+            + '<a href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Wrap booking prompt" target="_blank" rel="noopener noreferrer">Book Online</a>'
+            + '<a class="cc-cta-call" href="tel:832-403-7466">Call 832-403-7466</a></div>';
         footer.parentNode.insertBefore(prompt, footer);
     }
 }
