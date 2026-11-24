@@ -1,0 +1,23 @@
+name: Site audit
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  links-and-contrast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+      - run: npm run build
+      - run: python3 scripts/link-check.py
+      - run: npm install --no-save puppeteer-core pngjs
+      - run: sudo apt-get update && sudo apt-get install -y chromium-browser || sudo apt-get install -y chromium
+      - run: python3 -m http.server 8765 >/tmp/site.log 2>&1 &
+      - name: Pixel contrast
+        run: |
+          CHROME=$(command -v chromium-browser || command -v chromium || command -v google-chrome)
+          SITE_BASE=http://127.0.0.1:8765 CHROME="$CHROME" node scripts/pixel-contrast.mjs
