@@ -13,9 +13,15 @@
 /services/maintenance       /hvac-maintenance-plan/    301
 /services/maintenance/      /hvac-maintenance-plan/    301
 
-# Seasonal offer moved from spring AC tune-up to fall heating checkup
-/spring-ac-tuneup           /fall-heating-checkup/     301
-/spring-ac-tuneup/          /fall-heating-checkup/     301
+# Retired offers now point at the current $49 heating check
+/spring-ac-tuneup           /heating-check/     301
+/spring-ac-tuneup/          /heating-check/     301
+/fall-heating-checkup       /heating-check/     301
+/fall-heating-checkup/      /heating-check/     301
+/blog/hvac-financing-options /financing/        301
+/blog/hvac-financing-options/ /financing/       301
+/service-areas              /service-area/      301
+/service-areas/             /service-area/      301
 
 # Temporary Facebook campaign link for the $49 Heating Check
 /49heat                     /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302

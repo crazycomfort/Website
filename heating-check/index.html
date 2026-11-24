@@ -25,7 +25,10 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lilitaone/v17/i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
     <link rel="stylesheet" href="/dist/styles.css?v=202611242330">
     <style>
         .hc-page {
@@ -230,7 +233,7 @@
         a.hc-call-secondary:hover {
             border: 2px solid #FF2D6D;
             background: #FF2D6D;
-            color: #ffffff !important;
+            color: #1f1a2e;
             font-weight: 800;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
@@ -536,11 +539,18 @@
     </style>
 <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+(function () {
+  function start() {
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1915662');
+  }
+  function later() {
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2500); };
+    idle(start, { timeout: 5000 });
+  }
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later);
+})();
 </script>
 <!-- End MailerLite Universal -->
 </head>
@@ -555,9 +565,9 @@
 
     <main class="hc-main" id="main-content">
         <div class="hc-layout">
-            <section class="hc-hero">
-                <!-- cc-rating is the shared Google rating badge. Reuse this markup in the sitewide makeover. -->
-                <p class="hc-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
+            <section class="hc-hero lp-hero-grid">
+                <div class="lp-hero-copy">
+                <p class="hc-rating-row"><a class="cc-rating" href="/reviews"><span class="cc-stars" aria-hidden="true">★</span> 4.9 · 21 Google reviews</a></p>
                 <h1 class="hc-title"><span class="hc-price">$49</span> Heating Check</h1>
                 <p class="hc-lead">Heater safety check before the cold. Offer ends November 30, 2026.</p>
                 <div class="hc-actions">
@@ -570,10 +580,16 @@
                     <li>Photo-documented service</li>
                     <li>TACLA00048090C</li>
                 </ul>
+                </div>
+                <div class="cc-van-strip">
+                    <picture>
+                    <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                    <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
+                    <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                    <img class="hc-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                </picture>
+                </div>
             </section>
-            <div class="cc-van-strip">
-                <img class="hc-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">
-            </div>
 
             <section class="hc-benefits-block" aria-label="What is included">
                 <ul class="hc-benefits">
@@ -581,7 +597,7 @@
                     <li>Heating Performance Check</li>
                     <li>System Assessment</li>
                 </ul>
-                <p class="hc-hours">Mon–Fri 8am–7pm · Sat 8am–1pm · Sun emergency only</p>
+                <p class="hc-hours">Monday through Friday, 8am to 4pm</p>
                 <p class="hc-license">Licensed &amp; Insured. Texas HVAC license TACLA00048090C. Serving Katy, Fulshear, and West Houston.</p>
             </section>
 
@@ -644,6 +660,6 @@
         <a class="book-bar-call" href="tel:832-403-7466">Call</a>
         <a class="book-bar-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
     </nav>
-    <script src="/dist/main.js?v=202611242230"></script>
+    <script src="/dist/main.js?v=202611242330" defer></script>
 </body>
 </html>

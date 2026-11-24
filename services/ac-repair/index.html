@@ -32,15 +32,26 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lilitaone/v17/i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
     <link rel="stylesheet" href="/dist/styles.css?v=202611242330">
 <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+(function () {
+  function start() {
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1915662');
+  }
+  function later() {
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2500); };
+    idle(start, { timeout: 5000 });
+  }
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later);
+})();
 </script>
 <!-- End MailerLite Universal -->
 </head>
@@ -89,13 +100,13 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="homepage-section lp-hero" style="padding-top: calc(var(--total-header-height) + 2rem); position: relative; overflow: hidden;">
-            <div class="container">
+        <section class="homepage-section lp-hero" style="padding-top: calc(var(--total-header-height) + 2rem); position: relative;">
+            <div class="container lp-hero-grid">
+                <div class="lp-hero-copy">
                 <nav aria-label="Breadcrumb" class="breadcrumb">
                     <a href="/">Home</a> › <a href="/services">Services</a> › <span>AC Repair</span>
                 </nav>
-                <!-- cc-rating is the shared Google rating badge. Reuse this markup in the sitewide makeover. -->
-                <p class="lp-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
+                <p class="lp-rating-row"><a class="cc-rating" href="/reviews"><span class="cc-stars" aria-hidden="true">★</span> 4.9 · 21 Google reviews</a></p>
                 <h1 class="section-title" style="margin-top: 0.4rem;">AC repair in Katy &amp; Fulshear</h1>
                 <p class="lp-subhead">Our $129 diagnostic is credited toward the repair if you approve the work.</p>
                 <div class="page-contact lp-actions">
@@ -108,11 +119,17 @@
                     <li>Photo-documented service</li>
                     <li>TACLA00048090C</li>
                 </ul>
+                </div>
+                <div class="cc-van-strip">
+                    <picture>
+                        <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                        <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
+                        <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                        <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                    </picture>
+                </div>
             </div>
         </section>
-        <div class="cc-van-strip">
-            <img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">
-        </div>
 
         <section class="homepage-section lp-request" id="request" aria-labelledby="ac-request-title">
             <div class="container">
@@ -185,49 +202,49 @@
                     
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">Why is my AC running but not cooling?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             This is often caused by airflow restriction (dirty filter, blocked vents), refrigerant issues, or a failed outdoor component like the compressor or capacitor. We test each part systematically before recommending a fix.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">Why is there ice on my AC lines or coil?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             Ice usually indicates low airflow (dirty filter, blocked return, failing blower) or low refrigerant charge from a leak. We check the filter, blower, coil condition, and measure pressures to confirm the cause before recommending repairs.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">Why is water leaking from my air handler?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             Typically a clogged condensate drain line or drain pan overflow. We clear the drain, verify proper drainage, and check safety switches to prevent future issues and potential water damage.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">Should I keep running my AC if it's not cooling?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             If you see ice forming or hear abnormal noises (grinding, squealing, banging), turn it off to prevent further damage. Running a struggling system can turn a minor repair into a major one.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">How do you decide if a part is bad?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             We measure against manufacturer specifications—capacitance values, amp draw, continuity, voltage readings. If a component tests outside acceptable tolerances, we document the results and show you before recommending replacement.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">Do you add refrigerant without finding the leak?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             No. Refrigerant doesn't "wear out"—if it's low, there's a leak somewhere. We only correct refrigerant charge after identifying the cause, documenting the leak, and getting your approval on how to proceed.
                         </div>
                     </details>
 
                     <details style="background: #1a1a1a; border: 2px solid #e8e8e8; border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
                         <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: #ffffff; font-size: 1.05rem;">How much does AC repair cost in Katy?</summary>
-                        <div style="padding: 0 1.25rem 1.25rem; color: #b0b0b0; line-height: 1.7;">
+                        <div style="padding: 0 1.25rem 1.25rem; color: #333333; line-height: 1.7;">
                             Repair costs vary based on the issue. We provide upfront pricing before any work begins, and you'll see documented evidence of the problem.
                         </div>
                     </details>
@@ -236,13 +253,59 @@
             </div>
         </section>
 
+
+        <section class="homepage-section">
+            <div class="container cc-service-guide">
+                <p class="cc-price-badge">$129 diagnostic, credited to the repair if you approve the work</p>
+                <h2>AC repair for Katy, Fulshear, and West Houston</h2>
+                <p>Crazy Comfort repairs home air conditioners across Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, Brookshire, Sealy, and the rest of our West Houston service area. The office is open Monday through Friday, 8am to 4pm. Call 832-403-7466 or book a time online. We do not advertise same-day or 24-hour service.</p>
+                <p>Every repair visit starts with a diagnostic. The fee is $129. If you approve the repair, that $129 is credited on the invoice. You see timestamped photos of the failed part before anyone changes it. We are a woman-owned company, license TACLA00048090C, with nearly 30 years of combined experience.</p>
+                <h2>Problems we repair most often</h2>
+                <h3>The system runs, but the air is warm</h3>
+                <p>A clogged filter, a weak capacitor, a failed contactor, or a refrigerant leak can all produce the same warm air. We measure the temperature split at the handler and the amp draw at the outdoor unit, then photograph the reading that is out of range.</p>
+                <h3>Ice on the line or the indoor coil</h3>
+                <p>Ice means the coil is colder than it should be, usually from low airflow or low refrigerant. Leave the fan on so the ice can melt, and leave cool mode off. We do not add refrigerant until we know why the charge left the system.</p>
+                <h3>Water in the closet or at the ceiling</h3>
+                <p>The condensate line in a Houston attic plugs with algae. A full pan or a tripped float switch will shut the system down. We clear the line, test the switch, and show you the photo of the clog.</p>
+                <h3>Clicking, buzzing, or a hum that never starts</h3>
+                <p>A click with no fan is often the capacitor or the contactor. A grind is a motor bearing. A buzz that trips the breaker is an electrical fault. Each one gets a meter photo, not a guess from the sidewalk.</p>
+                <h3>Rooms that never catch up</h3>
+                <p>One hot room is often a duct, a damper, or a return that is too small, not a failed compressor. We measure static pressure before we recommend a bigger system.</p>
+                <h2>Brands we service</h2>
+                <p>We repair the equipment already in these neighborhoods: Carrier, Trane, Lennox, Rheem, Ruud, Goodman, Amana, American Standard, York, and Bryant, including heat pumps and package units. If the part is obsolete, we say that and price the repair next to a replacement so you can choose.</p>
+                <h2>What happens on the visit</h2>
+                <ol>
+                    <li>You pick a window online or call during weekday hours.</li>
+                    <li>We inspect the thermostat, filter, drain, indoor coil, and outdoor unit.</li>
+                    <li>Photos land on your phone while we are still there.</li>
+                    <li>We quote the repair before parts are changed. The $129 diagnostic is credited if you approve the work.</li>
+                    <li>We run the system and photograph the supply temperature after the repair.</li>
+                </ol>
+                <h2>What you pay</h2>
+                <p>The residential diagnostic is $129. It pays for the inspection and the photo set. Approved repairs subtract that $129 from the repair total. The $49 heating check, offered through November 30, is a separate heater safety visit, not an air-conditioning repair.</p>
+                <h2>AC repair questions</h2>
+                <details>
+                    <summary>Will you add refrigerant without finding the leak?</summary>
+                    <p>No. Refrigerant does not wear out. If the charge is low, it left through a leak. We document the leak before we talk about a recharge.</p>
+                </details>
+                <details>
+                    <summary>Is the diagnostic optional?</summary>
+                    <p>No. The $129 diagnostic is how we confirm the cause. It is credited when you approve the repair.</p>
+                </details>
+                <details>
+                    <summary>Which brands will you not touch?</summary>
+                    <p>We service the major residential brands listed above. If we cannot get a part, we tell you before you approve anything.</p>
+                </details>
+                <p class="cc-photo-note">Owner photo slots for this page: condenser with the fan shroud off, capacitor and meter in the same frame, and a cleared condensate line. Equipment only. No stock people.</p>
+            </div>
+        </section>
+
     <footer class="footer" style="position: relative; overflow: hidden;">
         <div class="container" style="position: relative; z-index: 1;">
             <!-- Stats Bar -->
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.15);">
                 <div style="text-align: center;">
-                    <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">28+</p>
-                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Years Combined Experience</p>
+                    <p style="font-size: 1.35rem; font-weight: 800; color: #f5f5f5; margin: 0; line-height: 1.3;">nearly 30 years of combined experience</p>
                 </div>
                 <div style="text-align: center;">
                     <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">8+</p>
@@ -302,6 +365,9 @@
                         <li><a href="/service-area/richmond">Richmond</a></li>
                         <li><a href="/service-area/sugar-land">Sugar Land</a></li>
                         <li><a href="/service-area/cinco-ranch">Cinco Ranch</a></li>
+                        <li><a href="/service-area/sealy">Sealy</a></li>
+                        <li><a href="/service-area/brookshire">Brookshire</a></li>
+                        <li><a href="/service-area/west-houston">West Houston</a></li>
                         <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>
@@ -322,7 +388,7 @@
                         </li>
                         <li>
                             <span style="color: var(--secondary-color);">🕐</span>
-                            <span>Mon-Fri: 8am-7pm<br>Sat: 8am-1pm<br>Sun: Emergency Only<br>After-Hours Emergency Available</span>
+                            <span>Mon-Fri: 8am-4pm</span>
                         </li>
                     </ul>
                 </div>
@@ -365,7 +431,7 @@
         <a class="book-bar-call" href="tel:832-403-7466">Call</a>
         <a class="book-bar-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="AC repair sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
     </nav>
-    <script src="/dist/main.js?v=202611242330"></script>
+    <script src="/dist/main.js?v=202611242330" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

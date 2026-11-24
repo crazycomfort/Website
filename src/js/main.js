@@ -206,7 +206,7 @@ function initWrapChrome() {
         logo.height = 120;
         footerSection.insertBefore(logo, footerSection.firstChild);
     }
-    if (!document.querySelector('.cc-van-strip')) {
+    if (!document.querySelector('.cc-van-strip') && !document.querySelector('img[src*="service-van"]')) {
         var strip = document.createElement('section');
         strip.className = 'cc-van-strip';
         strip.setAttribute('aria-label', 'Crazy Comfort service van');
@@ -1230,14 +1230,13 @@ function initChatbot() {
         <div class="chatbot-widget">
             <button class="chatbot-toggle" aria-label="Open chat">
                 <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-                <span class="chatbot-badge">1</span>
             </button>
             <div class="chatbot-window">
                 <div class="chatbot-header">
                     <div class="chatbot-avatar">👋</div>
                     <div class="chatbot-header-text">
                         <h4>Crazy Comfort</h4>
-                        <p class="chatbot-status">Online now</p>
+                        <p class="chatbot-status">Mon–Fri, 8am–4pm</p>
                     </div>
                 </div>
                 <div class="chatbot-messages" id="chatMessages">
@@ -1280,7 +1279,7 @@ function initChatbot() {
         chatWindow.classList.toggle('active', willOpen);
         toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
         if (willOpen) {
-            badge.style.display = 'none';
+            if (badge) badge.style.display = 'none';
             chatInput.focus();
             trackGa4Event('chatbot_opened', { 'event_category': 'Engagement' });
         }
@@ -1297,11 +1296,11 @@ function initChatbot() {
             followUp: ["Yes, I'm in the area", "I'm not sure", "Schedule service"]
         },
         emergency: {
-            text: "For HVAC emergencies, call us at <a href='tel:832-403-7466'>832-403-7466</a>. We offer fast local service for qualified emergencies such as a complete system failure in extreme weather.",
+            text: "Call us at <a href='tel:832-403-7466'>832-403-7466</a> Monday through Friday, 8am to 4pm. If the office is closed, leave a message and we will return it on the next business day.",
             followUp: ["Call now", "It can wait", "Schedule for later"]
         },
         pricing: {
-            text: "Our pricing depends on the service needed. AC tune-ups start at $89, and repairs vary based on the issue. Want to schedule a diagnostic visit? It includes a full inspection with photo documentation.",
+            text: "The diagnostic visit is $129 and is credited toward the repair if you approve the work. The current heating check is $49 through November 30.",
             followUp: ["Schedule diagnostic", "Maintenance plans", "Call for quote"]
         },
         "yes, i'm in the area": {
@@ -1589,7 +1588,7 @@ if (document.readyState === 'loading') {
         initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
-        initChatbot();
+        scheduleChatbot();
         initExitPopup();
     });
 } else {
@@ -1597,6 +1596,22 @@ if (document.readyState === 'loading') {
     initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();
-    initChatbot();
+    scheduleChatbot();
     initExitPopup();
+}
+
+function scheduleChatbot() {
+    if (window.__ccChatScheduled) return;
+    window.__ccChatScheduled = true;
+    var started = false;
+    function start() {
+        if (started) return;
+        started = true;
+        initChatbot();
+    }
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2000); };
+    idle(start, { timeout: 4000 });
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+        window.addEventListener(eventName, start, { once: true, passive: true });
+    });
 }

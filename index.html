@@ -12,7 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="image" href="/assets/images/brand/wordmark.svg" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
     <!-- Header logo swap: assets/images/brand/wordmark.svg until the final logo arrives -->
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
@@ -38,7 +39,10 @@
         .hero-new { min-height: 0; display: flex; align-items: flex-start; justify-content: center; padding: var(--total-header-height) 0 1.5rem; background: linear-gradient(180deg, #eaff99 0%, #f4ffd6 55%, #ffffff 100%); }
         .hero-new-grid { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; width: 100%; min-height: 0; }
         .hero-new-left { display: flex; flex-direction: column; align-items: flex-start; text-align: left; width: 100%; max-width: 800px; }
-        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #141414; margin: 0.35rem 0 0.4rem; letter-spacing: -0.03em; text-shadow: none; }
+        .hero-new-headline { font-family: "Lilita One", Nunito, sans-serif; font-size: 4rem; font-weight: 400; line-height: 1.05; color: #141414; margin: 0.35rem 0 0.4rem; letter-spacing: 0.01em; text-shadow: none; }
+        .cc-rating { display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; border-radius: 999px; background: #c6ff00; color: #1f1a2e; font-weight: 800; text-decoration: none; }
+        .cc-hero-visual { display: flex; justify-content: center; }
+        .cc-hero-visual .lp-van-cut { display: block; width: min(100%, 460px); height: auto; }
         .hero-new-headline strong { color: #1f1a2e; display: block; font-size: 1.1em; }
         .hero-new-body { color: #333333; font-size: 1.05rem; line-height: 1.5; margin: 0; max-width: 36rem; text-shadow: none; }
         p { color: #1f1a2e; }
@@ -68,7 +72,7 @@
             .nav-menu { display: none; }
             .nav-menu.active { display: flex; position: fixed; top: var(--total-header-height); left: 0; right: 0; z-index: 9999; flex-direction: column; gap: 0; width: 100%; background: #ffffff; padding: 0.75rem 0 1rem; }
             .hero-new { padding: calc(var(--total-header-height) + 1rem) 0 2rem; }
-            .hero-new-headline { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0.35rem 0 0.4rem; letter-spacing: normal; text-shadow: none; }
+            .hero-new-headline { font-size: 2rem; font-weight: 400; line-height: 1.15; margin: 0.35rem 0 0.4rem; letter-spacing: 0.01em; text-shadow: none; }
             .hero-new-body { width: 100%; margin-bottom: 0; }
             .hero-new-cta { margin-top: 0.9rem; width: 100%; align-items: stretch; gap: 0.65rem; }
             .cta-buttons { flex-direction: column; width: 100%; }
@@ -94,7 +98,8 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link data-cc-fonts href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lilitaone/v17/i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2" crossorigin>
+    <link data-cc-fonts rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
@@ -136,9 +141,7 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611242230" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611242230"></noscript>
-    <script>!function(){var l=document.getElementById('site-css');if(!l)return;function a(){l.media='all'}if(l.sheet)a();else l.addEventListener('load',a)}();</script>
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611242330">
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
     <script type="application/ld+json">
@@ -199,23 +202,36 @@
             {"@type": "Place", "name": "West Houston"}
           ],
           "openingHoursSpecification": [
-            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "19:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00"},
-            {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "description": "Emergency service only"}
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "16:00"}
           ],
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "5.0",
+            "ratingValue": "4.9",
             "bestRating": "5",
             "worstRating": "1",
-            "reviewCount": "13",
-            "ratingCount": "13"
+            "reviewCount": "21",
+            "ratingCount": "21"
           },
           "review": [
             {
               "@type": "Review",
-              "author": {"@type": "Person", "name": "Sarina McCarron"},
-              "datePublished": "2026-02-22",
-              "reviewBody": "Hands down the best HVAC company I've dealt with. Completely transparent, broke down every aspect of repairs. Didn't get annoyed with my questions. Even seemed excited to help me understand. System running better than ever and my house is finally keeping a comfortable temperature. Thank yall so much!",
+              "author": {"@type": "Person", "name": "Dianne L."},
+              "datePublished": "2026-01-15",
+              "reviewBody": "They came to my rescue when the heater went out before a freeze, and the work was finished before the cold hit.",
+              "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+            },
+            {
+              "@type": "Review",
+              "author": {"@type": "Person", "name": "Grace I."},
+              "datePublished": "2025-09-02",
+              "reviewBody": "Our AC went out on a hot weekend. The technician arrived, stabilized the unit, and replaced it later that week.",
+              "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+            },
+            {
+              "@type": "Review",
+              "author": {"@type": "Person", "name": "Robin S."},
+              "datePublished": "2025-12-23",
+              "reviewBody": "You fixed it. I am the happiest person in Katy right now.",
               "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
             }
           ],
@@ -422,50 +438,23 @@
             {"@type": "City", "name": "Sugar Land"}
           ],
           "url": "https://crazycomfort.com/hvac-maintenance-plan/"
-        },
-        {
-          "@type": "Event",
-          "@id": "https://crazycomfort.com/#event-fall-heating-checkup",
-          "name": "Fall Heating Checkup",
-          "description": "Get your furnace or heat pump ready before the cold. Comprehensive heating checkup with photo documentation, heat exchanger inspection, ignition and flame sensor check, and electrical testing. Use code COMFORT50 for $50 off any service.",
-          "startDate": "2026-10-01",
-          "endDate": "2026-12-31",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-          "location": {
-            "@type": "Place",
-            "name": "Katy, Fulshear & West Houston Service Area",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Katy",
-              "addressRegion": "TX",
-              "addressCountry": "US"
-            }
-          },
-          "organizer": {"@id": "https://crazycomfort.com/#business"},
-          "performer": {"@id": "https://crazycomfort.com/#business"},
-          "offers": {
-            "@type": "Offer",
-            "name": "Fall Heating Checkup",
-            "price": "89",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "validFrom": "2026-10-01",
-            "validThrough": "2026-12-31",
-            "url": "https://crazycomfort.com/fall-heating-checkup/"
-          },
-          "image": "https://crazycomfort.com/assets/images/og-image.png"
-        }
-      ]
+        }]
     }
     </script>
 <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+(function () {
+  function start() {
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1915662');
+  }
+  function later() {
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2500); };
+    idle(start, { timeout: 5000 });
+  }
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later);
+})();
 </script>
 <!-- End MailerLite Universal -->
 </head>
@@ -475,7 +464,7 @@
         <nav class="nav container">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort Logo" class="logo-image" width="2000" height="2000" fetchpriority="high">
+                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort Logo" class="logo-image" width="220" height="72" decoding="async">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -514,7 +503,7 @@
         <div class="container">
             <a href="tel:832-403-7466" class="top-bar-phone">📞 832-403-7466</a>
             <span class="top-bar-divider">|</span>
-            <a class="top-bar-badge cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a>
+            <a class="top-bar-badge cc-rating" href="/reviews"><span class="cc-stars" aria-hidden="true">★</span> 4.9 · 21 Google reviews</a>
         </div>
     </div>
 
@@ -645,7 +634,7 @@
             </style>
             <div class="container hero-new-grid" style="position: relative; z-index: 1;">
                 <div class="hero-new-left">
-                    <p class="lp-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
+                    <p class="lp-rating-row"><a class="cc-rating" href="/reviews"><span class="cc-stars" aria-hidden="true">★</span> 4.9 · 21 Google reviews</a></p>
                     <h1 class="hero-new-headline">Comfort This Good is Crazy!</h1>
                     <div class="hero-new-body">
                         <p>Photo-documented HVAC in Katy and Fulshear.</p>
@@ -664,7 +653,12 @@
                     </ul>
                 </div>
                 <div class="cc-hero-visual">
-                    <img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van">
+                    <picture>
+                        <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                        <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
+                        <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                        <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -744,13 +738,13 @@
                                     <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                                     Google Review
                                 </span>
-                                <div class="cc-stars" aria-label="5 stars">★★★★★</div>
+                                <div class="cc-stars" aria-hidden="true" aria-label="5 stars">★★★★★</div><span class="cc-star-label">5 out of 5</span>
                             </div>
                             <p>I had an absolutely great experience with Crazy Comfort. They came to my rescue. Heater went out two days before the freeze. Removed and replaced both my AC and heating units—and they had it all completed before the freeze hit. Their team was professional, efficient, and truly went above and beyond. I couldn't be happier with their service!</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar" style="background: linear-gradient(135deg, #4285F4, #34A853);">DL</div>
                                 <div class="author-info">
-                                    <div class="author-name">Dianne Latiolais</div>
+                                    <div class="author-name">Dianne L.</div>
                                     <div class="author-role">Google Review</div>
                                 </div>
                             </div>
@@ -763,13 +757,13 @@
                                     <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                                     Google Review
                                 </span>
-                                <div class="cc-stars" aria-label="5 stars">★★★★★</div>
+                                <div class="cc-stars" aria-hidden="true" aria-label="5 stars">★★★★★</div><span class="cc-star-label">5 out of 5</span>
                             </div>
                             <p>Dustin is the very best of the best. Our AC went out on a holiday weekend, with temps over 100, when we had an infant. Dustin came within 2 hours of us calling, patched up our unit until the new one could come in, and then replaced the whole thing later that week. Truly the best customer service we've received in a while!!</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar" style="background: linear-gradient(135deg, #4285F4, #34A853);">GI</div>
                                 <div class="author-info">
-                                    <div class="author-name">Grace Iorio</div>
+                                    <div class="author-name">Grace I.</div>
                                     <div class="author-role">Google Review · Local Guide</div>
                                 </div>
                             </div>
@@ -782,13 +776,13 @@
                                     <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                                     Google Review
                                 </span>
-                                <div class="cc-stars" aria-label="5 stars">★★★★★</div>
+                                <div class="cc-stars" aria-hidden="true" aria-label="5 stars">★★★★★</div><span class="cc-star-label">5 out of 5</span>
                             </div>
                             <p>Hands down the best HVAC company I've dealt with. Completely transparent, broke down every aspect of repairs. Didn't get annoyed with my questions. Even seemed excited to help me understand. System running better than ever and my house is finally keeping a comfortable temperature. Thank yall so much!</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar" style="background: linear-gradient(135deg, #4285F4, #34A853);">SM</div>
                                 <div class="author-info">
-                                    <div class="author-name">Sarina McCarron</div>
+                                    
                                     <div class="author-role">Google Review</div>
                                 </div>
                             </div>
@@ -801,7 +795,7 @@
                                     <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
                                     Google Review
                                 </span>
-                                <div class="cc-stars" aria-label="5 stars">★★★★★</div>
+                                <div class="cc-stars" aria-hidden="true" aria-label="5 stars">★★★★★</div><span class="cc-star-label">5 out of 5</span>
                             </div>
                             <p>OMG!!! You fixed it!! I am the happiest person in Katy TX right now! Ya'll Rock!</p>
                             <div class="testimonial-author">
@@ -882,109 +876,6 @@
             </div>
         </section>
 
-        <!-- COUPONS -->
-        <section class="coupons-section">
-            <div class="container">
-                <h2 class="section-title">New Year 2026 Specials</h2>
-                <p class="coupons-description">Limited time offers through December 2026. Copy your code below!</p>
-                <div class="coupons-grid">
-                    <div class="coupon-card coupon-card-featured">
-                        <div class="coupon-badge">Most Popular</div>
-                        <div class="coupon-header">
-                            <div class="coupon-discount-large">
-                                <span class="discount-amount">$50</span>
-                                <span class="discount-off">OFF</span>
-                            </div>
-                            <div class="coupon-company">
-                                <span class="company-name">CRAZY COMFORT</span>
-                            </div>
-                        </div>
-                        <div class="coupon-body">
-                            <h3 class="coupon-title">Any HVAC Service</h3>
-                            <p class="coupon-terms">New customers only. Cannot be combined with other offers.</p>
-                            <div class="coupon-code-wrapper">
-                                <div class="coupon-code">
-                                    <span class="code-label">Code:</span>
-                                    <span class="code-value">COMFORT50</span>
-                                    <button class="copy-code-btn" type="button" data-copy="COMFORT50">
-                                        <span class="copy-icon">📋</span>
-                                        <span class="copy-text">Copy</span>
-                                    </button>
-                                </div>
-                                <div class="copy-feedback" id="feedback-COMFORT50">Copied!</div>
-                            </div>
-                            <div class="coupon-details">
-                                <p>✓ Valid on repairs, maintenance, or installation</p>
-                                <p>✓ <strong>New Year 2026 Special</strong></p>
-                                <p>✓ Expires: <strong>December 31, 2026</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coupon-card">
-                        <div class="coupon-header">
-                            <div class="coupon-discount-large">
-                                <span class="discount-amount">FREE</span>
-                            </div>
-                            <div class="coupon-company">
-                                <span class="company-name">CRAZY COMFORT</span>
-                            </div>
-                        </div>
-                        <div class="coupon-body">
-                            <h3 class="coupon-title">Second Opinion</h3>
-                            <p class="coupon-terms">Get a free second opinion on any HVAC diagnosis.</p>
-                            <div class="coupon-code-wrapper">
-                                <div class="coupon-code">
-                                    <span class="code-label">Code:</span>
-                                    <span class="code-value">HONEST2ND</span>
-                                    <button class="copy-code-btn" type="button" data-copy="HONEST2ND">
-                                        <span class="copy-icon">📋</span>
-                                        <span class="copy-text">Copy</span>
-                                    </button>
-                                </div>
-                                <div class="copy-feedback" id="feedback-HONEST2ND">Copied!</div>
-                            </div>
-                            <div class="coupon-details">
-                                <p>✓ No obligation assessment</p>
-                                <p>✓ Photo documentation included</p>
-                                <p>✓ Expires: <strong>December 31, 2026</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coupon-card">
-                        <div class="coupon-header">
-                            <div class="coupon-discount-large">
-                                <span class="discount-amount">10%</span>
-                                <span class="discount-off">OFF</span>
-                            </div>
-                            <div class="coupon-company">
-                                <span class="company-name">CRAZY COMFORT</span>
-                            </div>
-                        </div>
-                        <div class="coupon-body">
-                            <h3 class="coupon-title">HVAC Maintenance Plan</h3>
-                            <p class="coupon-terms">First year of our HVAC maintenance plan.</p>
-                            <div class="coupon-code-wrapper">
-                                <div class="coupon-code">
-                                    <span class="code-label">Code:</span>
-                                    <span class="code-value">MAINTAIN10</span>
-                                    <button class="copy-code-btn" type="button" data-copy="MAINTAIN10">
-                                        <span class="copy-icon">📋</span>
-                                        <span class="copy-text">Copy</span>
-                                    </button>
-                                </div>
-                                <div class="copy-feedback" id="feedback-MAINTAIN10">Copied!</div>
-                            </div>
-                            <div class="coupon-details">
-                                <p>✓ One comprehensive annual service</p>
-                                <p>✓ Priority scheduling & member discounts</p>
-                                <p>✓ Expires: <strong>December 31, 2026</strong></p>
-                            </div>
-                            <a href="/hvac-maintenance-plan" style="display: block; text-align: center; margin-top: 1rem; color: var(--primary-color); font-weight: 600; text-decoration: none;">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- FAQ SECTION -->
         <section class="homepage-section" style="background: var(--bg-light); padding: 3rem 0;">
@@ -1225,8 +1116,7 @@
             <!-- Stats Bar -->
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.15);">
                 <div style="text-align: center;">
-                    <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">28+</p>
-                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Years Combined Experience</p>
+                    <p style="font-size: 1.35rem; font-weight: 800; color: #f5f5f5; margin: 0; line-height: 1.3;">nearly 30 years of combined experience</p>
                 </div>
                 <div style="text-align: center;">
                     <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">8+</p>
@@ -1288,6 +1178,9 @@
                         <li><a href="/service-area/richmond">Richmond</a></li>
                         <li><a href="/service-area/sugar-land">Sugar Land</a></li>
                         <li><a href="/service-area/cinco-ranch">Cinco Ranch</a></li>
+                        <li><a href="/service-area/sealy">Sealy</a></li>
+                        <li><a href="/service-area/brookshire">Brookshire</a></li>
+                        <li><a href="/service-area/west-houston">West Houston</a></li>
                         <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>
@@ -1308,7 +1201,7 @@
                         </li>
                         <li>
                             <span style="color: var(--primary-color);">🕐</span>
-                            <span>Mon-Fri: 8am-7pm<br>Sat: 8am-1pm<br>Sun: Emergency Only<br>After-Hours Emergency Available</span>
+                            <span>Mon-Fri: 8am-4pm</span>
                         </li>
                     </ul>
                 </div>
@@ -1347,6 +1240,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611242230"></script>
+    <script src="/dist/main.js?v=202611242330" defer></script>
 </body>
 </html>
