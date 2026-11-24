@@ -1426,20 +1426,22 @@ function markWrapWords() {
         if (!parent.closest('h1, h2')) continue;
         nodes.push(node);
     }
+    const used = new Set();
     nodes.forEach(function (textNode) {
+        const heading = textNode.parentElement.closest('h1, h2');
+        if (!heading || used.has(heading)) return;
         const text = textNode.nodeValue;
+        const match = text.match(/\b(Crazy|Comfort)\b/);
+        if (!match) return;
+        used.add(heading);
+        const index = match.index;
         const frag = document.createDocumentFragment();
-        let last = 0;
-        text.replace(/\b(Crazy|Comfort)\b/g, function (match, word, index) {
-            frag.appendChild(document.createTextNode(text.slice(last, index)));
-            const span = document.createElement('span');
-            span.className = 'cc-hot';
-            span.textContent = word;
-            frag.appendChild(span);
-            last = index + match.length;
-            return match;
-        });
-        frag.appendChild(document.createTextNode(text.slice(last)));
+        frag.appendChild(document.createTextNode(text.slice(0, index)));
+        const span = document.createElement('span');
+        span.className = 'cc-hot';
+        span.textContent = match[1];
+        frag.appendChild(span);
+        frag.appendChild(document.createTextNode(text.slice(index + match[0].length)));
         textNode.parentNode.replaceChild(frag, textNode);
     });
 }
