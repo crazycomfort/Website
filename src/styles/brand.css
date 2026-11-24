@@ -1,0 +1,314 @@
+/* Sitewide Crazy Comfort brand layer. Appended after main.css.
+   Swap these files when the final logo and van wrap arrive:
+   assets/images/Logo-Green/Crazy-Comfort-02.svg
+   assets/images/brand/service-van.webp
+   assets/images/brand/service-van.jpg
+   Tokens below are the source of truth for the light theme. */
+
+:root {
+    --cc-lime: #c6ff00;
+    --cc-lime-deep: #a8d900;
+    --cc-pink: #FF2D6D;
+    --cc-ink: #141414;
+    --cc-ink-soft: #333333;
+    --cc-muted: #5c5c5c;
+    --cc-bg: #ffffff;
+    --cc-bg-soft: #f7f7f5;
+    --cc-line: #e6e6e6;
+    --cc-logo: url("/assets/images/Logo-Green/Crazy-Comfort-02.svg");
+    --cc-hero-image: url("/assets/images/brand/service-van.webp");
+    --bg-body: var(--cc-bg);
+    --bg-section: var(--cc-bg);
+    --bg-section-alt: var(--cc-bg-soft);
+    --bg-card: var(--cc-bg);
+    --bg-card-hover: var(--cc-bg-soft);
+    --bg-white: var(--cc-bg);
+    --bg-light: var(--cc-bg-soft);
+    --text-primary: var(--cc-ink);
+    --text-secondary: var(--cc-ink-soft);
+    --text-muted: var(--cc-muted);
+    --text-dark: var(--cc-ink);
+    --text-light: var(--cc-ink-soft);
+    --text-on-primary: #0a0a0a;
+    --text-on-secondary: #0a0a0a;
+    --border-color: var(--cc-line);
+    --border-light: #eeeeee;
+}
+
+body.site-brand {
+    background: var(--cc-bg) !important;
+    color: var(--cc-ink) !important;
+}
+
+body.site-brand .header,
+body.site-brand .header.is-scrolled,
+body.site-brand .footer,
+body.site-brand .hero-new,
+body.site-brand .nav-menu,
+body.site-brand .dropdown-menu,
+body.site-brand .service-card,
+body.site-brand .faq-item,
+body.site-brand .homepage-section,
+body.site-brand .homepage-section:nth-child(odd),
+body.site-brand .homepage-section:nth-child(even) {
+    background: var(--cc-bg) !important;
+    color: var(--cc-ink) !important;
+}
+
+body.site-brand .homepage-section:nth-child(even),
+body.site-brand .footer {
+    background: var(--cc-bg-soft) !important;
+}
+
+body.site-brand h1,
+body.site-brand h2,
+body.site-brand h3,
+body.site-brand h4,
+body.site-brand p,
+body.site-brand li,
+body.site-brand label,
+body.site-brand .section-title,
+body.site-brand .homepage-headline,
+body.site-brand .homepage-body,
+body.site-brand .nav-menu a,
+body.site-brand .dropdown-menu a,
+body.site-brand .breadcrumb,
+body.site-brand .breadcrumb a,
+body.site-brand .breadcrumb span,
+body.site-brand .footer,
+body.site-brand .footer p,
+body.site-brand .footer a,
+body.site-brand .footer h3,
+body.site-brand .footer h4,
+body.site-brand .footer li,
+body.site-brand .footer span,
+body.site-brand .hero-new-headline,
+body.site-brand .hero-new-headline strong,
+body.site-brand .hero-new-headline .accent,
+body.site-brand .hero-new-body,
+body.site-brand .service-card,
+body.site-brand .service-card h3,
+body.site-brand .service-card li,
+body.site-brand .service-features,
+body.site-brand summary {
+    color: var(--cc-ink) !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+body.site-brand .homepage-headline {
+    transform: none !important;
+}
+
+body.site-brand strong,
+body.site-brand b,
+body.site-brand .accent {
+    color: #0a0a0a !important;
+    background: var(--cc-lime);
+    border-radius: 4px;
+    padding: 0 0.12em;
+}
+
+body.site-brand .heating-check-promo .cta-secondary,
+body.site-brand .heating-check-promo .cta-secondary:hover,
+body.site-brand .heating-check-promo-call {
+    background: var(--cc-pink) !important;
+    border-color: var(--cc-pink) !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .nav-book,
+body.site-brand .page-contact-call,
+body.site-brand .page-contact-call:hover,
+body.site-brand .book-bar-book,
+body.site-brand .book-bar-book:hover,
+body.site-brand .cc-rating,
+body.site-brand .cc-rating:hover,
+body.site-brand .request-submit,
+body.site-brand .request-submit:hover,
+body.site-brand .hc-book,
+body.site-brand .hc-book:hover,
+body.site-brand .hc-submit,
+body.site-brand .cta-primary,
+body.site-brand .cta-primary:hover {
+    background: var(--cc-lime) !important;
+    border-color: var(--cc-lime) !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .page-contact-book,
+body.site-brand .page-contact-book:hover,
+body.site-brand .book-bar-call,
+body.site-brand .book-bar-call:hover,
+body.site-brand .hc-call-secondary,
+body.site-brand .hc-call-secondary:hover {
+    background: var(--cc-pink) !important;
+    border-color: var(--cc-pink) !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .top-contact-bar,
+body.site-brand .top-bar-phone,
+body.site-brand .top-bar-phone:hover {
+    background: var(--cc-lime) !important;
+    color: #0a0a0a !important;
+}
+
+body.site-brand .top-bar-badge,
+body.site-brand a.top-bar-badge {
+    background: transparent !important;
+    color: #0a0a0a !important;
+    text-transform: none;
+    letter-spacing: 0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+body.site-brand .nav-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    text-transform: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+body.site-brand .book-bar {
+    background: #ffffff !important;
+    border-top: 1px solid var(--cc-line);
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+}
+
+body.site-brand .service-card,
+body.site-brand .faq-item,
+body.site-brand details,
+body.site-brand .request-card,
+body.site-brand .hc-form-card {
+    border-color: var(--cc-line) !important;
+}
+
+body.site-brand [style*="background: #1a1a1a"],
+body.site-brand [style*="background:#1a1a1a"],
+body.site-brand [style*="background: #0a0a0a"],
+body.site-brand [style*="background:#0a0a0a"],
+body.site-brand [style*="background: #111"],
+body.site-brand [style*="background:#111"],
+body.site-brand [style*="background: #2a2a2a"],
+body.site-brand [style*="background: #2d2d2d"],
+body.site-brand [style*="linear-gradient(135deg, #1a1a1a"],
+body.site-brand [style*="linear-gradient(135deg, #0a0a0a"],
+body.site-brand [style*="linear-gradient(135deg, #2d2d2d"] {
+    background: var(--cc-bg) !important;
+    color: var(--cc-ink) !important;
+}
+
+body.site-brand [style*="color: #ffffff"],
+body.site-brand [style*="color:#ffffff"],
+body.site-brand [style*="color: #fff"],
+body.site-brand [style*="color:#fff"],
+body.site-brand [style*="color: #b0b0b0"],
+body.site-brand [style*="color:#b0b0b0"],
+body.site-brand [style*="color: #c6ff00"],
+body.site-brand [style*="color:#c6ff00"],
+body.site-brand [style*="color: rgba(255,255,255"],
+body.site-brand [style*="color: rgba(255, 255, 255"] {
+    color: var(--cc-ink) !important;
+}
+
+body.site-brand .request-card,
+body.site-brand .request-strip,
+body.site-brand .request-consent,
+body.site-brand .contact-form {
+    background: #ffffff !important;
+    color: var(--cc-ink) !important;
+}
+
+body.site-brand .request-card-head {
+    background: var(--cc-lime) !important;
+}
+
+body.site-brand .request-card-head h2,
+body.site-brand .request-card-head h3,
+body.site-brand .request-card-head p,
+body.site-brand .request-strip,
+body.site-brand .request-strip a,
+body.site-brand .request-strip p,
+body.site-brand .request-field-label {
+    color: #0a0a0a !important;
+}
+
+body.site-brand .request-form input,
+body.site-brand .request-form textarea,
+body.site-brand .request-form select,
+body.site-brand .hc-field input,
+body.site-brand .hc-field textarea,
+body.site-brand .contact-form input,
+body.site-brand .contact-form textarea,
+body.site-brand .contact-form select {
+    background: #ffffff !important;
+    color: var(--cc-ink) !important;
+    border: 1px solid #c8c8c8 !important;
+}
+
+body.site-brand .cc-fold {
+    border-bottom: 1px solid var(--cc-line);
+    padding: 0.35rem 0 0.75rem;
+}
+
+body.site-brand .cc-fold summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+body.site-brand .cc-fold summary::-webkit-details-marker {
+    display: none;
+}
+
+body.site-brand .cc-fold summary h2,
+body.site-brand .cc-fold summary h3 {
+    display: inline;
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+body.site-brand .cc-fold summary::after {
+    content: "+";
+    float: right;
+    font-weight: 800;
+    color: var(--cc-ink);
+}
+
+body.site-brand .cc-fold[open] summary::after {
+    content: "–";
+}
+
+body.site-brand .cc-fold[open] summary {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    body.site-brand .header,
+    body.site-brand .header.is-scrolled,
+    body.site-brand .nav-menu,
+    body.site-brand .dropdown-menu {
+        background: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    body.site-brand .menu-toggle span {
+        background: #141414 !important;
+    }
+
+    body.site-brand .nav-book {
+        min-height: 40px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}

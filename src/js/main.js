@@ -109,10 +109,56 @@ function initBookBarClearance() {
     watch();
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBookBarClearance);
-} else {
+const HCP_BOOKING_URL = 'https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true';
+
+function ensureBookBar() {
+    if (document.querySelector('.book-bar')) {
+        document.body.classList.add('has-book-bar');
+        return;
+    }
+    const nav = document.createElement('nav');
+    nav.className = 'book-bar';
+    nav.setAttribute('aria-label', 'Call or book online');
+    nav.innerHTML = '<a class="book-bar-call" href="tel:832-403-7466">Call</a>'
+        + '<a class="book-bar-book" href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Sitewide sticky" target="_blank" rel="noopener noreferrer">Book Online</a>';
+    document.body.appendChild(nav);
+    document.body.classList.add('has-book-bar');
+}
+
+function initSectionFolds() {
+    if (!document.body.classList.contains('cc-collapse')) return;
+    if (document.body.classList.contains('lp-light')) return;
+    const sections = document.querySelectorAll('main .homepage-section');
+    let openLeft = document.body.classList.contains('hero-transparent-header') ? 2 : 1;
+    sections.forEach(function(section) {
+        if (section.querySelector('form')) return;
+        if (openLeft > 0) {
+            openLeft -= 1;
+            return;
+        }
+        const container = section.querySelector('.container') || section;
+        const heading = container.querySelector('h2, h3');
+        if (!heading || container.querySelector('.cc-fold')) return;
+        const details = document.createElement('details');
+        details.className = 'cc-fold';
+        const summary = document.createElement('summary');
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        while (container.firstChild) details.appendChild(container.firstChild);
+        container.appendChild(details);
+    });
+}
+
+function initSiteChrome() {
+    ensureBookBar();
     initBookBarClearance();
+    initSectionFolds();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteChrome);
+} else {
+    initSiteChrome();
 }
 
 // Dark Mode Toggle

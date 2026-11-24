@@ -16,15 +16,15 @@
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { background: #0a0a0a; color: #fff; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
+        html, body { background: #ffffff; color: #141414; width: 100%; max-width: 100%; overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; }
         .skip-to-content { position: absolute; top: -100px; left: 0; }
         .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .top-contact-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1001; height: var(--top-bar-height); display: flex; align-items: center; background: #c6ff00; color: #0a0a0a; width: 100%; font-size: 0.85rem; font-weight: 600; }
         .top-contact-bar .container { display: flex; align-items: center; justify-content: space-between; max-width: 100%; margin: 0; padding: 0 1rem 0 1.5rem; }
         .top-bar-phone { color: #000; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.5px; text-decoration: none; display: inline-flex; align-items: center; }
         .top-bar-divider, .top-bar-location { display: none; }
-        .top-bar-badge { display: inline-flex; align-items: center; justify-content: center; height: 100%; margin-right: -1rem; padding: 0.6rem 1.5rem; background: #FF2D6D; color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
-        .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: rgba(0, 0, 0, 0.15); border-bottom: 1px solid #1a1a1a; }
+        .top-bar-badge { display: inline-flex; align-items: center; justify-content: center; height: 100%; margin-right: -1rem; padding: 0.6rem 1rem; background: transparent; color: #0a0a0a; font-size: 0.9rem; font-weight: 800; letter-spacing: 0; text-transform: none; white-space: nowrap; text-decoration: none; }
+        .header { position: fixed; top: var(--top-bar-height); left: 0; right: 0; z-index: 1001; width: 100%; height: var(--header-height); display: flex; align-items: center; background: #ffffff; border-bottom: 1px solid #eeeeee; }
         .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; gap: 1rem; padding: 0.25rem 1rem; }
         .logo { display: flex; align-items: center; flex-shrink: 0; height: 100%; }
         .logo a { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 0; text-decoration: none; }
@@ -32,12 +32,12 @@
         .nav-actions { display: flex; align-items: center; gap: 1rem; margin-left: 3rem; position: relative; }
         .menu-toggle { display: none; }
         .nav-menu { display: flex; align-items: center; gap: 1.25rem; list-style: none; }
-        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
+        .nav-menu a { color: #141414; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
         .dropdown-menu { position: absolute; opacity: 0; visibility: hidden; }
-        .hero-new { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: var(--total-header-height) 0 2rem; background: #0a0a0a; }
+        .hero-new { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: var(--total-header-height) 0 2rem; background: #ffffff; }
         .hero-new-grid { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%; min-height: 60vh; }
         .hero-new-left { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 800px; }
-        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #fff; margin: 0.5rem 0 1.5rem; letter-spacing: -0.03em; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.9); }
+        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #141414; margin: 0.5rem 0 1.5rem; letter-spacing: -0.03em; text-shadow: none; }
         .hero-new-headline strong { color: #c6ff00; display: block; font-size: 1.1em; }
         .hero-new-body { color: rgba(255, 255, 255, 0.95); font-size: 1.1rem; line-height: 1.7; margin: 0 0 2rem; max-width: 520px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
         p { color: #b0b0b0; }
@@ -134,8 +134,8 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611062330" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611062330"></noscript>
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611241930" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611241930"></noscript>
     <script>!function(){var l=document.getElementById('site-css');if(!l)return;function a(){l.media='all'}if(l.sheet)a();else l.addEventListener('load',a)}();</script>
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
@@ -467,7 +467,7 @@
 </script>
 <!-- End MailerLite Universal -->
 </head>
-<body class="hero-transparent-header">
+<body class="hero-transparent-header site-brand cc-collapse">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <header class="header">
         <nav class="nav container">
@@ -496,6 +496,8 @@
                 <li class="nav-cta"><a href="/comfort-to-all">Comfort To All</a></li>
             </ul>
             <div class="nav-actions">
+                <a class="nav-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Header" target="_blank" rel="noopener noreferrer">Book Online</a>
+                
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -509,7 +511,7 @@
         <div class="container">
             <a href="tel:832-403-7466" class="top-bar-phone">📞 832-403-7466</a>
             <span class="top-bar-divider">|</span>
-            <span class="top-bar-badge">Same Day Service</span>
+            <a class="top-bar-badge cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a>
         </div>
     </div>
 
@@ -553,14 +555,11 @@
                 }
                 .heating-check-promo-card {
                     text-align: center;
-                    background:
-                        radial-gradient(ellipse 80% 140% at 0% 0%, rgba(255, 45, 109, 0.22), transparent 52%),
-                        radial-gradient(ellipse 70% 140% at 100% 100%, rgba(198, 255, 0, 0.14), transparent 48%),
-                        #121212;
-                    border: 2px solid #c6ff00;
+                    background: #ffffff;
+                    border: 2px solid #141414;
                     border-radius: 18px;
                     padding: 0.95rem 1.25rem 1.05rem;
-                    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+                    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
                 }
                 .heating-check-promo-kicker {
                     margin: 0;
@@ -568,7 +567,7 @@
                 .heating-check-promo-kicker span {
                     display: inline-block;
                     background: #FF2D6D;
-                    color: #ffffff;
+                    color: #0a0a0a;
                     font-size: 0.72rem;
                     font-weight: 800;
                     letter-spacing: 0.14em;
@@ -579,19 +578,22 @@
                 }
                 .heating-check-promo-title {
                     margin: 0.45rem 0 0.35rem;
-                    color: #ffffff;
+                    color: #141414;
                     font-size: clamp(1.35rem, 2.5vw, 2.05rem);
                     font-weight: 900;
                     line-height: 1.12;
                     letter-spacing: -0.03em;
                 }
                 .heating-check-promo-price {
-                    color: #c6ff00;
+                    background: #c6ff00;
+                    color: #0a0a0a;
+                    padding: 0 0.12em;
+                    border-radius: 6px;
                 }
                 .heating-check-promo-lead {
                     margin: 0 auto 0.9rem;
                     max-width: 40rem;
-                    color: rgba(255, 255, 255, 0.92);
+                    color: #333333;
                     font-size: 1.02rem;
                     line-height: 1.45;
                 }
@@ -611,6 +613,9 @@
                     line-height: 1.2;
                 }
                 .heating-check-promo-call {
+                    background: #FF2D6D;
+                    border-color: #FF2D6D;
+                    color: #0a0a0a;
                     font-weight: 800;
                     letter-spacing: 0.01em;
                     white-space: nowrap;
@@ -1219,8 +1224,8 @@
                     <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">Communities Served</p>
                 </div>
                 <div style="text-align: center;">
-                    <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">5.0</p>
-                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;">★★★★★ Rating</p>
+                    <p style="font-size: 2.25rem; font-weight: 800; color: #141414; margin: 0; line-height: 1;">4.9</p>
+                    <p style="font-size: 0.85rem; color: #141414; margin: 0.25rem 0 0; text-transform: uppercase; letter-spacing: 0.5px;"><a href="/reviews">21 Google reviews</a></p>
                 </div>
                 <div style="text-align: center;">
                     <p style="font-size: 2.25rem; font-weight: 800; color: #c6ff00; margin: 0; line-height: 1;">100%</p>
@@ -1332,6 +1337,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611111900"></script>
+    <script src="/dist/main.js?v=202611241930"></script>
 </body>
 </html>

@@ -40,23 +40,23 @@ body {
     --secondary-dark: #e0245e;
     --secondary-light: #ff5c8a;
     
-    /* Background Colors - Dark Theme */
-    --bg-body: #0a0a0a;
-    --bg-section: #111111;
-    --bg-section-alt: #1a1a1a;
-    --bg-card: #1e1e1e;
-    --bg-card-hover: #252525;
-    --bg-white: #0a0a0a;
-    --bg-light: #1a1a1a;
+    /* Backgrounds. The light brand is the default. See src/styles/brand.css. */
+    --bg-body: #ffffff;
+    --bg-section: #ffffff;
+    --bg-section-alt: #f7f7f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f7f7f5;
+    --bg-white: #ffffff;
+    --bg-light: #f7f7f5;
     
     /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --text-muted: #707070;
-    --text-dark: #ffffff;
-    --text-light: #b0b0b0;
+    --text-primary: #141414;
+    --text-secondary: #333333;
+    --text-muted: #5c5c5c;
+    --text-dark: #141414;
+    --text-light: #333333;
     --text-on-primary: #0a0a0a;
-    --text-on-secondary: #ffffff;
+    --text-on-secondary: #0a0a0a;
     
     /* Borders */
     --border-color: #333333;
