@@ -2186,6 +2186,13 @@ body.site-brand .hc-book {
     -webkit-text-fill-color: #1f1a2e !important;
 }
 
+.lp-van-cut,
+.hc-van-cut,
+.cc-van-strip img,
+.cc-hero-visual img {
+    aspect-ratio: 1129 / 466;
+}
+
 body.site-brand p.cc-price-badge,
 body.site-brand .cc-price-badge {
     font-size: 19px !important;
