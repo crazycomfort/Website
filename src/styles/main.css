@@ -9070,14 +9070,16 @@ input::placeholder, textarea::placeholder {
 
     .book-bar-call,
     .book-bar-call:hover {
-        background: #FF2D6D;
-        color: #0a0a0a !important;
+        background: #C8004A;
+        color: #ffffff !important;
+        font-weight: 800;
     }
 
     .book-bar-book,
     .book-bar-book:hover {
         background: #c6ff00;
-        color: #0a0a0a !important;
+        color: #1f1a2e !important;
+        font-weight: 800;
     }
 
     .book-bar--yield {
@@ -9195,17 +9197,19 @@ body.lp-light .book-bar-book:hover,
 body.lp-light .request-submit,
 body.lp-light .request-submit:hover {
     background: #c6ff00;
-    color: #0a0a0a !important;
+    color: #1f1a2e !important;
     border-color: #c6ff00;
+    font-weight: 800;
 }
 
 body.lp-light .page-contact-book,
 body.lp-light .page-contact-book:hover,
 body.lp-light .book-bar-call,
 body.lp-light .book-bar-call:hover {
-    background: #FF2D6D;
-    color: #0a0a0a !important;
-    border-color: #FF2D6D;
+    background: #C8004A;
+    color: #ffffff !important;
+    border-color: #C8004A;
+    font-weight: 800;
 }
 
 body.lp-light .book-bar {
@@ -9569,16 +9573,39 @@ body.lp-light .logo-image {
 }
 
 .hc-hero .hc-price {
-    background: #FF2D6D;
-    color: #0a0a0a;
+    background: #C8004A;
+    color: #ffffff;
+    font-weight: 800;
 }
 
 .lp-hero .page-contact-call,
 .lp-hero .page-contact-call:hover,
 .hc-hero .hc-book,
-.hc-hero .hc-book:hover {
+.hc-hero .hc-book:hover,
+.book-bar-book,
+.book-bar-book:hover,
+.nav-book,
+.nav-book:hover {
     background: #c6ff00 !important;
-    color: #0a0a0a !important;
-    border: 2px solid #1f1a2e !important;
+    color: #1f1a2e !important;
+    border-color: #1f1a2e !important;
+    font-weight: 800 !important;
+}
+
+.lp-hero .page-contact-book,
+.lp-hero .page-contact-book:hover,
+.hc-hero .hc-call-secondary,
+.hc-hero .hc-call-secondary:hover,
+.book-bar-call,
+.book-bar-call:hover,
+.hc-price,
+.heating-check-promo-price,
+.heating-check-promo-kicker span,
+.heating-check-promo-call,
+.heating-check-promo-call:hover {
+    background: #C8004A !important;
+    border-color: #C8004A !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
