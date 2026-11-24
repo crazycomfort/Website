@@ -12,23 +12,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>$49 Heating Check | Crazy Comfort Heating &amp; Cooling</title>
-    <meta name="description" content="Book a $49 heating check with Crazy Comfort in Katy, Fulshear, and West Houston. Safety inspection, performance check, and system assessment. We confirm your appointment by phone.">
+    <meta name="description" content="Book a $49 heating check with Crazy Comfort in Katy, Fulshear, and West Houston. Offer ends November 30, 2026. Safety inspection, performance check, and system assessment. We confirm your appointment by phone.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://crazycomfort.com/heating-check/">
     <link rel="icon" type="image/png" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
     <link rel="apple-touch-icon" href="/assets/images/Logo-Green/SWIRL-ICON-01.png">
     <meta property="og:type" content="website">
     <meta property="og:title" content="$49 Heating Check | Crazy Comfort Heating &amp; Cooling">
-    <meta property="og:description" content="Make sure your heater is safe, performing properly, and ready for colder weather. $49 heating check in Katy, Fulshear, and West Houston.">
+    <meta property="og:description" content="Make sure your heater is safe, performing properly, and ready for colder weather. $49 heating check in Katy, Fulshear, and West Houston. Offer ends November 30, 2026.">
     <meta property="og:url" content="https://crazycomfort.com/heating-check/">
     <meta property="og:image" content="https://crazycomfort.com/assets/images/og-image.png">
-    <meta name="theme-color" content="#0a0a0a">
-    <link rel="stylesheet" href="/dist/styles.css?v=202611062245">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/styles.css?v=202611242330">
     <style>
         .hc-page {
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #141414;
             min-height: 100vh;
+        }
+
+        .hc-page section {
+            padding: 0;
         }
 
         .hc-bar {
@@ -37,28 +44,36 @@
             z-index: 20;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 0.55rem 0.85rem;
             padding: 0.75rem 1.25rem;
-            background: rgba(10, 10, 10, 0.94);
-            border-bottom: 1px solid rgba(198, 255, 0, 0.2);
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .hc-logo img {
             display: block;
-            height: 42px;
+            height: 56px;
             width: auto;
+            max-height: none;
+            background: transparent;
         }
 
-        a.hc-call,
-        a.hc-call:hover {
-            display: inline-flex;
-            align-items: center;
-            min-height: 44px;
-            padding: 0.45rem 0.9rem;
-            border-radius: 999px;
-            background: #FF2D6D;
-            color: #0a0a0a !important;
+        a.hc-reviews,
+        a.hc-reviews:hover {
+            margin-left: auto;
+            color: #c6ff00 !important;
+            font-size: 0.92rem;
+            font-weight: 800;
+            line-height: 1.3;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a.hc-header-phone,
+        a.hc-header-phone:hover {
+            margin-left: auto;
+            color: #141414 !important;
             font-weight: 800;
             font-size: 0.95rem;
             text-decoration: none;
@@ -73,7 +88,9 @@
 
         .hc-layout {
             display: grid;
-            gap: 1.5rem;
+            gap: 1.75rem;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .hc-kicker {
@@ -85,36 +102,170 @@
             text-transform: uppercase;
         }
 
+        .hc-hero,
+        .hc-benefits-block {
+            text-align: center;
+        }
+
         .hc-title {
-            margin: 0;
-            font-size: clamp(2.4rem, 10vw, 4.6rem);
-            line-height: 0.95;
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
+            margin: 0.5rem 0 0;
+            color: #1f1a2e;
+            font-size: 32px;
+            line-height: 1.15;
+            letter-spacing: 0;
+            text-transform: none;
+            text-align: left;
         }
 
         .hc-price {
-            color: #c6ff00;
+            background: #FF2D6D;
+            color: #ffffff;
+            font-weight: 800;
+            padding: 0 0.12em;
+            border-radius: 8px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
 
         .hc-lead {
-            margin: 1rem 0 0;
+            margin: 1rem auto 0;
             max-width: 36rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #333333;
             font-size: 1.125rem;
             line-height: 1.5;
         }
 
+        .hc-rating-row {
+            margin: 0;
+        }
+
+        .hc-page .cc-rating,
+        .hc-page .cc-rating:hover {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #0a0a0a !important;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .hc-van {
+            display: block;
+            margin: 1.25rem auto 0;
+        }
+
+        .hc-van img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+
         .hc-benefits {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.15rem 0 0;
+            display: grid;
+            gap: 0.35rem;
+            margin: 0;
             padding: 0;
             list-style: none;
         }
 
+        .hc-benefits-block {
+            margin-top: 0.25rem;
+        }
+
+        .hc-benefits {
+            justify-content: center;
+        }
+
         .hc-benefits li {
+            color: #141414;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .hc-license {
+            margin: 0.75rem 0 0;
+            color: #555555;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        .hc-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-top: 1.25rem;
+        }
+
+        a.hc-book,
+        a.hc-book:hover,
+        a.hc-call-secondary,
+        a.hc-call-secondary:hover {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 52px;
+            margin-top: 0;
+            padding: 0.85rem 1.25rem;
+            border-radius: 999px;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        a.hc-book,
+        a.hc-book:hover {
+            background: #c6ff00;
+            color: #1f1a2e !important;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        a.hc-call-secondary,
+        a.hc-call-secondary:hover {
+            border: 2px solid #FF2D6D;
+            background: #FF2D6D;
+            color: #ffffff !important;
+            font-weight: 800;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        }
+
+        .hc-follow,
+        .hc-hours,
+        .hc-hero-reviews {
+            margin: 0.9rem 0 0;
+            color: #333333;
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+
+        .hc-hours {
+            font-weight: 700;
+        }
+
+        .hc-follow a,
+        .hc-hero-reviews a,
+        .hc-note a,
+        .hc-success a {
+            color: #c6ff00;
+            font-weight: 800;
+        }
+
+        .hc-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hc-points li {
             padding: 0.45rem 0.75rem;
             border: 1px solid rgba(198, 255, 0, 0.45);
             border-radius: 999px;
@@ -123,36 +274,27 @@
             font-weight: 700;
         }
 
-        a.hc-book,
-        a.hc-book:hover {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            min-height: 52px;
-            margin-top: 1.25rem;
-            padding: 0.85rem 1.25rem;
-            border-radius: 999px;
-            background: #c6ff00;
-            color: #0a0a0a !important;
-            font-size: 1.05rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
+        .hc-phone .hc-book {
+            width: auto;
+            margin-top: 0.85rem;
+        }
+
+        .hc-sticky {
+            display: none;
         }
 
         .hc-form-card {
             scroll-margin-top: 5.25rem;
-            background: #141414;
-            border: 1px solid #333333;
+            background: #ffffff;
+            border: 1px solid #e6e6e6;
             border-radius: 18px;
             padding: 1.25rem 1.1rem 1.35rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
 
         .hc-form-card h2 {
             margin: 0 0 0.35rem;
+            color: #141414;
             font-size: 1.35rem;
         }
 
@@ -162,7 +304,7 @@
 
         .hc-success h2 {
             margin: 0 0 0.85rem;
-            color: #c6ff00;
+            color: #141414;
             font-size: clamp(1.55rem, 5vw, 2.05rem);
             line-height: 1.15;
             letter-spacing: -0.02em;
@@ -176,7 +318,7 @@
 
         .hc-success p {
             margin: 0;
-            color: #ffffff;
+            color: #141414;
             font-size: 1.05rem;
             line-height: 1.55;
         }
@@ -192,12 +334,12 @@
 
         .hc-service {
             margin: 0 0 1rem;
-            color: rgba(255, 255, 255, 0.86);
+            color: #333333;
             font-size: 0.98rem;
         }
 
         .hc-service strong {
-            color: #c6ff00;
+            color: #0a0a0a;
         }
 
         .hc-field {
@@ -213,7 +355,7 @@
         }
 
         .hc-optional {
-            color: #b0b0b0;
+            color: #555555;
             font-weight: 600;
         }
 
@@ -222,10 +364,10 @@
             width: 100%;
             min-height: 48px;
             padding: 0.75rem 0.9rem;
-            border: 2px solid #444444;
+            border: 1px solid #c8c8c8;
             border-radius: 10px;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #141414;
             font-size: 16px;
             line-height: 1.4;
         }
@@ -250,9 +392,9 @@
         .hc-consent {
             margin: 0.25rem 0 1rem;
             padding: 0.9rem;
-            border: 1px solid #333333;
+            border: 1px solid #e6e6e6;
             border-radius: 12px;
-            background: #0a0a0a;
+            background: #fafafa;
         }
 
         .hc-consent p {
@@ -273,7 +415,7 @@
 
         .hc-consent label,
         .hc-help {
-            color: rgba(255, 255, 255, 0.9);
+            color: #333333;
             font-size: 0.92rem;
             line-height: 1.45;
         }
@@ -309,10 +451,16 @@
             cursor: wait;
         }
 
+        .hc-submit,
+        .hc-field input,
+        .hc-field textarea {
+            scroll-margin-bottom: 5.5rem;
+        }
+
         .hc-note,
         .hc-legal {
             margin: 0.8rem 0 0;
-            color: #b0b0b0;
+            color: #555555;
             font-size: 0.9rem;
             line-height: 1.5;
             text-align: center;
@@ -341,7 +489,7 @@
         .hc-trust p,
         .hc-phone p {
             margin: 0;
-            color: #b0b0b0;
+            color: #555555;
         }
 
         a.hc-phone-link,
@@ -354,7 +502,7 @@
 
         .hc-foot {
             margin-top: 1.5rem;
-            color: #b0b0b0;
+            color: #555555;
             font-size: 0.85rem;
             line-height: 1.6;
             text-align: center;
@@ -369,22 +517,21 @@
                 padding-top: 2.5rem;
             }
 
-            .hc-layout {
-                grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
-                gap: 2.5rem;
-                align-items: start;
+            .hc-actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            a.hc-book,
-            a.hc-book:hover {
+            .hc-actions a.hc-book,
+            .hc-actions a.hc-book:hover,
+            .hc-actions a.hc-call-secondary,
+            .hc-actions a.hc-call-secondary:hover {
                 width: auto;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                padding-left: 1.35rem;
+                padding-right: 1.35rem;
             }
 
-            .hc-trust {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
     </style>
 <!-- MailerLite Universal -->
@@ -397,27 +544,46 @@
 </script>
 <!-- End MailerLite Universal -->
 </head>
-<body class="hc-page">
+<body class="hc-page lp-light has-book-bar">
     <a href="#book" class="skip-to-content">Skip to booking form</a>
     <header class="hc-bar">
         <a href="/" class="hc-logo" aria-label="Crazy Comfort home">
-            <img src="/assets/images/Logo-Green/Crazy-Comfort-02.svg" alt="Crazy Comfort">
+            <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort">
         </a>
-        <a class="hc-call" href="tel:832-403-7466">832-403-7466</a>
+        <a class="hc-header-phone" href="tel:832-403-7466">832-403-7466</a>
     </header>
 
     <main class="hc-main" id="main-content">
         <div class="hc-layout">
-            <section>
-                <p class="hc-kicker">Crazy Comfort</p>
+            <section class="hc-hero">
+                <!-- cc-rating is the shared Google rating badge. Reuse this markup in the sitewide makeover. -->
+                <p class="hc-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
                 <h1 class="hc-title"><span class="hc-price">$49</span> Heating Check</h1>
-                <p class="hc-lead">Make sure your heater is safe, performing properly, and ready for colder weather.</p>
+                <p class="hc-lead">Heater safety check before the cold. Offer ends November 30, 2026.</p>
+                <div class="hc-actions">
+                    <a class="hc-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check hero" target="_blank" rel="noopener noreferrer">Book Online</a>
+                    <a class="hc-call-secondary" href="tel:832-403-7466">Call 832-403-7466</a>
+                </div>
+                <ul class="cc-trust">
+                    <li>Licensed &amp; insured</li>
+                    <li>Upfront pricing</li>
+                    <li>Photo-documented service</li>
+                    <li>TACLA00048090C</li>
+                </ul>
+                <img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="">
+            </section>
+            <div class="cc-van-strip">
+                <img class="hc-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">
+            </div>
+
+            <section class="hc-benefits-block" aria-label="What is included">
                 <ul class="hc-benefits">
                     <li>Safety Inspection</li>
                     <li>Heating Performance Check</li>
                     <li>System Assessment</li>
                 </ul>
-                <a class="hc-book" href="#book">Book My $49 Heating Check</a>
+                <p class="hc-hours">Mon–Fri 8am–7pm · Sat 8am–1pm · Sun emergency only</p>
+                <p class="hc-license">Licensed &amp; Insured. Texas HVAC license TACLA00048090C. Serving Katy, Fulshear, and West Houston.</p>
             </section>
 
             <section class="hc-form-card" id="book" aria-labelledby="book-title">
@@ -469,34 +635,16 @@
                     </div>
 
                     <button class="hc-submit" type="submit">Request My $49 Heating Check</button>
-                    <p class="hc-note">Submitting this form requests an appointment. Our team will contact you to confirm availability.</p>
+                    <p class="hc-note">Submitting this form requests an appointment. We will call you to confirm the time. Or <a href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check form" target="_blank" rel="noopener noreferrer">book online</a> if you prefer to pick a time yourself.</p>
                     <p class="hc-legal"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms &amp; Conditions</a></p>
                 </form>
             </section>
         </div>
-
-        <section class="hc-trust" aria-label="Why Crazy Comfort">
-            <div>
-                <strong>Licensed &amp; Insured</strong>
-                <p>Texas HVAC license TACLA00048090C</p>
-            </div>
-            <div>
-                <strong>Serving Katy, Fulshear, and West Houston</strong>
-                <p>Local heating and cooling service</p>
-            </div>
-            <div>
-                <strong>Crazy Comfort Heating &amp; Cooling</strong>
-                <p>Woman-owned and family operated</p>
-            </div>
-        </section>
-
-        <section class="hc-phone">
-            <strong>Prefer to call us?</strong>
-            <p><a class="hc-phone-link" href="tel:832-403-7466">832-403-7466</a></p>
-        </section>
-
-        <p class="hc-foot">Crazy Comfort Heating &amp; Cooling · Katy &amp; Fulshear, TX</p>
     </main>
-    <script src="/dist/main.js?v=202611111900"></script>
+    <nav class="book-bar" aria-label="Call or book online">
+        <a class="book-bar-call" href="tel:832-403-7466">Call</a>
+        <a class="book-bar-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
+    </nav>
+    <script src="/dist/main.js?v=202611241820"></script>
 </body>
 </html>

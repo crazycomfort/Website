@@ -60,6 +60,61 @@ function initPhoneClickTracking() {
 initWebsiteCallConversion();
 initPhoneClickTracking();
 
+// GA4 only. No Google Ads conversion label exists for online booking, and
+// trackGa4Event names the GA4 destination so this click is not counted as a
+// website call.
+function initBookOnlineTracking() {
+    document.addEventListener('click', function(event) {
+        const target = event.target;
+        if (!target || typeof target.closest !== 'function') return;
+        const link = target.closest('a[data-track="book-online"]');
+        if (!link) return;
+        try {
+            trackGa4Event('book_online_click', {
+                event_category: 'Booking',
+                event_label: link.getAttribute('data-book-label') || 'Book Online',
+                link_url: link.href
+            });
+        } catch (err) {
+            // A tracking failure must not block booking.
+        }
+    }, true);
+}
+
+initBookOnlineTracking();
+
+// Hide the mobile book bar while it would cover the form's submit button.
+function initBookBarClearance() {
+    const bar = document.querySelector('.book-bar');
+    const submit = document.querySelector('form button[type="submit"]');
+    if (!bar || !submit) return;
+
+    const watch = function() {
+        const barRect = bar.getBoundingClientRect();
+        if (barRect.height === 0) {
+            bar.classList.remove('book-bar--yield');
+            return;
+        }
+        const buttonRect = submit.getBoundingClientRect();
+        const overlaps = buttonRect.width > 0
+            && buttonRect.bottom > barRect.top - 12
+            && buttonRect.top < barRect.bottom
+            && buttonRect.bottom > 0
+            && buttonRect.top < window.innerHeight;
+        bar.classList.toggle('book-bar--yield', overlaps);
+    };
+
+    window.addEventListener('scroll', watch, { passive: true });
+    window.addEventListener('resize', watch);
+    watch();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBookBarClearance);
+} else {
+    initBookBarClearance();
+}
+
 // Dark Mode Toggle
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
@@ -424,7 +479,13 @@ document.addEventListener('DOMContentLoaded', initFAQ);
 // conversion is recorded only after Netlify accepts the submission. The page
 // stays in place, which gives gtag time to send. Other Netlify forms keep
 // their existing submit behavior.
-const LEAD_FORM_NAMES = new Set(['contact', 'homepage-contact', 'heating-check']);
+const LEAD_FORM_NAMES = new Set([
+    'contact',
+    'homepage-contact',
+    'heating-check',
+    'heating-repair-request',
+    'ac-repair-request'
+]);
 const ADS_CONTACT_CONVERSION = 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC';
 
 function reportAdsContactConversion() {
@@ -441,21 +502,34 @@ function reportConfirmedLead(formName) {
         // Keep going so a conversion error still allows the GA4 event.
     }
     try {
+        const leadLabels = {
+            'homepage-contact': 'Homepage Contact Form Submission',
+            'heating-check': '$49 Heating Check',
+            'heating-repair-request': 'Heating Repair Request',
+            'ac-repair-request': 'AC Repair Request'
+        };
         const leadEvent = {
             event_category: 'Contact',
-            event_label: formName === 'homepage-contact'
-                ? 'Homepage Contact Form Submission'
-                : formName === 'heating-check'
-                    ? '$49 Heating Check'
-                    : 'Contact Form Submission'
+            event_label: leadLabels[formName] || 'Contact Form Submission'
         };
         if (formName === 'heating-check') {
             leadEvent.offer = 'heating_check_49';
+        } else if (formName === 'heating-repair-request') {
+            leadEvent.offer = 'heating_repair';
+        } else if (formName === 'ac-repair-request') {
+            leadEvent.offer = 'ac_repair';
         }
         trackGa4Event('generate_lead', leadEvent);
     } catch (err) {
         // Confirmation is shown by the caller even if analytics throws.
     }
+}
+
+function bookingAnchorHtml(label) {
+    const link = document.querySelector('a[data-track="book-online"]');
+    if (!link) return 'Book Online';
+    const href = link.href.replace(/"/g, '%22');
+    return '<a href="' + href + '" data-track="book-online" data-book-label="' + label + '" target="_blank" rel="noopener noreferrer">Book Online</a>';
 }
 
 function showHeatingCheckSuccess(form) {
@@ -466,8 +540,8 @@ function showHeatingCheckSuccess(form) {
     success.setAttribute('aria-live', 'polite');
     success.setAttribute('aria-atomic', 'true');
     success.innerHTML = '<h2 id="hc-success-title" tabindex="-1">Your $49 Heating Check Request Was Received!</h2>'
-        + '<p>Thank you for contacting Crazy Comfort! We\'ve received your request for a $49 Heating Check. Our team will contact you to confirm availability and schedule your appointment.</p>'
-        + '<p class="hc-success-note">Submitting this form does not confirm your appointment.</p>'
+        + '<p>Thank you for contacting Crazy Comfort! We\'ve received your request for a $49 Heating Check. We will call you to confirm the time.</p>'
+        + '<p class="hc-success-note">Submitting this form requests an appointment. It does not confirm the time. Or ' + bookingAnchorHtml('$49 Heating Check success') + ' if you prefer to pick a time yourself.</p>'
         + '<p class="hc-legal"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms &amp; Conditions</a></p>';
 
     if (card) {
@@ -489,9 +563,40 @@ function showHeatingCheckSuccess(form) {
     });
 }
 
+function showRepairRequestSuccess(form) {
+    const card = form.closest('.request-card');
+    const success = document.createElement('div');
+    success.className = 'repair-success';
+    success.setAttribute('role', 'status');
+    success.setAttribute('tabindex', '-1');
+    success.innerHTML = '<h2>Request received</h2>'
+        + '<p>We will call you to confirm a time. This form requests a call back. It does not confirm an appointment.</p>'
+        + '<p>To pick a time now, use ' + bookingAnchorHtml('Repair request success') + '.</p>'
+        + '<p class="request-legal"><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-conditions">Terms &amp; Conditions</a></p>';
+
+    const head = card ? card.querySelector('.request-card-head') : null;
+    if (head) head.hidden = true;
+    form.replaceWith(success);
+
+    window.requestAnimationFrame(function() {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const scrollTarget = card || success;
+        scrollTarget.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
+        success.focus({ preventScroll: true });
+    });
+}
+
 function showLeadFormSuccess(form) {
-    if (form.getAttribute('name') === 'heating-check') {
+    const formName = netlifyFormName(form);
+    if (formName === 'heating-check') {
         showHeatingCheckSuccess(form);
+        return;
+    }
+    if (formName === 'heating-repair-request' || formName === 'ac-repair-request') {
+        showRepairRequestSuccess(form);
         return;
     }
 
@@ -549,14 +654,12 @@ function bindLeadForm(form) {
             submitBtn.textContent = 'Sending...';
         }
 
-        if (form.getAttribute('name') === 'heating-check') {
-            const params = new URLSearchParams(window.location.search);
-            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(key) {
-                const field = form.querySelector('input[name="' + key + '"]');
-                const value = params.get(key);
-                if (field && value) field.value = value.slice(0, 200);
-            });
-        }
+        const params = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(key) {
+            const field = form.querySelector('input[name="' + key + '"]');
+            const value = params.get(key);
+            if (field && value) field.value = value.slice(0, 200);
+        });
 
         const formData = new FormData(form);
 
@@ -572,7 +675,7 @@ function bindLeadForm(form) {
             if (form.dataset.leadTracked === 'true') return;
             form.dataset.leadTracked = 'true';
             try {
-                reportConfirmedLead(form.getAttribute('name'));
+                reportConfirmedLead(netlifyFormName(form));
             } catch (err) {
                 // A tracking failure should not hide a submission Netlify already accepted.
             }
@@ -977,9 +1080,14 @@ function initScrollAnimations() {
 // AI CHATBOT WIDGET
 // ============================================
 
+function isRepairLanding(pathname) {
+    return /\/services\/(?:heating-repair|ac-repair)\/?$/.test(pathname || '');
+}
+
 function initChatbot() {
-    // Don't show on review page or other special pages
+    // Don't show on review page, the $49 landing page, or the repair landing pages.
     if (window.location.pathname.includes('leave-review') || window.location.pathname.includes('heating-check')) return;
+    if (isRepairLanding(window.location.pathname)) return;
     
     // Create chatbot HTML
     const chatbotHTML = `
@@ -1021,6 +1129,9 @@ function initChatbot() {
     
     const toggle = document.querySelector('.chatbot-toggle');
     const chatWindow = document.querySelector('.chatbot-window');
+    chatWindow.classList.remove('active');
+    toggle.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
     const chatInput = document.getElementById('chatInput');
     const chatSend = document.getElementById('chatSend');
     const messagesContainer = document.getElementById('chatMessages');
@@ -1028,9 +1139,11 @@ function initChatbot() {
     
     // Toggle chat window
     toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        chatWindow.classList.toggle('active');
-        if (chatWindow.classList.contains('active')) {
+        const willOpen = !chatWindow.classList.contains('active');
+        toggle.classList.toggle('active', willOpen);
+        chatWindow.classList.toggle('active', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        if (willOpen) {
             badge.style.display = 'none';
             chatInput.focus();
             trackGa4Event('chatbot_opened', { 'event_category': 'Engagement' });
@@ -1040,7 +1153,7 @@ function initChatbot() {
     // Chat responses
     const responses = {
         schedule: {
-            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer same-day service!",
+            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer fast local service.",
             followUp: ["What's your availability?", "Do you offer financing?", "Talk to a human"]
         },
         areas: {
@@ -1048,7 +1161,7 @@ function initChatbot() {
             followUp: ["Yes, I'm in the area", "I'm not sure", "Schedule service"]
         },
         emergency: {
-            text: "For HVAC emergencies, call us right now at <a href='tel:832-403-7466'>832-403-7466</a>. We're available 24/7 for qualified emergencies like complete system failures during extreme weather.",
+            text: "For HVAC emergencies, call us at <a href='tel:832-403-7466'>832-403-7466</a>. We offer fast local service for qualified emergencies such as a complete system failure in extreme weather.",
             followUp: ["Call now", "It can wait", "Schedule for later"]
         },
         pricing: {
@@ -1169,6 +1282,7 @@ function initExitPopup() {
     // Don't show on certain pages
     const excludedPaths = ['/leave-review', '/contact', '/spring-ac-tuneup', '/fall-heating-checkup', '/heating-check'];
     if (excludedPaths.some(path => window.location.pathname.includes(path))) return;
+    if (isRepairLanding(window.location.pathname)) return;
     
     // Check if already shown or dismissed
     if (sessionStorage.getItem('exitPopupShown') || localStorage.getItem('exitPopupDismissed')) return;
@@ -1299,9 +1413,43 @@ function initExitPopup() {
     });
 }
 
+function markWrapWords() {
+    if (!document.body || (!document.body.classList.contains('lp-light') && !document.body.classList.contains('site-brand') && !document.body.classList.contains('hc-page'))) return;
+    const nodes = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let node;
+    const pattern = /\b(Crazy|Comfort)\b/;
+    while ((node = walker.nextNode())) {
+        if (!pattern.test(node.nodeValue)) continue;
+        const parent = node.parentElement;
+        if (!parent || parent.closest('script, style, .cc-hot, input, textarea, button')) continue;
+        if (!parent.closest('h1, h2')) continue;
+        nodes.push(node);
+    }
+    const used = new Set();
+    nodes.forEach(function (textNode) {
+        const heading = textNode.parentElement.closest('h1, h2');
+        if (!heading || used.has(heading)) return;
+        const text = textNode.nodeValue;
+        const match = text.match(/\b(Crazy|Comfort)\b/);
+        if (!match) return;
+        used.add(heading);
+        const index = match.index;
+        const frag = document.createDocumentFragment();
+        frag.appendChild(document.createTextNode(text.slice(0, index)));
+        const span = document.createElement('span');
+        span.className = 'cc-hot';
+        span.textContent = match[1];
+        frag.appendChild(span);
+        frag.appendChild(document.createTextNode(text.slice(index + match[0].length)));
+        textNode.parentNode.replaceChild(frag, textNode);
+    });
+}
+
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
+        markWrapWords();
         initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
@@ -1309,6 +1457,7 @@ if (document.readyState === 'loading') {
         initExitPopup();
     });
 } else {
+    markWrapWords();
     initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();

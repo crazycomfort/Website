@@ -1,3 +1,19 @@
+# Form registration
+
+Live lead forms are Netlify Forms. Each form is static HTML with `data-netlify="true"`, a matching `name`, and a hidden `form-name` field. Netlify detects those forms from the published pages. This repo does not use a hidden form skeleton or a `netlify.toml` form list.
+
+| Form name | Page |
+| --- | --- |
+| `contact` | `/contact/` |
+| `homepage-contact` | `/` |
+| `heating-check` | `/heating-check/` |
+| `heating-repair-request` | `/services/heating-repair/` |
+| `ac-repair-request` | `/services/ac-repair/` |
+
+`heating-repair-request` and `ac-repair-request` submit name, phone, ZIP, issue, optional SMS consent, `service_requested`, and the same UTM hidden fields as the $49 heating check. `src/js/main.js` posts them with `fetch` and fires the existing Google Ads form conversion only after Netlify accepts the submission.
+
+The Formspree steps below are not how these forms are wired.
+
 # Contact Form Setup Guide
 
 ## Quick Setup (5 minutes)
