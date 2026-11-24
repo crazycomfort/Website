@@ -9037,5 +9037,249 @@ input::placeholder, textarea::placeholder {
         background: #c6ff00;
         color: #0a0a0a !important;
     }
+
+    .book-bar--yield {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* Light landing pages only. Other site pages stay on the dark theme.
+   Brand colors: lime #c6ff00 and hot pink #FF2D6D, both with #0a0a0a text
+   (WCAG AA: about 16.7:1 and 5.5:1). White text is not used on either color. */
+body.lp-light {
+    background: #ffffff;
+    color: #141414;
+}
+
+body.lp-light .header {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+body.lp-light .top-contact-bar,
+body.lp-light .top-bar-phone,
+body.lp-light .top-bar-phone:hover {
+    background: #c6ff00;
+    color: #0a0a0a !important;
+}
+
+body.lp-light .nav-menu,
+body.lp-light .dropdown-menu {
+    background: #ffffff;
+}
+
+body.lp-light .nav-menu a,
+body.lp-light .nav-menu a:hover,
+body.lp-light .dropdown-menu a,
+body.lp-light .breadcrumb,
+body.lp-light .breadcrumb a,
+body.lp-light .breadcrumb span {
+    color: #141414 !important;
+}
+
+body.lp-light .menu-toggle span {
+    background: #141414 !important;
+}
+
+body.lp-light .homepage-section,
+body.lp-light .homepage-section:nth-child(odd),
+body.lp-light .homepage-section:nth-child(even) {
+    background: #ffffff !important;
+    color: #141414;
+}
+
+body.lp-light .homepage-section::before {
+    display: none;
+}
+
+body.lp-light .homepage-headline,
+body.lp-light .section-title,
+body.lp-light h1,
+body.lp-light h2,
+body.lp-light h3,
+body.lp-light h4 {
+    color: #141414 !important;
+    opacity: 1;
+    transform: none;
+}
+
+body.lp-light .lp-subhead,
+body.lp-light .lp-benefits p {
+    color: #333333;
+}
+
+body.lp-light .lp-benefits li {
+    color: #141414;
+}
+
+body.lp-light .lp-rating-row {
+    margin: 0;
+    text-align: center;
+}
+
+body.lp-light .cc-rating,
+body.lp-light .cc-rating:hover {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: #c6ff00;
+    color: #0a0a0a !important;
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+body.lp-light .lp-van {
+    display: block;
+    max-width: 720px;
+    margin: 1.25rem auto 0;
+}
+
+body.lp-light .lp-van img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+body.lp-light .page-contact-call,
+body.lp-light .page-contact-call:hover,
+body.lp-light .book-bar-book,
+body.lp-light .book-bar-book:hover,
+body.lp-light .request-submit,
+body.lp-light .request-submit:hover {
+    background: #c6ff00;
+    color: #0a0a0a !important;
+    border-color: #c6ff00;
+}
+
+body.lp-light .page-contact-book,
+body.lp-light .page-contact-book:hover,
+body.lp-light .book-bar-call,
+body.lp-light .book-bar-call:hover {
+    background: #FF2D6D;
+    color: #0a0a0a !important;
+    border-color: #FF2D6D;
+}
+
+body.lp-light .book-bar {
+    background: #ffffff;
+    border-top: 1px solid #e6e6e6;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+}
+
+body.has-book-bar .request-submit,
+body.has-book-bar .hc-submit {
+    scroll-margin-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+}
+
+body.lp-light .request-card {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+body.lp-light .request-card-head {
+    background: #c6ff00;
+}
+
+body.lp-light .request-card-head h2,
+body.lp-light .request-card-head p,
+body.lp-light .request-card-head a {
+    color: #0a0a0a !important;
+}
+
+body.lp-light .request-field-label,
+body.lp-light .request-disclaimer,
+body.lp-light .request-legal,
+body.lp-light .request-consent-title,
+body.lp-light .request-consent-copy,
+body.lp-light .request-consent-note,
+body.lp-light .request-consent-heading {
+    color: #333333;
+}
+
+body.lp-light .request-form input,
+body.lp-light .request-form textarea {
+    background: #ffffff;
+    color: #141414;
+    border: 1px solid #c8c8c8;
+}
+
+body.lp-light .request-form input:focus,
+body.lp-light .request-form textarea:focus {
+    border-color: #0a0a0a;
+    outline: 2px solid #c6ff00;
+}
+
+body.lp-light .lp-consent {
+    margin-top: 0.85rem;
+    color: #333333;
+    font-size: 0.85rem;
+}
+
+body.lp-light .lp-consent summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #333333;
+}
+
+body.lp-light .lp-consent .request-consent {
+    margin-top: 0.75rem;
+}
+
+body.lp-light .request-legal {
+    font-size: 0.8rem;
+}
+
+body.lp-light .lp-faq details {
+    background: #ffffff !important;
+    border: 1px solid #e4e4e4 !important;
+    color: #141414 !important;
+}
+
+body.lp-light .lp-faq summary,
+body.lp-light .lp-faq details div {
+    color: #141414 !important;
+    background: transparent !important;
+}
+
+body.lp-light .footer {
+    background: #ffffff !important;
+    color: #141414 !important;
+    border-top: 1px solid #eeeeee;
+}
+
+body.lp-light .footer p,
+body.lp-light .footer h3,
+body.lp-light .footer h4,
+body.lp-light .footer a,
+body.lp-light .footer li,
+body.lp-light .footer span {
+    color: #141414 !important;
+}
+
+body.lp-light .repair-success h2,
+body.lp-light .repair-success p,
+body.lp-light .repair-success a {
+    color: #141414;
+}
+
+@media (max-width: 768px) {
+    body.lp-light .header,
+    body.lp-light .header.is-scrolled,
+    body.lp-light .nav-menu {
+        background: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    body.lp-light .nav-menu a,
+    body.lp-light .dropdown-menu a {
+        color: #141414 !important;
+    }
 }
 

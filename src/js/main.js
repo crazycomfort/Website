@@ -83,6 +83,38 @@ function initBookOnlineTracking() {
 
 initBookOnlineTracking();
 
+// Hide the mobile book bar while it would cover the form's submit button.
+function initBookBarClearance() {
+    const bar = document.querySelector('.book-bar');
+    const submit = document.querySelector('form button[type="submit"]');
+    if (!bar || !submit) return;
+
+    const watch = function() {
+        const barRect = bar.getBoundingClientRect();
+        if (barRect.height === 0) {
+            bar.classList.remove('book-bar--yield');
+            return;
+        }
+        const buttonRect = submit.getBoundingClientRect();
+        const overlaps = buttonRect.width > 0
+            && buttonRect.bottom > barRect.top - 12
+            && buttonRect.top < barRect.bottom
+            && buttonRect.bottom > 0
+            && buttonRect.top < window.innerHeight;
+        bar.classList.toggle('book-bar--yield', overlaps);
+    };
+
+    window.addEventListener('scroll', watch, { passive: true });
+    window.addEventListener('resize', watch);
+    watch();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBookBarClearance);
+} else {
+    initBookBarClearance();
+}
+
 // Dark Mode Toggle
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');

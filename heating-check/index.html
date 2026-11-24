@@ -22,12 +22,12 @@
     <meta property="og:description" content="Make sure your heater is safe, performing properly, and ready for colder weather. $49 heating check in Katy, Fulshear, and West Houston. Offer ends November 30, 2026.">
     <meta property="og:url" content="https://crazycomfort.com/heating-check/">
     <meta property="og:image" content="https://crazycomfort.com/assets/images/og-image.png">
-    <meta name="theme-color" content="#0a0a0a">
-    <link rel="stylesheet" href="/dist/styles.css?v=202611062245">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/dist/styles.css?v=202611241820">
     <style>
         .hc-page {
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #141414;
             min-height: 100vh;
         }
 
@@ -44,8 +44,8 @@
             flex-wrap: wrap;
             gap: 0.55rem 0.85rem;
             padding: 0.75rem 1.25rem;
-            background: rgba(10, 10, 10, 0.94);
-            border-bottom: 1px solid rgba(198, 255, 0, 0.2);
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
         }
 
         .hc-logo img {
@@ -68,7 +68,7 @@
         a.hc-header-phone,
         a.hc-header-phone:hover {
             margin-left: auto;
-            color: #ffffff !important;
+            color: #141414 !important;
             font-weight: 800;
             font-size: 0.95rem;
             text-decoration: none;
@@ -103,7 +103,8 @@
         }
 
         .hc-title {
-            margin: 0;
+            margin: 0.75rem 0 0;
+            color: #141414;
             font-size: clamp(2.2rem, 8vw, 3.4rem);
             line-height: 0.95;
             letter-spacing: -0.03em;
@@ -111,15 +112,47 @@
         }
 
         .hc-price {
-            color: #c6ff00;
+            background: #c6ff00;
+            color: #0a0a0a;
+            padding: 0 0.12em;
+            border-radius: 8px;
         }
 
         .hc-lead {
-            margin: 1rem 0 0;
+            margin: 1rem auto 0;
             max-width: 36rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #333333;
             font-size: 1.125rem;
             line-height: 1.5;
+        }
+
+        .hc-rating-row {
+            margin: 0;
+        }
+
+        .hc-page .cc-rating,
+        .hc-page .cc-rating:hover {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: #c6ff00;
+            color: #0a0a0a !important;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .hc-van {
+            display: block;
+            margin: 1.25rem auto 0;
+        }
+
+        .hc-van img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
         }
 
         .hc-benefits {
@@ -139,14 +172,14 @@
         }
 
         .hc-benefits li {
-            color: #ffffff;
+            color: #141414;
             font-size: 1rem;
             font-weight: 700;
         }
 
         .hc-license {
             margin: 0.75rem 0 0;
-            color: #b0b0b0;
+            color: #555555;
             font-size: 0.95rem;
             line-height: 1.45;
         }
@@ -195,7 +228,7 @@
         .hc-hours,
         .hc-hero-reviews {
             margin: 0.9rem 0 0;
-            color: rgba(255, 255, 255, 0.9);
+            color: #333333;
             font-size: 1rem;
             line-height: 1.45;
         }
@@ -241,14 +274,16 @@
 
         .hc-form-card {
             scroll-margin-top: 5.25rem;
-            background: #141414;
-            border: 1px solid #333333;
+            background: #ffffff;
+            border: 1px solid #e6e6e6;
             border-radius: 18px;
             padding: 1.25rem 1.1rem 1.35rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
 
         .hc-form-card h2 {
             margin: 0 0 0.35rem;
+            color: #141414;
             font-size: 1.35rem;
         }
 
@@ -258,7 +293,7 @@
 
         .hc-success h2 {
             margin: 0 0 0.85rem;
-            color: #c6ff00;
+            color: #141414;
             font-size: clamp(1.55rem, 5vw, 2.05rem);
             line-height: 1.15;
             letter-spacing: -0.02em;
@@ -272,7 +307,7 @@
 
         .hc-success p {
             margin: 0;
-            color: #ffffff;
+            color: #141414;
             font-size: 1.05rem;
             line-height: 1.55;
         }
@@ -288,12 +323,12 @@
 
         .hc-service {
             margin: 0 0 1rem;
-            color: rgba(255, 255, 255, 0.86);
+            color: #333333;
             font-size: 0.98rem;
         }
 
         .hc-service strong {
-            color: #c6ff00;
+            color: #0a0a0a;
         }
 
         .hc-field {
@@ -309,7 +344,7 @@
         }
 
         .hc-optional {
-            color: #b0b0b0;
+            color: #555555;
             font-weight: 600;
         }
 
@@ -318,10 +353,10 @@
             width: 100%;
             min-height: 48px;
             padding: 0.75rem 0.9rem;
-            border: 2px solid #444444;
+            border: 1px solid #c8c8c8;
             border-radius: 10px;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #141414;
             font-size: 16px;
             line-height: 1.4;
         }
@@ -346,9 +381,9 @@
         .hc-consent {
             margin: 0.25rem 0 1rem;
             padding: 0.9rem;
-            border: 1px solid #333333;
+            border: 1px solid #e6e6e6;
             border-radius: 12px;
-            background: #0a0a0a;
+            background: #fafafa;
         }
 
         .hc-consent p {
@@ -369,7 +404,7 @@
 
         .hc-consent label,
         .hc-help {
-            color: rgba(255, 255, 255, 0.9);
+            color: #333333;
             font-size: 0.92rem;
             line-height: 1.45;
         }
@@ -414,7 +449,7 @@
         .hc-note,
         .hc-legal {
             margin: 0.8rem 0 0;
-            color: #b0b0b0;
+            color: #555555;
             font-size: 0.9rem;
             line-height: 1.5;
             text-align: center;
@@ -443,7 +478,7 @@
         .hc-trust p,
         .hc-phone p {
             margin: 0;
-            color: #b0b0b0;
+            color: #555555;
         }
 
         a.hc-phone-link,
@@ -456,7 +491,7 @@
 
         .hc-foot {
             margin-top: 1.5rem;
-            color: #b0b0b0;
+            color: #555555;
             font-size: 0.85rem;
             line-height: 1.6;
             text-align: center;
@@ -498,7 +533,7 @@
 </script>
 <!-- End MailerLite Universal -->
 </head>
-<body class="hc-page">
+<body class="hc-page lp-light has-book-bar">
     <a href="#book" class="skip-to-content">Skip to booking form</a>
     <header class="hc-bar">
         <a href="/" class="hc-logo" aria-label="Crazy Comfort home">
@@ -510,8 +545,15 @@
     <main class="hc-main" id="main-content">
         <div class="hc-layout">
             <section class="hc-hero">
+                <!-- cc-rating is the shared Google rating badge. Reuse this markup in the sitewide makeover. -->
+                <p class="hc-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
                 <h1 class="hc-title"><span class="hc-price">$49</span> Heating Check</h1>
                 <p class="hc-lead">Make sure your heater is safe, performing properly, and ready for colder weather. Offer ends November 30, 2026.</p>
+                <!-- Placeholder service van. Replace assets/images/brand/service-van.webp and service-van.jpg when the final wrap arrives. -->
+                <picture class="hc-van">
+                    <source srcset="/assets/images/brand/service-van.webp" type="image/webp">
+                    <img src="/assets/images/brand/service-van.jpg" width="1200" height="600" alt="Crazy Comfort Heating &amp; Cooling service van">
+                </picture>
                 <div class="hc-actions">
                     <a class="hc-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check hero" target="_blank" rel="noopener noreferrer">Book Online</a>
                     <a class="hc-call-secondary" href="tel:832-403-7466">Call 832-403-7466</a>
@@ -583,6 +625,10 @@
             </section>
         </div>
     </main>
-    <script src="/dist/main.js?v=202611241700"></script>
+    <nav class="book-bar" aria-label="Call or book online">
+        <a class="book-bar-call" href="tel:832-403-7466">Call</a>
+        <a class="book-bar-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
+    </nav>
+    <script src="/dist/main.js?v=202611241820"></script>
 </body>
 </html>
