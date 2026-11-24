@@ -35,7 +35,7 @@
         .nav-menu a { color: #141414; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.3px; text-transform: uppercase; }
         .dropdown-menu { position: absolute; opacity: 0; visibility: hidden; }
         .hero-new { min-height: 0; display: flex; align-items: flex-start; justify-content: center; padding: var(--total-header-height) 0 1.5rem; background: linear-gradient(180deg, #eaff99 0%, #f4ffd6 55%, #ffffff 100%); }
-        .hero-new-grid { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%; min-height: 60vh; }
+        .hero-new-grid { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; width: 100%; min-height: 0; }
         .hero-new-left { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 800px; }
         .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #141414; margin: 0.5rem 0 1.5rem; letter-spacing: -0.03em; text-shadow: none; }
         .hero-new-headline strong { color: #c6ff00; display: block; font-size: 1.1em; }
@@ -490,13 +490,14 @@
                         <li><a href="/hvac-maintenance-plan">Maintenance Plans</a></li>
                     </ul>
                 </li>
-                <li><a href="/service-area">Service Area</a></li>
+                <li><a href="/service-area">Service Areas</a></li>
                 <li><a href="/reviews">Reviews</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="nav-cta"><a href="/comfort-to-all">Comfort To All</a></li>
             </ul>
             <div class="nav-actions">
+                <a class="nav-phone" href="tel:832-403-7466">832-403-7466</a>
                 <a class="nav-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Header" target="_blank" rel="noopener noreferrer">Book Online</a>
                 
                 <button class="menu-toggle" aria-label="Toggle menu">
@@ -642,6 +643,7 @@
                     <div class="hero-new-body">
                         <p>Photo-documented HVAC in Katy and Fulshear.</p>
                     </div>
+                    <p class="lp-rating-row"><a class="cc-rating" href="/reviews">★ 4.9 · 21 Google reviews</a></p>
                     <div class="hero-new-cta">
                         <div class="cta-buttons">
                             <a class="cta-primary" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Home hero" target="_blank" rel="noopener noreferrer">Book Online</a>
@@ -654,6 +656,9 @@
                         <li>Photo-documented service</li>
                         <li>TACLA00048090C</li>
                     </ul>
+                </div>
+                <div class="cc-hero-visual">
+                    <img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van">
                     <img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="">
                 </div>
             </div>
@@ -670,68 +675,6 @@
                 </div>
             </aside>
             <!-- END $49 HEATING CHECK PROMO -->
-
-        <!-- WHAT "CRAZY" MEANS - Brief -->
-        <section class="homepage-section crazy-cards-section">
-            <div class="container">
-                <h2 class="homepage-headline">What "<span style="color: var(--primary-color);">Crazy</span>" means to us</h2>
-                <div class="crazy-cards-grid" style="max-width: 900px; margin: 0 auto;">
-                    <div class="crazy-card">
-                        <h3>Texas weather is crazy. 110° summers. Freezing winters. We get crazy right back. <strong>That's Crazy.</strong></h3>
-                    </div>
-                    <div class="crazy-card">
-                        <h3>You get a transparency link via text. Photos/Videos appear seconds after we take them. <strong>That's Crazy.</strong></h3>
-                    </div>
-                    <div class="crazy-card">
-                        <h3>Every service helps another family. A portion of every job supports our Comfort to All program for families in need. <strong>That's Crazy.</strong></h3>
-                    </div>
-                </div>
-                
-                <!-- Tech Vision - Live Photos -->
-                <div class="evidence-pack-card" style="max-width: 500px; margin: 3rem auto 2rem;">
-                    <div class="evidence-pack-header">
-                        <span class="evidence-pack-label">Tech Vision</span>
-                        <span class="evidence-pack-sub">Live from real service calls</span>
-                    </div>
-                    <div class="evidence-carousel" data-evidence-carousel>
-                        <button class="evidence-nav evidence-nav-prev" type="button" aria-label="Previous">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <div class="evidence-slides">
-                            <div class="evidence-slide active">
-                                <img src="assets/images/time-stamped-photos-600.webp?v=202611062245" srcset="assets/images/time-stamped-photos-450.webp?v=202611062245 450w, assets/images/time-stamped-photos-600.webp?v=202611062245 600w, assets/images/time-stamped-photos-900.webp?v=202611062245 900w" sizes="(max-width: 768px) 225px, 300px" width="600" height="800" alt="Time-stamped photo documentation" loading="lazy" decoding="async">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Time-stamped documentation</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/Condenser-Top-Off.jpg?v=202602111900" alt="Condenser inspection" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Condenser inspection</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/filter.jpg?v=202601150900" alt="Filter inspection" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Filter inspection</p>
-                            </div>
-                            <div class="evidence-slide">
-                                <img src="assets/images/duct_clean.jpg?v=202601150900" alt="Duct cleaning" loading="lazy">
-                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Duct cleaning</p>
-                            </div>
-                        </div>
-                        <button class="evidence-nav evidence-nav-next" type="button" aria-label="Next">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
-                    </div>
-                    <div class="evidence-dots" data-evidence-dots>
-                        <span class="evidence-dot active"></span>
-                        <span class="evidence-dot"></span>
-                        <span class="evidence-dot"></span>
-                        <span class="evidence-dot"></span>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/about" class="cta-secondary">Learn More About Us →</a>
-                </div>
-            </div>
-        </section>
 
         <!-- SERVICES OVERVIEW -->
         <section class="services">
@@ -868,6 +811,68 @@
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="/reviews" class="cta-secondary">Read More Reviews →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT "CRAZY" MEANS - Brief -->
+        <section class="homepage-section crazy-cards-section">
+            <div class="container">
+                <h2 class="homepage-headline">What "<span style="color: var(--primary-color);">Crazy</span>" means to us</h2>
+                <div class="crazy-cards-grid" style="max-width: 900px; margin: 0 auto;">
+                    <div class="crazy-card">
+                        <h3>Texas weather is crazy. 110° summers. Freezing winters. We get crazy right back. <strong>That's Crazy.</strong></h3>
+                    </div>
+                    <div class="crazy-card">
+                        <h3>You get a transparency link via text. Photos/Videos appear seconds after we take them. <strong>That's Crazy.</strong></h3>
+                    </div>
+                    <div class="crazy-card">
+                        <h3>Every service helps another family. A portion of every job supports our Comfort to All program for families in need. <strong>That's Crazy.</strong></h3>
+                    </div>
+                </div>
+                
+                <!-- Tech Vision - Live Photos -->
+                <div class="evidence-pack-card" style="max-width: 500px; margin: 3rem auto 2rem;">
+                    <div class="evidence-pack-header">
+                        <span class="evidence-pack-label">Tech Vision</span>
+                        <span class="evidence-pack-sub">Live from real service calls</span>
+                    </div>
+                    <div class="evidence-carousel" data-evidence-carousel>
+                        <button class="evidence-nav evidence-nav-prev" type="button" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="evidence-slides">
+                            <div class="evidence-slide active">
+                                <img src="assets/images/time-stamped-photos-600.webp?v=202611062245" srcset="assets/images/time-stamped-photos-450.webp?v=202611062245 450w, assets/images/time-stamped-photos-600.webp?v=202611062245 600w, assets/images/time-stamped-photos-900.webp?v=202611062245 900w" sizes="(max-width: 768px) 225px, 300px" width="600" height="800" alt="Time-stamped photo documentation" loading="lazy" decoding="async">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Time-stamped documentation</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/Condenser-Top-Off.jpg?v=202602111900" alt="Condenser inspection" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Condenser inspection</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/filter.jpg?v=202601150900" alt="Filter inspection" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Filter inspection</p>
+                            </div>
+                            <div class="evidence-slide">
+                                <img src="assets/images/duct_clean.jpg?v=202601150900" alt="Duct cleaning" loading="lazy">
+                                <p class="evidence-caption"><span class="caption-badge">Live Photo</span> Duct cleaning</p>
+                            </div>
+                        </div>
+                        <button class="evidence-nav evidence-nav-next" type="button" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="evidence-dots" data-evidence-dots>
+                        <span class="evidence-dot active"></span>
+                        <span class="evidence-dot"></span>
+                        <span class="evidence-dot"></span>
+                        <span class="evidence-dot"></span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/about" class="cta-secondary">Learn More About Us →</a>
                 </div>
             </div>
         </section>

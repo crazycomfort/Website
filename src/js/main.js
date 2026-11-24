@@ -197,8 +197,23 @@ function initWrapChrome() {
     }
 }
 
+function ensureHeaderPhone() {
+    document.querySelectorAll('.nav-actions').forEach(function (actions) {
+        if (actions.querySelector('.nav-phone')) return;
+        var phone = document.createElement('a');
+        phone.className = 'nav-phone';
+        phone.href = 'tel:832-403-7466';
+        phone.textContent = '832-403-7466';
+        actions.insertBefore(phone, actions.firstChild);
+    });
+    document.querySelectorAll('.nav-menu a[href="/service-area"]').forEach(function (link) {
+        if (link.textContent.trim() === 'Service Area') link.textContent = 'Service Areas';
+    });
+}
+
 function initSiteChrome() {
     ensureBookBar();
+    ensureHeaderPhone();
     initBookBarClearance();
     initSectionFolds();
     initWrapChrome();
