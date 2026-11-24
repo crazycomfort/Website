@@ -147,6 +147,18 @@ function initSectionFolds() {
     });
 }
 
+function heroTrustRow(hero) {
+    var rows = hero.querySelectorAll('div');
+    for (var i = 0; i < rows.length; i++) {
+        var row = rows[i];
+        var spans = row.querySelectorAll(':scope > span');
+        if (spans.length < 2) continue;
+        var blob = row.textContent || '';
+        if (/licensed/i.test(blob) && /fast local|woman-owned|trip fee|photo/i.test(blob)) return row;
+    }
+    return null;
+}
+
 function initWrapChrome() {
     if (!document.body || !document.body.classList.contains('site-brand')) return;
     if (!document.querySelector('link[data-cc-fonts]')) {
@@ -159,13 +171,27 @@ function initWrapChrome() {
     var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
     if (adPage) return;
     var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
-    if (hero && !hero.querySelector('.cc-trust') && !document.querySelector('.cc-trust')) {
+    if (hero && !document.querySelector('.cc-trust')) {
         var trust = document.createElement('ul');
         trust.className = 'cc-trust';
-        trust.innerHTML = '<li>Licensed &amp; insured</li><li>Upfront pricing</li><li>Photo-documented service</li><li>TACLA00048090C</li>';
-        var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
-        if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
-        else hero.appendChild(trust);
+        var items = ['Licensed & insured', 'Upfront pricing', 'Photo-documented service', 'TACLA00048090C'];
+        var local = heroTrustRow(hero);
+        if (local) {
+            local.querySelectorAll(':scope > span').forEach(function (span) {
+                var text = span.textContent.replace(/[✓✔]/g, '').replace(/\s+/g, ' ').trim();
+                if (!text || /licensed\s*&\s*insured/i.test(text)) return;
+                if (/photo/i.test(text) || /upfront|flat-rate pricing/i.test(text)) return;
+                if (items.indexOf(text) === -1) items.push(text);
+            });
+            local.replaceWith(trust);
+        } else {
+            var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
+            if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
+            else hero.appendChild(trust);
+        }
+        trust.innerHTML = items.map(function (item) {
+            return '<li>' + item.replace(/&/g, '&amp;') + '</li>';
+        }).join('');
     }
     var footer = document.querySelector('footer');
     if (!footer) return;
