@@ -1191,14 +1191,15 @@ body.site-brand .testimonials .cta-secondary {
     color: #f5f5f5 !important;
 }
 
-body.site-brand .cc-stars {
-    color: #1f1a2e !important;
+body.site-brand .cc-stars,
+.cc-stars {
+    color: #FFB800 !important;
     font-size: 20px !important;
     font-weight: 800 !important;
     letter-spacing: 0.12em;
     line-height: 1 !important;
     background: none !important;
-    -webkit-text-fill-color: #1f1a2e !important;
+    -webkit-text-fill-color: #FFB800 !important;
 }
 
 body.site-brand .testimonials .cc-stars,
@@ -2207,11 +2208,23 @@ body.site-brand .cc-price-badge {
     text-shadow: none !important;
 }
 
-.lp-hero .lp-rating-row {
-    display: flex;
+.lp-hero .lp-rating-row,
+.hc-hero .hc-rating-row {
+    display: flex !important;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 0.4rem 0.5rem;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100%;
+    margin: 0 0 0.5rem !important;
+    text-align: left !important;
+}
+
+.lp-hero .lp-rating-row .cc-rating,
+.lp-hero .lp-rating-row .cc-price-badge,
+.hc-hero .hc-rating-row .cc-rating {
+    margin: 0 !important;
+    width: auto !important;
 }
 
 .cc-service-guide .cc-price-badge {
@@ -2279,5 +2292,87 @@ body.lp-light .lp-hero .container > .cc-van-strip,
     .hc-hero.lp-hero-grid {
         grid-template-columns: 1fr;
         gap: 8px;
+    }
+}
+
+/* One hero button size: 48px, 19px bold, same padding on both sides of a pair. */
+body.site-brand .page-contact > a,
+body.site-brand .lp-actions > a,
+body.site-brand .hero-new .cta-buttons > a,
+body.site-brand .hc-actions > a {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 1.25rem !important;
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    body.site-brand .page-contact > a,
+    body.site-brand .lp-actions > a,
+    body.site-brand .hero-new .cta-buttons > a,
+    body.site-brand .hc-actions > a {
+        width: 100% !important;
+    }
+}
+
+/* Centered heroes: headline, copy, buttons, and the trust row share one center line. */
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) .homepage-headline,
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) .homepage-body,
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) .homepage-body p,
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) > .container > p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) .cc-trust,
+body.site-brand:not(.lp-light) main > .homepage-section:first-of-type:not(.hero-new) .page-contact {
+    justify-content: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cc-rating .cc-stars,
+.top-bar-badge .cc-stars {
+    font-size: 1em !important;
+    letter-spacing: 0 !important;
+}
+
+.cc-chip-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: min(720px, 100%);
+    margin: 0.25rem auto 0.5rem;
+}
+
+.cc-chip-row > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: #f3f0ea;
+    color: #1f1a2e !important;
+    -webkit-text-fill-color: #1f1a2e !important;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .cc-chip-row {
+        grid-template-columns: 1fr;
     }
 }
