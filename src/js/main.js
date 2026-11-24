@@ -161,12 +161,22 @@ function initWrapChrome() {
     var adPage = document.body.classList.contains('lp-light') || document.body.classList.contains('hc-page');
     if (adPage) return;
     var hero = document.querySelector('.hero-new') || document.querySelector('main .homepage-section');
-    if (hero && !document.querySelector('.cc-hero-art') && !hero.querySelector('.cc-jester')) {
-        var art = document.createElement('div');
-        art.className = 'cc-hero-art';
-        art.innerHTML = '<img class="cc-jester" src="/assets/images/brand/jester.webp" width="205" height="342" alt="">'
-            + '<img class="lp-van-cut" src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van">';
-        hero.appendChild(art);
+    if (hero && !hero.querySelector('.cc-jester')) {
+        var jester = document.createElement('img');
+        jester.className = 'cc-jester';
+        jester.src = '/assets/images/brand/jester.webp';
+        jester.width = 205;
+        jester.height = 342;
+        jester.alt = '';
+        hero.appendChild(jester);
+    }
+    if (hero && !hero.querySelector('.cc-trust') && !document.querySelector('.cc-trust')) {
+        var trust = document.createElement('ul');
+        trust.className = 'cc-trust';
+        trust.innerHTML = '<li>Licensed &amp; insured</li><li>Upfront pricing</li><li>Photo-documented service</li><li>TACLA00048090C</li>';
+        var actions = hero.querySelector('.cta-buttons, .page-contact, .lp-actions');
+        if (actions && actions.parentNode) actions.parentNode.insertBefore(trust, actions.nextSibling);
+        else hero.appendChild(trust);
     }
     var footer = document.querySelector('footer');
     if (!footer) return;
@@ -174,7 +184,7 @@ function initWrapChrome() {
         var strip = document.createElement('section');
         strip.className = 'cc-van-strip';
         strip.setAttribute('aria-label', 'Crazy Comfort service van');
-        strip.innerHTML = '<img src="/assets/images/brand/service-van.webp" width="1200" height="600" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">';
+        strip.innerHTML = '<img src="/assets/images/brand/service-van-cut.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" loading="lazy" decoding="async">';
         footer.parentNode.insertBefore(strip, footer);
     }
     if (!document.querySelector('.cc-book-prompt')) {
