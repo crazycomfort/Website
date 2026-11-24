@@ -1588,7 +1588,7 @@ if (document.readyState === 'loading') {
         initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
-        initChatbot();
+        scheduleChatbot();
         initExitPopup();
     });
 } else {
@@ -1596,6 +1596,22 @@ if (document.readyState === 'loading') {
     initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();
-    initChatbot();
+    scheduleChatbot();
     initExitPopup();
+}
+
+function scheduleChatbot() {
+    if (window.__ccChatScheduled) return;
+    window.__ccChatScheduled = true;
+    var started = false;
+    function start() {
+        if (started) return;
+        started = true;
+        initChatbot();
+    }
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2000); };
+    idle(start, { timeout: 4000 });
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+        window.addEventListener(eventName, start, { once: true, passive: true });
+    });
 }

@@ -12,7 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" imagesrcset="/assets/images/brand/service-van-cut-640.webp 640w, /assets/images/brand/service-van-cut-960.webp 960w, /assets/images/brand/service-van-cut.webp 1129w" imagesizes="(max-width: 899px) 92vw, 42vw" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
     <!-- Header logo swap: assets/images/brand/wordmark.svg until the final logo arrives -->
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
@@ -38,7 +39,10 @@
         .hero-new { min-height: 0; display: flex; align-items: flex-start; justify-content: center; padding: var(--total-header-height) 0 1.5rem; background: linear-gradient(180deg, #eaff99 0%, #f4ffd6 55%, #ffffff 100%); }
         .hero-new-grid { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; text-align: left; width: 100%; min-height: 0; }
         .hero-new-left { display: flex; flex-direction: column; align-items: flex-start; text-align: left; width: 100%; max-width: 800px; }
-        .hero-new-headline { font-size: 4rem; font-weight: 900; line-height: 1.05; color: #141414; margin: 0.35rem 0 0.4rem; letter-spacing: -0.03em; text-shadow: none; }
+        .hero-new-headline { font-family: "Lilita One", Nunito, sans-serif; font-size: 4rem; font-weight: 400; line-height: 1.05; color: #141414; margin: 0.35rem 0 0.4rem; letter-spacing: 0.01em; text-shadow: none; }
+        .cc-rating { display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; border-radius: 999px; background: #c6ff00; color: #1f1a2e; font-weight: 800; text-decoration: none; }
+        .cc-hero-visual { display: flex; justify-content: center; }
+        .cc-hero-visual .lp-van-cut { display: block; width: min(100%, 460px); height: auto; }
         .hero-new-headline strong { color: #1f1a2e; display: block; font-size: 1.1em; }
         .hero-new-body { color: #333333; font-size: 1.05rem; line-height: 1.5; margin: 0; max-width: 36rem; text-shadow: none; }
         p { color: #1f1a2e; }
@@ -68,7 +72,7 @@
             .nav-menu { display: none; }
             .nav-menu.active { display: flex; position: fixed; top: var(--total-header-height); left: 0; right: 0; z-index: 9999; flex-direction: column; gap: 0; width: 100%; background: #ffffff; padding: 0.75rem 0 1rem; }
             .hero-new { padding: calc(var(--total-header-height) + 1rem) 0 2rem; }
-            .hero-new-headline { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0.35rem 0 0.4rem; letter-spacing: normal; text-shadow: none; }
+            .hero-new-headline { font-size: 2rem; font-weight: 400; line-height: 1.15; margin: 0.35rem 0 0.4rem; letter-spacing: 0.01em; text-shadow: none; }
             .hero-new-body { width: 100%; margin-bottom: 0; }
             .hero-new-cta { margin-top: 0.9rem; width: 100%; align-items: stretch; gap: 0.65rem; }
             .cta-buttons { flex-direction: column; width: 100%; }
@@ -95,8 +99,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lilitaone/v17/i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link data-cc-fonts href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link data-cc-fonts rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     
@@ -138,9 +142,8 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611242230" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611242230"></noscript>
-    <script>!function(){var l=document.getElementById('site-css');if(!l)return;function a(){l.media='all'}if(l.sheet)a();else l.addEventListener('load',a)}();</script>
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611242330" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/dist/styles.css?v=202611242330"></noscript>
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
     <script type="application/ld+json">
@@ -442,11 +445,18 @@
     </script>
 <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+(function () {
+  function start() {
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1915662');
+  }
+  function later() {
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2500); };
+    idle(start, { timeout: 5000 });
+  }
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later);
+})();
 </script>
 <!-- End MailerLite Universal -->
 </head>
@@ -456,7 +466,7 @@
         <nav class="nav container">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort Logo" class="logo-image" width="2000" height="2000" fetchpriority="high">
+                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort Logo" class="logo-image" width="220" height="72" decoding="async">
                 </a>
             </div>
             <ul class="nav-menu">
@@ -645,7 +655,12 @@
                     </ul>
                 </div>
                 <div class="cc-hero-visual">
-                    <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-960.webp" srcset="/assets/images/brand/service-van-cut-640.webp 640w, /assets/images/brand/service-van-cut-960.webp 960w, /assets/images/brand/service-van-cut.webp 1129w" sizes="(max-width: 899px) 92vw, 42vw" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                    <picture>
+                        <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                        <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
+                        <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                        <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -1227,6 +1242,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611242230"></script>
+    <script src="/dist/main.js?v=202611242330" defer></script>
 </body>
 </html>

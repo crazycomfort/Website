@@ -25,7 +25,10 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/lilitaone/v17/i7dPIFZ9Zz-WBtRtedDbYEF8RXi4EwQ.woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
     <link rel="stylesheet" href="/dist/styles.css?v=202611242330">
     <style>
         .hc-page {
@@ -536,14 +539,20 @@
     </style>
 <!-- MailerLite Universal -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+(function () {
+  function start() {
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1915662');
+  }
+  function later() {
+    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2500); };
+    idle(start, { timeout: 5000 });
+  }
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later);
+})();
 </script>
 <!-- End MailerLite Universal -->
-    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" imagesrcset="/assets/images/brand/service-van-cut-640.webp 640w, /assets/images/brand/service-van-cut-960.webp 960w, /assets/images/brand/service-van-cut.webp 1129w" imagesizes="(max-width: 899px) 92vw, 42vw" fetchpriority="high">
 </head>
 <body class="hc-page lp-light has-book-bar site-brand">
     <a href="#book" class="skip-to-content">Skip to booking form</a>
@@ -573,7 +582,12 @@
                 </ul>
                 </div>
                 <div class="cc-van-strip">
-                    <img class="hc-van-cut" src="/assets/images/brand/service-van-cut-960.webp" srcset="/assets/images/brand/service-van-cut-640.webp 640w, /assets/images/brand/service-van-cut-960.webp 960w, /assets/images/brand/service-van-cut.webp 1129w" sizes="(max-width: 899px) 92vw, 520px" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                    <picture>
+                    <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                    <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
+                    <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                    <img class="hc-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                </picture>
                 </div>
             </section>
 
@@ -646,6 +660,6 @@
         <a class="book-bar-call" href="tel:832-403-7466">Call</a>
         <a class="book-bar-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check sticky" target="_blank" rel="noopener noreferrer">Book Online</a>
     </nav>
-    <script src="/dist/main.js?v=202611242230"></script>
+    <script src="/dist/main.js?v=202611242330" defer></script>
 </body>
 </html>
