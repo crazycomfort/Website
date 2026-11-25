@@ -669,7 +669,7 @@
                         <form class="feedback-form" name="review-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFeedbackSubmit(event)">
                             <input type="hidden" name="form-name" value="review-feedback">
                             <input type="hidden" name="rating" id="rating-input" value="">
-                            <p style="display:none"><input name="bot-field"></p>
+                            <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                             
                             <div class="form-field">
                                 <label for="feedback-name">Your Name</label>
