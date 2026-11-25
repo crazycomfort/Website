@@ -112,16 +112,30 @@ function initBookBarClearance() {
 const HCP_BOOKING_URL = 'https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true';
 
 function ensureBookBar() {
-    if (document.querySelector('.book-bar')) {
-        document.body.classList.add('has-book-bar');
-        return;
+    var href = requestServiceHref();
+    var bar = document.querySelector('.book-bar');
+    if (!bar) {
+        bar = document.createElement('nav');
+        bar.className = 'book-bar';
+        document.body.appendChild(bar);
     }
-    const nav = document.createElement('nav');
-    nav.className = 'book-bar';
-    nav.setAttribute('aria-label', 'Call or book online');
-    nav.innerHTML = '<a class="book-bar-call" href="tel:832-403-7466">Call</a>'
-        + '<a class="book-bar-book" href="' + HCP_BOOKING_URL + '" data-track="book-online" data-book-label="Sitewide sticky" target="_blank" rel="noopener noreferrer">Book Online</a>';
-    document.body.appendChild(nav);
+    bar.setAttribute('aria-label', 'Call or request service');
+    if (!bar.querySelector('.book-bar-call')) {
+        var call = document.createElement('a');
+        call.className = 'book-bar-call';
+        call.href = 'tel:832-403-7466';
+        call.textContent = 'Call';
+        bar.insertBefore(call, bar.firstChild);
+    }
+    bar.querySelectorAll('.book-bar-book').forEach(function (node) { node.remove(); });
+    var request = bar.querySelector('.book-bar-request');
+    if (!request) {
+        request = document.createElement('a');
+        request.className = 'book-bar-request';
+        bar.appendChild(request);
+    }
+    request.href = href;
+    request.textContent = 'Request Service';
     document.body.classList.add('has-book-bar');
 }
 
