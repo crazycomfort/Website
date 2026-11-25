@@ -2421,3 +2421,50 @@ body.site-brand .request-form select {
         padding-bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
     }
 }
+
+/* Mobile header: keep the full wordmark inside the 56px bar, centered with Book and the menu. */
+@media (max-width: 768px) {
+    body.site-brand .header,
+    body.lp-light .header,
+    .hc-bar {
+        display: flex !important;
+        align-items: center !important;
+        overflow: visible !important;
+    }
+
+    body.site-brand .header .nav,
+    body.lp-light .header .nav {
+        align-items: center !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    body.site-brand .header .logo,
+    body.site-brand .header .logo a,
+    body.lp-light .header .logo,
+    body.lp-light .header .logo a,
+    .hc-bar .hc-logo {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body.site-brand .header .logo-image,
+    body.lp-light .header .logo-image,
+    .hc-bar .hc-logo img {
+        display: block !important;
+        height: 44px !important;
+        width: auto !important;
+        max-width: calc(100vw - 11.5rem) !important;
+        max-height: 44px !important;
+        aspect-ratio: 1100 / 540 !important;
+        object-fit: contain !important;
+        object-position: left center !important;
+        transform: none !important;
+    }
+}
