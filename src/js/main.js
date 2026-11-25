@@ -1115,52 +1115,6 @@ if (document.readyState === 'loading') {
     initTrustCardAnimations();
 }
 
-// Evidence Pack Carousel
-function initEvidenceCarousel() {
-    const carousel = document.querySelector('[data-evidence-carousel]');
-    if (!carousel) return;
-
-    const slides = carousel.querySelectorAll('.evidence-slide');
-    const prevBtn = carousel.querySelector('.evidence-nav-prev');
-    const nextBtn = carousel.querySelector('.evidence-nav-next');
-    const dotsContainer = document.querySelector('[data-evidence-dots]');
-    const dots = dotsContainer ? dotsContainer.querySelectorAll('.evidence-dot') : [];
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    
-    // Click on dots to navigate
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            currentSlide = i;
-            showSlide(currentSlide);
-        });
-    });
-
-    // Auto-rotate every 5 seconds
-    setInterval(nextSlide, 5000);
-}
-
 // Attic Modal
 function initAtticModal() {
     const openBtn = document.querySelector('[data-open-attic-modal]');
@@ -1585,7 +1539,6 @@ function markWrapWords() {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         markWrapWords();
-        initEvidenceCarousel();
         initAtticModal();
         initScrollAnimations();
         scheduleChatbot();
@@ -1593,7 +1546,6 @@ if (document.readyState === 'loading') {
     });
 } else {
     markWrapWords();
-    initEvidenceCarousel();
     initAtticModal();
     initScrollAnimations();
     scheduleChatbot();
