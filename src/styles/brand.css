@@ -1994,6 +1994,22 @@ body.site-brand .heating-check-promo-actions {
         grid-row: auto;
         margin-top: 0.6rem !important;
     }
+    body.site-brand .heating-check-promo-title {
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 420px) {
+    body.site-brand .heating-check-promo-title {
+        font-size: 15.5px !important;
+    }
+
+    body.site-brand .heating-check-promo-price {
+        font-size: 15px !important;
+        padding: 0.08rem 0.4rem !important;
+    }
 }
 
 /* Pink chips: large bold white text on brand pink. */
@@ -2437,7 +2453,14 @@ body.site-brand .request-form select {
     body.has-book-bar .chatbot-widget,
     body:has(.book-bar) .chatbot-widget,
     .chatbot-widget {
-        bottom: calc(4.5rem + env(safe-area-inset-bottom)) !important;
+        left: 12px !important;
+        right: auto !important;
+        bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important;
+    }
+
+    .chatbot-window {
+        left: 0 !important;
+        right: auto !important;
     }
 }
 
