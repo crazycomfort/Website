@@ -237,9 +237,56 @@ function ensureHeaderPhone() {
     });
 }
 
+function requestServiceHref() {
+    var local = document.getElementById('request') || document.getElementById('request-service');
+    if (local) return '#' + local.id;
+    var form = document.querySelector('form.request-form, form.contact-form, form[name="heating-check"]');
+    if (form) {
+        if (!form.id) form.id = 'request';
+        var section = form.closest('section');
+        if (section && !section.id) section.id = 'request';
+        return '#' + (section && section.id ? section.id : form.id);
+    }
+    return '/#request-service';
+}
+
+function ensureRequestService() {
+    var href = requestServiceHref();
+    document.querySelectorAll('.page-contact, .cta-buttons, .hc-actions, .lp-actions').forEach(function (group) {
+        if (group.querySelector('.page-contact-request')) return;
+        var hasBook = group.querySelector('a[href*="housecallpro.com"]');
+        var hasCall = group.querySelector('a[href^="tel:"]');
+        if (!hasBook || !hasCall) return;
+        var link = document.createElement('a');
+        link.className = 'page-contact-request';
+        link.href = href;
+        link.textContent = 'Request Service';
+        group.appendChild(link);
+    });
+    document.querySelectorAll('.book-bar').forEach(function (bar) {
+        if (bar.querySelector('.book-bar-request')) return;
+        var link = document.createElement('a');
+        link.className = 'book-bar-request';
+        link.href = href;
+        link.textContent = 'Request Service';
+        bar.appendChild(link);
+    });
+    document.querySelectorAll('.nav-actions').forEach(function (actions) {
+        if (actions.querySelector('.nav-request')) return;
+        var link = document.createElement('a');
+        link.className = 'nav-request';
+        link.href = href;
+        link.textContent = 'Request Service';
+        var menu = actions.querySelector('.menu-toggle');
+        if (menu) actions.insertBefore(link, menu);
+        else actions.appendChild(link);
+    });
+}
+
 function initSiteChrome() {
     ensureBookBar();
     ensureHeaderPhone();
+    ensureRequestService();
     initBookBarClearance();
     initSectionFolds();
     initWrapChrome();
@@ -620,7 +667,9 @@ const LEAD_FORM_NAMES = new Set([
     'homepage-contact',
     'heating-check',
     'heating-repair-request',
-    'ac-repair-request'
+    'ac-repair-request',
+    'maintenance-request',
+    'ductwork-request'
 ]);
 const ADS_CONTACT_CONVERSION = 'AW-17839379589/-ZS0COa1_f8bEIWpvbpC';
 
@@ -642,7 +691,9 @@ function reportConfirmedLead(formName) {
             'homepage-contact': 'Homepage Contact Form Submission',
             'heating-check': '$49 Heating Check',
             'heating-repair-request': 'Heating Repair Request',
-            'ac-repair-request': 'AC Repair Request'
+            'ac-repair-request': 'AC Repair Request',
+            'maintenance-request': 'Maintenance Request',
+            'ductwork-request': 'Ductwork Request'
         };
         const leadEvent = {
             event_category: 'Contact',
