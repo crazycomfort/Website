@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NL2HPX23K3');
+        gtag('config', 'AW-17839379589');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>You're booked | Crazy Comfort</title>
+    <meta name="description" content="Your Crazy Comfort appointment is booked. We'll confirm by text or email and call when the technician is on the way.">
+    <link rel="icon" type="image/png" href="/assets/images/brand/favicon-logo.png">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lilita-one-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="/dist/styles.css?v=202611252200">
+    <style>
+        @font-face { font-family: "Lilita One"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/lilita-one-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        @font-face { font-family: Nunito; font-style: normal; font-weight: 400 800; font-display: swap; src: url("/assets/fonts/nunito-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+        .booked {
+            padding: calc(var(--total-header-height) + 1.25rem) 0 calc(5rem + env(safe-area-inset-bottom));
+            background: linear-gradient(180deg, #eaff99 0%, #f4ffd6 42%, #ffffff 100%);
+            color: #1f1a2e;
+        }
+        .booked-wrap {
+            width: min(720px, calc(100% - 2rem));
+            margin: 0 auto;
+        }
+        .booked h1 {
+            margin: 0 0 0.75rem;
+            color: #1f1a2e;
+            font-family: "Lilita One", Nunito, sans-serif;
+            font-size: clamp(2rem, 8vw, 3.25rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+        }
+        .booked-lead {
+            margin: 0 0 1.25rem;
+            max-width: 38rem;
+            color: #1f1a2e;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        .booked-van {
+            margin: 0 0 1.5rem;
+        }
+        .booked-van img {
+            display: block;
+            width: min(100%, 640px);
+            height: auto;
+            object-fit: contain;
+        }
+        .booked-next {
+            margin: 0;
+            padding: 1.15rem 1.15rem 1.25rem;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(31, 26, 46, 0.06);
+        }
+        .booked-next h2 {
+            margin: 0 0 0.85rem;
+            color: #1f1a2e;
+            font-family: "Lilita One", Nunito, sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+        .booked-steps {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .booked-steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 0 0 0.85rem;
+            color: #1f1a2e;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+        .booked-steps li:last-child { margin-bottom: 0; }
+        .booked-steps span {
+            flex: 0 0 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: #FF2D6D;
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .booked-change {
+            margin: 1.25rem 0 0;
+            color: #1f1a2e;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        .booked-change a {
+            color: #1f1a2e;
+            font-weight: 800;
+            white-space: nowrap;
+            text-decoration: underline;
+            text-decoration-color: #FF2D6D;
+            text-underline-offset: 3px;
+        }
+        .booked-tagline {
+            margin: 1.5rem 0 0;
+            color: #1f1a2e;
+            font-family: "Lilita One", Nunito, sans-serif;
+            font-size: clamp(1.35rem, 4vw, 1.8rem);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+    </style>
+</head>
+<body class="site-brand">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <div class="top-contact-bar">
+        <div class="container">
+            <a href="tel:832-403-7466" class="top-bar-phone">📞 832-403-7466</a>
+            <span class="top-bar-divider">|</span>
+            <a class="top-bar-badge cc-rating" href="/reviews"><span class="cc-stars" aria-hidden="true">★</span> 4.9 · 21 Google reviews</a>
+        </div>
+    </div>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/assets/images/brand/wordmark.svg" alt="Crazy Comfort" class="logo-image" width="280" height="120">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="/services">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/services/ac-repair">AC Repair</a></li>
+                        <li><a href="/services/heating-repair">Heating Repair</a></li>
+                        <li><a href="/services/system-replacement">System Replacement</a></li>
+                        <li><a href="/services/ductwork">Ductwork</a></li>
+                        <li><a href="/services/indoor-air-quality">Indoor Air Quality</a></li>
+                        <li><a href="/hvac-maintenance-plan">Maintenance Plans</a></li>
+                    </ul>
+                </li>
+                <li><a href="/service-area">Service Area</a></li>
+                <li><a href="/reviews">Reviews</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="nav-cta"><a href="/comfort-to-all">Comfort To All</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="nav-book" href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Header" target="_blank" rel="noopener noreferrer">Book Online</a>
+                <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="booked">
+        <div class="booked-wrap">
+            <h1>You're booked! Comfort is on the way.</h1>
+            <p class="booked-lead">Thanks for choosing Crazy Comfort. You'll get a confirmation from us by text or email with your arrival window. Our technician will call when they're on the way.</p>
+            <div class="booked-van">
+                <picture>
+                    <source type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
+                    <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
+                    <img src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                </picture>
+            </div>
+            <section class="booked-next" aria-labelledby="booked-next-title">
+                <h2 id="booked-next-title">What happens next</h2>
+                <ol class="booked-steps">
+                    <li><span>1</span> We confirm your appointment.</li>
+                    <li><span>2</span> Your technician arrives within your 2-hour window.</li>
+                    <li><span>3</span> You get upfront pricing before any work starts.</li>
+                </ol>
+            </section>
+            <p class="booked-change">Need to change something? Call us at <a href="tel:832-403-7466">832-403-7466</a></p>
+            <p class="booked-tagline">Comfort This Good is Crazy!</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Crazy Comfort</h3>
+                    <p>Woman-owned HVAC company providing transparent, documented service in Katy, Fulshear, and West Houston.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><a href="tel:832-403-7466">832-403-7466</a></li>
+                        <li><a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a></li>
+                        <li><span>Katy &amp; Fulshear, TX</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Crazy Comfort. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms &amp; Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var key = 'cc-booking-complete';
+            try {
+                if (sessionStorage.getItem(key) === '1') return;
+                sessionStorage.setItem(key, '1');
+            } catch (err) {
+                if (window.__ccBookingComplete) return;
+                window.__ccBookingComplete = true;
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'booking_complete', { send_to: 'G-NL2HPX23K3' });
+            }
+        })();
+    </script>
+    <script src="/dist/main.js?v=202611252200" defer></script>
+</body>
+</html>

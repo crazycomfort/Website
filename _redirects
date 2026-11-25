@@ -23,6 +23,9 @@
 /service-areas              /service-area/      301
 /service-areas/             /service-area/      301
 
+# Housecall Pro booking confirmation. Both slash forms serve the same page.
+/booking-confirmed          /booking-confirmed/index.html   200
+
 # Temporary Facebook campaign link for the $49 Heating Check
 /49heat                     /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302
 /49heat/                    /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302
