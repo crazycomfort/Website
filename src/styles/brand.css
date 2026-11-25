@@ -2468,3 +2468,110 @@ body.site-brand .request-form select {
         transform: none !important;
     }
 }
+
+/* Homepage phones: Book Online and Request Service share one row, Call is a
+   text link, and the service van stays fully on screen. Desktop is unchanged. */
+@media (max-width: 899px) {
+    body.site-brand .hero-new {
+        min-height: 0 !important;
+        padding: calc(var(--total-header-height) + 0.35rem) 0 2rem !important;
+    }
+
+    body.site-brand .hero-new-grid {
+        gap: 0.35rem !important;
+    }
+
+    body.site-brand .hero-new .lp-rating-row {
+        margin: 0 0 0.2rem !important;
+    }
+
+    body.site-brand .hero-new .cc-rating,
+    body.site-brand .hero-new .cc-rating:hover {
+        padding: 0.22rem 0.7rem !important;
+        font-size: 0.82rem !important;
+    }
+
+    body.site-brand .hero-new .hero-new-headline {
+        font-size: 26px !important;
+        line-height: 1.05 !important;
+        margin: 0 0 0.15rem !important;
+        padding-right: 0 !important;
+    }
+
+    body.site-brand .hero-new .hero-new-body,
+    body.site-brand .hero-new .hero-new-body p {
+        font-size: 15px !important;
+        line-height: 1.3 !important;
+    }
+
+    body.site-brand .hero-new-cta {
+        margin-top: 0.45rem !important;
+    }
+
+    body.site-brand .hero-new .cta-buttons {
+        display: grid !important;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 0.35rem 0.45rem !important;
+        width: 100% !important;
+        align-items: center !important;
+    }
+
+    body.site-brand .hero-new .cta-buttons > .cta-primary,
+    body.site-brand .hero-new .cta-buttons > .page-contact-request {
+        grid-row: 1;
+        width: 100% !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        padding: 0 0.4rem !important;
+        font-size: 19px !important;
+        letter-spacing: -0.02em;
+    }
+
+    body.site-brand .hero-new .cta-buttons > .cta-primary {
+        grid-column: 1;
+    }
+
+    body.site-brand .hero-new .cta-buttons > .page-contact-request {
+        grid-column: 2;
+    }
+
+    body.site-brand .hero-new .cta-buttons > .cta-secondary,
+    body.site-brand .hero-new .cta-buttons > .cta-secondary:hover {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: start;
+        width: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        color: #1f1a2e !important;
+        -webkit-text-fill-color: #1f1a2e !important;
+        font-size: 16px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        text-shadow: none !important;
+        text-decoration: underline !important;
+        text-decoration-color: #FF2D6D !important;
+        text-underline-offset: 3px;
+    }
+
+    body.site-brand .hero-new .cc-trust {
+        margin: 0.35rem 0 0 !important;
+        gap: 0.1rem 0.65rem !important;
+        padding-right: 0 !important;
+    }
+
+    body.site-brand .hero-new .cc-trust li {
+        font-size: 0.75rem !important;
+        line-height: 1.25 !important;
+    }
+
+    body.site-brand .hero-new .cc-hero-visual {
+        margin-top: 0.15rem !important;
+    }
+}
