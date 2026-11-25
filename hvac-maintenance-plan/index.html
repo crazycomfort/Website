@@ -32,7 +32,7 @@
     <meta name="twitter:description" content="One comprehensive HVAC system service per year. Priority scheduling, member discounts, and photo documentation.">
     <meta name="twitter:image" content="https://crazycomfort.com/assets/images/social-share.png">
     
-    <link rel="stylesheet" href="/dist/styles.css?v=202611242230">
+    <link rel="stylesheet" href="/dist/styles.css?v=202611251610">
 <!-- MailerLite Universal -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -103,6 +103,47 @@
                 <div class="page-contact">
                     <a class="page-contact-call" href="tel:832-403-7466">Call About Maintenance</a>
                     <a class="page-contact-book" href="/contact">Schedule Maintenance</a>
+                    <a class="page-contact-request" href="#request">Request Service</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="homepage-section lp-request" id="request">
+            <div class="container">
+                <div class="request-card">
+                    <div class="request-card-head">
+                        <h2>Request service</h2>
+                        <p>Tell us what you need. We will call you back. This does not confirm an appointment.</p>
+                    </div>
+                    <form class="contact-form request-form" name="maintenance-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="maintenance-request">
+                        <p style="display:none"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                        <div class="request-fields-row">
+                            <label class="request-field"><span class="request-field-label">Name</span><input type="text" name="name" autocomplete="name" required></label>
+                            <label class="request-field"><span class="request-field-label">Phone</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
+                        </div>
+                        <label class="request-field"><span class="request-field-label">Email <span class="request-optional">Optional</span></span><input type="email" name="email" autocomplete="email"></label>
+                        <label class="request-field"><span class="request-field-label">Service needed</span>
+                            <select name="service_needed" required>
+                                <option value="Maintenance plan" selected>Maintenance plan</option>
+                                <option value="AC repair">AC repair</option>
+                                <option value="Heating repair">Heating repair</option>
+                                <option value="Ductwork">Ductwork</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </label>
+                        <label class="request-field"><span class="request-field-label">City <span class="request-optional">Optional</span></span><input type="text" name="city" autocomplete="address-level2"></label>
+                        <label class="request-field"><span class="request-field-label">Message <span class="request-optional">Optional</span></span><textarea name="message" rows="3" placeholder="What should we know before we call?"></textarea></label>
+                        <details class="lp-consent">
+                            <summary>Text messages (optional)</summary>
+                            <div class="request-consent">
+                                <label class="request-consent-label"><input type="checkbox" name="sms_non_marketing_consent" value="yes"><span><span class="request-consent-title">Service updates</span><span class="request-consent-copy">I agree to receive non-marketing text messages from Crazy Comfort about appointment reminders and service updates.</span></span></label>
+                                <p class="request-consent-note">Optional. Message frequency varies. Message and data rates may apply. Reply STOP to opt out.</p>
+                            </div>
+                        </details>
+                        <button type="submit" class="request-submit cc-request-submit">Request Service</button>
+                        <p class="request-legal"><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-conditions">Terms &amp; Conditions</a></p>
+                    </form>
                 </div>
             </div>
         </section>
@@ -452,6 +493,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611242230"></script>
+    <script src="/dist/main.js?v=202611251610"></script>
 </body>
 </html>
