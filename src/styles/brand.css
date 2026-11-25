@@ -318,6 +318,37 @@ body.site-brand .contact-form {
     color: var(--cc-ink) !important;
 }
 
+.netlify-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.request-homeowner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 0.9rem 0 1rem;
+    color: #1f1a2e;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.request-homeowner input {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15rem;
+    accent-color: #FF2D6D;
+}
+
 body.site-brand .request-card-head {
     background: var(--cc-lime) !important;
 }

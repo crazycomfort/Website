@@ -129,7 +129,7 @@
                     </div>
                     <form class="contact-form request-form" name="ductwork-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="ductwork-request">
-                        <p style="display:none"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                        <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                         <div class="request-fields-row">
                             <label class="request-field"><span class="request-field-label">Name</span><input type="text" name="name" autocomplete="name" required></label>
                             <label class="request-field"><span class="request-field-label">Phone</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
@@ -153,7 +153,8 @@
                                 <p class="request-consent-note">Optional. Message frequency varies. Message and data rates may apply. Reply STOP to opt out.</p>
                             </div>
                         </details>
-                        <button type="submit" class="request-submit cc-request-submit">Request Service</button>
+                        <label class="request-homeowner"><input type="checkbox" name="homeowner_request" value="yes" required> <span>I'm a homeowner or property manager requesting HVAC service</span></label>
+<button type="submit" class="request-submit cc-request-submit">Request Service</button>
                         <p class="request-legal"><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-conditions">Terms &amp; Conditions</a></p>
                     </form>
                 </div>

@@ -1267,7 +1267,7 @@ function initExitPopup() {
                     <p>Get $50 off your first AC repair or tune-up. Just enter your info below and we'll send your exclusive discount code.</p>
                     <form class="exit-popup-form" name="exit-popup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="exitPopupForm">
                         <input type="hidden" name="form-name" value="exit-popup">
-                        <p style="display:none"><input name="bot-field"></p>
+                        <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="tel" name="phone" placeholder="Phone Number" required>
                         <input type="email" name="email" placeholder="Email Address" required>

@@ -1016,7 +1016,7 @@
                         </div>
                         <form class="contact-form request-form" name="homepage-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                             <input type="hidden" name="form-name" value="homepage-contact">
-                            <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+                            <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                             <p class="request-disclaimer" style="margin-top: 0;">Name, phone, and email are required.</p>
                             <div class="request-fields-row">
                                 <label class="request-field">
@@ -1059,7 +1059,8 @@
                                 <p class="request-consent-note">Checking either box is optional and is not required to send this request. Message frequency varies. Message and data rates may apply. Reply STOP to opt out. For help, call <a href="tel:832-403-7466">832-403-7466</a> or email <a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a>.</p>
                             </div>
                             <p class="request-disclaimer" style="margin-top: 0;">Sending this request does not confirm an appointment.</p>
-                            <button type="submit" class="request-submit">Send Request</button>
+                            <label class="request-homeowner"><input type="checkbox" name="homeowner_request" value="yes" required> <span>I'm a homeowner or property manager requesting HVAC service</span></label>
+<button type="submit" class="request-submit">Send Request</button>
                             <p class="request-legal"><a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-conditions">Terms &amp; Conditions</a></p>
                         </form>
                     </div>

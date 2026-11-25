@@ -148,7 +148,7 @@
                         <input type="hidden" name="utm_campaign" value="">
                         <input type="hidden" name="utm_content" value="">
                         <input type="hidden" name="utm_term" value="">
-                        <p style="display: none;"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                        <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                         <div class="request-fields-row">
                             <label class="request-field">
                                 <span class="request-field-label">Name</span>
@@ -167,7 +167,8 @@
                             <span class="request-field-label">What is going on?</span>
                             <textarea id="heat-issue" name="issue" rows="3" required aria-required="true" placeholder="No heat, blowing cold air, strange noise…"></textarea>
                         </label>
-                        <button type="submit" class="request-submit">Request a Call Back</button>
+                        <label class="request-homeowner"><input type="checkbox" name="homeowner_request" value="yes" required> <span>I'm a homeowner or property manager requesting HVAC service</span></label>
+<button type="submit" class="request-submit">Request a Call Back</button>
                         <p class="request-disclaimer">This form requests a call back. It does not confirm an appointment. To pick a time now, use <a href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="Heating repair form note" target="_blank" rel="noopener noreferrer">Book Online</a>.</p>
                         <details class="lp-consent">
                             <summary>Text messages (optional)</summary>

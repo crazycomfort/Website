@@ -71,14 +71,15 @@
                 <form class="contact-form request-form" name="brookshire-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="brookshire-request">
                     <input type="hidden" name="service_requested" value="Brookshire HVAC">
-                    <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+                    <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                     <div class="request-fields-row">
                         <label class="request-field"><span class="request-field-label">Name</span><input type="text" name="name" required></label>
                         <label class="request-field"><span class="request-field-label">Phone</span><input type="tel" name="phone" required></label>
                     </div>
                     <label class="request-field"><span class="request-field-label">ZIP</span><input type="text" name="zip" required></label>
                     <label class="request-field"><span class="request-field-label">What is going on?</span><textarea name="issue" rows="3" required></textarea></label>
-                    <button type="submit" class="request-submit">Request a Call Back</button>
+                    <label class="request-homeowner"><input type="checkbox" name="homeowner_request" value="yes" required> <span>I'm a homeowner or property manager requesting HVAC service</span></label>
+<button type="submit" class="request-submit">Request a Call Back</button>
                 </form>
             </div></div>
         </section>

@@ -612,7 +612,7 @@
                     <input type="hidden" name="utm_campaign" value="">
                     <input type="hidden" name="utm_content" value="">
                     <input type="hidden" name="utm_term" value="">
-                    <p class="hc-honeypot"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+                    <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
                     <label class="hc-field">
                         <span>Full Name</span>
@@ -649,6 +649,7 @@
                         </div>
                     </div>
 
+                    <label class="request-homeowner"><input type="checkbox" name="homeowner_request" value="yes" required> <span>I'm a homeowner or property manager requesting HVAC service</span></label>
                     <button class="hc-submit" type="submit">Request My $49 Heating Check</button>
                     <p class="hc-note">Submitting this form requests an appointment. We will call you to confirm the time. Or <a href="https://book.housecallpro.com/book/CrazyComfort/f81d5ca01b9c4621a3a4f261954ac6ac?v2=true" data-track="book-online" data-book-label="$49 Heating Check form" target="_blank" rel="noopener noreferrer">book online</a> if you prefer to pick a time yourself.</p>
                     <p class="hc-legal"><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms &amp; Conditions</a></p>

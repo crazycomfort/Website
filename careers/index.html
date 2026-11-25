@@ -628,7 +628,7 @@
                         <form name="career-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="max-width: 500px; margin: 0 auto;">
                             <input type="hidden" name="form-name" value="career-application">
                             <input type="hidden" name="form_type" value="Career Application">
-                            <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+                            <p class="netlify-honeypot" hidden><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
                             
                             <div style="margin-bottom: 1rem;">
                                 <label style="display: block; font-weight: 600; color: #ffffff; margin-bottom: 0.5rem; font-size: 0.95rem;">Full Name *</label>
