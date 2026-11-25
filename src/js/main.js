@@ -292,11 +292,35 @@ function initSiteChrome() {
     initWrapChrome();
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSiteChrome);
-} else {
-    initSiteChrome();
+// The sticky bar and Request Service links can follow the first paint.
+// Lead-form conversion listeners above stay on the deferred script.
+function runSoon(fn) {
+    function go() {
+        var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+        idle(function () { fn(); }, { timeout: 1200 });
+    }
+    if (document.readyState === 'complete') go();
+    else window.addEventListener('load', go, { once: true });
 }
+
+// Chat, exit popup, and scroll effects wait for a tap or several seconds so
+// they are not on the critical path.
+function runAfterIdle(fn) {
+    var started = false;
+    function start() {
+        if (started) return;
+        started = true;
+        fn();
+    }
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (name) {
+        window.addEventListener(name, start, { once: true, passive: true });
+    });
+    function later() { setTimeout(start, 8000); }
+    if (document.readyState === 'complete') later();
+    else window.addEventListener('load', later, { once: true });
+}
+
+runSoon(initSiteChrome);
 
 // Dark Mode Toggle
 function initThemeToggle() {
@@ -346,13 +370,7 @@ function initThemeToggle() {
     }
 }
 
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initThemeToggle);
-} else {
-    // DOM already loaded
-    initThemeToggle();
-}
+runAfterIdle(initThemeToggle);
 
 // Let browser handle scroll restoration naturally (prevents mobile jumping)
 
@@ -655,8 +673,7 @@ function initFAQ() {
     });
 }
 
-// Initialize FAQ on DOM ready
-document.addEventListener('DOMContentLoaded', initFAQ);
+runAfterIdle(initFAQ);
 
 // Homepage and contact lead forms post to Netlify with fetch so a Google Ads
 // conversion is recorded only after Netlify accepts the submission. The page
@@ -916,58 +933,51 @@ if (ctaButton) {
     });
 }
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for scroll animations
-document.querySelectorAll('.service-card, .about-content, .gallery-item, .faq-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero-background');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Add active state to navigation on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+runAfterIdle(function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+    document.querySelectorAll('.service-card, .about-content, .gallery-item, .faq-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
     });
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-background');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    }, { passive: true });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }, { passive: true });
 });
 
 // Service Read More Toggle
@@ -994,12 +1004,7 @@ function initServiceReadMore() {
     });
 }
 
-// Initialize service read more on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initServiceReadMore);
-} else {
-    initServiceReadMore();
-}
+runAfterIdle(initServiceReadMore);
 
 // Nomination Modal
 function initNominationModal() {
@@ -1586,22 +1591,13 @@ function markWrapWords() {
     });
 }
 
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        markWrapWords();
-        initAtticModal();
-        initScrollAnimations();
-        scheduleChatbot();
-        initExitPopup();
-    });
-} else {
+runAfterIdle(function () {
     markWrapWords();
     initAtticModal();
     initScrollAnimations();
     scheduleChatbot();
     initExitPopup();
-}
+});
 
 function scheduleChatbot() {
     if (window.__ccChatScheduled) return;
