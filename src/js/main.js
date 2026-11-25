@@ -317,7 +317,7 @@ function runSoon(fn) {
     else window.addEventListener('load', go, { once: true });
 }
 
-// Chat, exit popup, and scroll effects wait for a tap or several seconds so
+// Exit popup and scroll effects wait for a tap or several seconds so
 // they are not on the critical path.
 function runAfterIdle(fn) {
     var started = false;
@@ -1236,202 +1236,10 @@ function initScrollAnimations() {
     });
 }
 
-// ============================================
-// AI CHATBOT WIDGET
-// ============================================
-
 function isRepairLanding(pathname) {
     return /\/services\/(?:heating-repair|ac-repair)\/?$/.test(pathname || '');
 }
 
-function initChatbot() {
-    // Don't show on review page, the $49 landing page, or the repair landing pages.
-    if (window.location.pathname.includes('leave-review') || window.location.pathname.includes('heating-check')) return;
-    if (isRepairLanding(window.location.pathname)) return;
-    
-    // Create chatbot HTML
-    const chatbotHTML = `
-        <div class="chatbot-widget">
-            <button class="chatbot-toggle" aria-label="Open chat">
-                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            </button>
-            <div class="chatbot-window">
-                <div class="chatbot-header">
-                    <div class="chatbot-avatar">👋</div>
-                    <div class="chatbot-header-text">
-                        <h4>Crazy Comfort</h4>
-                        <p class="chatbot-status">Mon–Fri, 8am–4pm</p>
-                    </div>
-                </div>
-                <div class="chatbot-messages" id="chatMessages">
-                    <div class="chat-message bot">
-                        Hey there! 👋 I'm here to help with your HVAC questions. What can I help you with today?
-                        <div class="chat-quick-replies">
-                            <button class="quick-reply-btn" data-reply="schedule">Request Service</button>
-                            <button class="quick-reply-btn" data-reply="areas">Service Areas</button>
-                            <button class="quick-reply-btn" data-reply="emergency">Emergency Help</button>
-                            <button class="quick-reply-btn" data-reply="pricing">Get a Quote</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="chatbot-input-area">
-                    <input type="text" class="chatbot-input" placeholder="Type your message..." id="chatInput">
-                    <button class="chatbot-send" id="chatSend">
-                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
-    
-    const toggle = document.querySelector('.chatbot-toggle');
-    const chatWindow = document.querySelector('.chatbot-window');
-    chatWindow.classList.remove('active');
-    toggle.classList.remove('active');
-    toggle.setAttribute('aria-expanded', 'false');
-    const chatInput = document.getElementById('chatInput');
-    const chatSend = document.getElementById('chatSend');
-    const messagesContainer = document.getElementById('chatMessages');
-    const badge = document.querySelector('.chatbot-badge');
-    
-    // Toggle chat window
-    toggle.addEventListener('click', () => {
-        const willOpen = !chatWindow.classList.contains('active');
-        toggle.classList.toggle('active', willOpen);
-        chatWindow.classList.toggle('active', willOpen);
-        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-        if (willOpen) {
-            if (badge) badge.style.display = 'none';
-            chatInput.focus();
-            trackGa4Event('chatbot_opened', { 'event_category': 'Engagement' });
-        }
-    });
-    
-    // Chat responses
-    const responses = {
-        schedule: {
-            text: "You can request service by calling us at <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact/'>sending a request online</a>. We offer fast local service.",
-            followUp: ["What's your availability?", "Do you offer financing?", "Talk to a human"]
-        },
-        areas: {
-            text: "We serve Katy, Fulshear, Richmond, Sugar Land, Cinco Ranch, Brookshire, Simonton, Sealy, and surrounding West Houston areas. Are you in one of these areas?",
-            followUp: ["Yes, I'm in the area", "I'm not sure", "Schedule service"]
-        },
-        emergency: {
-            text: "Call us at <a href='tel:832-403-7466'>832-403-7466</a> Monday through Friday, 8am to 4pm. If the office is closed, leave a message and we will return it on the next business day.",
-            followUp: ["Call now", "It can wait", "Schedule for later"]
-        },
-        pricing: {
-            text: "The diagnostic visit is $129 and is credited toward the repair if you approve the work. The current heating check is $49 through November 30.",
-            followUp: ["Schedule diagnostic", "Maintenance plans", "Call for quote"]
-        },
-        "yes, i'm in the area": {
-            text: "Perfect! We'd love to help. Would you like to schedule service or get a quote?",
-            followUp: ["Schedule service", "Get a quote", "Learn more"]
-        },
-        "call now": {
-            text: "Calling is the fastest way to get help. Dial <a href='tel:832-403-7466'>832-403-7466</a> now and we'll get you taken care of!",
-            followUp: []
-        },
-        "schedule diagnostic": {
-            text: "Great choice! Our diagnostic includes a full system inspection with real-time photos so you see exactly what we see. Call <a href='tel:832-403-7466'>832-403-7466</a> or <a href='/contact'>book online</a>.",
-            followUp: ["Book online", "Call now"]
-        },
-        "maintenance plans": {
-            text: "Our maintenance plan is $189/year (or $17.99/month) and includes annual tune-ups plus discounts on repairs. <a href='/hvac-maintenance-plan'>Learn more here</a>.",
-            followUp: ["Sign up", "More questions"]
-        },
-        "talk to a human": {
-            text: "Of course! Call us at <a href='tel:832-403-7466'>832-403-7466</a> and a real person will answer. We're available during business hours.",
-            followUp: []
-        },
-        default: {
-            text: "Thanks for your message! For the fastest response, call us at <a href='tel:832-403-7466'>832-403-7466</a>. Or let me know what you need help with:",
-            followUp: ["Request Service", "Service Areas", "Get a Quote"]
-        }
-    };
-    
-    function addMessage(text, isUser = false) {
-        const msg = document.createElement('div');
-        msg.className = `chat-message ${isUser ? 'user' : 'bot'}`;
-        msg.innerHTML = text;
-        messagesContainer.appendChild(msg);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-    
-    function addQuickReplies(replies) {
-        if (!replies || replies.length === 0) return;
-        
-        const container = document.createElement('div');
-        container.className = 'chat-quick-replies';
-        replies.forEach(reply => {
-            const btn = document.createElement('button');
-            btn.className = 'quick-reply-btn';
-            btn.textContent = reply;
-            btn.dataset.reply = reply.toLowerCase();
-            container.appendChild(btn);
-        });
-        messagesContainer.appendChild(container);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-    
-    function handleUserMessage(message) {
-        addMessage(message, true);
-        
-        // Remove old quick replies
-        document.querySelectorAll('.chat-quick-replies').forEach(el => el.remove());
-        
-        const normalized = message.toLowerCase().replace(/[^a-z\s]/g, '').trim();
-        const aliases = {
-            'schedule service': 'schedule',
-            'request service': 'schedule'
-        };
-        const key = aliases[normalized] || normalized;
-        const response = responses[key] || responses.default;
-        
-        // Simulate typing delay
-        setTimeout(() => {
-            addMessage(response.text);
-            if (response.followUp && response.followUp.length > 0) {
-                setTimeout(() => addQuickReplies(response.followUp), 300);
-            }
-        }, 500);
-        
-        // Track in analytics
-        trackGa4Event('chatbot_message', {
-            'event_category': 'Engagement',
-            'event_label': message
-        });
-    }
-    
-    // Quick reply buttons
-    messagesContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('quick-reply-btn')) {
-            const label = e.target.textContent.trim().toLowerCase();
-            if (label === 'request service' || label === 'schedule service') {
-                window.location.href = '/contact/';
-                return;
-            }
-            handleUserMessage(e.target.textContent);
-        }
-    });
-    
-    // Send message
-    function sendMessage() {
-        const message = chatInput.value.trim();
-        if (message) {
-            handleUserMessage(message);
-            chatInput.value = '';
-        }
-    }
-    
-    chatSend.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
-}
 
 // ============================================
 // EXIT-INTENT POPUP
@@ -1609,22 +1417,5 @@ runAfterIdle(function () {
     markWrapWords();
     initAtticModal();
     initScrollAnimations();
-    scheduleChatbot();
     initExitPopup();
 });
-
-function scheduleChatbot() {
-    if (window.__ccChatScheduled) return;
-    window.__ccChatScheduled = true;
-    var started = false;
-    function start() {
-        if (started) return;
-        started = true;
-        initChatbot();
-    }
-    var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 2000); };
-    idle(start, { timeout: 4000 });
-    ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
-        window.addEventListener(eventName, start, { once: true, passive: true });
-    });
-}

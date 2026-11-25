@@ -394,13 +394,6 @@ body.site-brand .cc-fold[open] summary {
         background: #141414 !important;
     }
 
-    body.site-brand .chatbot-widget,
-    body.lp-light .chatbot-widget {
-        bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important;
-        right: 12px !important;
-        z-index: 1003;
-    }
-
     body.site-brand .nav-book {
         min-height: 40px;
         padding: 0.35rem 0.7rem;
@@ -1347,11 +1340,6 @@ body.site-brand a.cc-text-link:hover {
     body.site-brand .heating-check-promo-card {
         padding-right: 7.5rem !important;
     }
-
-    body.site-brand .chatbot-widget {
-        right: 16px !important;
-        bottom: 20px !important;
-    }
 }
 
 body.site-brand details {
@@ -1841,22 +1829,6 @@ body.lp-light .logo-image,
         min-height: 40px !important;
         font-size: 16px !important;
     }
-
-    .chatbot-badge {
-        display: none !important;
-    }
-
-    .chatbot-toggle {
-        width: 48px !important;
-        height: 48px !important;
-    }
-
-    body.has-book-bar .chatbot-widget,
-    body:has(.book-bar) .chatbot-widget,
-    .chatbot-widget {
-        bottom: calc(3.6rem + env(safe-area-inset-bottom)) !important;
-        right: 10px !important;
-    }
 }
 
 body.site-brand [style*="linear-gradient(135deg, #0a0a0a"],
@@ -1976,6 +1948,14 @@ body.site-brand .heating-check-promo-title {
     -webkit-text-fill-color: #f5f5f5 !important;
 }
 body.site-brand .heating-check-promo-lead { grid-column: 1; grid-row: 3; max-width: 40rem !important; }
+body.site-brand .heating-check-promo-when {
+    font-weight: 400;
+}
+@media (min-width: 769px) {
+    body.site-brand .heating-check-promo-when::before {
+        content: "\00a0\2014\00a0";
+    }
+}
 body.site-brand .heating-check-promo-actions {
     grid-column: 2;
     grid-row: 1 / span 3;
@@ -1992,23 +1972,24 @@ body.site-brand .heating-check-promo-actions {
     body.site-brand .heating-check-promo-actions {
         grid-column: 1;
         grid-row: auto;
-        margin-top: 0.6rem !important;
+        margin-top: 0.75rem !important;
     }
     body.site-brand .heating-check-promo-title {
-        font-size: 17px !important;
-        line-height: 1.25 !important;
-        white-space: nowrap;
+        font-size: clamp(1.45rem, 5.4vw, 1.7rem) !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
     }
-}
-
-@media (max-width: 420px) {
-    body.site-brand .heating-check-promo-title {
-        font-size: 15.5px !important;
+    body.site-brand .heating-check-promo-when {
+        display: block;
+        margin-top: 0.15rem;
     }
-
-    body.site-brand .heating-check-promo-price {
-        font-size: 15px !important;
-        padding: 0.08rem 0.4rem !important;
+    body.site-brand .heating-check-promo-lead {
+        display: block !important;
+        margin-top: 0.55rem !important;
+        font-size: 1rem !important;
+        line-height: 1.45 !important;
+        color: #f5f5f5 !important;
+        -webkit-text-fill-color: #f5f5f5 !important;
     }
 }
 
@@ -2449,19 +2430,6 @@ body.site-brand .request-form select {
     body.has-book-bar {
         padding-bottom: calc(4.25rem + env(safe-area-inset-bottom)) !important;
     }
-
-    body.has-book-bar .chatbot-widget,
-    body:has(.book-bar) .chatbot-widget,
-    .chatbot-widget {
-        left: 12px !important;
-        right: auto !important;
-        bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important;
-    }
-
-    .chatbot-window {
-        left: 0 !important;
-        right: auto !important;
-    }
 }
 
 /* Mobile header: keep the full wordmark inside the 56px bar, centered with Book and the menu. */
@@ -2542,8 +2510,13 @@ body.site-brand .request-form select {
 
     body.site-brand .hero-new .hero-new-body,
     body.site-brand .hero-new .hero-new-body p {
-        font-size: 15px !important;
-        line-height: 1.3 !important;
+        display: block !important;
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        color: #1f1a2e !important;
+        -webkit-text-fill-color: #1f1a2e !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     body.site-brand .hero-new-cta {
@@ -2582,14 +2555,19 @@ body.site-brand .request-form select {
     }
 
     body.site-brand .hero-new .cc-trust {
-        margin: 0.3rem 0 0 !important;
-        gap: 0.1rem 0.65rem !important;
+        display: flex !important;
+        margin: 0.45rem 0 0 !important;
+        gap: 0.2rem 0.7rem !important;
         padding-right: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     body.site-brand .hero-new .cc-trust li {
-        font-size: 0.75rem !important;
-        line-height: 1.25 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+        color: #1f1a2e !important;
+        -webkit-text-fill-color: #1f1a2e !important;
     }
 
     body.site-brand .hero-new .cc-hero-visual {
