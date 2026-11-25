@@ -9004,7 +9004,7 @@ body.lp-light .book-bar {
 
 body.has-book-bar .request-submit,
 body.has-book-bar .hc-submit {
-    scroll-margin-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+    scroll-margin-bottom: calc(4.5rem + env(safe-area-inset-bottom));
 }
 
 body.lp-light .request-card {
