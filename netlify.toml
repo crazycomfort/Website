@@ -5,5 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
 
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
 
-
+[[headers]]
+  for = "/.well-known/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

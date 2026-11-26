@@ -23,8 +23,8 @@
 /service-areas              /service-area/      301
 /service-areas/             /service-area/      301
 
-# Housecall Pro booking confirmation. Both slash forms serve the same page.
-/booking-confirmed          /booking-confirmed/index.html   200
+# Housecall Pro booking confirmation. One URL, with the trailing slash.
+/booking-confirmed          /booking-confirmed/   301
 
 # Temporary Facebook campaign link for the $49 Heating Check
 /49heat                     /heating-check/?utm_source=facebook&utm_medium=social&utm_campaign=heating_check_49  302
@@ -33,3 +33,91 @@
 # Temporary Instagram campaign link for the $49 Heating Check
 /49heat-ig                  /heating-check/?utm_source=instagram&utm_medium=social&utm_campaign=heating_check_49  302
 /49heat-ig/                 /heating-check/?utm_source=instagram&utm_medium=social&utm_campaign=heating_check_49  302
+
+# Force one URL: directories redirect to the trailing-slash canonical.
+/about    /about/    301!
+/blog/ac-compressor-failure    /blog/ac-compressor-failure/    301!
+/blog/ac-drain-clogged    /blog/ac-drain-clogged/    301!
+/blog/ac-making-noise    /blog/ac-making-noise/    301!
+/blog/ac-not-cooling    /blog/ac-not-cooling/    301!
+/blog/frozen-evaporator-coil    /blog/frozen-evaporator-coil/    301!
+/blog/heat-pumps-in-texas    /blog/heat-pumps-in-texas/    301!
+/blog/how-long-do-ac-units-last    /blog/how-long-do-ac-units-last/    301!
+/blog/hvac-capacitor-replacement    /blog/hvac-capacitor-replacement/    301!
+/blog/hvac-filter-change-frequency    /blog/hvac-filter-change-frequency/    301!
+/blog/hvac-maintenance-tips-texas-summer    /blog/hvac-maintenance-tips-texas-summer/    301!
+/blog    /blog/    301!
+/blog/refrigerant-leak-signs    /blog/refrigerant-leak-signs/    301!
+/blog/signs-your-ac-needs-repair    /blog/signs-your-ac-needs-repair/    301!
+/blog/thermostat-not-working    /blog/thermostat-not-working/    301!
+/blog/when-to-repair-vs-replace-hvac    /blog/when-to-repair-vs-replace-hvac/    301!
+/blog/why-is-my-heater-not-working    /blog/why-is-my-heater-not-working/    301!
+/careers    /careers/    301!
+/comfort-to-all    /comfort-to-all/    301!
+/commercial    /commercial/    301!
+/contact    /contact/    301!
+/financing    /financing/    301!
+/heating-check    /heating-check/    301!
+/hvac-maintenance-plan    /hvac-maintenance-plan/    301!
+/leave-review    /leave-review/    301!
+/privacy-policy    /privacy-policy/    301!
+/residential    /residential/    301!
+/reviews    /reviews/    301!
+/service-area/brookshire    /service-area/brookshire/    301!
+/service-area/cinco-ranch    /service-area/cinco-ranch/    301!
+/service-area/fulshear    /service-area/fulshear/    301!
+/service-area    /service-area/    301!
+/service-area/katy    /service-area/katy/    301!
+/service-area/richmond    /service-area/richmond/    301!
+/service-area/sealy    /service-area/sealy/    301!
+/service-area/sugar-land    /service-area/sugar-land/    301!
+/service-area/west-houston    /service-area/west-houston/    301!
+/services/ac-installation-cinco-ranch    /services/ac-installation-cinco-ranch/    301!
+/services/ac-installation-fulshear    /services/ac-installation-fulshear/    301!
+/services/ac-installation-katy    /services/ac-installation-katy/    301!
+/services/ac-installation-richmond    /services/ac-installation-richmond/    301!
+/services/ac-installation-sugar-land    /services/ac-installation-sugar-land/    301!
+/services/ac-repair    /services/ac-repair/    301!
+/services/ac-repair-cinco-ranch    /services/ac-repair-cinco-ranch/    301!
+/services/ac-repair-fulshear    /services/ac-repair-fulshear/    301!
+/services/ac-repair-katy    /services/ac-repair-katy/    301!
+/services/ac-repair-richmond    /services/ac-repair-richmond/    301!
+/services/ac-repair-sugar-land    /services/ac-repair-sugar-land/    301!
+/services/ductwork    /services/ductwork/    301!
+/services/ductwork-cinco-ranch    /services/ductwork-cinco-ranch/    301!
+/services/ductwork-fulshear    /services/ductwork-fulshear/    301!
+/services/ductwork-katy    /services/ductwork-katy/    301!
+/services/ductwork-richmond    /services/ductwork-richmond/    301!
+/services/ductwork-sugar-land    /services/ductwork-sugar-land/    301!
+/services/emergency-ac-repair-fulshear    /services/emergency-ac-repair-fulshear/    301!
+/services/emergency-ac-repair-katy    /services/emergency-ac-repair-katy/    301!
+/services/emergency-ac-repair-sugar-land    /services/emergency-ac-repair-sugar-land/    301!
+/services/emergency-heating-repair-fulshear    /services/emergency-heating-repair-fulshear/    301!
+/services/emergency-heating-repair-katy    /services/emergency-heating-repair-katy/    301!
+/services/heating-repair    /services/heating-repair/    301!
+/services/heating-repair-cinco-ranch    /services/heating-repair-cinco-ranch/    301!
+/services/heating-repair-fulshear    /services/heating-repair-fulshear/    301!
+/services/heating-repair-katy    /services/heating-repair-katy/    301!
+/services/heating-repair-richmond    /services/heating-repair-richmond/    301!
+/services/heating-repair-sugar-land    /services/heating-repair-sugar-land/    301!
+/services/hvac-maintenance-cinco-ranch    /services/hvac-maintenance-cinco-ranch/    301!
+/services/hvac-maintenance-fulshear    /services/hvac-maintenance-fulshear/    301!
+/services/hvac-maintenance-katy    /services/hvac-maintenance-katy/    301!
+/services/hvac-maintenance-richmond    /services/hvac-maintenance-richmond/    301!
+/services/hvac-maintenance-sugar-land    /services/hvac-maintenance-sugar-land/    301!
+/services    /services/    301!
+/services/indoor-air-quality    /services/indoor-air-quality/    301!
+/services/indoor-air-quality-cinco-ranch    /services/indoor-air-quality-cinco-ranch/    301!
+/services/indoor-air-quality-fulshear    /services/indoor-air-quality-fulshear/    301!
+/services/indoor-air-quality-katy    /services/indoor-air-quality-katy/    301!
+/services/indoor-air-quality-richmond    /services/indoor-air-quality-richmond/    301!
+/services/indoor-air-quality-sugar-land    /services/indoor-air-quality-sugar-land/    301!
+/services/system-replacement    /services/system-replacement/    301!
+/services/system-replacement-cinco-ranch    /services/system-replacement-cinco-ranch/    301!
+/services/system-replacement-fulshear    /services/system-replacement-fulshear/    301!
+/services/system-replacement-katy    /services/system-replacement-katy/    301!
+/services/system-replacement-richmond    /services/system-replacement-richmond/    301!
+/services/system-replacement-sugar-land    /services/system-replacement-sugar-land/    301!
+/shop    /shop/    301!
+/terms-conditions    /terms-conditions/    301!
+/woman-owned-hvac    /woman-owned-hvac/    301!

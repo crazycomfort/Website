@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lilita-one-latin.woff2" crossorigin data-cc-fonts>
+    <link rel="preload" href="/dist/styles.css?v=202611260300" as="style">
+    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611260300">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NL2HPX23K3');
         gtag('config', 'AW-17839379589');
+        window.addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3';
+            document.head.appendChild(s);
+        });
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-600.avif" type="image/avif" media="(max-width: 899px)" fetchpriority="high">
-    <link rel="preload" as="image" href="/assets/images/brand/service-van-cut-960.webp" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
-    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lilita-one-latin.woff2" crossorigin data-cc-fonts>
     <!-- Header logo swap: assets/images/brand/wordmark.svg until the final logo arrives -->
     <style>
         :root { --top-bar-height: 44px; --header-height: 110px; --total-header-height: calc(var(--header-height) + var(--top-bar-height)); }
@@ -139,7 +145,6 @@
     <meta name="business:contact_data:phone_number" content="+1-832-403-7466">
     <meta name="business:contact_data:email" content="ez@crazycomfort.com">
     
-    <link id="site-css" rel="stylesheet" href="/dist/styles.css?v=202611252200">
     
     <!-- Structured Data - Comprehensive Schema for Maximum Trust -->
     <script type="application/ld+json">
@@ -157,7 +162,7 @@
           ],
           "logo": "https://crazycomfort.com/assets/images/brand/wordmark.png",
           "description": "Woman-owned HVAC company serving Katy, Fulshear, and West Houston with transparent, photo-documented heating and air conditioning services. Every visit documented with real-time, timestamped, GPS-verified photos. TACLA00048090C licensed.",
-          "slogan": "Transparent HVAC Services - Every Visit Documented",
+          "slogan": "Comfort This Good is Crazy!",
           "url": "https://crazycomfort.com",
           "telephone": "+1-832-403-7466",
           "email": "ez@crazycomfort.com",
@@ -276,7 +281,6 @@
             {"@type": "PropertyValue", "name": "Woman-Owned", "value": "Yes"},
             {"@type": "PropertyValue", "name": "Photo Documentation", "value": "Every visit documented with timestamped, GPS-verified photos"},
             {"@type": "PropertyValue", "name": "Financing Available", "value": "Yes, through Hearth Financing"},
-            {"@type": "PropertyValue", "name": "Fast local service", "value": "Available"},
             {"@type": "PropertyValue", "name": "License Number", "value": "TACLA00048090C"}
           ]
         },
@@ -298,7 +302,7 @@
           "@type": "WebPage",
           "@id": "https://crazycomfort.com/#webpage",
           "url": "https://crazycomfort.com",
-          "name": "Crazy Comfort | Transparent HVAC Services Katy TX",
+          "name": "Comfort This Good is Crazy!",
           "description": "Woman-owned HVAC company in Katy & Fulshear TX. Every visit documented with real-time photos. AC repair, heating, installation, maintenance. Call 832-403-7466.",
           "isPartOf": {"@id": "https://crazycomfort.com/#website"},
           "about": {"@id": "https://crazycomfort.com/#business"},
@@ -322,10 +326,10 @@
             },
             {
               "@type": "Question",
-              "name": "Do you offer fast local HVAC service?",
+              "name": "How do I get on the schedule?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, fast local service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows."
+                "text": "We'll get you on the schedule as quickly as possible. Call 832-403-7466 for current availability. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows."
               }
             },
             {
@@ -371,71 +375,15 @@
         },
         {
           "@type": "Offer",
-          "@id": "https://crazycomfort.com/#offer-comfort50",
-          "name": "$50 OFF Any HVAC Service",
-          "description": "New customers only. Valid on repairs, maintenance, or installation. Cannot be combined with other offers.",
+          "@id": "https://crazycomfort.com/#offer-first-service-50",
+          "name": "$50 OFF Your First Service Call",
+          "description": "Get $50 off your first AC repair or tune-up. The discount code is sent after you request it.",
           "category": "HVAC Services",
           "priceCurrency": "USD",
           "discount": "50",
-          "discountCode": "COMFORT50",
-          "validFrom": "2026-01-01",
-          "validThrough": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "offeredBy": {"@id": "https://crazycomfort.com/#business"},
-          "areaServed": [
-            {"@type": "City", "name": "Katy"},
-            {"@type": "City", "name": "Fulshear"},
-            {"@type": "City", "name": "Richmond"},
-            {"@type": "City", "name": "Sugar Land"}
-          ],
           "url": "https://crazycomfort.com/"
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://crazycomfort.com/#offer-honest2nd",
-          "name": "FREE Second Opinion",
-          "description": "Get a free second opinion on any HVAC diagnosis. No obligation assessment with photo documentation included.",
-          "category": "HVAC Services",
-          "priceCurrency": "USD",
-          "price": "0",
-          "discountCode": "HONEST2ND",
-          "validFrom": "2026-01-01",
-          "validThrough": "2026-12-31",
-          "availability": "https://schema.org/InStock",
-          "offeredBy": {"@id": "https://crazycomfort.com/#business"},
-          "areaServed": [
-            {"@type": "City", "name": "Katy"},
-            {"@type": "City", "name": "Fulshear"},
-            {"@type": "City", "name": "Richmond"},
-            {"@type": "City", "name": "Sugar Land"}
-          ],
-          "url": "https://crazycomfort.com/"
-        },
-        {
-          "@type": "Offer",
-          "@id": "https://crazycomfort.com/#offer-maintain10",
-          "name": "10% OFF HVAC Maintenance Plan",
-          "description": "First year of HVAC maintenance plan. One comprehensive annual service with priority scheduling and member discounts.",
-          "category": "HVAC Maintenance",
-          "priceCurrency": "USD",
-          "discountCode": "MAINTAIN10",
-          "validFrom": "2026-01-01",
-          "validThrough": "2026-12-31",
-          "availability": "https://schema.org/InStock",
-          "offeredBy": {"@id": "https://crazycomfort.com/#business"},
-          "itemOffered": {
-            "@type": "Service",
-            "name": "HVAC Maintenance Plan",
-            "description": "Annual maintenance plan starting at $189/year",
-            "url": "https://crazycomfort.com/hvac-maintenance-plan/"
-          },
-          "areaServed": [
-            {"@type": "City", "name": "Katy"},
-            {"@type": "City", "name": "Fulshear"},
-            {"@type": "City", "name": "Richmond"},
-            {"@type": "City", "name": "Sugar Land"}
-          ],
-          "url": "https://crazycomfort.com/hvac-maintenance-plan/"
         }]
     }
     </script>
@@ -655,7 +603,7 @@
                         <source media="(max-width: 899px)" type="image/avif" srcset="/assets/images/brand/service-van-cut-600.avif">
                         <source media="(max-width: 899px)" type="image/webp" srcset="/assets/images/brand/service-van-cut-600.webp">
                         <source type="image/webp" srcset="/assets/images/brand/service-van-cut-960.webp">
-                        <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" decoding="async" fetchpriority="high">
+                        <img class="lp-van-cut" src="/assets/images/brand/service-van-cut-600.webp" width="1129" height="466" alt="Crazy Comfort Heating &amp; Cooling service van" fetchpriority="high">
                     </picture>
                 </div>
             </div>
@@ -676,7 +624,8 @@
         <section class="services">
             <div class="container">
                 <p class="services-kicker">OUR SERVICES</p>
-                <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">HEATING. COOLING.<br><strong>DONE DIFFERENTLY.</strong></h2>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 1rem;">HEATING. COOLING.<br><strong>DONE DIFFERENTLY.</strong></h2>
+                <p class="homepage-body" style="margin: 0 0 2rem; max-width: 40rem;">Furnace repair for Katy and Fulshear is on the <a href="/services/heating-repair/" style="color: #1f1a2e; font-weight: 800; text-decoration: underline;">furnace repair</a> page. AC repair is linked from the cards below.</p>
                 
                 <div class="services-grid" style="grid-template-columns: repeat(5, 1fr);">
                     <div class="service-card">
@@ -684,7 +633,7 @@
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
                         </div>
                         <h3>A/C REPAIR</h3>
-                        <p>Fast diagnostics.<br>Real answers.</p>
+                        <p>Clear diagnostics.<br>Real answers.</p>
                         <a href="/services/ac-repair" class="service-link">LEARN MORE <span class="cc-arrow">→</span></a>
                     </div>
                     <div class="service-card">
@@ -849,9 +798,9 @@
                     </details>
 
                     <details style="background: var(--bg-white); border: 2px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden;">
-                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">Do you offer fast local HVAC service?</summary>
+                        <summary style="padding: 1.25rem; cursor: pointer; font-weight: 600; color: var(--text-dark); font-size: 1.05rem;">How do I get on the schedule?</summary>
                         <div style="padding: 0 1.25rem 1.25rem; color: var(--text-muted); line-height: 1.7;">
-                            Yes, fast local service is available for most HVAC repairs in our service area. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows. Call us at <a href="tel:832-403-7466" class="cc-text-link">832-403-7466</a> to check availability.
+                            We'll get you on the schedule as quickly as possible. Call 832-403-7466 for current availability. Maintenance Plan members receive priority scheduling and are served ahead of non-members when scheduling allows. Call us at <a href="tel:832-403-7466" class="cc-text-link">832-403-7466</a> to check availability.
                         </div>
                     </details>
 
@@ -1006,7 +955,7 @@
                 <div id="request-service" class="request-layout" style="scroll-margin-top: calc(var(--total-header-height) + 1rem);">
                     <aside class="request-strip" aria-label="Call or text Crazy Comfort">
                         <a class="request-strip-phone" href="tel:832-403-7466">832-403-7466</a>
-                        <p>Mon–Fri 8am–7pm · Sat 8am–1pm · Sun emergency only</p>
+                        <p>Mon–Fri 8am–7pm · Sat 8am–1pm · Call for current availability</p>
                         <a href="mailto:ez@crazycomfort.com">ez@crazycomfort.com</a>
                         <p>Katy, Fulshear, and West Houston</p>
                     </aside>
@@ -1198,6 +1147,6 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611252200" defer></script>
+    <script src="/dist/main.js?v=202611260300" defer></script>
 </body>
 </html>
