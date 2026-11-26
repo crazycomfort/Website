@@ -6,7 +6,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://crazycomfort.com/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,37 +14,37 @@
   <!-- Core Service Pages - High Priority -->
   <url>
     <loc>https://crazycomfort.com/services/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-repair/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/system-replacement/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ductwork/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -52,19 +52,19 @@
   <!-- Conversion Pages - High Priority -->
   <url>
     <loc>https://crazycomfort.com/contact/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/hvac-maintenance-plan/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/financing/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -72,13 +72,13 @@
   <!-- Customer Type Pages -->
   <url>
     <loc>https://crazycomfort.com/residential/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/commercial/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -86,49 +86,49 @@
   <!-- Trust Building Pages -->
   <url>
     <loc>https://crazycomfort.com/about/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/reviews/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/katy/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/fulshear/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/cinco-ranch/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/richmond/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/service-area/sugar-land/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -136,31 +136,31 @@
   <!-- Blog - Content Marketing -->
   <url>
     <loc>https://crazycomfort.com/blog/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/when-to-repair-vs-replace-hvac/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/hvac-maintenance-tips-texas-summer/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/signs-your-ac-needs-repair/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/heat-pumps-in-texas/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -168,77 +168,70 @@
   <!-- Community Initiative -->
   <url>
     <loc>https://crazycomfort.com/comfort-to-all/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Seasonal Promotions -->
-  <url>
-    <loc>https://crazycomfort.com/heating-check/</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
   
   <!-- Location-Specific Service Pages -->
   <url>
     <loc>https://crazycomfort.com/services/ac-repair-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-repair-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-repair-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-repair-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-repair-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/heating-repair-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -246,7 +239,7 @@
   <!-- Woman-Owned HVAC Page -->
   <url>
     <loc>https://crazycomfort.com/woman-owned-hvac/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -254,31 +247,31 @@
   <!-- System Replacement Location Pages -->
   <url>
     <loc>https://crazycomfort.com/services/system-replacement-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/system-replacement-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/system-replacement-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/system-replacement-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/system-replacement-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -286,31 +279,31 @@
   <!-- Ductwork Location Pages -->
   <url>
     <loc>https://crazycomfort.com/services/ductwork-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ductwork-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ductwork-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ductwork-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ductwork-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -318,19 +311,19 @@
   <!-- Emergency AC Repair Pages -->
   <url>
     <loc>https://crazycomfort.com/services/emergency-ac-repair-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/emergency-ac-repair-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/emergency-ac-repair-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -338,31 +331,31 @@
   <!-- Indoor Air Quality Location Pages -->
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/indoor-air-quality-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -370,31 +363,31 @@
   <!-- HVAC Maintenance Location Pages -->
   <url>
     <loc>https://crazycomfort.com/services/hvac-maintenance-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/hvac-maintenance-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/hvac-maintenance-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/hvac-maintenance-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/hvac-maintenance-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -402,13 +395,13 @@
   <!-- Emergency Heating Repair Pages -->
   <url>
     <loc>https://crazycomfort.com/services/emergency-heating-repair-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/emergency-heating-repair-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -416,31 +409,31 @@
   <!-- AC Installation Location Pages -->
   <url>
     <loc>https://crazycomfort.com/services/ac-installation-katy/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-installation-fulshear/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-installation-sugar-land/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-installation-richmond/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/services/ac-installation-cinco-ranch/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -448,67 +441,67 @@
   <!-- Blog Posts -->
   <url>
     <loc>https://crazycomfort.com/blog/ac-not-cooling/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/ac-drain-clogged/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/hvac-capacitor-replacement/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/why-is-my-heater-not-working/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/hvac-filter-change-frequency/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/refrigerant-leak-signs/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/thermostat-not-working/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/ac-compressor-failure/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/frozen-evaporator-coil/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/ac-making-noise/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/blog/how-long-do-ac-units-last/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -516,13 +509,13 @@
   <!-- Secondary Pages -->
   <url>
     <loc>https://crazycomfort.com/careers/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/shop/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -530,19 +523,19 @@
   <!-- Legal Pages -->
   <url>
     <loc>https://crazycomfort.com/privacy-policy/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://crazycomfort.com/terms-conditions/</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
 
-  <url><loc>https://crazycomfort.com/service-area/sealy/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://crazycomfort.com/service-area/brookshire/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://crazycomfort.com/service-area/west-houston/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://crazycomfort.com/service-area/sealy/</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://crazycomfort.com/service-area/brookshire/</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://crazycomfort.com/service-area/west-houston/</loc><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

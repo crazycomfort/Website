@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3"></script>
-    <script>
+        <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NL2HPX23K3');
         gtag('config', 'AW-17839379589');
+        window.addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3';
+            document.head.appendChild(s);
+        });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -34,7 +39,7 @@
     <meta name="twitter:description" content="Thanks for choosing Crazy Comfort! We'd love to hear about your experience.">
     <meta name="twitter:image" content="https://crazycomfort.com/assets/images/og-image.png">
     
-    <link rel="stylesheet" href="/dist/styles.css?v=202611252200">
+    <link rel="stylesheet" href="/dist/styles.css?v=202611260300">
     
     <style>
         body {
@@ -597,7 +602,7 @@
             <div class="review-card">
                 <div class="review-card-header">
                     <div class="review-logo">
-                        <img src="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png" alt="Crazy Comfort">
+                        <img loading="lazy" decoding="async" src="/assets/images/CrazyComfort_Logo_Files_1/SWIRL%20ICON/PNG/SWIRL%20ICON-02.png" alt="Crazy Comfort">
                     </div>
                     <h1>Thanks for Choosing Us!</h1>
                     <p>We'd love to hear how we did.</p>
@@ -843,7 +848,7 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611252200"></script>
+    <script src="/dist/main.js?v=202611260300"></script>
     <script>
         let selectedRating = 0;
         

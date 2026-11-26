@@ -5,5 +5,18 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Pretty URLs 301 a directory without a slash to the trailing-slash canonical
+# (/services -> /services/, /service-area -> /service-area/). An explicit
+# 301 from the same path to itself loops, because Netlify matches both forms.
+[build.processing.html]
+  pretty_urls = true
 
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
 
+[[headers]]
+  for = "/.well-known/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

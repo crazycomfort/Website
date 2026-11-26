@@ -23,7 +23,10 @@
 /service-areas              /service-area/      301
 /service-areas/             /service-area/      301
 
-# Housecall Pro booking confirmation. Both slash forms serve the same page.
+# Housecall Pro booking confirmation. Both slash forms serve the same noindex page.
+# Netlify Pretty URLs already 301 /services and /service-area to the trailing-slash
+# URL. A forced rule from /services to /services/ also matches /services/ and loops,
+# so those canonicals are not repeated here.
 /booking-confirmed          /booking-confirmed/index.html   200
 
 # Temporary Facebook campaign link for the $49 Heating Check

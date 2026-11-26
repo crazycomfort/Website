@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3"></script>
-    <script>
+        <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NL2HPX23K3');
         gtag('config', 'AW-17839379589');
+        window.addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NL2HPX23K3';
+            document.head.appendChild(s);
+        });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -33,7 +38,7 @@
     <meta name="twitter:description" content="Prepare your AC for brutal Texas heat. Practical tips from Katy HVAC professionals.">
     <meta name="twitter:image" content="https://crazycomfort.com/assets/images/social-share.png">
     
-    <link rel="stylesheet" href="/dist/styles.css?v=202611252200">
+    <link rel="stylesheet" href="/dist/styles.css?v=202611260300">
     <style>
         .blog-content h2 { font-size: 1.5rem; color: #1a1a1a; margin: 2.5rem 0 1rem; }
         .blog-content h3 { font-size: 1.25rem; color: #1f1a2e; margin: 2rem 0 0.75rem; }
@@ -433,7 +438,7 @@
         </div>
     </footer>
 
-    <script src="/dist/main.js?v=202611252200"></script>
+    <script src="/dist/main.js?v=202611260300"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -464,8 +469,8 @@
           "@type": "BreadcrumbList",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://crazycomfort.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://crazycomfort.com/blog"},
-            {"@type": "ListItem", "position": 3, "name": "Texas Summer Tips", "item": "https://crazycomfort.com/blog/hvac-maintenance-tips-texas-summer"}
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://crazycomfort.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "Texas Summer Tips", "item": "https://crazycomfort.com/blog/hvac-maintenance-tips-texas-summer/"}
           ]
         }
       ]
